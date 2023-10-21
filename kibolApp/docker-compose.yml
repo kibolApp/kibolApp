@@ -1,6 +1,38 @@
 version: '4.24.1'
 
 services:
+  backend:
+    build:
+      context: ./app/Backend
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST: db
+      DB_DATABASE: kibolapp-db-1
+      DB_USERNAME: admin
+      DB_PASSWORD: admin
+    ports:
+      - 8000:8000
+    volumes:
+      - ./app/Backend:/app/Backend
+    depends_on:
+      - db
+    networks:
+      - app
+
+  frontend:
+    build:
+      context: ./app/Frontend
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - 3000:3000
+    volumes:
+      - ./app/Frontend:/app/Frontend
+    depends_on:
+      - backend
+    networks:
+      - app
+
   db:
     image: mysql:8.1
     command: --default-authentication-plugin=mysql_native_password
@@ -12,3 +44,7 @@ services:
       MYSQL_PASSWORD: admin
     ports:
       - "3306:3306"
+
+networks:
+  app:
+    driver: bridge
