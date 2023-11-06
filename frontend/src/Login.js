@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const data = [
   "https://i.imgur.com/IEmbAX2.png",
   "https://i.imgur.com/A7T2R6W.png",
 ];
-
 
 function Login() {
   return (
