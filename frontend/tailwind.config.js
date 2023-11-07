@@ -5,12 +5,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'custom-gray': '#1F1C1A',
-        'custom-brown': '#62442D',
+        'custom-gray': '#1f1c1a',
+        'custom-brown': '#62442d',
         'custom-olive': '#826142',
-        'custom-tan': '#A27E57',
-        'custom-sand': '#C39B6D',
-        'custom-light-tan': '#CDB8A0',
+        'custom-tan': '#a27E57',
+        'custom-sand': '#c39b6d',
+        'custom-light-tan': '#cdb8a0',
       },
     },
   },
