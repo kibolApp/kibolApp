@@ -10,11 +10,11 @@ const AuthForm = () => {
 
   const SocialMediaIcons = () => (
     <div className="social-media-icons">
-      <FontAwesomeIcon icon={faFacebook} size="2x" />
-      <FontAwesomeIcon icon={faGoogle} size="2x" />
-      <FontAwesomeIcon icon={faInstagram} size="2x" />
-      <FontAwesomeIcon icon={faTwitter} size="2x" />
-      <FontAwesomeIcon icon={faLinkedin} size="2x" />
+      <FontAwesomeIcon icon={faFacebook} size="2x" className="social-icon social-facebook" />
+      <FontAwesomeIcon icon={faGoogle} size="2x" className="social-icon social-google" />
+      <FontAwesomeIcon icon={faInstagram} size="2x" className="social-icon social-instagram" />
+      <FontAwesomeIcon icon={faTwitter} size="2x" className="social-icon social-twitter" />
+      <FontAwesomeIcon icon={faLinkedin} size="2x" className="social-icon social-linkedin" />
     </div>
   );
 
@@ -37,8 +37,10 @@ const AuthForm = () => {
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder="Username / email" required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Hasło" required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zaloguj</button>
-      <p className="social-text text-white rounded-lg font-semibold">lub zaloguj się poprzez</p>
-      <SocialMediaIcons />
+      <div className="social-section">
+        <p className="social-text">lub zaloguj się poprzez</p>
+        <SocialMediaIcons />
+      </div>
     </div>
   );
 
@@ -50,8 +52,10 @@ const AuthForm = () => {
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Hasło" required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Potwierdź hasło" required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zarejestruj się</button>
-      <p className="social-text text-white rounded-lg font-semibold">lub zarejestruj się poprzez</p>
-      <SocialMediaIcons />
+      <div className="social-section">
+        <p className="social-text">lub zarejestruj się poprzez</p>
+        <SocialMediaIcons />
+      </div>
     </div>
   );
 

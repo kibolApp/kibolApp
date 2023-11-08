@@ -10,3 +10,37 @@
   .fadeOut {
     opacity: 0;
   }
+
+  .social-text {
+    margin-top: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .social-media-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .social-icon {
+    cursor: pointer;
+  }
+
+  .social-facebook:hover {
+    color: #3b5999;
+  }
+  .social-google:hover {
+    color: #dd4b39;
+  }
+  .social-instagram:hover {
+    color: #c90949;
+  }
+  .social-twitter:hover {
+    color: #55acee;
+  }
+  .social-linkedin:hover {
+    color: #0077b5;
+  }
