@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './AuthForm.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
@@ -9,13 +8,19 @@ const AuthForm = () => {
   const [inProp, setInProp] = useState(true);
 
   const SocialMediaIcons = () => (
-    <div className="social-media-icons">
-      <FontAwesomeIcon icon={faFacebook} size="2x" className="social-icon social-facebook" />
-      <FontAwesomeIcon icon={faGoogle} size="2x" className="social-icon social-google" />
-      <FontAwesomeIcon icon={faInstagram} size="2x" className="social-icon social-instagram" />
-      <FontAwesomeIcon icon={faTwitter} size="2x" className="social-icon social-twitter" />
-      <FontAwesomeIcon icon={faLinkedin} size="2x" className="social-icon social-linkedin" />
+    <div className="flex justify-center gap-5 mb-5 text-white">
+      <FontAwesomeIcon icon={faFacebook} size="2x" className="cursor-pointer hover:text-facebook" />
+      <FontAwesomeIcon icon={faGoogle} size="2x" className="cursor-pointer hover:text-google" />
+      <FontAwesomeIcon icon={faInstagram} size="2x" className="cursor-pointer hover:text-instagram" />
+      <FontAwesomeIcon icon={faTwitter} size="2x" className="cursor-pointer hover:text-twitter" />
+      <FontAwesomeIcon icon={faLinkedin} size="2x" className="cursor-pointer hover:text-linkedin" />
     </div>
+  );
+  
+  const SocialText = ({ children }) => (
+    <p className="mt-5 text-center mb-5">
+      {children}
+    </p>
   );
 
   const toggleForm = () => {
@@ -32,20 +37,20 @@ const AuthForm = () => {
   ];
 
   const loginForm = (
-    <div className={`form-container ${inProp ? 'fadeIn' : 'fadeOut'}`}>
+    <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">Logowanie</h1>
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder="Username / email" required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Hasło" required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zaloguj</button>
       <div className="social-section">
-        <p className="social-text">lub zaloguj się poprzez</p>
+        <SocialText>lub zaloguj się poprzez</SocialText>
         <SocialMediaIcons />
       </div>
     </div>
   );
 
   const registerForm = (
-    <div className={`form-container ${inProp ? 'fadeIn' : 'fadeOut'}`}>
+    <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">Rejestracja</h1>
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder="Username" required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder="Email" required />
@@ -53,7 +58,7 @@ const AuthForm = () => {
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Potwierdź hasło" required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zarejestruj się</button>
       <div className="social-section">
-        <p className="social-text">lub zarejestruj się poprzez</p>
+        <SocialText>lub zarejestruj się poprzez</SocialText>
         <SocialMediaIcons />
       </div>
     </div>
