@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import Header from './components/Header';
 
 
 const AuthForm = () => {
@@ -30,11 +31,6 @@ const AuthForm = () => {
       setInProp(true);
     }, 300);
   };
-
-  const data = [
-    "https://i.imgur.com/A7T2R6W.png",
-    "https://i.imgur.com/IEmbAX2.png",
-  ];
 
   const loginForm = (
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
@@ -66,13 +62,7 @@ const AuthForm = () => {
 
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col">
-
-      {/* Header */}
-      <header className="flex justify-between items-center p-5 bg-custom-brown">
-        <img src={data[0]} alt="LeftIcon" className="h-16 shadow-lg" />
-        <img src={data[1]} alt="RightIcon" className="h-20 border-2 border-custom-sand" />
-      </header>
-
+      <Header />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-md w-full m-4">
           {isLoginVisible ? loginForm : registerForm}
