@@ -5,6 +5,7 @@ import './index.css';
 import AuthForm from './AuthForm';
 import Home from './Home'; 
 import reportWebVitals from './reportWebVitals';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -13,6 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/auth" element={<AuthForm />} />
+        <Route path="/app" element={<App />} />
       </Routes>
     </Router>
   </React.StrictMode>
