@@ -3,8 +3,9 @@ version: '4.24.1'
 services:
   backend:
     build:
-      context: ./app/Backend
+      context: ./kibolapp/app/Backend
       dockerfile: Dockerfile
+    restart: always
     environment:
       DB_HOST: db
       DB_DATABASE: kibolapp-db-1
@@ -13,7 +14,7 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./app/Backend:/app/Backend
+      - ./kibolapp/app/Backend:/kibolapp/app/Backend
     depends_on:
       - db
     networks:
@@ -21,13 +22,14 @@ services:
 
   frontend:
     build:
-      context: ./app/Frontend
+      context: ./frontend
       dockerfile: Dockerfile
+    restart: always
     tty: true
     ports:
       - 3000:3000
     volumes:
-      - ./app/Frontend:/app/Frontend
+      - ./frontend:/frontend
     depends_on:
       - backend
     networks:
