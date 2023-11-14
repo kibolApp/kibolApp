@@ -8,7 +8,7 @@ module.exports = {
         'custom-gray': '#1f1c1a',
         'custom-brown': '#62442d',
         'custom-olive': '#826142',
-        'custom-tan': '#a27E57',
+        'custom-tan': '#a27e57',
         'custom-sand': '#c39b6d',
         'custom-light-tan': '#cdb8a0',
         'facebook': '#3b5999',
