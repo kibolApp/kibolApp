@@ -90,10 +90,10 @@ return (
                 <input type="email" placeholder="E-mail" className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50" />
               </div>
               <div className="w-full mb-6">
-                <textarea placeholder="Write your message here..." className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none"></textarea>
+                <textarea placeholder="Napisz swoją wiadmość tutaj..." className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none"></textarea>
               </div>
               <div className="w-full flex justify-center">
-                <input type="submit" value="Send!" className="bg-custom-olive text-custom-sand uppercase tracking-widest cursor-pointer font-bold px-4 py-2" />
+                <input type="submit" value="Wyślij!" className="bg-custom-olive text-custom-sand uppercase tracking-widest cursor-pointer font-bold px-4 py-2" />
               </div>
             </form>
         </div>
