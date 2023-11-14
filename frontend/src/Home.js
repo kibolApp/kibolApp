@@ -46,7 +46,7 @@ return (
             <a className="hover:text-gray-300 text-green-500"><Link to="/home">Start</Link></a>
           </li>
           <li className="text-white mx-4 font-semibold">
-            <a className="hover:text-gray-300"><Link to="/app">Lokalizacja oraz mapa klubów</Link></a>
+            <a className="hover:text-gray-300"><Link to="/app">Lokalizacja klubów</Link></a>
           </li>
           <li className="text-white mx-4 font-semibold">
             <a href="#" className="hover:text-gray-300">Spis klubów</a>
