@@ -1,6 +1,5 @@
 import {Navigate, createBrowserRouter} from 'react-router-dom';
 import Home from './Home';
-import HomeGuest from './HomeGuest';
 import DefaultLayout from './components/DefaultLayout';
 import GuestLayout from './components/GuestLayout';
 import AuthForm from './AuthForm';
@@ -35,7 +34,7 @@ const router =createBrowserRouter([
           },
           {
             path: '/homeguest',
-            element: <HomeGuest />,
+            element: <Home />,
           },
           {
             path: '/auth',
