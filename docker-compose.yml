@@ -3,17 +3,18 @@ version: '4.24.1'
 services:
   backend:
     build:
-      context: ./app/Backend
+      context: ./kibolapp
       dockerfile: Dockerfile
+    restart: always
     environment:
       DB_HOST: db
-      DB_DATABASE: kibolapp-db-1
-      DB_USERNAME: admin
+      DB_DATABASE: kibolAppDB
+      DB_USERNAME: root
       DB_PASSWORD: admin
     ports:
       - 8000:8000
     volumes:
-      - ./app/Backend:/app/Backend
+      - ./kibolapp:/kibolapp
     depends_on:
       - db
     networks:
@@ -21,13 +22,14 @@ services:
 
   frontend:
     build:
-      context: ./app/Frontend
+      context: ./frontend
       dockerfile: Dockerfile
+    restart: always
     tty: true
     ports:
       - 3000:3000
     volumes:
-      - ./app/Frontend:/app/Frontend
+      - ./frontend:/frontend
     depends_on:
       - backend
     networks:
@@ -39,11 +41,9 @@ services:
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kibolapp-db-1
-      MYSQL_USER: admin
-      MYSQL_PASSWORD: admin
+      MYSQL_DATABASE: kibolAppDB
     ports:
-      - "3306:3306"
+      - "3307:3306"
 
 networks:
   app:

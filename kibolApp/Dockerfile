@@ -1,16 +1,20 @@
+# Użyj obrazu PHP
 FROM php:8.1.16-fpm
 
+# Instaluj dodatkowe narzędzia i rozszerzenia
 RUN apt-get update && apt-get install -y \
     git \
     unzip \
     libzip-dev
 
+# Instaluj rozszerzenia PHP
 RUN docker-php-ext-install pdo pdo_mysql zip
 
-WORKDIR /var/www/html
+# Ustaw katalog roboczy
+WORKDIR /app/backend
 
-COPY . /var/www/html
+# Kopiuj pliki aplikacji
+COPY . .
 
-RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-RUN composer install
+# Eksponuj port 8000
+EXPOSE 8000
