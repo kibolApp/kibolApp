@@ -3,20 +3,20 @@ version: '4.24.1'
 services:
   backend:
     build:
-      context: ./kibolapp/app/Backend
+      context: ./kibolapp
       dockerfile: Dockerfile
     restart: always
     environment:
-      DB_HOST: sql_server
+      DB_HOST: db
       DB_DATABASE: kibolAppDB
-      DB_USERNAME: ''
-      DB_PASSWORD: ''
+      DB_USERNAME: root
+      DB_PASSWORD: admin
     ports:
       - 8000:8000
     volumes:
-      - ./kibolapp/app/Backend:/kibolapp/app/Backend
+      - ./kibolapp:/kibolapp
     depends_on:
-      - sql_server
+      - db
     networks:
       - app
 
@@ -35,16 +35,15 @@ services:
     networks:
       - app
 
-  sql_server:
-    image: mcr.microsoft.com/mssql/server
+  db:
+    image: mysql:8.1
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
     environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_PID: "Express"
-      MSSQL_USER: ""
-      MSSQL_PASSWORD: ""
-      MSSQL_DATABASE: "kibolAppDB"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kibolAppDB
     ports:
-      - "1433:1433"
+      - "3307:3306"
 
 networks:
   app:
