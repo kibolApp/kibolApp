@@ -86,7 +86,7 @@ return (
           <h3 className="text-white text-3xl text-center mb-10 font-bold">Masz pytania? <span className="text-custom-brown uppercase font-bold">Skontaktuj się z nami</span></h3>
             <form className="flex flex-col items-center">
               <div className="flex w-full mb-6">
-                <input type="text" placeholder="Name" className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4" />
+                <input type="text" placeholder="Username" className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4" />
                 <input type="email" placeholder="E-mail" className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50" />
               </div>
               <div className="w-full mb-6">

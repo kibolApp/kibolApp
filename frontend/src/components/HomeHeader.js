@@ -12,22 +12,22 @@ return (
     <div className="text-white uppercase text-2xl font-bold">
         <img src={data[0]} alt="KibolAPP Logo" className="h-16" />
     </div>
-    <nav>
-        <ul className="flex">
+    <nav className='flex-grow'>
+          <ul className="flex justify-end">
             <li className="text-white mx-4 font-semibold">
-                <a href="#" className="hover:text-gray-300 text-green-500">Start</a>
+              <a className="hover:text-gray-300 text-green-500"><Link to="/home">Start</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-                <a href="#" className="hover:text-gray-300">Lokalizacja klubów</a>
+              <a className="hover:text-gray-300"><Link to="/app">Lokalizacja klubów</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-                <a href="#" className="hover:text-gray-300">Spis klubów</a>
+              <a href="#" className="hover:text-gray-300">Spis klubów</a>
             </li>
             <li className="text-white mx-4 font-semibold">
-                <a href="#" className="hover:text-gray-300">Profil</a>
+              <a className="hover:text-gray-300"><Link to="/auth">Logowanie / Rejestracja</Link></a>
             </li>
-        </ul>
-    </nav>
+          </ul>
+        </nav>
 </header>
 );
 };
