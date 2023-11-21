@@ -14,14 +14,8 @@ const App = () => {
             <label htmlFor="search" className="text-white mb-2">
               Wyszukaj klub:
             </label>
-            <input
-              type="text"
-              id="search"
-              className="border rounded px-2 py-1 mb-4"
-              placeholder="Wyszukaj klub..."
-            />
              <button className="bg-custom-brown text-white px-4 py-2 rounded">
-                  Szukaj
+                  Szukaj najbliższy klub
              </button>
           </div>
         </div>
