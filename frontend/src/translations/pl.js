@@ -28,7 +28,7 @@ const pl = {
     aboutTitle: "Czym jest kibolApp - ABOUT",
     aboutText1: "KibolApp to innowacyjna strona stworzona dla pasjonatów piłki nożnej i kibiców, którzy chcą poznać kulisy relacji między klubami.",
     aboutText2: "Aplikacja umożliwia śledzenie lokalizacji klubów, a także dostarcza informacje na temat przyjaźni i konfliktów między różnymi drużynami.",
-    questionTitle: "Masz pytania?, ",
+    questionTitle: "Masz pytania? ",
     contactUs:  "Skontaktuj się z nami",
     usernamePlaceholder: "Nazwa użytkownika",
     emailPlaceholder: "Email",

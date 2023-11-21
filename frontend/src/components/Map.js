@@ -42,7 +42,7 @@ const LocationMarker = ({ clubs }) => {
 
   useEffect(() => {
     if (nearestClub) {
-      map.flyTo(nearestClub.location, 18);
+      map.flyTo(nearestClub.location, 12);
     }
   }, [nearestClub, map]);
 
@@ -78,8 +78,12 @@ const CustomMap = () => {
         className="h-screen rounded-2xl"
         maxBoundsViscosity={0.9}
         minZoom={6}
-        maxZoom={20}
+        maxZoom={18}
         maxBounds={polandBounds}
+        attributionControl={false}
+        scrollWheelZoom={true}
+        doubleClickZoom={false}
+        zoomControl={true}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <MarkerClusterGroup>

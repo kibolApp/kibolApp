@@ -11,12 +11,12 @@ const App = () => {
         <Map />
         <div className="p-4">
         <div className="flex flex-col items-start mt-8 ml-8">
-            <label htmlFor="search" className="text-white mb-2">
-              Wyszukaj klub:
+            <label htmlFor="search" className="text-white mb-2 bg-custom-brown rounded">
+             <p> Aby znaleźć najbliższy klub piłkarski </p>
+             <p> Kliknij prawy przycisk myszki w dowolnym </p>
+             <p> miejscu na mapie!</p>
             </label>
-             <button className="bg-custom-brown text-white px-4 py-2 rounded">
-                  Szukaj najbliższy klub
-             </button>
+            
           </div>
         </div>
         </div>
