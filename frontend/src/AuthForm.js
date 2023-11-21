@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import Header from './components/Header';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [inProp, setInProp] = useState(true);
+  const { t } = useTranslation();
 
   const SocialMediaIcons = () => (
     <div className="flex justify-center gap-5 mb-5 text-white">
@@ -20,7 +23,7 @@ const AuthForm = () => {
   
   const SocialText = ({ children }) => (
     <p className="mt-5 text-center mb-5">
-      {children}
+      {t('socialLoginPrompt')}
     </p>
   );
 
@@ -34,12 +37,12 @@ const AuthForm = () => {
 
   const loginForm = (
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
-      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">Logowanie</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder="Username / email" required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Hasło" required />
-      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zaloguj</button>
+      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('usernameEmail')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
+      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <div className="social-section">
-        <SocialText>lub zaloguj się poprzez</SocialText>
+        <SocialText />
         <SocialMediaIcons />
       </div>
     </div>
@@ -47,14 +50,14 @@ const AuthForm = () => {
 
   const registerForm = (
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
-      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">Rejestracja</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder="Username" required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder="Email" required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Hasło" required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder="Potwierdź hasło" required />
-      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">Zarejestruj się</button>
+      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('registrationTitle')}</h1>
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('username')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
+      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
       <div className="social-section">
-        <SocialText>lub zarejestruj się poprzez</SocialText>
+        <SocialText />
         <SocialMediaIcons />
       </div>
     </div>
@@ -67,9 +70,9 @@ const AuthForm = () => {
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-md w-full m-4">
           {isLoginVisible ? loginForm : registerForm}
           <div className="text-center text-custom-brown font-semibold">
-            <p>{isLoginVisible ? 'Nie posiadasz konta?' : 'Posiadasz już konto?'}</p>
+            <p>{isLoginVisible ? t('noAccountPrompt') : t('haveAccountPrompt')}</p>
             <button onClick={toggleForm} className="text-custom-olive hover:text-custom-brown font-semibold">
-              {isLoginVisible ? 'Zarejestruj się tutaj.' : 'Zaloguj się tutaj.'}
+              {isLoginVisible ? t('registerHere') : t('loginHere')}
             </button>
           </div>
         </div>
