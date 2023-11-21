@@ -1,17 +1,25 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function HomeHeader() {
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo
     "https://i.imgur.com/JzWdITG.jpg", //baner
+    "https://i.imgur.com/m5aXfio.png", //Polska
+    "https://i.imgur.com/rQiArPt.png" //GB
     ];
     
 return (
     <header className="fixed top-0 left-0 w-full flex items-center justify-between bg-black bg-opacity-50 px-10 py-2 z-10">
-    <div className="text-white uppercase text-2xl font-bold">
+    <div className="flex items-center">
         <img src={data[0]} alt="KibolAPP Logo" className="h-16" />
-    </div>
+        <div className="flex">
+          <img src={data[2]} alt="Polska Flag" className="h-16" />
+          <img src={data[3]} alt="GB Flag" className="h-16" />
+        </div>
+      </div>
+
     <nav className='flex-grow'>
           <ul className="flex justify-end">
             <li className="text-white mx-4 font-semibold">

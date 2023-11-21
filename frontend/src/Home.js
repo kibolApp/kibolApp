@@ -18,10 +18,12 @@ const Home = () => {
   }, []);
 
 const data = [
-  "https://i.imgur.com/fv4tZQm.png",
-  "https://i.imgur.com/IEmbAX2.png",
-  "https://i.imgur.com/JzWdITG.jpg",
-  "https://i.imgur.com/dSmkyv5.png"
+  "https://i.imgur.com/fv4tZQm.png", //logo black
+  "https://i.imgur.com/IEmbAX2.png", //logo brown
+  "https://i.imgur.com/JzWdITG.jpg", //banner
+  "https://i.imgur.com/dSmkyv5.png", //aboutus
+  "https://i.imgur.com/m5aXfio.png", //Polska
+  "https://i.imgur.com/rQiArPt.png" //GB
   ];
 
 const Banner = ({ backgroundImage }) => {
@@ -38,9 +40,14 @@ return (
   <>
     <header className={`${isSticky ? 'bg-custom-brown' : 'bg-black bg-opacity-50'} fixed top-0 left-0 w-full z-10 transition-all ease-in-out duration-1000`}>
       <div className="flex items-center justify-between w-full px-10 py-5">
-        <div className="flex-shrink-0">
-          <img src={data[0]} alt="KibolAPP Logo" className={`absolute top-0 left-0 h-16 object-contain transition-opacity ease-in-out duration-1000 ${isSticky ? 'opacity-0' : 'opacity-100'}`}/>
-          <img src={data[1]} alt="Sticky Logo" className={`absolute top-0 left-0 h-16 object-contain transition-opacity ease-in-out duration-1000 ${!isSticky ? 'opacity-0' : 'opacity-100'}`}/>
+      <div className="flex items-center space-x-4">
+          <div className="relative h-16">
+            <img src={data[0]} alt="KibolAPP Logo" className={`top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 ${isSticky ? 'opacity-0' : 'opacity-100'}`}/>
+            <img src={data[1]} alt="Sticky Logo" className={`absolute top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 ${!isSticky ? 'opacity-0' : 'opacity-100'}`}/>          </div>
+          <div className="flex flex-col justify-center">
+            <img src={data[4]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/>
+            <img src={data[5]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/>
+          </div>
         </div>
         <nav className='flex-grow'>
           <ul className="flex justify-end">
