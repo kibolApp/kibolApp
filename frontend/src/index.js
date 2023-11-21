@@ -4,7 +4,7 @@ import './index.css'
 import { RouterProvider } from 'react-router-dom'
 import router from './router.js'
 import { ContextProvider } from './contexts/ContextProvider.js'
-
+import './i18n';
 import reportWebVitals from './reportWebVitals';
 
 
