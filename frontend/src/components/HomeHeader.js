@@ -1,7 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export default function HomeHeader() {
+const { t } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    t.changeLanguage(lng);
+  };
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo
@@ -15,27 +21,27 @@ return (
     <div className="flex items-center">
         <img src={data[0]} alt="KibolAPP Logo" className="h-16" />
         <div className="flex">
-          <img src={data[2]} alt="Polska Flag" className="h-16" />
-          <img src={data[3]} alt="GB Flag" className="h-16" />
+        <button onClick={() => changeLanguage('pl')}><img src={data[2]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/></button>
+        <button onClick={() => changeLanguage('en')}><img src={data[3]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/></button>
         </div>
       </div>
 
     <nav className='flex-grow'>
-          <ul className="flex justify-end">
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 text-green-500"><Link to="/home">Start</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/app">Lokalizacja klubów</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a href="#" className="hover:text-gray-300">Spis klubów</a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/auth">Logowanie / Rejestracja</Link></a>
-            </li>
-          </ul>
-        </nav>
+      <ul className="flex justify-end">
+        <li className="text-white mx-4 font-semibold">
+          <Link to="/home" className="hover:text-gray-300 text-green-500">{t('start')}</Link>
+        </li>
+        <li className="text-white mx-4 font-semibold">
+          <Link to="/app" className="hover:text-gray-300">{t('clubLocations')}</Link>
+        </li>
+        <li className="text-white mx-4 font-semibold">
+          <a href="#" className="hover:text-gray-300">{t('clubList')}</a>
+        </li>
+        <li className="text-white mx-4 font-semibold">
+          <Link to="/auth" className="hover:text-gray-300">{t('loginRegister')}</Link>
+        </li>
+      </ul>
+    </nav>
 </header>
 );
 };

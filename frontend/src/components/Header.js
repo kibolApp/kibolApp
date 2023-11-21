@@ -1,7 +1,14 @@
 import React from 'react'
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
 
 export default function Header() {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
 const data = [
     "https://i.imgur.com/AMBEfm7.png", //arrow
@@ -20,12 +27,11 @@ const data = [
       
       <div className="flex items-center space-x-4">
         <div className="flex flex-col justify-center">
-          <img src={data[2]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/>
-          <img src={data[3]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/>
+          <button onClick={() => changeLanguage('pl')}><img src={data[2]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/></button>
+          <button onClick={() => changeLanguage('en')}><img src={data[3]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/></button>
         </div>
         <img src={data[1]} alt="RightIcon" className="h-20 border-2 border-custom-sand" />
       </div>
     </header>
   )
-
 };
