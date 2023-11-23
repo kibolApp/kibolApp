@@ -1,12 +1,12 @@
 import React from 'react';
-import Header from './components/Header';
 import Map from './components/Map';
+import UserHeader from './components/UserHeader';
 
 const App = () => {
   return (
     <>
       <div className="min-h-fit bg-custom-gray">
-        <Header />
+        <UserHeader />
         <div className="flex justify-beetween">
         <Map />
         <div className="p-4">
