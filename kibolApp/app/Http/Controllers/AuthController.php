@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
 
 class AuthController extends Controller
@@ -25,14 +26,25 @@ class AuthController extends Controller
                 'message' => 'Something went wrong'
             ], Response::HTTP_UNAUTHORIZED);
         }
+           /** @var User $user */
         $user = Auth::user();
 
-        //$token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
+        $token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
 
-        return $user;
+        $cookie = cookie('jwt', $token, 60 * 24);
+        return response([
+            'message' => 'success'
+        ])->withCookie($cookie);
     }
 
     public function user() {
-        return 'Authenticated user';
+        return Auth::user();
+    }
+
+    public function logout() {
+        $cookie = Cookie::forget('jwt');
+        return response([
+            'message' => 'Success'
+        ])->withCookie($cookie);
     }
 }
