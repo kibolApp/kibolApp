@@ -4,6 +4,7 @@ import DefaultLayout from './components/DefaultLayout';
 import GuestLayout from './components/GuestLayout';
 import AuthForm from './AuthForm';
 import App from './App';
+import ClubPage from './ClubPage';
 
 const router =createBrowserRouter([
     {
@@ -21,6 +22,10 @@ const router =createBrowserRouter([
           {
             path: '/app',
             element: <App />,
+          },
+          {
+            path: '/clubpage',
+            element: <ClubPage />,
           },
         ],
       },
