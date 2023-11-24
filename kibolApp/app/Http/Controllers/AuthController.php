@@ -21,19 +21,21 @@ class AuthController extends Controller
     }
 
     public function login(Request $request) {
-        if( Auth::attempt($request->only('email', 'password'))) {
+        if (!Auth::attempt($request->only('email', 'password'))) {
             return response([
                 'message' => 'Something went wrong'
             ], Response::HTTP_UNAUTHORIZED);
         }
-           /** @var User $user */
+
+        /** @var User $user */
         $user = Auth::user();
 
-        $token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
+        $token = $user->createToken('token')->plainTextToken;
 
         $cookie = cookie('jwt', $token, 60 * 24);
+
         return response([
-            'message' => 'success'
+            'message' => $token
         ])->withCookie($cookie);
     }
 
@@ -43,6 +45,7 @@ class AuthController extends Controller
 
     public function logout() {
         $cookie = Cookie::forget('jwt');
+
         return response([
             'message' => 'Success'
         ])->withCookie($cookie);
