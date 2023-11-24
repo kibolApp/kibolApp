@@ -17,7 +17,7 @@ const data = [
     ];
     
 return (
-  <header className="flex top-0 left-0 w-full justify-between items-center bg-custom-brown my-1 px-10 py-4 z-10">
+  <header className="flex top-0 left-0 w-full justify-between items-center bg-custom-brown px-10 py-4 z-10">
   <div className="flex items-center">
     <button>
       <Link to="/">
@@ -38,10 +38,10 @@ return (
               <a className="hover:text-gray-300"><Link to="/home">{t('start')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 text-green-500"><Link to="/app">{t('clubLocations')}</Link></a>
+              <a className="hover:text-gray-300 "><Link to="/app">{t('clubLocations')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-              <a href="#" className="hover:text-gray-300">{t('clubList')}</a>
+            <a className="hover:text-gray-300"><Link to="/clubpage">{t('clubList')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
               <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>

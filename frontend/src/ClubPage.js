@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header';
+import UserHeader from './components/UserHeader';
 
 const ClubPage = () => {
 
@@ -55,7 +55,7 @@ const ClubPage = () => {
 
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col">
-      <Header />
+      <UserHeader />
       <div className="container mx-auto p-4">
         <div className="mt-12">
             <ClubBanner />
