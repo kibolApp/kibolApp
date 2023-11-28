@@ -30,9 +30,9 @@ class AuthController extends Controller
         /** @var User $user */
         $user = Auth::user();
 
-        $token = $user->createToken('token')->plainTextToken;
+        $token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
 
-        $cookie = cookie('jwt', $token, 60 * 24);
+        $cookie = cookie('token', $token, 60 * 24);
 
         return response([
             'message' => $token
@@ -44,7 +44,7 @@ class AuthController extends Controller
     }
 
     public function logout() {
-        $cookie = Cookie::forget('jwt');
+        $cookie = Cookie::forget('token');
 
         return response([
             'message' => 'Success'

@@ -23,6 +23,7 @@ const AuthForm = () => {
     await fetch('http://127.0.0.1:8000/api/register', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
       body: JSON.stringify({
         name,
         email,
@@ -34,6 +35,24 @@ const AuthForm = () => {
 
  /* if (redirect) {
     return <Redirect to="/login/" />;
+  } */
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+
+    await fetch('http://127.0.0.1:8000/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+    //setRedirect(true);
+  }
+  /* if (redirect) {
+    return <Redirect to="/" />;
   } */
 
   const SocialMediaIcons = () => (
@@ -61,16 +80,18 @@ const AuthForm = () => {
   };
 
   const loginForm = (
+    <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required onChange={e => setEmail(e.target.value)} />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required onChange={e => setPassword(e.target.value)} />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <div className="social-section">
         <SocialText />
         <SocialMediaIcons />
       </div>
     </div>
+    </form>
   );
 
   const registerForm = (
