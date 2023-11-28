@@ -4,12 +4,37 @@ import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@forta
 import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+//import { Redirect } from 'react-router-dom';
 
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [inProp, setInProp] = useState(true);
   const { t } = useTranslation();
+
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+ // const [redirect, setRedirect] = useState(false);
+
+  const submitRegister = async (e) => {
+    e.preventDefault();
+
+    await fetch('http://127.0.0.1:8000/api/register', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        name,
+        email,
+        password
+      })
+    });
+    //setRedirect(true);
+  }
+
+ /* if (redirect) {
+    return <Redirect to="/login/" />;
+  } */
 
   const SocialMediaIcons = () => (
     <div className="flex justify-center gap-5 mb-5 text-white">
@@ -38,7 +63,7 @@ const AuthForm = () => {
   const loginForm = (
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('usernameEmail')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <div className="social-section">
@@ -49,11 +74,12 @@ const AuthForm = () => {
   );
 
   const registerForm = (
+    <form onSubmit={submitRegister}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('registrationTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('username')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('name')} required onChange={e => setName(e.target.value)}/>
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} required onChange={e => setEmail(e.target.value)} />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required onChange={e => setPassword(e.target.value)} />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
       <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
       <div className="social-section">
@@ -61,6 +87,7 @@ const AuthForm = () => {
         <SocialMediaIcons />
       </div>
     </div>
+    </form>
   );
 
   return (
