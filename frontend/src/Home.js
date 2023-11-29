@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 
 const Home = () => {
 
@@ -8,6 +9,12 @@ const Home = () => {
   const { t } = useTranslation();
 
   const { i18n } = useTranslation();
+
+  const handleLogout = async () => {
+    await axios.post('http://127.0.0.1:8000/api/logout', null, {
+      credentials: 'include',
+  });
+  }
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -71,6 +78,9 @@ return (
             <li className="text-white mx-4 font-semibold">
               <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>
             </li>
+            <li className="text-white mx-4 font-semibold">
+          <button onClick={handleLogout} className="hover:text-gray-300">{t('logout')}</button>
+        </li>
           </ul>
         </nav>
       </div>
