@@ -8,7 +8,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [inProp, setInProp] = useState(true);
@@ -41,7 +40,7 @@ const AuthForm = () => {
   const notify = ( ) => {
     toast.info('Info', {
       position: "top-right",
-      autoClose: 2000,
+      autoClose: 500,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,

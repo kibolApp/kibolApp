@@ -33,7 +33,26 @@ const pl = {
     usernamePlaceholder: "Nazwa użytkownika",
     emailPlaceholder: "Email",
     messagePlaceholder: "Napisz swoją wiadmość tutaj...",
-    sendMessage: "Wyślij!"
-  };
-  export default pl;
-  
+    sendMessage: "Wyślij!",
+
+//User Panel
+    helloUsername: "Cześć, [Username]",
+    selectedClub: "Wybrany Klub",
+    changeYourEmail: "Zmień swój Email",
+    changeYourUsername: "Zmień swoją Nazwę Użytkownika",
+    changeYourPassword: "Zmień swoje Hasło",
+    changeYourClub: "Zmień swój Klub",
+    deleteAccount: "Usuń konto",
+    change: "Zmień",
+    confirmDelete: "Potwierdź Usunięcie",
+    oldEmail: "Stary Email",
+    newEmail: "Nowy Email",
+    confirmNewEmail: "Potwierdź Nowy Email",
+    oldUsername: "Stara Nazwa Użytkownika",
+    newUsername: "Nowa Nazwa Użytkownika",
+    oldPassword: "Stare Hasło",
+    newPassword: "Nowe Hasło",
+    confirmNewPassword: "Potwierdź Nowe Hasło",
+    newClub: "Nowy Klub"
+};
+export default pl;
