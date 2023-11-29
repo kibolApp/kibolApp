@@ -10,49 +10,49 @@ const UserPanel = () => {
   const { t } = useTranslation();
 
   const ChangeEmailForm = () => (
-    <div className="mt-4">
-      <input className="mb-2 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('oldEmail')} />
-      <input className="mb-2 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('newEmail')} />
-      <input className="mb-4 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('confirmNewEmail')} />
-      <button className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
+    <div className="mt-4 flex flex-col items-center">
+      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('oldEmail')} />
+      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('newEmail')} />
+      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('confirmNewEmail')} />
+      <button className="w-5/6 md:w-1/2 py-3 py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
         {t('change')}
       </button>
     </div>
   );
   
   const ChangeUsernameForm = () => (
-    <div className="mt-4">
-      <input className="mb-2 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('oldUsername')} />
-      <input className="mb-4 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newUsername')} />
-      <button className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
+    <div className="mt-4 flex flex-col items-center">
+      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('oldUsername')} />
+      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newUsername')} />
+      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
         {t('change')}
       </button>
     </div>
   );
   
   const ChangePasswordForm = () => (
-    <div className="mt-4">
-      <input className="mb-2 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('oldPassword')} />
-      <input className="mb-2 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('newPassword')} />
-      <input className="mb-4 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmNewPassword')} />
-      <button className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
+    <div className="mt-4 flex flex-col items-center">
+      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('oldPassword')} />
+      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('newPassword')} />
+      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmNewPassword')} />
+      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
         {t('change')}
       </button>
     </div>
   );
   
   const ChangeClubForm = () => (
-    <div className="mt-4">
-      <input className="mb-4 w-full px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newClub')}/>
-      <button className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
+    <div className="mt-4 flex flex-col items-center">
+      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newClub')}/>
+      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
         {t('change')}
       </button>
     </div>
   );
   
   const DeleteButton= () => (
-    <div className="mt-4">
-      <button className="w-full bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+    <div className="mt-4 flex flex-col items-center">
+      <button className="w-5/6 md:w-1/2 py-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
         {t('confirmDelete')}
       </button>
     </div>
