@@ -12,20 +12,12 @@ use Symfony\Component\HttpFoundation\Response;
 class AuthController extends Controller
 {
     public function register(Request $request) {
-        $data=$request->validated();
-
         $user = User::create([
-            'name' =>  $data['name'],
-            'email' =>   $data['email'],
-            'password' => Hash::make($data['password'])
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password'))
         ]);
-        $token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
-
-        $res=([
-            'user'=>$user,
-            'token'=>$token
-        ]);
-        return response($res);
+        return $user;
     }
 
     public function login(Request $request) {
