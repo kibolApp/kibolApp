@@ -73,7 +73,7 @@ return (
               <a className="hover:text-gray-300"><Link to="/app">{t('clubLocations')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-              <a href="#" className="hover:text-gray-300">{t('clubList')}</a>
+              <a className="hover:text-gray-300"><Link to="/clubpage">{t('clubList')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
               <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>

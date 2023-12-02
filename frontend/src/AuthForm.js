@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { useRef } from "react";
 import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //import { Redirect } from 'react-router-dom';
 
 
@@ -91,13 +93,26 @@ const AuthForm = () => {
     }, 300);
   };
 
+  const notify = ( ) => {
+    toast.info('Info', {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      theme: "dark",
+      });
+  };
+ 
   const loginForm = (
     <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required onChange={e => setEmail(e.target.value)} />
+       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required onChange={e => setEmail(e.target.value)} />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required onChange={e => setPassword(e.target.value)} />
-      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
+      <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
+      <ToastContainer/>
       <div className="social-section">
         <SocialText />
         <SocialMediaIcons />
@@ -114,7 +129,8 @@ const AuthForm = () => {
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} ref="emailRef" required/>
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref="passwordRef" required/>
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
-      <button type="submit" className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
+      <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
+      <ToastContainer/>
       <div className="social-section">
         <SocialText />
         <SocialMediaIcons />
