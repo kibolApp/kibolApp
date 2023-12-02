@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
+//import axios from 'axios';
 
 const Home = () => {
 
@@ -11,7 +11,9 @@ const Home = () => {
   const { i18n } = useTranslation();
 
   const handleLogout = async () => {
-    await axios.post('http://127.0.0.1:8000/api/logout', null, {
+    await fetch('http://127.0.0.1:8000/api/logout', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
       credentials: 'include',
   });
   }
