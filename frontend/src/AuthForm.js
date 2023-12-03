@@ -9,8 +9,6 @@ import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//import { Redirect } from 'react-router-dom';
-
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
@@ -23,8 +21,6 @@ const AuthForm = () => {
   const {setUser,setToken}=useStateContext();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
- // const [redirect, setRedirect] = useState(false);
 
   const submitRegister = async (e) => {
     e.preventDefault();
@@ -43,13 +39,7 @@ const AuthForm = () => {
     })
     .catch(err=>{
       console.log(err)})
-    
-    //setRedirect(true);
   }
-
- /* if (redirect) {
-    return <Redirect to="/login/" />;
-  } */
 
   const submitLogin = async (e) => {
     e.preventDefault();
@@ -63,11 +53,7 @@ const AuthForm = () => {
         password
       })
     });
-    //setRedirect(true);
   }
-  /* if (redirect) {
-    return <Redirect to="/" />;
-  } */
 
   const SocialMediaIcons = () => (
     <div className="flex justify-center gap-5 mb-5 text-white">
