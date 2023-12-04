@@ -4,14 +4,56 @@ import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@forta
 import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import { useRef } from "react";
+import { useStateContext } from "./contexts/ContextProvider";
+import axiosClient from "./axiosClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
   const [inProp, setInProp] = useState(true);
   const { t } = useTranslation();
+  const nameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  //const passwordConfirmationRef = useRef();
+  const {setUser,setToken}=useStateContext();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const submitRegister = async (e) => {
+    e.preventDefault();
+    const payload={
+      name:nameRef.current.value,
+      email:emailRef.current.value,
+      password:passwordRef.current.value,
+      //password_confirmation:passwordConfirmationRef.current.value,
+    }
+    axiosClient.post('/register',payload)
+
+    .then(({data})=>{
+      setUser(data.user)
+      setToken(data.token)
+     // const userId = data.user.id; 
+    })
+    .catch(err=>{
+      console.log(err)})
+  }
+
+  const submitLogin = async (e) => {
+    e.preventDefault();
+
+    await fetch('http://127.0.0.1:8000/api/login', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      credentials: 'include',
+      body: JSON.stringify({
+        email,
+        password
+      })
+    });
+  }
 
   const SocialMediaIcons = () => (
     <div className="flex justify-center gap-5 mb-5 text-white">
@@ -40,7 +82,7 @@ const AuthForm = () => {
   const notify = ( ) => {
     toast.info('Info', {
       position: "top-right",
-      autoClose: 500,
+      autoClose: 2000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
@@ -50,10 +92,11 @@ const AuthForm = () => {
   };
  
   const loginForm = (
+    <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('usernameEmail')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
+       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required onChange={e => setEmail(e.target.value)} />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required onChange={e => setPassword(e.target.value)} />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <ToastContainer/>
       <div className="social-section">
@@ -61,15 +104,17 @@ const AuthForm = () => {
         <SocialMediaIcons />
       </div>
     </div>
+    </form>
   );
 
   const registerForm = (
+    <form onSubmit={submitRegister}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('registrationTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('username')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('name')} ref={nameRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} ref={emailRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
       <ToastContainer/>
       <div className="social-section">
@@ -77,6 +122,7 @@ const AuthForm = () => {
         <SocialMediaIcons />
       </div>
     </div>
+    </form>
   );
 
   return (
