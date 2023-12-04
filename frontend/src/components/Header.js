@@ -20,11 +20,11 @@ export default function Header() {
   ];
 
   const notify = () => {
-    const message = i18n.language === 'pl' ? 'Zmieniono język!' : 'Language change!';
+    const message = i18n.language === 'pl' ? 'Zmieniono język!' : 'Language changed!';
     
     toast.success(message, {
       position: "top-left",
-      autoClose: 200,
+      autoClose: 1000,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
