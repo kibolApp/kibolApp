@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import UserPanel from '../UserPanel';
 
 export default function UserHeader() {
 const { t } = useTranslation();
@@ -47,7 +48,9 @@ return (
         </nav>
         {/* User Logo */}
         <button>
+          <Link to="/Profile">
         <img src={data[1]} alt="RightIcon" className="h-20" />
+          </Link>
         </button>
       </div>
     </header>
