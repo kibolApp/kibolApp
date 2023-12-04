@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UserHeader from './components/UserHeader';
 
 const UserPanel = () => {
 
@@ -60,7 +60,7 @@ const UserPanel = () => {
 
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col">
-      <Header />
+      <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
           <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('helloUsername')}</h1>
