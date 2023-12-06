@@ -17,10 +17,10 @@ const AuthForm = () => {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  //const passwordConfirmationRef = useRef();
+  const passwordConfirmationRef = useRef();
   const {setUser,setToken}=useStateContext();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const emailloginRef = useRef();
+  const passwordloginRef = useRef();
 
   const submitRegister = async (e) => {
     e.preventDefault();
@@ -28,31 +28,33 @@ const AuthForm = () => {
       name:nameRef.current.value,
       email:emailRef.current.value,
       password:passwordRef.current.value,
-      //password_confirmation:passwordConfirmationRef.current.value,
+      password_confirmation:passwordConfirmationRef.current.value,
     }
     axiosClient.post('/register',payload)
-
-    .then(({data})=>{
+      .then(({data})=>{
       setUser(data.user)
       setToken(data.token)
-     // const userId = data.user.id; 
     })
     .catch(err=>{
       console.log(err)})
   }
 
-  const submitLogin = async (e) => {
-    e.preventDefault();
-
-    await fetch('http://127.0.0.1:8000/api/login', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      credentials: 'include',
-      body: JSON.stringify({
-        email,
-        password
-      })
-    });
+  const submitLogin = async (ev) => {
+    ev.preventDefault()
+    const payload={
+      email:emailloginRef.current.value,
+      password: passwordloginRef.current.value,
+    }
+    console.log(payload);
+    axiosClient.post('/login',payload)
+    .then(({data})=>{
+      setUser(data.user)
+      setToken(data.token)
+    })
+    .catch(err=>{
+      console.log(err);
+    })
+  
   }
 
   const SocialMediaIcons = () => (
@@ -95,8 +97,8 @@ const AuthForm = () => {
     <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} required onChange={e => setEmail(e.target.value)} />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} required onChange={e => setPassword(e.target.value)} />
+       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} ref={emailloginRef} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordloginRef} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <ToastContainer/>
       <div className="social-section">
@@ -114,7 +116,7 @@ const AuthForm = () => {
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('name')} ref={nameRef} required />
         <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} ref={emailRef} required />
         <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordRef} required />
-        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword')} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword') }ref={passwordConfirmationRef} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
       <ToastContainer/>
       <div className="social-section">
