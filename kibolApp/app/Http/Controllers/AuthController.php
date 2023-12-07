@@ -2,52 +2,57 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Symfony\Component\HttpFoundation\Response;
+use App\Http\Requests\SignupRequest;
 
 class AuthController extends Controller
 {
-    public function register(Request $request) {
+    public function register(SignupRequest $request) {
+        $data=$request->validated();
+        /** @var \App\Models\User $user */
         $user = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => Hash::make($request->input('password'))
+            'name'=>$data['name'],
+            'email'=> $data['email'],
+            'password'=>bcrypt($data['password']),
         ]);
-        return $user;
+        $token=$user->createToken((Int)['id' => (String)$user->id])->plainTextToken;
+
+        $res=([
+            'user'=>$user,
+            'token'=>$token
+        ]);
+        return response($res);
     }
 
-    public function login(Request $request) {
-        if (!Auth::attempt($request->only('email', 'password'))) {
+    public function login(LoginRequest $request) {
+        $credentials=$request->validated();
+        if(!Auth::attempt($credentials)){
             return response([
-                'message' => 'Something went wrong'
-            ], Response::HTTP_UNAUTHORIZED);
+                'message'=>'Something wrong'
+            ]);
         }
-
         /** @var User $user */
-        $user = Auth::user();
-
-        $token = $user->createToken('ACCESS_TOKEN')->plainTextToken;
-
-        $cookie = cookie('token', $token, 60 * 24);
-
-        return response([
-            'message' => $token
-        ])->withCookie($cookie);
+        $user=Auth::user();
+        $token=$user->createToken((int)['id' => (String)$user->id])->plainTextToken;
+        $res=([
+            'user'=>$user,
+            'token'=>$token
+        ]);
+        return response($res);
     }
 
-    public function user() {
-        return Auth::user();
-    }
 
-    public function logout() {
-        $cookie = Cookie::forget('token');
-
-        return response([
-            'message' => 'Success'
-        ])->withCookie($cookie);
+    public function logout(Request $request)
+    {
+        /** @var \App\Models\User $user */
+        $user = $request->user();
+        $user->currentAccessToken()->delete;
+        return response('', 204);
     }
 }

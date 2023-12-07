@@ -1,21 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import axiosClient from "./axiosClient";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const Home = () => {
 
+  const {setUser,setToken}=useStateContext();
   const [isSticky, setIsSticky] = useState(false);
   const { t } = useTranslation();
 
   const { i18n } = useTranslation();
 
-  const handleLogout = async () => {
-    await fetch('http://127.0.0.1:8000/api/logout', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      credentials: 'include',
-  });
-  }
+  const handleLogout = async (e) => {
+    e.preventDefault();
+
+    axiosClient
+      .post("/logout")
+      .then(() => {
+        setUser({});
+        setToken(null);
+      });
+  };
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
