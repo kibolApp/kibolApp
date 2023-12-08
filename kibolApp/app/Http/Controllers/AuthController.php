@@ -21,11 +21,10 @@ class AuthController extends Controller
             'email'=> $data['email'],
             'password'=>bcrypt($data['password']),
         ]);
-        $token=$user->createToken((Int)['id' => (String)$user->id])->plainTextToken;
+        $user->sendEmailVerificationNotification();
 
         $res=([
             'user'=>$user,
-            'token'=>$token
         ]);
         return response($res);
     }
