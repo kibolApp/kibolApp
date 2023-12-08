@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
-import markersData from './markersData';
+import axiosClient from "../axiosClient";
+import { Icon } from 'leaflet';
 
 const LocationMarker = ({ clubs }) => {
   const [position, setPosition] = useState(null);
   const [nearestClub, setNearestClub] = useState(null);
-
   const map = useMapEvents({
     contextmenu() {
       locateUser(); 
@@ -18,7 +18,8 @@ const LocationMarker = ({ clubs }) => {
       map.flyTo(e.latlng, 18);
     },
   });
-
+  
+ 
   const locateUser = () => {
     map.locate();
   };
@@ -68,7 +69,27 @@ const CustomMap = () => {
   const polandBounds = [
     [49.002304, 14.122253],
     [54.835556, 24.145867]
+    
   ];
+
+  const [markersData, setMarkersData] = useState([]);
+
+  useEffect(() => {
+    axiosClient.get('/clubs')
+      .then(({ data }) => {
+        console.log(data);
+        const transformedData = data.map(club => ({
+          team: club.team,
+          location: [club.latitude, club.longitude],
+          address: club.address,
+          icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] })
+        }));
+        setMarkersData(transformedData);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <div className="w-9/12 h-9/12 mx-7 my-5">
