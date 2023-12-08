@@ -14,7 +14,7 @@ const App = () => {
         <div className="p-4">
         <div className="flex flex-col items-start ml-4">
             <label htmlFor="search" className="text-white mb-2 bg-custom-brown rounded">
-            <button>Finde club</button>
+            <button>Find club</button>
             </label>
             <div class="max-w-md mt-2 ">
         <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
