@@ -19,11 +19,7 @@ class CreateClubsTable extends Migration
             $table->double('longitude');
             $table->string('address');
             $table->string('url_logo');
-            $table->timestamps(); // Dodaje kolumny created_at i updated_at do automatycznego śledzenia czasu
-
-            // Dodanie indeksów, jeśli to konieczne
-            // $table->index('team');
-            // $table->index(['latitude', 'longitude']);
+            $table->timestamps(); 
         });
     }
 
