@@ -59,7 +59,7 @@ const UserPanel = () => {
   );
 
   return (
-    <div className="min-h-screen bg-custom-gray flex flex-col">
+    <div className="min-h-screen font-body bg-custom-gray flex flex-col">
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
