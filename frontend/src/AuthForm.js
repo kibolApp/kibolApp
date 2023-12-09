@@ -9,6 +9,7 @@ import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AnimatedPage from './AnimatedPage';
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
@@ -128,6 +129,7 @@ const AuthForm = () => {
   );
 
   return (
+    <AnimatedPage>
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
       <Header />
       <div className="flex-grow flex items-center justify-center">
@@ -142,6 +144,7 @@ const AuthForm = () => {
         </div>
       </div>
     </div>
+    </AnimatedPage>
   );
 };
 
