@@ -20,6 +20,15 @@ return new class extends Migration
            // $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('clubs', function(Blueprint $table){
+            $table->id();
+            $table->string('team');
+            $table->float('latitude');
+            $table->float('longitude');
+            $table->string('adress');
+            $table->string('url_logo');
+        });
     }
 
     /**
