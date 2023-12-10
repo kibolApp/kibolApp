@@ -9,7 +9,7 @@ const ClubPage = () => {
 
     const ClubBanner = () => {
         return (
-            <div className="relative bg-custom-sand rounded-xl flex items-center overflow-visible shadow-md pl-16 pr-20 h-20">
+            <div className="relative font-body bg-custom-sand rounded-xl flex items-center overflow-visible shadow-md pl-16 pr-20 h-20">
                 <img src={data[0]} alt="MKS MIEDŹ LEGNICA" className="absolute w-36 h-36 -ml-8 top-1/2 transform -translate-y-1/2" />
             <span className="text-white font-semibold uppercase text-center text-4xl w-full">MKS MIEDŹ LEGNICA</span>
             </div>
@@ -54,7 +54,7 @@ const ClubPage = () => {
 
 
   return (
-    <div className="min-h-screen bg-custom-gray flex flex-col">
+    <div className="min-h-screen bg-custom-gray font-body flex flex-col">
       <UserHeader />
       <div className="container mx-auto p-4">
         <div className="mt-12">

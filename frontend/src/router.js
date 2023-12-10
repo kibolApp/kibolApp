@@ -1,12 +1,31 @@
 import {Navigate, createBrowserRouter} from 'react-router-dom';
+import React, { lazy, Suspense, useState, useEffect } from 'react';
 import Home from './Home';
 import DefaultLayout from './components/DefaultLayout';
 import GuestLayout from './components/GuestLayout';
 import AuthForm from './AuthForm';
-import App from './App';
 import ClubPage from './ClubPage';
 import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
+import LoadingScreen from './LoadingScreen';
+const AppLazy = lazy(() => import('./App'));
+
+
+const AppWithLoadingScreen = () => {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const initializeApp = async () => {
+      await new Promise(resolve => setTimeout(resolve, 2000));
+      setLoading(false); 
+    };
+    initializeApp();
+  }, []);
+  return (
+    <Suspense fallback={<LoadingScreen duration={2000} />}>
+      {loading ? <LoadingScreen duration={2000} /> : <AppLazy />}
+    </Suspense>
+  );
+};
 
 const router =createBrowserRouter([
     {
@@ -23,7 +42,7 @@ const router =createBrowserRouter([
           },
           {
             path: '/app',
-            element: <App />,
+            element: <AppWithLoadingScreen />,
           },
           {
             path: '/clubpage',

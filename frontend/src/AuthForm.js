@@ -24,27 +24,30 @@ const AuthForm = () => {
 
   const submitRegister = async (e) => {
     e.preventDefault();
-    const payload={
-      name:nameRef.current.value,
-      email:emailRef.current.value,
-      password:passwordRef.current.value,
-      password_confirmation:passwordConfirmationRef.current.value,
-    }
-    axiosClient.post('/register',payload)
-      .then(({data})=>{
-      setUser(data.user)
-      setToken(data.token)
-    })
-    .catch(err=>{
-      console.log(err)})
-  }
+    const payload = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      password_confirmation: passwordConfirmationRef.current.value,
+    };
+  
+    axiosClient.post('/register', payload)
+      .then(({ data }) => {
+        setUser(data.user);
+        setToken(data.token);
+      })
+      .catch((err) => {
+        console.error(err);
+        notify('Register failed', 'error');
+      });
+  };
 
   const submitLogin = async (ev) => {
     ev.preventDefault()
     const payload={
       email:emailloginRef.current.value,
       password: passwordloginRef.current.value,
-    }
+    };
     console.log(payload);
     axiosClient.post('/login',payload)
     .then(({data})=>{
@@ -53,6 +56,7 @@ const AuthForm = () => {
     })
     .catch(err=>{
       console.log(err);
+      notify('Login failed', 'error');
     })
   
   }
@@ -81,8 +85,8 @@ const AuthForm = () => {
     }, 300);
   };
 
-  const notify = ( ) => {
-    toast.info('Info', {
+  const notify = (message, type = 'info') => {
+    toast[type](message, {
       position: "top-right",
       autoClose: 2000,
       hideProgressBar: false,
@@ -90,7 +94,7 @@ const AuthForm = () => {
       pauseOnHover: true,
       draggable: true,
       theme: "dark",
-      });
+    });
   };
  
   const loginForm = (
@@ -128,7 +132,7 @@ const AuthForm = () => {
   );
 
   return (
-    <div className="min-h-screen bg-custom-gray flex flex-col">
+    <div className="min-h-screen font-body bg-custom-gray flex flex-col">
       <Header />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-md w-full m-4">

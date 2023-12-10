@@ -32,7 +32,7 @@ return (
   </div>
 
       
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 font-body">
       <nav className='flex-grow'>
           <ul className="flex justify-end">
             <li className="text-white mx-4 font-semibold">

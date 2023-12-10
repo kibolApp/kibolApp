@@ -17,6 +17,10 @@ module.exports = {
         'twitter': '#1DA1F2',
         'linkedin': '#0077b5',
       },
+      fontFamily: {
+        head: 'Impact', 
+        body: 'Montserrat',
+      },
     },
   },
   plugins: [],
