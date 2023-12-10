@@ -4,6 +4,7 @@ import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import axiosClient from "../axiosClient";
 import { Icon } from 'leaflet';
+import { Link } from 'react-router-dom';
 
 const LocationMarker = ({ clubs }) => {
   const [position, setPosition] = useState(null);
@@ -82,7 +83,8 @@ const CustomMap = () => {
           team: club.team,
           location: [club.latitude, club.longitude],
           address: club.address,
-          icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] })
+          icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
+          url:"/clubpage/" + club.url,
         }));
         setMarkersData(transformedData);
       })
@@ -112,7 +114,7 @@ const CustomMap = () => {
             <Marker key={index} position={marker.location} icon={marker.icon}>
               <Popup>
                 <div>
-                  <h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2>
+                  <Link to={marker.url}><h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2></Link>
                   <p>{marker.address}</p>
                 </div>
               </Popup>

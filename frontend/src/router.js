@@ -25,7 +25,7 @@ const router =createBrowserRouter([
             element: <App />,
           },
           {
-            path: '/clubpage',
+            path: '/clubpage/:clubName',
             element: <ClubPage />,
           },
           {

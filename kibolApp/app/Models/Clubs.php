@@ -24,5 +24,6 @@ class Clubs extends Authenticatable
         'longitude',
         'address',
         'url_logo',
+        'url',
     ];
 }
