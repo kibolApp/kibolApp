@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { HashLoader } from "react-spinners";
 
 const LoadingScreen = () => {
   const blackBox = {
@@ -10,7 +11,7 @@ const LoadingScreen = () => {
       height: 0,
       transition: {
         duration: 2,
-        ease: [7, 0, 0, 0],
+        ease: [8, 0, 0, 0],
       },
     },
   };
@@ -33,10 +34,9 @@ const LoadingScreen = () => {
       y: 0,
     },
     animate: {
-      y: 80,
+      y: 0,
       transition: {
-        duration: 2,
-        ease: [0.87, 0, 0.13, 1],
+        duration: 0,
       },
     },
   };
@@ -48,33 +48,15 @@ const LoadingScreen = () => {
       animate="animate"
       variants={blackBox}
     >
-      <motion.svg
-        variants={textContainer}
-        className="absolute z-50 flex"
-      >
-        <pattern
-          id="pattern"
-          patternUnits="userSpaceOnUse"
-          width={750}
-          height={800}
-          className="text-white"
-        >
-          <rect className="w-full h-full fill-current" />
-          <motion.rect
-            variants={text}
-            className="w-full h-full text-gray-600 fill-current"
-          />
-        </pattern>
-        <text
-          className="text-4xl font-bold"
-          textAnchor="middle"
-          x="50%"
-          y="50%"
-          style={{ fill: "url(#pattern)" }}
-        >
+      <motion.div variants={textContainer} className="absolute z-50 flex flex-col items-center">
+        <motion.div variants={text} className="text-custom-brown mb-8 text-3xl fill-current">
+          KibolAPP
+        </motion.div>
+        <HashLoader color="#ffffff" loading={true} size={300} />
+        <motion.div variants={text} className="text-white mt-8 text-3xl fill-current">
           Loading...
-        </text>
-      </motion.svg>
+        </motion.div>
+      </motion.div>
     </motion.div>
   );
 };

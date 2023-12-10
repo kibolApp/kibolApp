@@ -1,16 +1,16 @@
+import {Navigate, createBrowserRouter} from 'react-router-dom';
 import React, { lazy, Suspense, useState, useEffect } from 'react';
-import { Navigate, createBrowserRouter } from 'react-router-dom';
 import Home from './Home';
 import DefaultLayout from './components/DefaultLayout';
 import GuestLayout from './components/GuestLayout';
 import AuthForm from './AuthForm';
-import App from './App';
 import ClubPage from './ClubPage';
 import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
 import LoadingScreen from './LoadingScreen';
-
 const AppLazy = lazy(() => import('./App'));
+
+
 const AppWithLoadingScreen = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -27,12 +27,12 @@ const AppWithLoadingScreen = () => {
   );
 };
 
-const router = createBrowserRouter([
-  {
-    path: '/',
-    element: <DefaultLayout />,
-    children: [
-      {
+const router =createBrowserRouter([
+    {
+        path: '/',
+        element: <DefaultLayout />,
+        children: [
+          {
             path: '/',
             element: <Navigate to='/home' />,
           },
@@ -52,6 +52,10 @@ const router = createBrowserRouter([
             path: '/Profile',
             element: <UserPanel />,
           },
+          {
+            path: '/admin',
+            element: <AdminPanel/>,
+          },
         ],
       },
       {
@@ -61,18 +65,18 @@ const router = createBrowserRouter([
           {
             path: '/',
             element: <Navigate to='/homeguest' />,
-      },
-      {
-        path: '/homeguest',
-        element: <Home />,
-      },
-      {
-        path: '/auth',
-        element: <AuthForm />,
-      },
-    ],
-  },
-]);
+          },
+          {
+            path: '/homeguest',
+            element: <Home />,
+          },
+          {
+            path: '/auth',
+            element: <AuthForm />,
+          },
+        ],
+      }
+])
     
 
 export default router;
