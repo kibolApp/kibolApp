@@ -131,6 +131,17 @@ const AdminPanelUsers = () => {
         <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
           <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
 
+          <h2 className="text-2xl font-bold mb-4">
+              {editingUserId ? 'Edytuj' : 'Nowy użytkownik'}
+            </h2>
+            <button
+              onClick={() => openModal(null)}
+              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
+            >
+              <FontAwesomeIcon icon={faPlus} className="mr-2" />
+              Dodaj użytkownika
+            </button>
+
           <table className="w-full mb-8">
             <thead>
               <tr>
@@ -168,16 +179,6 @@ const AdminPanelUsers = () => {
           </table>
 
           <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-4">
-              {editingUserId ? 'Edytuj' : 'New User'}
-            </h2>
-            <button
-              onClick={() => openModal(null)}
-              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
-            >
-              <FontAwesomeIcon icon={faPlus} className="mr-2" />
-              Dodaj użytkownika
-            </button>
             <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
               <div className={modalContentStyles}>
                 <input

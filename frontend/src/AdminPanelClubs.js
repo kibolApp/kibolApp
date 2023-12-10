@@ -143,7 +143,18 @@ const AdminPanelClubs = () => {
 
       <div className="flex-grow flex items-center justify-center p-4">
         <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-          <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
+          <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania klubami</h1>
+
+          <h2 className="text-2xl font-bold mb-4">
+              {editingClubId ? 'Edytuj' : 'Nowy klub'}
+            </h2>
+            <button
+              onClick={() => openModal(null)}
+              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
+            >
+              <FontAwesomeIcon icon={faPlus} className="mr-2" />
+              Dodaj klub
+            </button>
 
           <table className="w-full mb-8">
             <thead>
@@ -187,16 +198,6 @@ const AdminPanelClubs = () => {
           </table>
 
           <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-4">
-              {editingClubId ? 'Edytuj' : 'New Club'}
-            </h2>
-            <button
-              onClick={() => openModal(null)}
-              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
-            >
-              <FontAwesomeIcon icon={faPlus} className="mr-2" />
-              Dodaj klub
-            </button>
             <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
               <div className={modalContentStyles}>
                 <input
@@ -234,7 +235,7 @@ const AdminPanelClubs = () => {
                   placeholder="Url logo"
                   className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
                 />
-                
+
                 <div className="flex justify-center">
                   <button
                     onClick={() => {
