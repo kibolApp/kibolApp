@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
-import AnimatedPage from './AnimatedPage';
 
 const Home = () => {
 
@@ -61,7 +60,6 @@ const Banner = ({ backgroundImage }) => {
 
 return (
   <>
-  <AnimatedPage>
     <header className={`${isSticky ? 'bg-custom-brown' : 'bg-black bg-opacity-50'} fixed font-body top-0 left-0 w-full z-10 transition-all ease-in-out duration-1000`}>
       <div className="flex items-center justify-between w-full px-10 py-5">
         <div className="flex items-center space-x-4">
@@ -129,7 +127,6 @@ return (
         </div>
       </div>
     </section>
-    </AnimatedPage>
     </>
   );
 };
