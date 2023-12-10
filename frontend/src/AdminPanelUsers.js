@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import UserHeader from './components/UserHeader';
 
-const AdminPanel = () => {
+const AdminPanelUsers = () => {
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     name: '',
@@ -233,4 +233,4 @@ const AdminPanel = () => {
   );
 };
 
-export default AdminPanel;
+export default AdminPanelUsers;

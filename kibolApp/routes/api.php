@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClubController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,6 +25,13 @@ Route::get('/users/{id}', [UserController::class, 'show']);
 Route::post('/users', [UserController::class, 'store']);
 Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
+
+Route::get('/clubs', [ClubController::class, 'index']);
+Route::get('/clubs/{id}', [ClubController::class, 'show']);
+Route::post('/clubs', [ClubController::class, 'store']);
+Route::put('/clubs/{id}', [ClubController::class, 'update']);
+Route::delete('/clubs/{id}', [ClubController::class, 'destroy']);
+
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/clubs', [MapController::class, 'fetchclubs']);

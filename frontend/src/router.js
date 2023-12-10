@@ -6,7 +6,8 @@ import AuthForm from './AuthForm';
 import App from './App';
 import ClubPage from './ClubPage';
 import UserPanel from './UserPanel';
-import AdminPanel from './AdminPanel';
+import AdminPanelUsers from './AdminPanelUsers';
+import AdminPanelClubs from './AdminPanelClubs';
 
 const router =createBrowserRouter([
     {
@@ -34,9 +35,13 @@ const router =createBrowserRouter([
             element: <UserPanel />,
           },
           {
-            path: '/admin',
-            element: <AdminPanel/>,
+            path: '/adminUsers',
+            element: <AdminPanelUsers/>,
           },
+          {
+            path: '/adminClubs',
+            element: <AdminPanelClubs/>,
+          }
         ],
       },
       {
