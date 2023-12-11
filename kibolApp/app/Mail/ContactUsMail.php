@@ -7,19 +7,20 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
-use App\Models\User;
 
-class UserVerification extends Mailable
+class ContactUsMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $user;
+    public $data;
     /**
      * Create a new message instance.
+     *   * @param  array  $data
+     * @return void
      */
-    public function __construct(User $user)
+    public function __construct(array $data)
     {
-        $this->user = $user;
+        $this->data = $data;
     }
 
     /**
@@ -28,7 +29,7 @@ class UserVerification extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'User Verification',
+            subject: 'Contact Us Mail',
         );
     }
 
@@ -38,7 +39,7 @@ class UserVerification extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'mail.contactUsMail',
         );
     }
 
@@ -50,15 +51,5 @@ class UserVerification extends Mailable
     public function attachments(): array
     {
         return [];
-    }
-
-     /**
-     * Build the message.
-     *
-     * @return $this
-     */
-    public function build()
-    {
-        return $this->from('projectkibolapp@gmail.com')->view('view.name');
     }
 }

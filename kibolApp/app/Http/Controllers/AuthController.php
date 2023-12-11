@@ -7,8 +7,6 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\SignupRequest;
-use App\Mail\UserVerification;
-use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -20,26 +18,11 @@ class AuthController extends Controller
             'email'=> $data['email'],
             'password'=>bcrypt($data['password']),
         ]);
-
-        if($user) {
-            try {
-                Mail::mailer('smtp')->to($user->email)->send(new UserVerification($user));
-
-                return response()->json([
-                    'status' => 200,
-                    'message' => "Registered, verify your email address to login",
-                ], 200);
-            } catch (\Exception $err) {
-                //$user->delete();
-                return response()->json([
-                    'status' => 500,
-                    'message' => "Something went wrong",
-                ], 500);
-            }
-        }
+        $token=$user->createToken((Int)['id' => (String)$user->id])->plainTextToken;
 
         $res=([
             'user'=>$user,
+            'token'=>$token,
         ]);
         return response($res);
     }
