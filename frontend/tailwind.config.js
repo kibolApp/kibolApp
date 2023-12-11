@@ -19,7 +19,7 @@ module.exports = {
       },
       fontFamily: {
         head: 'Impact', 
-        body: 'Montserrat',
+        body: 'Bahnschrift',
       },
     },
   },

@@ -1,87 +1,89 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import UserHeader from './components/UserHeader';
+import axiosClient from './axiosClient';
 
 const ClubPage = () => {
-
-    const data = [
-        "https://i.imgur.com/AJ27Q2w.png"
-    ];
+    const { clubName } = useParams();
+    const [clubData, setClubData] = useState([]);
+    useEffect(() => {
+        axiosClient.get(`/clubpage/${clubName}`)
+   
+            .then(({ data }) => {
+                console.log(`/clubpage/${clubName}`)
+                const transformedData = data.map(club => ({
+                    name: club.name,
+                    positive: club.positive,
+                    negative: club.negative,
+                    url_logo: club.url_logo,
+                  }));
+                  setClubData(transformedData);
+            })
+            .catch(err => {
+                console.log(err);
+                console.log(`/clubpage/${clubName}`)
+            });
+    }, []);
+    
+   
 
     const ClubBanner = () => {
-        return (
-            <div className="relative font-body bg-custom-sand rounded-xl flex items-center overflow-visible shadow-md pl-16 pr-20 h-20">
-                <img src={data[0]} alt="MKS MIEDŹ LEGNICA" className="absolute w-36 h-36 -ml-8 top-1/2 transform -translate-y-1/2" />
-            <span className="text-white font-semibold uppercase text-center text-4xl w-full">MKS MIEDŹ LEGNICA</span>
-            </div>
-            );
-        };
+      return (
+          <div className="relative bg-custom-sand rounded-xl flex items-center justify-center overflow-visible shadow-md pl-16 pr-20 h-20">
+              {clubData.length > 0 && (
+                  <div className="relative flex items-center">
+                      <img
+                          src={clubData[0].url_logo}
+                          alt={clubData[0].name}
+                          className="w-36 h-36"
+                      />
+                      <span className="text-white font-semibold uppercase text-center text-4xl">
+                          {clubData[0].name}
+                      </span>
+                  </div>
+              )}
+          </div>
+      );
+  };
     
-    const goodRelations = [
-    "WKS Śląsk Wrocław",
-    "Lechia Gdańsk",
-    "Promień Żary",
-    "BKS Stal Bielsko-Biała",
-
-    ];
-
-    const badRelations = [
-    "Arka Gdynia",
-    "BKS Bolesławiec",
-    "Chrobry Głogów",
-    "Cracovia Kraków",
-    "GKS Katowice",
-    "GKS Tychy",
-    "Górnik Polkowice",
-    "Górnik Wałbrzych",
-    "Górnik Zabrze",
-    "Lech Poznań",
-    "Legia Warszawa",
-    "Motor Lublin",
-    "Odra Opole",
-    "Podbeskidzie Bielsko-Biała",
-    "Polonia Świdnica",
-    "Pogoń Szczecin",
-    "Radomiak Radom",
-    "Ruch Chorzów",
-    "Sandecja Nowy Sącz",
-    "Stal Rzeszów",
-    "Stal Stalowa Wola",
-    "Widzew Łódź",
-    "Wisła Kraków",
-    "Zawisza Bydgoszcz",
-    "Zagłębie Lubin"
-    ];
-
 
   return (
-    <div className="min-h-screen bg-custom-gray font-body flex flex-col">
-      <UserHeader />
-      <div className="container mx-auto p-4">
-        <div className="mt-12">
-            <ClubBanner />
-        </div>
-            
-        <div className="mt-16 bg-custom-sand p-4 shadow-lg rounded-lg mx-auto">
-            <div className="my-6 ml-6">
-            <h2 className="text-2xl font-bold mb-2 text-white">DOBRE STOSUNKI / ZGODY</h2>
-            <ul className="list-disc pl-5 text-lg">
-                {goodRelations.map(relation => (
-                <li key={relation} className="text-green-700 font-bold">{relation}</li>
-                ))}
-            </ul>
-            </div>
-
-            <div className="my-6 ml-6">
-            <h2 className="text-2xl font-bold mb-2 text-white">ZŁE STOSUNKI / KOSY</h2>
-            <ul className="list-disc pl-5 text-lg">
-                {badRelations.map(rivalry => (
-                <li key={rivalry} className="text-rose-700 font-bold">{rivalry}</li>
-                ))}
-            </ul>
-            </div>
-        </div>
-      </div>
+    <div className="min-h-screen font-body bg-custom-gray flex flex-col">
+  <UserHeader />
+  <div className="container mx-auto p-4">
+    <div className="mt-12">
+      <ClubBanner />
     </div>
+    
+    <div className="mt-16 bg-custom-sand p-4 shadow-lg rounded-lg mx-auto">
+      <div className="my-6 mx-6"> 
+                <h2 className="text-2xl font-bold mb-2 text-white">DOBRE STOSUNKI / ZGODY</h2>
+                <ul className="list-disc pl-5 text-lg">
+                {clubData.map((club) => (
+      <React.Fragment key={club.id}>
+        {club.positive && (
+          <li className="text-green-700 font-bold">{club.positive}</li>
+        )}
+      </React.Fragment>
+    ))}
+                </ul>
+            </div>
+            <div className="my-6 mx-6"> 
+                <h2 className="text-2xl font-bold mb-2 text-white">ZŁE STOSUNKI / KOSY</h2>
+                <ul className="list-disc pl-5 text-lg">
+                {clubData.map((club) => (
+      <React.Fragment key={club.id}>
+        
+        {club.negative && (
+          <li className="text-rose-700 font-bold">{club.negative}</li>
+        )}
+      </React.Fragment>
+    ))}
+                </ul>
+            </div>
+    </div>
+  </div>
+</div>
   );
 };
 
