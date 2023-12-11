@@ -9,15 +9,18 @@ use Illuminate\Support\Facades\Mail;
 
 class EmailController extends Controller
 {
+
     public function sendEmail(Request $request)
 {
+    $emailAddress = env('MAIL_USERNAME');
+
     $validatedData = $request->validate([
         'username' => 'required',
         'email' => 'required|email',
         'message' => 'required',
     ]);
 
-    Mail::to('projectkibolapp@gmail.com')->send(new contactUsMail($validatedData));
+    Mail::to($emailAddress)->send(new contactUsMail($validatedData));
 
     return response()->json(['message' => 'Email sent successfully']);
 }
