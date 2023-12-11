@@ -35,6 +35,7 @@ Route::delete('/clubs/{id}', [ClubController::class, 'destroy']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/clubs', [MapController::class, 'fetchclubs']);
+Route::get('/clubpage/{clubName}', [ClubController::class, 'getClubData']);
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);

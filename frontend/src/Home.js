@@ -50,7 +50,7 @@ const data = [
 
 const Banner = ({ backgroundImage }) => {
   return (
-    <section className="relative w-full min-h-screen bg-cover flex justify-center items-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
+    <section className="relative w-full min-h-screen font-head bg-cover flex justify-center items-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
       <h2 className="text-white text-8xl uppercase text-center leading-snug font-semibold">
         {t('welcome')}<br /> {t('kibol')}<span className="text-custom-tan">{t('APP')}</span>
       </h2>
@@ -60,7 +60,7 @@ const Banner = ({ backgroundImage }) => {
 
 return (
   <>
-    <header className={`${isSticky ? 'bg-custom-brown' : 'bg-black bg-opacity-50'} fixed top-0 left-0 w-full z-10 transition-all ease-in-out duration-1000`}>
+    <header className={`${isSticky ? 'bg-custom-brown' : 'bg-black bg-opacity-50'} fixed font-body top-0 left-0 w-full z-10 transition-all ease-in-out duration-1000`}>
       <div className="flex items-center justify-between w-full px-10 py-5">
         <div className="flex items-center space-x-4">
             <div className="relative h-16">
@@ -96,7 +96,7 @@ return (
     <Banner backgroundImage={data[2]} />
 
     {/* About Us */}
-    <section className="flex flex-col md:flex-row items-center justify-center text-center bg-[#353230] text-white p-6 md:p-32">
+    <section className="flex flex-col md:flex-row items-center font-body justify-center text-center bg-[#353230] text-white p-6 md:p-32">
       <div className="md:flex-1 md:mr-6">
         <h2 className="text-3xl font-bold mb-4">{t('aboutTitle')}</h2>
           <p className="text-lg mb-6">{t('aboutText1')}</p>
@@ -108,7 +108,7 @@ return (
     </section>
 
     {/* Contact Us */}
-    <section className="bg-custom-sand py-16">
+    <section className="bg-custom-sand font-body py-16">
       <div className="flex justify-center">
         <div className="max-w-2xl w-full">
           <h3 className="text-white text-3xl text-center mb-10 font-bold">{t('questionTitle')}<span className="text-custom-brown uppercase font-bold">{t('contactUs')}</span></h3>

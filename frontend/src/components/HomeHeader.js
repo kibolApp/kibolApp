@@ -26,7 +26,7 @@ return (
         </div>
       </div>
 
-    <nav className='flex-grow'>
+    <nav className='flex-grow font-body'>
       <ul className="flex justify-end">
         <li className="text-white mx-4 font-semibold">
           <Link to="/home" className="hover:text-gray-300 text-green-500">{t('start')}</Link>
