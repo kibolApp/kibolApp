@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ClubController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
@@ -27,6 +28,7 @@ Route::delete('/users/{id}', [UserController::class, 'destroy']);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/clubs', [MapController::class, 'fetchclubs']);
+Route::get('/clubpage/{clubName}', [ClubController::class, 'getClubData']);
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);
