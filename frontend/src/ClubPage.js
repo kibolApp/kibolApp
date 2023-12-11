@@ -48,7 +48,7 @@ const ClubPage = () => {
     
 
   return (
-    <div className="min-h-screen bg-custom-gray flex flex-col">
+    <div className="min-h-screen font-body bg-custom-gray flex flex-col">
   <UserHeader />
   <div className="container mx-auto p-4">
     <div className="mt-12">
