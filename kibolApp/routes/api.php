@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\VerificationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
     return $request->user();
 }); */
 Route::post('/register', [AuthController::class, 'register']);
+Route::get('email/verify/{id}', [VerificationController::class, 'verify'])->name('verification.verify');
+
+
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/clubs', [MapController::class, 'fetchclubs']);
 

@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\SignupRequest;
+use App\Mail\UserVerification;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -21,7 +20,23 @@ class AuthController extends Controller
             'email'=> $data['email'],
             'password'=>bcrypt($data['password']),
         ]);
-        $user->sendEmailVerificationNotification();
+
+        if($user) {
+            try {
+                Mail::mailer('smtp')->to($user->email)->send(new UserVerification($user));
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => "Registered, verify your email address to login",
+                ], 200);
+            } catch (\Exception $err) {
+                //$user->delete();
+                return response()->json([
+                    'status' => 500,
+                    'message' => "Something went wrong",
+                ], 500);
+            }
+        }
 
         $res=([
             'user'=>$user,
