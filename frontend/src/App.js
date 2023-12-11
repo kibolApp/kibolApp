@@ -12,7 +12,7 @@ const App = () => {
         <div className="flex justify-beetween">
         <Map />
         <div className="p-4">
-        <div className="flex flex-col items-start ml-4">
+        <div className="flex flex-col items-start ml-4 font-body">
             <label htmlFor="search" className="text-white mb-2 bg-custom-brown rounded">
             <button>Find club</button>
             </label>
