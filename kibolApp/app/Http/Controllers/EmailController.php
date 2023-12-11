@@ -21,7 +21,5 @@ class EmailController extends Controller
     ]);
 
     Mail::to($emailAddress)->send(new contactUsMail($validatedData));
-
-    return response()->json(['message' => 'Email sent successfully']);
 }
 }
