@@ -124,11 +124,11 @@ return (
           <h3 className="text-white text-3xl text-center mb-10 font-bold">{t('questionTitle')}<span className="text-custom-brown uppercase font-bold">{t('contactUs')}</span></h3>
             <form className="flex flex-col items-center">
               <div className="flex w-full mb-6">
-                <input type="text" placeholder={t('usernamePlaceholder')} value={formData.username} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-                <input type="email" placeholder={t('emailPlaceholder')} value={formData.email} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+                <input type="text" placeholder={t('usernamePlaceholder')} value={formData.username} maxLength={50} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+                <input type="email" placeholder={t('emailPlaceholder')} value={formData.email} maxLength={50} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
               <div className="w-full mb-6">
-                <textarea placeholder={t('messagePlaceholder')} value={formData.message} className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none" onChange={(e) => setFormData({ ...formData, message: e.target.value })} ></textarea>
+                <textarea placeholder={t('messagePlaceholder')} value={formData.message}maxLength={200} className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none" onChange={(e) => setFormData({ ...formData, message: e.target.value })} ></textarea>
               </div>
               <div className="w-full flex justify-center">
                 <input type="submit" onClick={handleFormSubmit} value={t('sendMessage')} className="bg-custom-olive text-custom-sand uppercase tracking-widest cursor-pointer font-bold px-4 py-2" />
