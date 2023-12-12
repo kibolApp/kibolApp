@@ -29,20 +29,23 @@ const ClubPage = () => {
 
     const ClubBanner = () => {
       return (
-          <div className="relative bg-custom-sand rounded-xl flex items-center justify-center overflow-visible shadow-md pl-16 pr-20 h-20">
-              {clubData.length > 0 && (
-                  <div className="relative flex items-center">
-                      <img
-                          src={clubData[0].url_logo}
-                          alt={clubData[0].name}
-                          className="w-36 h-36"
-                      />
-                      <span className="text-white font-semibold uppercase text-center text-4xl">
-                          {clubData[0].name}
-                      </span>
-                  </div>
-              )}
-          </div>
+        <div className="relative bg-custom-sand rounded-xl flex items-center overflow-visible shadow-md h-20">
+        {clubData.length > 0 && (
+          <>
+            <img
+                src={clubData[0].url_logo}
+                alt={clubData[0].name}
+                className="absolute left-24 w-36 h-36 -ml-8 top-1/2 transform -translate-y-1/2"
+            />
+            <div className="flex justify-center items-center w-full h-full">
+              <span className="text-white font-semibold uppercase text-center text-4xl">
+                  {clubData[0].name}
+              </span>
+            </div>
+          </>
+        )}
+      </div>
+      
       );
   };
     
