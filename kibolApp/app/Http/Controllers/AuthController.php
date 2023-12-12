@@ -5,10 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
-use Symfony\Component\HttpFoundation\Response;
 use App\Http\Requests\SignupRequest;
 
 class AuthController extends Controller
@@ -25,7 +22,7 @@ class AuthController extends Controller
 
         $res=([
             'user'=>$user,
-            'token'=>$token
+            'token'=>$token,
         ]);
         return response($res);
     }

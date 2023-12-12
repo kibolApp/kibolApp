@@ -5,7 +5,7 @@ use App\Http\Controllers\ClubController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MapController;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\EmailController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -41,4 +41,4 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
 });
-
+Route::post('/send-email', [EmailController::class, 'sendEmail']);
