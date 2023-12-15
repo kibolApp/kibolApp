@@ -23,16 +23,52 @@ const UserPanel = () => {
 
     fetchUserProfile();
   }, []);
-  const ChangeEmailForm = () => (
-    <div className="mt-4 flex flex-col items-center">
-      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('oldEmail')} />
-      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('newEmail')} />
-      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('confirmNewEmail')} />
-      <button className="w-5/6 md:w-1/2 py-3 py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
-        {t('change')}
-      </button>
-    </div>
-  );
+  const ChangeEmailForm = () => {
+    const [oldEmail, setOldEmail] = useState('');
+    const [newEmail, setNewEmail] = useState('');
+    const [confirmEmail, setConfirmEmail] = useState('');
+
+    const handleChangeEmail = async () => {
+        const response = await axiosClient.post(`/changeEmail/${user.id}`, {
+          oldEmail,
+          newEmail,
+          confirmEmail,
+        });
+        setUser(response.data);
+    };
+
+    return (
+      <div className="mt-4 flex flex-col items-center">
+        <input
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="email"
+          placeholder={t('oldEmail')}
+          value={oldEmail}
+          onChange={(e) => setOldEmail(e.target.value)}
+        />
+        <input
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="email"
+          placeholder={t('newEmail')}
+          value={newEmail}
+          onChange={(e) => setNewEmail(e.target.value)}
+        />
+        <input
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="email"
+          placeholder={t('confirmNewEmail')}
+          value={confirmEmail}
+          onChange={(e) => setConfirmEmail(e.target.value)}
+        />
+        <button
+          className="w-5/6 md:w-1/2 py-3 py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded"
+          onClick={handleChangeEmail}
+        >
+          {t('change')}
+        </button>
+      </div>
+    );
+  };
   
   const ChangeUsernameForm = () => (
     <div className="mt-4 flex flex-col items-center">
