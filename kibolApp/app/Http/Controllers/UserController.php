@@ -118,14 +118,14 @@ public function changePassword(ChangePasswordRequest $request, $id)
 {
     $user = User::find($id);
 
-    if ($user->password !== $request->oldPassword) {
+    if (!Hash::check($request->oldPassword, $user->password)) {
         return response()->json(['message' => 'Stare hasło jest nieprawidłowe.'], 400);
     }
 
     if ($request->newPassword == $request->confirmPassword) {
 
     $user->update([
-        'password' => $request->newPassword,
+        'password' => Hash::make($request->newPassword),
      ]);
     } else  return response()->json(['message' => 'Nieprawidłowe potwierdzenie hasła.'], 400);
 

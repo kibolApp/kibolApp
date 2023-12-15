@@ -70,26 +70,89 @@ const UserPanel = () => {
     );
   };
   
-  const ChangeUsernameForm = () => (
-    <div className="mt-4 flex flex-col items-center">
-      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('oldUsername')} />
-      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newUsername')} />
-      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
-        {t('change')}
-      </button>
-    </div>
-  );
+  const ChangeUsernameForm = () => {
+    const [oldUsername, setOldUsername] = useState('');
+    const [newUsername, setNewUsername] = useState('');
   
-  const ChangePasswordForm = () => (
-    <div className="mt-4 flex flex-col items-center">
-      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('oldPassword')} />
-      <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('newPassword')} />
-      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmNewPassword')} />
-      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
-        {t('change')}
-      </button>
-    </div>
-  );
+    const handleChangeUsername = async () => {
+        const response = await axiosClient.post(`/changeName/${user.id}`, {
+          oldName: oldUsername,
+          newName: newUsername,
+        });
+        setUser(response.data);
+    };
+  
+    return (
+      <div className="mt-4 flex flex-col items-center">
+        <input
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="text"
+          placeholder={t('oldUsername')}
+          value={oldUsername}
+          onChange={(e) => setOldUsername(e.target.value)}
+        />
+        <input
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="text"
+          placeholder={t('newUsername')}
+          value={newUsername}
+          onChange={(e) => setNewUsername(e.target.value)}
+        />
+        <button
+          className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded"
+          onClick={handleChangeUsername}
+        >
+          {t('change')}
+        </button>
+      </div>
+    );
+  };
+  
+  const ChangePasswordForm = () => {
+    const [oldPassword, setOldPassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+  
+    const handleChangePassword = async () => {
+        const response = await axiosClient.post(`/changePassword/${user.id}`, {
+          oldPassword,
+          newPassword,
+          confirmPassword,
+        });
+    };
+  
+    return (
+      <div className="mt-4 flex flex-col items-center">
+        <input
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="password"
+          placeholder={t('oldPassword')}
+          value={oldPassword}
+          onChange={(e) => setOldPassword(e.target.value)}
+        />
+        <input
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="password"
+          placeholder={t('newPassword')}
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+        />
+        <input
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          type="password"
+          placeholder={t('confirmNewPassword')}
+          value={confirmPassword}
+          onChange={(e) => setConfirmPassword(e.target.value)}
+        />
+        <button
+          className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded"
+          onClick={handleChangePassword}
+        >
+          {t('change')}
+        </button>
+      </div>
+    );
+  };
   
   const ChangeClubForm = () => (
     <div className="mt-4 flex flex-col items-center">
