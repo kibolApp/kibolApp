@@ -162,14 +162,19 @@ const UserPanel = () => {
       </button>
     </div>
   );
-  
-  const DeleteButton= () => (
-    <div className="mt-4 flex flex-col items-center">
-      <button className="w-5/6 md:w-1/2 py-3 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-        {t('confirmDelete')}
-      </button>
-    </div>
-  );
+
+  const handleDeleteUser = async (userId) => {
+    try {
+      const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
+      if (confirmed) {
+        await axiosClient.delete(`/users/${userId}`);
+        const updatedUsers = user.filter((user) => user.id !== userId);
+        setUser(updatedUsers);
+      }
+    } catch (error) {
+      console.error('Error deleting user:', error);
+    }
+  };
 
   return (
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
@@ -206,7 +211,7 @@ const UserPanel = () => {
             </div>
             <button
               className="bg-red-500 p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-bold text-white"
-              onClick={() => setSelectedForm('deleteAccount')}
+              onClick={() => handleDeleteUser(user.id)}
             >
               {t('deleteAccount')}
             </button>
@@ -224,9 +229,6 @@ const UserPanel = () => {
             )}
             {selectedForm === 'changeClub' && (
               <ChangeClubForm t={t} />
-            )}
-            {selectedForm === 'deleteAccount' && (
-              <DeleteButton t={t} />
             )}
           </div>
         </div>
