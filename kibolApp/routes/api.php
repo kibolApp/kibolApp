@@ -33,6 +33,11 @@ Route::get('/clubpage/{clubName}', [ClubController::class, 'getClubData']);
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
+
     Route::get('/getCurrentUser', [UserController::class, 'getCurrentUser']);
+    Route::put('/changeEmail', [UserController::class, 'changeEmail']);
+    Route::put('/changeName', [UserController::class, 'changeName']);
+    Route::put('/changePassword', [UserController::class, 'changePassword']);
+    //Route::put('/changeClub', [UserController::class, 'changeClub']);
 });
 Route::post('/send-email', [EmailController::class, 'sendEmail']);
