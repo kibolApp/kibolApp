@@ -4,12 +4,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserHeader from './components/UserHeader';
 import axiosClient from "./axiosClient";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const UserPanel = () => {
 
   const [selectedForm, setSelectedForm] = useState('');
   const { t } = useTranslation();
   const [user, setUser] = useState(null);
+  const {setToken}=useStateContext();
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -119,6 +121,7 @@ const UserPanel = () => {
           newPassword,
           confirmPassword,
         });
+        setUser(response.data);
     };
   
     return (
@@ -167,6 +170,7 @@ const UserPanel = () => {
     try {
       const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
       if (confirmed) {
+        axiosClient.post("/logout").then(() => {setUser({});setToken(null);});
         await axiosClient.delete(`/users/${userId}`);
         const updatedUsers = user.filter((user) => user.id !== userId);
         setUser(updatedUsers);
