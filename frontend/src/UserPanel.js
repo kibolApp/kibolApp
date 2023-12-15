@@ -1,14 +1,28 @@
-import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserHeader from './components/UserHeader';
+import React, { useState, useEffect } from 'react';
+import axiosClient from "./axiosClient";
 
 const UserPanel = () => {
 
   const [selectedForm, setSelectedForm] = useState('');
   const { t } = useTranslation();
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axiosClient.get('/getCurrentUser');
+        setUser(response.data.user);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
   const ChangeEmailForm = () => (
     <div className="mt-4 flex flex-col items-center">
       <input className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('oldEmail')} />
@@ -63,12 +77,20 @@ const UserPanel = () => {
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
-          <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('helloUsername')}</h1>
+        <h1 className={user ? "text-custom-brown text-4xl font-bold mb-6" : ""}>{t('Hello')} {user.name}</h1>
+
           
           <div className="mb-6">
-            <p><span className='font-bold'>{t('email')}:</span> user@example.com</p>
-            <p><span className='font-bold'>{t('username')}:</span> [Username]</p>
-            <p><span className='font-bold'>{t('selectedClub')}:</span> [Club Name]</p>
+          {user ? (
+  <div>
+    <p><span className='font-bold'>{t('email')}:</span> {user.email}</p>
+    <p><span className='font-bold'>{t('username')}:</span> {user.name}</p>
+    <p><span className='font-bold'>{t('selectedClub')}:</span> [Club Name]</p>
+  </div>
+) : (
+  <p>User not logged in.</p>
+)}
+
           </div>
 
           <div className="space-y-6 mb-12">

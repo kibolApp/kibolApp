@@ -33,5 +33,6 @@ Route::get('/clubpage/{clubName}', [ClubController::class, 'getClubData']);
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);
     Route::post('/logout', [AuthController::class, 'logout']);
+    Route::get('/getCurrentUser', [UserController::class, 'getCurrentUser']);
 });
 Route::post('/send-email', [EmailController::class, 'sendEmail']);
