@@ -1,8 +1,8 @@
+import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UserHeader from './components/UserHeader';
-import React, { useState, useEffect } from 'react';
 import axiosClient from "./axiosClient";
 
 const UserPanel = () => {
@@ -77,15 +77,15 @@ const UserPanel = () => {
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
-        <h1 className={user ? "text-custom-brown text-4xl font-bold mb-6" : ""}>{t('Hello')} {user.name}</h1>
-
+        <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('Hello')} {user ? user.name : t('guest')}
+      </h1>
           
           <div className="mb-6">
           {user ? (
   <div>
     <p><span className='font-bold'>{t('email')}:</span> {user.email}</p>
     <p><span className='font-bold'>{t('username')}:</span> {user.name}</p>
-    <p><span className='font-bold'>{t('selectedClub')}:</span> [Club Name]</p>
+    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club ? user.club.team : t('No Club Selected')}</p>
   </div>
 ) : (
   <p>User not logged in.</p>

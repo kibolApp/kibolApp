@@ -37,24 +37,24 @@ class UserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-    
+
         return response()->json($user, 201);
     }
-    
+
     public function update(UserRequest $request, $id)
     {
         $user = User::find($id);
-    
+
         if (!$user) {
             return response()->json(['message' => 'Użytkownik nie znaleziony'], 404);
         }
-    
+
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
-    
+
         return response()->json($user);
     }
 
