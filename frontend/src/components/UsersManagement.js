@@ -103,9 +103,12 @@ const UserManagement = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      await axiosClient.delete(`/users/${userId}`);
-      const updatedUsers = users.filter((user) => user.id !== userId);
-      setUsers(updatedUsers);
+      const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
+      if (confirmed) {
+        await axiosClient.delete(`/users/${userId}`);
+        const updatedUsers = users.filter((user) => user.id !== userId);
+        setUsers(updatedUsers);
+      }
     } catch (error) {
       console.error('Error deleting user:', error);
     }
