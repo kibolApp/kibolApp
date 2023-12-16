@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Http\Requests\ClubRequest;
+use App\Models\Clubs;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\DB;
 
 class ClubController extends Controller
 {
+    public function index()
+    {
+        $clubs = Clubs::all();
+        return response()->json($clubs);
+    }
+
     public function getClubData($clubName)
     {
         if (!Schema::hasTable($clubName)) {
