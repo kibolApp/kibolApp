@@ -242,7 +242,7 @@ const UserPanel = () => {
   <div>
     <p><span className='font-bold'>{t('email')}:</span> {user.email}</p>
     <p><span className='font-bold'>{t('username')}:</span> {user.name}</p>
-    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club.team}</p>
+    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club ? user.club.team : 'No selected club'}</p>
   </div>
 ) : (
   <p>User not logged in.</p>
