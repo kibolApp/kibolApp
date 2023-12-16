@@ -36,7 +36,7 @@ const UserPanel = () => {
           newEmail,
           confirmEmail,
         });
-        setUser(response.data);
+        window.location.reload();
     };
 
     return (
@@ -81,7 +81,7 @@ const UserPanel = () => {
           oldName: oldUsername,
           newName: newUsername,
         });
-        setUser(response.data);
+        window.location.reload();
     };
   
     return (
@@ -121,7 +121,7 @@ const UserPanel = () => {
           newPassword,
           confirmPassword,
         });
-        setUser(response.data);
+        window.location.reload();
     };
   
     return (
@@ -157,14 +157,63 @@ const UserPanel = () => {
     );
   };
   
-  const ChangeClubForm = () => (
-    <div className="mt-4 flex flex-col items-center">
-      <input className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('newClub')}/>
-      <button className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded">
-        {t('change')}
-      </button>
-    </div>
-  );
+  const ChangeClubForm = ({ onClubChange }) => {
+    const [clubs, setClubs] = useState([]);
+    const [selectedClub, setSelectedClub] = useState(user?.club ? user.club.team : '');
+  
+    useEffect(() => {
+      const fetchClubs = async () => {
+        try {
+          const response = await axiosClient.get('/clubs');
+          setClubs(response.data);
+        } catch (error) {
+          console.error('Error fetching clubs:', error);
+        }
+      };
+  
+      fetchClubs();
+    }, []);
+  
+    const handleChangeClub = async () => {
+      try {
+        const response = await axiosClient.post(`/changeClub/${user.id}`, {
+          newClub: selectedClub,
+        });
+        window.location.reload();
+        onClubChange();
+        toast.success('Club changed successfully!');
+      } catch (error) {
+        console.error('Error changing club:', error);
+        toast.error('Error changing club');
+      }
+      
+    };
+  
+    return (
+      <div className="mt-4 flex flex-col items-center">
+        <select
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black"
+          value={selectedClub}
+          onChange={(e) => setSelectedClub(e.target.value)}
+        >
+          <option value="" disabled>
+            Select a club
+          </option>
+          {clubs.map((club) => (
+            <option key={club.id} value={club.team}>
+              {club.team}
+            </option>
+          ))}
+        </select>
+        <button
+          className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded"
+          onClick={handleChangeClub}
+        >
+          Change Club
+        </button>
+      </div>
+    );
+  };
 
   const handleDeleteUser = async (userId) => {
     try {
@@ -193,7 +242,7 @@ const UserPanel = () => {
   <div>
     <p><span className='font-bold'>{t('email')}:</span> {user.email}</p>
     <p><span className='font-bold'>{t('username')}:</span> {user.name}</p>
-    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club ? user.club.team : t('No Club Selected')}</p>
+    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club.team}</p>
   </div>
 ) : (
   <p>User not logged in.</p>
