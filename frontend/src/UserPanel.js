@@ -181,10 +181,8 @@ const UserPanel = () => {
         });
         window.location.reload();
         onClubChange();
-        toast.success('Club changed successfully!');
       } catch (error) {
         console.error('Error changing club:', error);
-        toast.error('Error changing club');
       }
       
     };
