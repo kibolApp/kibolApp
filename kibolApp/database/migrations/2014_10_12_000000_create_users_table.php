@@ -15,17 +15,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->rememberToken();
+            $table->unsignedBigInteger('team_id')->nullable(); // Zmiana kolumny 'team' na 'team_id'
+            $table->foreign('team_id')->references('id')->on('clubs'); // Dodanie klucza obcego
             $table->timestamps();
-        });
-
-        Schema::create('clubs', function(Blueprint $table){
-            $table->id();
-            $table->string('team');
-            $table->float('latitude');
-            $table->float('longitude');
-            $table->string('adress');
-            $table->string('url_logo');
         });
     }
 

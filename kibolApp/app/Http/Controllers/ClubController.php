@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ClubRequest;
 use App\Models\Clubs;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class ClubController extends Controller
 {
@@ -33,18 +35,18 @@ class ClubController extends Controller
             'address' => $request->address,
             'url_logo' => $request->url_logo,
         ]);
-    
+
         return response()->json($club, 201);
     }
-    
+
     public function update(ClubRequest $request, $id)
     {
         $club = Clubs::find($id);
-    
+
         if (!$club) {
             return response()->json(['message' => 'Klub nie znaleziony'], 404);
         }
-    
+
         $club->update([
             'team' => $request->team,
             'latitude' => $request->latitude,
@@ -52,7 +54,7 @@ class ClubController extends Controller
             'address' => $request->address,
             'url_logo' => $request->url_logo,
         ]);
-    
+
         return response()->json($club);
     }
 
@@ -68,8 +70,7 @@ class ClubController extends Controller
 
         return response()->json(['message' => 'Klub usunięty']);
     }
-	
-{
+
     public function getClubData($clubName)
     {
         if (!Schema::hasTable($clubName)) {
