@@ -35,7 +35,7 @@ return (
           <Link to="/app" className="hover:text-gray-300">{t('clubLocations')}</Link>
         </li>
         <li className="text-white mx-4 font-semibold">
-          <a href="#" className="hover:text-gray-300">{t('clubList')}</a>
+          <Link to="/clublist" className="hover:text-gray-300">{t('clubList')}</Link>
         </li>
         <li className="text-white mx-4 font-semibold">
           <Link to="/auth" className="hover:text-gray-300">{t('loginRegister')}</Link>
