@@ -16,7 +16,7 @@ const en = {
     loginHere: "Log in here.",
   
 // HomeHeader
-    start: "Start",
+    start: "Home",
     clubLocations: "Club Locations",
     clubList: "Club List",
     loginRegister: "Login / Register",

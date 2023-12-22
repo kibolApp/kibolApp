@@ -16,7 +16,7 @@ const pl = {
     loginHere: "Zaloguj się tutaj.",
   
 // HomeHeader
-    start: "Start",
+    start: "Strona domowa",
     clubLocations: "Lokalizacja klubów",
     clubList: "Spis klubów",
     loginRegister: "Logowanie / Rejestracja",

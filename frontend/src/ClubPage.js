@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import UserHeader from './components/UserHeader';
 import axiosClient from './axiosClient';
+import  UserHeader from './components/Headers/UserHeader';
+import  GuestHeader from './components/Headers/GuestHeader';
 
 const ClubPage = () => {
     const { clubName } = useParams();

@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useRef } from "react";
@@ -9,6 +8,8 @@ import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import  UserHeader from './components/Headers/UserHeader';
+import  GuestHeader from './components/Headers/GuestHeader';
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
@@ -133,7 +134,7 @@ const AuthForm = () => {
 
   return (
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
-      <Header />
+      <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-md w-full m-4">
           {isLoginVisible ? loginForm : registerForm}

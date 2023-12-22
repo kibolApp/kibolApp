@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import UserHeader from './components/UserHeader';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
+import  UserHeader from './components/Headers/UserHeader';
+import  GuestHeader from './components/Headers/GuestHeader';
 
 const UserPanel = () => {
 

@@ -1,8 +1,9 @@
 import React from 'react';
-import Map from './components/Map';
-import UserHeader from './components/UserHeader';
+import Map from './components/Map'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import  UserHeader from './components/Headers/UserHeader';
+import  GuestHeader from './components/Headers/GuestHeader';
 
 const App = () => {
   return (

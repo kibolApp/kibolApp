@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axiosClient from "./axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
-import UserHeader from './components/UserHeader';
+import  UserHeader from './components/Headers/UserHeader';
+import  GuestHeader from './components/Headers/GuestHeader';
 
 const AdminPanel = () => {
   const [users, setUsers] = useState([]);
