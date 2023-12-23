@@ -6,7 +6,7 @@ import axiosClient from "./axiosClient";
 
 const ClubList = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [filteredClubs, setFilteredClubs] = useState([]); // Initialize with an empty array initially
+    const [filteredClubs, setFilteredClubs] = useState([]);
     const [markersData, setMarkersData] = useState([]);
 
     useEffect(() => {
@@ -47,28 +47,31 @@ const ClubList = () => {
                             className="w-full h-full rounded-full px-4"
                             placeholder="Search for a club..."
                             value={searchTerm}
-                            onChange={handleSearchChange}
+                            onChange={handleSearchChange}  
                         />
                     </div>
                 </div>
-            <div className="overflow-x-auto rounded mb-4">
-                <table className="w-full text-center font-bold">
-                    <tbody>
+                <div className="overflow-x-auto rounded mb-4">
+                    <div className="flex flex-col items-center">
                         {filteredClubs.map((club, index) => (
-                            <tr key={index} className={`${index % 2 === 0 ? 'bg-custom-sand' : 'bg-custom-light-tan'}`}>
-                                <td className="py-2">
-                                    <div>
-                                        <Link to={club.url}>
-                                            <h2 className="text-center text-custom-brown font-semibold"><img src={club.icon.options.iconUrl} alt="club logo" className="w-8 h-8" />{club.team}</h2>
-                                        </Link>
-                                    </div>
-                                </td>
-                            </tr>
+                        <div key={index} className={`relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-2 w-full hover:bg-custom-olive`}>
+                            <Link to={club.url} className="flex items-center w-full h-full">
+                                <img
+                                    src={club.icon.options.iconUrl}
+                                    alt={club.team}
+                                    className="absolute left-16 w-16 h-16 top-1/2 transform -translate-y-1/2"
+                                />
+                                <div className="flex justify-center items-center w-full h-full">
+                                    <span className="text-black font-semibold uppercase text-center text-lg">
+                                        {club.team}
+                                    </span>
+                                </div>
+                            </Link>
+                        </div>
                         ))}
-                    </tbody>
-                </table>
+                    </div>
+                </div>
             </div>
-        </div>
         </div>
     );
 };
