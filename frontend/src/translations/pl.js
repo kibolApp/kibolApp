@@ -53,6 +53,9 @@ const pl = {
     oldPassword: "Stare Hasło",
     newPassword: "Nowe Hasło",
     confirmNewPassword: "Potwierdź Nowe Hasło",
-    newClub: "Nowy Klub"
+    newClub: "Nowy Klub",
+
+//Club List
+    searchPlaceholder: "Szukaj klubu...",
 };
 export default pl;

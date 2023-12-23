@@ -3,11 +3,16 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Icon } from 'leaflet';
 import axiosClient from "./axiosClient";
+import { useTranslation } from 'react-i18next';
 
 const ClubList = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredClubs, setFilteredClubs] = useState([]);
     const [markersData, setMarkersData] = useState([]);
+    const { t } = useTranslation();
+    const changeLanguage = (lng) => {
+        t.changeLanguage(lng);
+      }
 
     useEffect(() => {
         axiosClient.get('/clubs')
@@ -45,7 +50,7 @@ const ClubList = () => {
                         <input
                             type="text"
                             className="w-full h-full rounded-full px-4"
-                            placeholder="Search for a club..."
+                            placeholder={t('searchPlaceholder')}
                             value={searchTerm}
                             onChange={handleSearchChange}  
                         />

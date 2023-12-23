@@ -5,10 +5,10 @@ import UserPanel from '../UserPanel';
 
 export default function UserHeader() {
 const { t } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    t.changeLanguage(lng);
-  };
+const { i18n } = useTranslation();
+const changeLanguage = (lng) => {
+  i18n.changeLanguage(lng);
+}
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo black
