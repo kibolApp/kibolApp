@@ -59,12 +59,12 @@ const ClubList = () => {
                 <div className="overflow-x-auto rounded mb-4">
                     <div className="flex flex-col items-center">
                         {filteredClubs.map((club, index) => (
-                        <div key={index} className={`relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-2 w-full hover:bg-custom-olive`}>
+                        <div key={index} className={`relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-3 w-full hover:bg-custom-olive`}>
                             <Link to={club.url} className="flex items-center w-full h-full">
                                 <img
                                     src={club.icon.options.iconUrl}
                                     alt={club.team}
-                                    className="absolute left-16 w-16 h-16 top-1/2 transform -translate-y-1/2"
+                                    className="absolute left-16 w-24 h-24 top-1/2 transform -translate-y-1/2"
                                 />
                                 <div className="flex justify-center items-center w-full h-full">
                                     <span className="text-black font-semibold uppercase text-center text-lg">
