@@ -5,10 +5,10 @@ import UserPanel from '../UserPanel';
 
 export default function UserHeader() {
 const { t } = useTranslation();
-
-  const changeLanguage = (lng) => {
-    t.changeLanguage(lng);
-  };
+const { i18n } = useTranslation();
+const changeLanguage = (lng) => {
+  i18n.changeLanguage(lng);
+}
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo black
@@ -42,7 +42,7 @@ return (
               <a className="hover:text-gray-300 "><Link to="/app">{t('clubLocations')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-            <a className="hover:text-gray-300"><Link to="/clubpage">{t('clubList')}</Link></a>
+            <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
             </li>
           </ul>
         </nav>

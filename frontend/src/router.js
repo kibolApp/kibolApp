@@ -8,6 +8,7 @@ import ClubPage from './ClubPage';
 import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
 import LoadingScreen from './LoadingScreen';
+import ClubList from './ClubList';
 const AppLazy = lazy(() => import('./App'));
 
 
@@ -47,6 +48,10 @@ const router =createBrowserRouter([
           {
             path: '/clubpage/:clubName',
             element: <ClubPage />,
+          },
+          {
+            path: '/clublist',
+            element: <ClubList />
           },
           {
             path: '/Profile',
