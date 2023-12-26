@@ -53,6 +53,9 @@ const en = {
     oldPassword: "Old Password",
     newPassword: "New Password",
     confirmNewPassword: "Confirm new password",
-    newClub: "New Club"
+    newClub: "New Club",
+
+//Club List
+    searchPlaceholder: "Search for a club...",
 };
 export default en;
