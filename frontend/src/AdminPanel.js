@@ -3,8 +3,10 @@ import axiosClient from "./axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import UserHeader from './components/UserHeader';
+import { useTranslation } from 'react-i18next';
 
 const AdminPanel = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     name: '',
@@ -20,7 +22,6 @@ const AdminPanel = () => {
     setIsModalOpen(true);
 
     if (user) {
-      
       setEditingUserId(user.id);
       setCurrentUser({
         name: user.name,
@@ -28,8 +29,8 @@ const AdminPanel = () => {
         password: '',
       });
       setEditingPassword('');
-    } else {
-      
+    } 
+    else {
       setEditingUserId(null);
       setCurrentUser({
         name: '',
@@ -129,15 +130,15 @@ const AdminPanel = () => {
 
       <div className="flex-grow flex items-center justify-center p-4">
         <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-          <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
+          <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('adminPanelTitle')}</h1>
 
           <table className="w-full mb-8">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nazwa</th>
-                <th>Email</th>
-                <th>Akcje</th>
+                <th>{t('id')}</th>
+                <th>{t('name')}</th>
+                <th>{t('email')}</th>
+                <th>{t('actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -147,19 +148,15 @@ const AdminPanel = () => {
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>
-                    <button
-                      onClick={() => openModal(user)}
-                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
-                    >
-                      <FontAwesomeIcon icon={faEdit} className="mr-2" />
-                      Edytuj
+                    <button 
+                      onClick={() => openModal(user)} 
+                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2">
+                      <FontAwesomeIcon icon={faEdit} className="mr-2" />{t('edit')}
                     </button>
                     <button
                       onClick={() => handleDeleteUser(user.id)}
-                      className="bg-red-500 px-4 py-2 text-white rounded-md"
-                    >
-                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                      Usuń
+                      className="bg-red-500 px-4 py-2 text-white rounded-md">
+                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />{t('delete')}
                     </button>
                   </td>
                 </tr>
@@ -169,14 +166,12 @@ const AdminPanel = () => {
 
           <div className="mb-6">
             <h2 className="text-2xl font-bold mb-4">
-              {editingUserId ? 'Edytuj' : 'New User'}
+              {editingUserId ? t('editUser') : t('newUser')}
             </h2>
             <button
               onClick={() => openModal(null)}
-              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
-            >
-              <FontAwesomeIcon icon={faPlus} className="mr-2" />
-              Dodaj użytkownika
+              className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4">
+              <FontAwesomeIcon icon={faPlus} className="mr-2" />{t('addUser')}
             </button>
             <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
               <div className={modalContentStyles}>
@@ -184,21 +179,21 @@ const AdminPanel = () => {
                   type="text"
                   value={currentUser.name}
                   onChange={(e) => setCurrentUser({ ...currentUser, name: e.target.value })}
-                  placeholder="Nazwa"
+                  placeholder={t('namePlaceholder')}
                   className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
                 />
                 <input
                   type="email"
                   value={currentUser.email}
                   onChange={(e) => setCurrentUser({ ...currentUser, email: e.target.value })}
-                  placeholder="Email"
+                  placeholder={t('emailPlaceholder')}
                   className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
                 />
                 <input
                   type="password"
                   value={editingPassword}
                   onChange={(e) => setEditingPassword(e.target.value)}
-                  placeholder="Hasło"
+                  placeholder={t('passwordPlaceholder')}
                   className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
                 />
                 <div className="flex justify-center">
@@ -206,22 +201,20 @@ const AdminPanel = () => {
                     onClick={() => {
                       if (editingUserId) {
                         handleEditUser();
-                      } else {
+                      } 
+                      else {
                         handleAddUser();
                       }
                       closeModal();
                     }}
-                    className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
-                  >
+                    className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2">
                     <FontAwesomeIcon icon={editingUserId ? faEdit : faPlus} className="mr-2" />
-                    {editingUserId ? 'Edytuj' : 'Dodaj'}
+                    {editingUserId ? t('editUser') : t('add')}
                   </button>
                   <button
                     onClick={closeModal}
-                    className="bg-red-500 px-4 py-2 text-white rounded-md ml-2"
-                  >
-                    <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                    Anuluj
+                    className="bg-red-500 px-4 py-2 text-white rounded-md ml-2">
+                    <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />{t('cancel')}
                   </button>
                 </div>
               </div>

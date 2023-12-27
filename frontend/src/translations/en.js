@@ -1,33 +1,44 @@
 const en = {
 // AuthForm
+
+    // Login**
     loginTitle: "Login",
     usernameEmail: "Username / email",
     password: "Password",
     loginButton: "Log In",
     socialLoginPrompt: "or log in through",
+
+    // Register**
     registrationTitle: "Registration",
     username: "Username",
     email: "Email",
     confirmPassword: "Confirm Password",
     registerButton: "Register",
+
+    // Account Prompt**
     noAccountPrompt: "Don't have an account?",
     registerHere: "Register here.",
     haveAccountPrompt: "Already have an account?",
     loginHere: "Log in here.",
   
+
 // HomeHeader
     start: "Start",
     clubLocations: "Club Locations",
     clubList: "Club List",
     loginRegister: "Login / Register",
-  
+
 // Home
     welcome: "Welcome to",
     kibol: "Kibol",
     APP: "APP",
+
+    // About**
     aboutTitle: "What is KibolApp - ABOUT",
     aboutText1: "KibolApp is an innovative website created for football enthusiasts and fans who want to explore the relationships between clubs.",
     aboutText2: "The app allows tracking club locations and provides information about friendships and conflicts between different teams.",
+
+    // Contact Us**
     questionTitle: "Have Questions? ",
     contactUs: "Contact Us",
     usernamePlaceholder: "Username",
@@ -35,27 +46,74 @@ const en = {
     messagePlaceholder: "Write your message here...",
     sendMessage: "Send!",
 
-//User Panel
-    helloUsername: "Hello, [Username]",
+
+// User Panel
+    // User-related translations**
+    hello: "Hello, ",
+    guest: "Guest",
+    userNotLoggedIn: "User not logged in",
+
+    // Profile and account management**
     selectedClub: "Selected Club",
-    changeYourEmail: "Change your email",
-    changeYourUsername: "Change your username",
-    changeYourPassword: "Change your password",
-    changeYourClub: "Change your club",
+    noClubSelected: "No club chosen",
     deleteAccount: "Delete Account",
-    change: "Change",
-    confirmDelete: "Confirm Delete",
+    confirmDeleteUser: "Are you sure you wish to delete this user?",
+
+    // Form fields and actions**
     oldEmail: "Old Email",
     newEmail: "New Email",
-    confirmNewEmail: "Confirm new email",
+    confirmEmail: "Confirm new email",
     oldUsername: "Old Username",
     newUsername: "New Username",
     oldPassword: "Old Password",
     newPassword: "New Password",
-    confirmNewPassword: "Confirm new password",
     newClub: "New Club",
 
-//Club List
+    // Club-related translations**
+    selectClub: "Select Club",
+    changeClub: "Change Club",
+
+    // Change actions**
+    changeYourEmail: "Change your email",
+    changeYourUsername: "Change your username",
+    changeYourPassword: "Change your password",
+    changeYourClub: "Change your club",
+    change: "Change",
+    confirmDelete: "Confirm Delete",
+
+// Club List - App
     searchPlaceholder: "Search for a club...",
-};
-export default en;
+    findClub: "Find a club",
+
+// Club Page
+    goodRelation: "GOOD RELATIONS / AGREEMENTS",
+    badRelation: "BAD RELATIONS / SCYTHES",
+
+
+// AdminPanel
+    adminPanelTitle: "User Management Panel",
+
+    // Table Headers**
+    id: "ID",
+    name: "Name",
+    actions: "Actions",
+
+    // Actions**
+    edit: "Edit",
+    delete: "Delete",
+    addUser: "Add User",
+
+    // Form Placeholders**
+    namePlaceholder: "Name",
+    passwordPlaceholder: "Password",
+
+    // Form Actions**
+    add: "Add",
+    cancel: "Cancel",
+
+    // User Actions**
+    editUser: "Edit User",
+    newUser: "New User",
+  };
+  export default en;
+  
