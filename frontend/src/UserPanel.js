@@ -8,8 +8,8 @@ import { useStateContext } from "./contexts/ContextProvider";
 
 const UserPanel = () => {
 
-  const [selectedForm, setSelectedForm] = useState('');
   const { t } = useTranslation();
+  const [selectedForm, setSelectedForm] = useState('');
   const [user, setUser] = useState(null);
   const {setToken}=useStateContext();
 
@@ -25,6 +25,7 @@ const UserPanel = () => {
 
     fetchUserProfile();
   }, []);
+
   const ChangeEmailForm = () => {
     const [oldEmail, setOldEmail] = useState('');
     const [newEmail, setNewEmail] = useState('');
@@ -58,7 +59,7 @@ const UserPanel = () => {
         <input
           className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
           type="email"
-          placeholder={t('confirmNewEmail')}
+          placeholder={t('confirmEmail')}
           value={confirmEmail}
           onChange={(e) => setConfirmEmail(e.target.value)}
         />
@@ -143,7 +144,7 @@ const UserPanel = () => {
         <input
           className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
           type="password"
-          placeholder={t('confirmNewPassword')}
+          placeholder={t('confirmPassword')}
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
@@ -195,7 +196,7 @@ const UserPanel = () => {
           onChange={(e) => setSelectedClub(e.target.value)}
         >
           <option value="" disabled>
-            Select a club
+            {t('selectClub')}
           </option>
           {clubs.map((club) => (
             <option key={club.id} value={club.team}>
@@ -207,7 +208,7 @@ const UserPanel = () => {
           className="w-5/6 md:w-1/2 py-3 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold rounded"
           onClick={handleChangeClub}
         >
-          Change Club
+          {t('changeClub')}
         </button>
       </div>
     );
@@ -215,7 +216,7 @@ const UserPanel = () => {
 
   const handleDeleteUser = async (userId) => {
     try {
-      const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
+      const confirmed = window.confirm(t('confirmDeleteUser'));
       if (confirmed) {
         axiosClient.post("/logout").then(() => {setUser({});setToken(null);});
         await axiosClient.delete(`/users/${userId}`);
@@ -232,7 +233,7 @@ const UserPanel = () => {
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
         <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('Hello')} {user ? user.name : t('guest')}
+        <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('hello')} {user ? user.name : t('guest')}
       </h1>
           
           <div className="mb-6">
@@ -240,10 +241,10 @@ const UserPanel = () => {
   <div>
     <p><span className='font-bold'>{t('email')}:</span> {user.email}</p>
     <p><span className='font-bold'>{t('username')}:</span> {user.name}</p>
-    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club ? user.club.team : 'No selected club'}</p>
+    <p><span className='font-bold'>{t('selectedClub')}:</span> {user.club ? user.club.team : t('noClubSelected')}</p>
   </div>
 ) : (
-  <p>User not logged in.</p>
+  <p>{t('userNotLoggedIn')}</p>
 )}
 
           </div>
