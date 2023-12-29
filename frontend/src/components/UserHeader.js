@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import UserPanel from '../UserPanel';
 
 export default function UserHeader() {
 const { t } = useTranslation();
@@ -12,7 +11,7 @@ const changeLanguage = (lng) => {
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo black
-    "https://i.imgur.com/F6Iag9a.png", //User Profile
+    "https://i.imgur.com/GKDLtl5.png", //User Profile
     "https://i.imgur.com/m5aXfio.png", //Polska
     "https://i.imgur.com/rQiArPt.png" //GB
     ];
@@ -46,10 +45,9 @@ return (
             </li>
           </ul>
         </nav>
-        {/* User Logo */}
         <button>
           <Link to="/Profile">
-        <img src={data[1]} alt="RightIcon" className="h-20" />
+        <img src={data[1]} alt="RightIcon" className="h-24" />
           </Link>
         </button>
       </div>

@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
 
-const Home = () => {
+const HomeGuest = () => {
 
   const {setUser,setToken}=useStateContext();
   const [isSticky, setIsSticky] = useState(false);
@@ -17,16 +17,6 @@ const Home = () => {
 
   const { i18n } = useTranslation();
 
-  const handleLogout = async (e) => {
-    e.preventDefault();
-
-    axiosClient
-      .post("/logout")
-      .then(() => {
-        setUser({});
-        setToken(null);
-      });
-  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -93,8 +83,8 @@ return (
               <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
             </li>
             <li className="text-white mx-4 font-semibold">
-          <button onClick={handleLogout} className="hover:text-gray-300">{t('logout')}</button>
-        </li>
+              <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -138,4 +128,4 @@ return (
   );
 };
 
-export default Home;
+export default HomeGuest;
