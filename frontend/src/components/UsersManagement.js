@@ -1,4 +1,3 @@
-// UserManagement.js
 import React, { useState, useEffect } from 'react';
 import axiosClient from "../axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

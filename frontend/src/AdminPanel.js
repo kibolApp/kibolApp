@@ -1,4 +1,3 @@
-// AdminPanelClubs.js
 import React, { useState } from 'react';
 import UserHeader from './components/UserHeader';
 import ClubManagement from './components/ClubsManagement';

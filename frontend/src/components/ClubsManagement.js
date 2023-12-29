@@ -1,4 +1,3 @@
-// ClubManagement.js
 import React, { useState, useEffect } from 'react';
 import axiosClient from "../axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,7 +13,6 @@ const ClubManagement = () => {
     url_logo: '',
   });
   const [editingClubId, setEditingClubId] = useState(null);
-  const [editingPassword, setEditingPassword] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -30,7 +28,6 @@ const ClubManagement = () => {
         address: club.address,
         url_logo: club.url_logo,
       });
-      setEditingPassword('');
     } else {
       setEditingClubId(null);
       setCurrentClub({
@@ -40,7 +37,6 @@ const ClubManagement = () => {
         address: '',
         url_logo: '',
       });
-      setEditingPassword('');
     }
   };
 
@@ -54,7 +50,6 @@ const ClubManagement = () => {
       address: '',
       url_logo: '',
     });
-    setEditingPassword('');
   };
 
   useEffect(() => {
@@ -95,7 +90,7 @@ const ClubManagement = () => {
 
   const handleEditClub = async () => {
     try {
-      const updatedClub = { ...currentClub, password: editingPassword };
+      const updatedClub = { ...currentClub};
       const response = await axiosClient.put(`/clubs/${editingClubId}`, updatedClub);
       const updatedClubs = clubs.map((club) =>
         club.id === editingClubId ? response.data : club
@@ -109,7 +104,6 @@ const ClubManagement = () => {
         address: '',
         url_logo: '',
       });
-      setEditingPassword('');
     } catch (error) {
       console.error('Error editing club:', error);
     }
