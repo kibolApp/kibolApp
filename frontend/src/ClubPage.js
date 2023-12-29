@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import UserHeader from './components/UserHeader';
 import axiosClient from './axiosClient';
+import { useTranslation } from 'react-i18next';
 
 const ClubPage = () => {
+    const { t } = useTranslation();
+
     const { clubName } = useParams();
     const [clubData, setClubData] = useState([]);
     useEffect(() => {
@@ -60,7 +63,7 @@ const ClubPage = () => {
     
     <div className="mt-16 bg-custom-sand p-4 shadow-lg rounded-lg mx-auto">
       <div className="my-6 mx-6"> 
-                <h2 className="text-2xl font-bold mb-2 text-white">DOBRE STOSUNKI / ZGODY</h2>
+                <h2 className="text-2xl font-bold mb-2 text-white">{t('goodRelation')}</h2>
                 <ul className="list-disc pl-5 text-lg">
                 {clubData.map((club) => (
       <React.Fragment key={club.id}>
@@ -72,7 +75,7 @@ const ClubPage = () => {
                 </ul>
             </div>
             <div className="my-6 mx-6"> 
-                <h2 className="text-2xl font-bold mb-2 text-white">ZŁE STOSUNKI / KOSY</h2>
+                <h2 className="text-2xl font-bold mb-2 text-white">{t('badRelation')}</h2>
                 <ul className="list-disc pl-5 text-lg">
                 {clubData.map((club) => (
       <React.Fragment key={club.id}>
