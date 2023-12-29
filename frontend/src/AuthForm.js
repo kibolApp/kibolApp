@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import { useRef } from "react";
 import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
+import axiosClientWeb from "./axiosClientWeb";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -42,6 +43,8 @@ const AuthForm = () => {
       });
   };
 
+  
+
   const submitLogin = async (ev) => {
     ev.preventDefault()
     const payload={
@@ -60,14 +63,39 @@ const AuthForm = () => {
     })
   
   }
+  const handleGithubClick = () => {
+    console.log('GitHub clicked');
+    axiosClientWeb.get('/auth/github/redirect')
+    .catch(err=>{
+      console.log(err);
+      notify('Login failed', 'error');
+    })
+  };
+
+  const handleGoogleClick = () => {
+    console.log('Google clicked');
+    axiosClientWeb.get('/auth/google/redirect')
+    .catch(err=>{
+      console.log(err);
+      notify('Login failed', 'error');
+    })
+  };
 
   const SocialMediaIcons = () => (
+    
     <div className="flex justify-center gap-5 mb-5 text-white">
-      <FontAwesomeIcon icon={faFacebook} size="2x" className="cursor-pointer hover:text-facebook" />
-      <FontAwesomeIcon icon={faGoogle} size="2x" className="cursor-pointer hover:text-google" />
-      <FontAwesomeIcon icon={faInstagram} size="2x" className="cursor-pointer hover:text-instagram" />
-      <FontAwesomeIcon icon={faTwitter} size="2x" className="cursor-pointer hover:text-twitter" />
-      <FontAwesomeIcon icon={faLinkedin} size="2x" className="cursor-pointer hover:text-linkedin" />
+       <FontAwesomeIcon
+        icon={faGithub}
+        size="3x"
+        className="cursor-pointer hover:text-facebook"
+        onClick={handleGithubClick}
+      />
+      <FontAwesomeIcon
+        icon={faGoogle}
+        size="3x"
+        className="cursor-pointer hover:text-google"
+        onClick={handleGoogleClick}
+      />
     </div>
   );
   
