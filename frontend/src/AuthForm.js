@@ -9,6 +9,7 @@ import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialMediaIcons from './components/SocialMediaIcons';
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
@@ -61,15 +62,6 @@ const AuthForm = () => {
   
   }
 
-  const SocialMediaIcons = () => (
-    <div className="flex justify-center gap-5 mb-5 text-white">
-      <FontAwesomeIcon icon={faFacebook} size="2x" className="cursor-pointer hover:text-facebook" />
-      <FontAwesomeIcon icon={faGoogle} size="2x" className="cursor-pointer hover:text-google" />
-      <FontAwesomeIcon icon={faInstagram} size="2x" className="cursor-pointer hover:text-instagram" />
-      <FontAwesomeIcon icon={faTwitter} size="2x" className="cursor-pointer hover:text-twitter" />
-      <FontAwesomeIcon icon={faLinkedin} size="2x" className="cursor-pointer hover:text-linkedin" />
-    </div>
-  );
   
   const SocialText = ({ children }) => (
     <p className="mt-5 text-center mb-5">
