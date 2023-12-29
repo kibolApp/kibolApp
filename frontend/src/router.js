@@ -9,6 +9,7 @@ import UserPanel from './UserPanel';
 import AdminPanel from './AdminPanel';
 import LoadingScreen from './LoadingScreen';
 import ClubList from './ClubList';
+import WaitingPage from './WaitingPage';
 const AppLazy = lazy(() => import('./App'));
 
 
@@ -79,6 +80,10 @@ const router =createBrowserRouter([
             path: '/auth',
             element: <AuthForm />,
           },
+          {
+            path:'/wait',
+            element: <WaitingPage/>,
+          }
         ],
       }
 ])

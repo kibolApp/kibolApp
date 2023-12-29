@@ -65,7 +65,11 @@ const AuthForm = () => {
   }
   const handleGithubClick = () => {
     console.log('GitHub clicked');
-    axiosClientWeb.get('/auth/github/redirect')
+    const nameG="github"
+    axiosClientWeb.get(`/auth/${nameG}/redirect`)
+    .then(({data})=>{
+      window.location.href = data.authUrl;
+    })
     .catch(err=>{
       console.log(err);
       notify('Login failed', 'error');
@@ -74,7 +78,11 @@ const AuthForm = () => {
 
   const handleGoogleClick = () => {
     console.log('Google clicked');
-    axiosClientWeb.get('/auth/google/redirect')
+    const nameG="google"
+    axiosClientWeb.get(`/auth/${nameG}/redirect`)
+    .then(({data})=>{
+      window.location.href = data.authUrl;
+    })
     .catch(err=>{
       console.log(err);
       notify('Login failed', 'error');

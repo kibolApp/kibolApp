@@ -2,10 +2,8 @@
 
 use App\Http\Controllers\Auth\ProviderController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Http\Controllers\AuthController;
 
-use function PHPUnit\Framework\callback;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,8 +16,6 @@ use function PHPUnit\Framework\callback;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/auth/{provider}/redirect', ProviderController::class, 'redirect');
-Route::get('/auth/{provider}/callback', ProviderController::class, 'callback');
+
+    Route::get('/auth/{provider}/redirect', [ProviderController::class, 'redirect']);
+    Route::get('/auth/{provider}/callback', [ProviderController::class, 'callback']);
