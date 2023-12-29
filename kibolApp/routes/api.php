@@ -48,5 +48,3 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/changePassword/{id}', [UserController::class, 'changePassword']);
     Route::post('/changeClub/{id}', [UserController::class, 'changeClub']);
 });
-
-Route::get('/users', [UserController::class, 'getUsers']);
