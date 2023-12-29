@@ -1,7 +1,7 @@
 # kibolApp
 The kibolApp project was created for the purpose of passing the PSI 2 course.
 
-Setup instructions:
+# Setup instructions:
 
 1. The first step is to clone the repository from https://github.com/kibolApp/kibolApp.
 
