@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axiosClient from "../axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import ReactPaginate from 'react-paginate';
 
 const ClubManagement = () => {
   const [clubs, setClubs] = useState([]);
@@ -15,6 +16,10 @@ const ClubManagement = () => {
   const [editingClubId, setEditingClubId] = useState(null);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [selectedPage, setSelectedPage] = useState(0);
+  const clubsPerPage = 8;
+  const pagesVisited = pageNumber * clubsPerPage;
 
   const openModal = (club) => {
     setIsModalOpen(true);
@@ -90,7 +95,7 @@ const ClubManagement = () => {
 
   const handleEditClub = async () => {
     try {
-      const updatedClub = { ...currentClub};
+      const updatedClub = { ...currentClub };
       const response = await axiosClient.put(`/clubs/${editingClubId}`, updatedClub);
       const updatedClubs = clubs.map((club) =>
         club.id === editingClubId ? response.data : club
@@ -119,9 +124,19 @@ const ClubManagement = () => {
     }
   };
 
-  const modalOverlayStyles = "fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center";
+  const modalOverlayStyles =
+    "fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50 flex items-center justify-center";
 
-  const modalContentStyles = "bg-custom-sand p-8 rounded-2xl shadow-md max-w-md w-full text-center transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2";
+  const modalContentStyles =
+    "bg-custom-sand p-8 rounded-2xl shadow-md max-w-md w-full text-center transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2";
+
+    const changePage = ({ selected }) => {
+      setPageNumber(selected);
+      setSelectedPage(selected);
+    };
+    
+
+  const displayedClubs = clubs.slice(pagesVisited, pagesVisited + clubsPerPage);
 
   return (
     <div className="flex-grow flex items-center justify-center p-4">
@@ -129,8 +144,7 @@ const ClubManagement = () => {
         <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel Zarządzania Klubami</h1>
 
         <div>
-          <h2 className="text-2xl font-bold mb-4">
-          </h2>
+          <h2 className="text-2xl font-bold mb-4"></h2>
           <button
             onClick={() => openModal(null)}
             className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
@@ -150,10 +164,14 @@ const ClubManagement = () => {
             </tr>
           </thead>
           <tbody>
-            {clubs.map((club) => (
+            {displayedClubs.map((club) => (
               <tr key={club.id}>
                 <td>{club.id}</td>
-                <img src={club.url_logo} alt={`Logo ${club.team}`} style={{ maxWidth: '50px', maxHeight: '50px' }} />
+                <img
+                  src={club.url_logo}
+                  alt={`Logo ${club.team}`}
+                  style={{ maxWidth: '50px', maxHeight: '50px' }}
+                />
                 <td>{club.team}</td>
                 <td>
                   <div className="flex space-x-2">
@@ -177,6 +195,21 @@ const ClubManagement = () => {
             ))}
           </tbody>
         </table>
+
+        <ReactPaginate
+        previousLabel={'Poprzednia'}
+        nextLabel={'Następna'}
+        pageCount={Math.ceil(clubs.length / clubsPerPage)}
+        onPageChange={changePage}
+        containerClassName={"flex items-center justify-center mt-4"}
+        pageClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+        breakClassName="px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+        previousClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+        nextClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+        activeClassName={"bg-custom-olive text-white"}
+        initialPage={selectedPage}
+        />
+
 
         <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
           <div className={modalContentStyles}>
