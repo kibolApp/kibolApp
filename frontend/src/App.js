@@ -1,9 +1,8 @@
 import React from 'react';
 import Map from './components/Map';
 import UserHeader from './components/UserHeader';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import { useTranslation } from 'react-i18next';
+import MagnifyingComponent from './magnifying';
 
 const App = () => {
   const { t } = useTranslation();
@@ -28,9 +27,7 @@ const App = () => {
         type="text"
         id="search"
         placeholder={t('searchPlaceholder')}/>
-        <button>
-        <FontAwesomeIcon icon={faMagnifyingGlass} beat size="xl" className="mr-6 text-custom-brown" />
-        </button>
+       <MagnifyingComponent />
               </div>
             </div>
           </div>
