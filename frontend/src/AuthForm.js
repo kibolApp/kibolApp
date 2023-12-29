@@ -10,6 +10,7 @@ import axiosClient from "./axiosClient";
 import axiosClientWeb from "./axiosClientWeb";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SocialMediaIcons from './components/SocialMediaIcons';
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
