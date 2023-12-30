@@ -19,13 +19,13 @@ const Home = () => {
   const { i18n } = useTranslation();
 
   const handleLogout = async (e) => {
-    e.preventDefault();
 
     axiosClient
       .post("/logout")
       .then(() => {
         setUser({});
         setToken(null);
+        console.log('1');
       });
   };
 
