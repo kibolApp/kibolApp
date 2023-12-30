@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axiosClient from "../axiosClient";
+import axiosClient from '../axiosClient';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
+import ReactPaginate from 'react-paginate';
 
 const UserManagement = () => {
   const [users, setUsers] = useState([]);
@@ -14,6 +15,10 @@ const UserManagement = () => {
   const [editingPassword, setEditingPassword] = useState('');
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [selectedPage, setSelectedPage] = useState(0);
+  const usersPerPage = 8;
+  const pagesVisited = pageNumber * usersPerPage;
 
   const openModal = (user) => {
     setIsModalOpen(true);
@@ -123,62 +128,82 @@ const UserManagement = () => {
     transform -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2
   `;
 
+  const changePage = ({ selected }) => {
+    setPageNumber(selected);
+    setSelectedPage(selected);
+  };
+
+  const displayedUsers = users.slice(pagesVisited, pagesVisited + usersPerPage);
+
   return (
-    
     <div className="flex-grow flex items-center justify-center p-4">
-    <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-      <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
-      
-    <div>
-      <h2 className="text-2xl font-bold mb-4">
-        {editingUserId ? 'Edytuj' : 'Nowy użytkownik'}
-      </h2>
-      <button
-        onClick={() => openModal(null)}
-        className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
-      >
-        <FontAwesomeIcon icon={faPlus} className="mr-2" />
-        Dodaj użytkownika
-      </button>
+      <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
+        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
 
-      <table className="w-full mb-8">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nazwa</th>
-            <th>Email</th>
-            <th>Akcje</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.id}</td>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>
-                <button
-                  onClick={() => openModal(user)}
-                  className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
-                >
-                  <FontAwesomeIcon icon={faEdit} className="mr-2" />
-                  Edytuj
-                </button>
-                <button
-                  onClick={() => handleDeleteUser(user.id)}
-                  className="bg-red-500 px-4 py-2 text-white rounded-md"
-                >
-                  <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                  Usuń
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+        <div>
+          <h2 className="text-2xl font-bold mb-4">
+            {editingUserId ? 'Edytuj' : 'Nowy użytkownik'}
+          </h2>
+          <button
+            onClick={() => openModal(null)}
+            className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
+          >
+            <FontAwesomeIcon icon={faPlus} className="mr-2" />
+            Dodaj użytkownika
+          </button>
 
-      <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
-        <div className={modalContentStyles}>
+          <table className="w-full mb-8">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nazwa</th>
+                <th>Email</th>
+                <th>Akcje</th>
+              </tr>
+            </thead>
+            <tbody>
+              {displayedUsers.map((user) => (
+                <tr key={user.id}>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>
+                    <button
+                      onClick={() => openModal(user)}
+                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
+                    >
+                      <FontAwesomeIcon icon={faEdit} className="mr-2" />
+                      Edytuj
+                    </button>
+                    <button
+                      onClick={() => handleDeleteUser(user.id)}
+                      className="bg-red-500 px-4 py-2 text-white rounded-md"
+                    >
+                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+                      Usuń
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+
+          <ReactPaginate
+          previousLabel={'Poprzednia'}
+          nextLabel={'Następna'}
+          pageCount={Math.ceil(users.length / usersPerPage)}
+          onPageChange={changePage}
+          containerClassName={"flex items-center justify-center mt-4"}
+          pageClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+          breakClassName="px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+          previousClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+          nextClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+          activeClassName={"bg-custom-olive text-white"}
+          initialPage={selectedPage}
+          />
+
+          <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
+            <div className={modalContentStyles}>
           <input
             type="text"
             value={currentUser.name}
