@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import NavigationLinks from '../components/NavigationsLinks';
 
 export default function UserHeader() {
 const { t } = useTranslation();
@@ -34,15 +35,7 @@ return (
       <div className="flex items-center space-x-4 font-body">
       <nav className='flex-grow'>
           <ul className="flex justify-end">
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/home">{t('start')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 "><Link to="/app">{t('clubLocations')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-            <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
-            </li>
+           <NavigationLinks />
           </ul>
         </nav>
         <button>

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
+import NavigationLinks from './components/NavigationsLinks';
 
 const Home = () => {
 
@@ -83,15 +84,7 @@ return (
         </div>
         <nav className='flex-grow'>
           <ul className="flex justify-end">
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 text-green-500"><Link to="/home">{t('start')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/app">{t('clubLocations')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
-            </li>
+          <NavigationLinks />
             <li className="text-white mx-4 font-semibold">
           <button onClick={handleLogout} className="hover:text-gray-300">{t('logout')}</button>
         </li>
