@@ -11,7 +11,7 @@ class ClubControllerTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function test_can_get_all_clubs()
+    public function testCanGetAllClubs()
     {
         Clubs::factory(5)->create();
 
