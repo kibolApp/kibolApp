@@ -18,6 +18,17 @@ class ClubControllerTest extends TestCase
         $response = $this->get('/api/clubs');
 
         $response->assertStatus(200)
-            ->assertJsonCount(5, 'data');
+            ->assertJsonCount(5)
+            ->assertJsonStructure([
+                '*' => [
+                    'id',
+                    'team',
+                    'latitude',
+                    'longitude',
+                    'address',
+                    'url_logo',
+                    'url',
+                ],
+            ]);
     }
 }
