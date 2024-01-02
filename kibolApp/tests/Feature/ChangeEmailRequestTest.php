@@ -5,7 +5,6 @@ namespace Tests\Unit\Requests;
 use App\Http\Requests\ChangeEmailRequest;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
-use App\Models\User;
 
 class ChangeEmailRequestTest extends TestCase
 {

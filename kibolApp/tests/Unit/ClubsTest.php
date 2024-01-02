@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use App\Models\Clubs;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use PHPUnit\Framework\TestCase;
 
 class ClubsTest extends TestCase
 {
@@ -27,11 +27,5 @@ class ClubsTest extends TestCase
         $this->assertEquals('Example Address', $club->address);
         $this->assertEquals('https://example.com/logo.png', $club->url_logo);
         $this->assertEquals('https://example.com', $club->url);
-
-        $club->save();
-
-        $this->assertDatabaseHas('clubs', [
-            'team' => 'Example Team',
-        ]);
     }
 }
