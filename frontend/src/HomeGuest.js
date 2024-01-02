@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
-import NavigationLinks from './components/NavigationsLinks';
 
-const Home = () => {
+const HomeGuest = () => {
 
   const {setUser,setToken}=useStateContext();
   const [isSticky, setIsSticky] = useState(false);
@@ -18,16 +17,6 @@ const Home = () => {
 
   const { i18n } = useTranslation();
 
-  const handleLogout = async (e) => {
-
-    axiosClient
-      .post("/logout")
-      .then(() => {
-        setUser({});
-        setToken(null);
-        console.log('1');
-      });
-  };
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -84,10 +73,18 @@ return (
         </div>
         <nav className='flex-grow'>
           <ul className="flex justify-end">
-          <NavigationLinks />
             <li className="text-white mx-4 font-semibold">
-          <button onClick={handleLogout} className="hover:text-gray-300">{t('logout')}</button>
-        </li>
+              <a className="hover:text-gray-300 text-green-500"><Link to="/home">{t('start')}</Link></a>
+            </li>
+            <li className="text-white mx-4 font-semibold">
+              <a className="hover:text-gray-300"><Link to="/app">{t('clubLocations')}</Link></a>
+            </li>
+            <li className="text-white mx-4 font-semibold">
+              <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
+            </li>
+            <li className="text-white mx-4 font-semibold">
+              <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -131,4 +128,4 @@ return (
   );
 };
 
-export default Home;
+export default HomeGuest;

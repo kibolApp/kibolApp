@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import UserPanel from '../UserPanel';
+import NavigationLinks from '../components/NavigationsLinks';
 
 export default function UserHeader() {
 const { t } = useTranslation();
@@ -12,7 +12,7 @@ const changeLanguage = (lng) => {
 
 const data = [
     "https://i.imgur.com/fv4tZQm.png", //logo black
-    "https://i.imgur.com/F6Iag9a.png", //User Profile
+    "https://i.imgur.com/GKDLtl5.png", //User Profile
     "https://i.imgur.com/m5aXfio.png", //Polska
     "https://i.imgur.com/rQiArPt.png" //GB
     ];
@@ -35,21 +35,12 @@ return (
       <div className="flex items-center space-x-4 font-body">
       <nav className='flex-grow'>
           <ul className="flex justify-end">
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/home">{t('start')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 "><Link to="/app">{t('clubLocations')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-            <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
-            </li>
+           <NavigationLinks />
           </ul>
         </nav>
-        {/* User Logo */}
         <button>
           <Link to="/Profile">
-        <img src={data[1]} alt="RightIcon" className="h-20" />
+        <img src={data[1]} alt="RightIcon" className="h-24" />
           </Link>
         </button>
       </div>
