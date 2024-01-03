@@ -116,9 +116,12 @@ const ClubManagement = () => {
 
   const handleDeleteClub = async (clubId) => {
     try {
+      const confirmed = window.confirm('Czy na pewno chcesz usunąć ten klub?');
+      if (confirmed) {
       await axiosClient.delete(`/clubs/${clubId}`);
       const updatedClubs = clubs.filter((club) => club.id !== clubId);
       setClubs(updatedClubs);
+      }
     } catch (error) {
       console.error('Error deleting club:', error);
     }

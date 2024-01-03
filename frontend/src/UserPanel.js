@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import UserHeader from './components/UserHeader';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
+import { Link } from 'react-router-dom';
 
 const UserPanel = () => {
 
@@ -229,6 +230,7 @@ const UserPanel = () => {
   };
 
   return (
+
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
@@ -267,8 +269,14 @@ const UserPanel = () => {
             >
               {t('deleteAccount')}
             </button>
-          </div>
-
+            {user && user.role === 'admin' && (
+              <Link to="/admin">
+            <button className="bg-blue-500 p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-bold text-white ml-2">
+            {t('Admin Panel')}
+            </button>
+            </Link>
+            )} 
+          </div>      
           <div key={selectedForm} className={`transition-opacity transform duration-500 ease-in-out ${selectedForm ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
             {selectedForm === 'changeEmail' && (
               <ChangeEmailForm t={t} />

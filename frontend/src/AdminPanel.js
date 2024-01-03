@@ -1,11 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import {Navigate } from 'react-router-dom';
+import axiosClient from './axiosClient';
 import UserHeader from './components/UserHeader';
 import ClubManagement from './components/ClubsManagement';
 import UserManagement from './components/UsersManagement';
 
 const AdminPanel = () => {
   const [selectedTab, setSelectedTab] = useState('users');
+  const [user, setUser] = useState(null);
 
+  useEffect(() => {
+    const fetchUserProfile = async () => {
+      try {
+        const response = await axiosClient.get('/getCurrentUser');
+        setUser(response.data.user);
+      } catch (error) {
+        console.error('Error fetching user profile:', error);
+      }
+    };
+
+    fetchUserProfile();
+  }, []);
+
+  if (user && user.role === 'user') {
+    return <Navigate to="/404" />;
+  }
+  
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col items-center">
       <UserHeader />
