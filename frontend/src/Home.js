@@ -62,7 +62,14 @@ const data = [
 const Banner = ({ backgroundImage }) => {
   return (
     <section className="relative w-full min-h-screen font-head bg-cover flex justify-center items-center" style={{ backgroundImage: `url(${backgroundImage})` }}>
-      <h2 className="text-white text-8xl uppercase text-center leading-snug font-semibold">
+      <h2 className="text-white uppercase text-center leading-snug font-semibold 
+                      sm-mobile:text-3xl 
+                      md-mobile:text-4xl
+                      lg-mobile:text-5xl 
+                      tablet:text-6xl 
+                      laptop:text-8xl 
+                      large-laptop:text-8xl 
+                      4k:text-12xl">
         {t('welcome')}<br /> {t('kibol')}<span className="text-custom-tan">{t('APP')}</span>
       </h2>
     </section>
@@ -96,11 +103,39 @@ return (
     <Banner backgroundImage={data[2]} />
 
     {/* About Us */}
-    <section className="flex flex-col md:flex-row items-center font-body justify-center text-center bg-[#353230] text-white p-6 md:p-32">
+    <section className="flex flex-col md:flex-row items-center font-body justify-center text-center bg-[#353230] text-white p-6 md:p-32 
+                        sm-mobile:p-6 
+                        md-mobile:p-8 
+                        lg-mobile:p-10 
+                        tablet:p-12 
+                        laptop:p-16 
+                        large-laptop:p-20 
+                        4k:p-24">
       <div className="md:flex-1 md:mr-6">
-        <h2 className="text-3xl font-bold mb-4">{t('aboutTitle')}</h2>
-          <p className="text-lg mb-6">{t('aboutText1')}</p>
-          <p className="text-lg mb-6">{t('aboutText2')}</p>
+        <h2 className="font-bold mb-4 
+                        sm-mobile:text-lg
+                        md-mobile:text-xl 
+                        lg-mobile:text-2xl 
+                        tablet:text-2xl 
+                        laptop:text-3xl 
+                        large-laptop:text-3xl 
+                        4k:text-5xl">{t('aboutTitle')}</h2>
+          <p className="mb-6 text-base 
+                        sm-mobile:text-sm 
+                        md-mobile:text-md 
+                        lg-mobile:text-md 
+                        tablet:text-lg
+                        laptop:text-lg
+                        large-laptop:text-xl
+                        4k:text-4xl">{t('aboutText1')}</p>
+          <p className="mb-6 text-base 
+                        sm-mobile:text-sm
+                        md-mobile:text-md 
+                        lg-mobile:text-md
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl
+                        4k:text-4xl">{t('aboutText2')}</p>
       </div>
       <div className="md:flex-1 max-w-md mx-auto">
         <img src={data[3]} alt="About Us" className="w-full h-auto rounded-lg" />
@@ -108,17 +143,65 @@ return (
     </section>
 
     {/* Contact Us */}
-    <section className="bg-custom-sand font-body py-16">
+    <section className="bg-custom-sand font-body py-16 
+                        sm-mobile:py-6 
+                        md-mobile:py-8 
+                        lg-mobile:py-10 
+                        tablet:py-12 
+                        laptop:py-16 
+                        large-laptop:py-20 
+                        4k:py-24">
       <div className="flex justify-center">
-        <div className="max-w-2xl w-full">
+        <div className="max-w-md w-full px-4 
+                        sm-mobile:max-w-sm 
+                        md-mobile:max-w-md 
+                        lg-mobile:max-w-lg 
+                        tablet:max-w-xl 
+                        laptop:max-w-2xl 
+                        large-laptop:max-w-2xl 
+                        4k:max-w-4xl">
           <h3 className="text-white text-3xl text-center mb-10 font-bold">{t('questionTitle')}<span className="text-custom-brown uppercase font-bold">{t('contactUs')}</span></h3>
             <form className="flex flex-col items-center">
-              <div className="flex w-full mb-6">
-                <input type="text" placeholder={t('usernamePlaceholder')} value={formData.username} maxLength={50} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4" onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
-                <input type="email" placeholder={t('emailPlaceholder')} value={formData.email} maxLength={50} className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50" onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
+              <div className="flex w-full mb-6 
+                              sm-mobile:flex-row 
+                              md-mobile:flex-row 
+                              lg-mobile:flex-row 
+                              tablet:flex-row 
+                              laptop:flex-row 
+                              large-laptop:flex-row 
+                              4k:flex-row">
+                <input type="text" placeholder={t('usernamePlaceholder')} value={formData.username} maxLength={50} 
+                      className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4 mb-4 
+                                sm-mobile:mr-0 sm-mobile:mb-4 
+                                md-mobile:mr-0 md-mobile:mb-4 
+                                lg-mobile:mr-0 lg-mobile:mb-4 
+                                tablet:mr-4 tablet:mb-0 
+                                laptop:mr-4 laptop:mb-0 
+                                large-laptop:mr-4 large-laptop:mb-0 
+                                4k:mr-4 4k:mb-0" 
+                        onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
+                <input type="email" placeholder={t('emailPlaceholder')} value={formData.email} maxLength={50} 
+                      className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 
+                                  sm-mobile:mr-0 sm-mobile:mb-4 
+                                  md-mobile:mr-0 md-mobile:mb-4 
+                                  lg-mobile:mr-0 lg-mobile:mb-4 
+                                  tablet:mr-4 tablet:mb-0 
+                                  laptop:mr-4 laptop:mb-0 
+                                  large-laptop:mr-4 large-laptop:mb-0 
+                                  4k:mr-4 4k:mb-0" 
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
               <div className="w-full mb-6">
-                <textarea placeholder={t('messagePlaceholder')} value={formData.message}maxLength={200} className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none" onChange={(e) => setFormData({ ...formData, message: e.target.value })} ></textarea>
+                <textarea placeholder={t('messagePlaceholder')} value={formData.message}maxLength={200} 
+                    className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none 
+                              sm-mobile:mr-0 sm-mobile:mb-4 
+                              md-mobile:mr-0 md-mobile:mb-4 
+                              lg-mobile:mr-0 lg-mobile:mb-4 
+                              tablet:mr-4 tablet:mb-0 
+                              laptop:mr-4 laptop:mb-0 
+                              large-laptop:mr-4 large-laptop:mb-0 
+                              4k:mr-4 4k:mb-0"
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })} ></textarea>
               </div>
               <div className="w-full flex justify-center">
                 <input type="submit" onClick={handleFormSubmit} value={t('sendMessage')} className="bg-custom-olive text-custom-sand uppercase tracking-widest cursor-pointer font-bold px-4 py-2" />
