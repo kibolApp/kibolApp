@@ -80,9 +80,9 @@ const ClubList = () => {
                                       sm-mobile:h-16 sm-mobile:my-1 
                                       md-mobile:h-18 
                                       lg-mobile:h-20 
-                                      tablet:h-24
+                                      tablet:h-20
                                       laptop:my-3 
-                                      large-laptop:h-32 large-laptop:my-4 
+                                      large-laptop:h-20 large-laptop:my-4 
                                       4k:h-36 4k:my-5">
             <Link to={club.url} className="flex items-center w-full h-full">
               <img
@@ -96,7 +96,7 @@ const ClubList = () => {
                           md:left-12 md:w-20 md:h-20 
                           lg:left-16 lg:w-24 lg:h-24
                           laptop:left-14 laptop:w-28 laptop:h-28 
-                          large-laptop:left-16 large-laptop:w-32 large-laptop:h-32 
+                          large-laptop:left-16 large-laptop:w-30 large-laptop:h-30
                           4k:left-20 4k:w-36 4k:h-36"
               />
               <div className="flex justify-center items-center w-full h-full">
