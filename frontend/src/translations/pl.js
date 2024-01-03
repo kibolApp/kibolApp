@@ -3,7 +3,7 @@ const pl = {
 
     // Login**
     loginTitle: "Logowanie",
-    usernameEmail: "Nazwa użytkownika / email",
+    email: "Email",
     password: "Hasło",
     loginButton: "Zaloguj",
     socialLoginPrompt: "lub zaloguj się poprzez",
@@ -11,7 +11,6 @@ const pl = {
     // Register**
     registrationTitle: "Rejestracja",
     username: "Nazwa użytkownika",
-    email: "Email",
     confirmPassword: "Potwierdź hasło",
     registerButton: "Zarejestruj się",
 

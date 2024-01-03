@@ -3,7 +3,7 @@ const en = {
 
     // Login**
     loginTitle: "Login",
-    usernameEmail: "Username / email",
+    email: "Email",
     password: "Password",
     loginButton: "Log In",
     socialLoginPrompt: "or log in through",
@@ -11,7 +11,6 @@ const en = {
     // Register**
     registrationTitle: "Registration",
     username: "Username",
-    email: "Email",
     confirmPassword: "Confirm Password",
     registerButton: "Register",
 

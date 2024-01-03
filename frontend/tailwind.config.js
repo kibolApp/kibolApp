@@ -4,6 +4,15 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+      screens: {
+        'sm-mobile': '320px',
+        'md-mobile': '375px',
+        'lg-mobile': '425px',
+        'tablet': '768px',
+        'laptop': '1024px',
+        'large-laptop': '1440px',
+        '4k': '2560px',
+      },
       colors: {
         'custom-gray': '#1f1c1a',
         'custom-brown': '#62442d',

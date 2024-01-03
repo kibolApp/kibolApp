@@ -1,16 +1,14 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faGoogle, faInstagram, faTwitter, faLinkedin, faGithub } from '@fortawesome/free-brands-svg-icons';
+import { faGoogle, faGithub } from '@fortawesome/free-brands-svg-icons';
 import Header from './components/Header';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import { useRef } from "react";
 import { useStateContext } from "./contexts/ContextProvider";
 import axiosClient from "./axiosClient";
 import axiosClientWeb from "./axiosClientWeb";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import SocialMediaIcons from './components/SocialMediaIcons';
 
 const AuthForm = () => {
   const [isLoginVisible, setIsLoginVisible] = useState(true);
@@ -138,7 +136,7 @@ const AuthForm = () => {
     <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
       <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('userEmail')} ref={emailloginRef} required />
+       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('email')} ref={emailloginRef} required />
       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordloginRef} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <ToastContainer/>
