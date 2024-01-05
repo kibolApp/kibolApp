@@ -9,28 +9,6 @@ import LoadingScreen from './LoadingScreen';
 const AdminPanel = () => {
   const navigate = useNavigate();
   const [selectedTab, setSelectedTab] = useState('users');
-  const [user, setUser] = useState(null);
-
-  useEffect(() => {
-    const fetchUserProfile = async () => {
-      try {
-        const response = await axiosClient.get('/getCurrentUser');
-        setUser(response.data.user);
-
-        if (response.data.role !== 'admin') {
-          navigate('/', { replace: true });
-        }
-      } catch (error) {
-        console.error('Error fetching user profile:', error);
-      }
-    };
-
-    fetchUserProfile();
-  }, [navigate]);
-
-  if (!user) {
-    return <LoadingScreen duration={2000}></LoadingScreen>;
-  }
 
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col items-center">

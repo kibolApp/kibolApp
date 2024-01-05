@@ -54,7 +54,6 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
         ]);
 
         return response()->json($user);
@@ -78,9 +77,8 @@ class UserController extends Controller
         if (Auth::check()) {
             $user = Auth::user();
             $club = $user->club;
-            $role = $user->role;
 
-            return response()->json(['user' => $user, 'club' => $club, 'role' => $role ], 200);
+            return response()->json(['user' => $user, 'club' => $club], 200);
         }
 
         return response()->json(['message' => 'Użytkownik niezalogowany'], 401);
