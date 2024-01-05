@@ -19,29 +19,36 @@ const ClubList = () => {
   const pageCount = Math.ceil(filteredClubs.length / clubsPerPage);
 
   useEffect(() => {
-    axiosClient.get('/clubs')
-      .then(({ data }) => {
-        const transformedData = data.map(club => ({
+    const fetchData = async () => {
+      try {
+        const userFavoritesPromise = axiosClient.get('/getUserFavorites');
+        const clubsPromise = axiosClient.get('/clubs');
+  
+        const [userFavoritesResponse, clubsResponse] = await Promise.all([userFavoritesPromise, clubsPromise]);
+  
+        const favoriteClubsData = userFavoritesResponse.data.favoriteClubs;
+        const allClubsData = clubsResponse.data;
+  
+        const allClubs = allClubsData.map(club => ({
           id: club.id,
           team: club.team,
           icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
           url: "/clubpage/" + club.url,
-        }));
-        const sortedData = transformedData.slice().sort((a, b) => a.team.localeCompare(b.team));
-        setMarkersData(sortedData);
-        setFilteredClubs(sortedData);
-      })
-      .catch(err => {
-        console.error(err);
-      });
-
-    axiosClient.get('/getUserFavorites')
-      .then(({ data }) => {
-        setFavoriteClubs(data.favoriteClubs);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+        })).sort((a, b) => a.team.localeCompare(b.team));
+  
+        const favoriteClubsFiltered = allClubs.filter(club => favoriteClubsData.some(favoriteClub => favoriteClub.id === club.id));
+        const nonFavoriteClubs = allClubs.filter(club => !favoriteClubsData.some(favoriteClub => favoriteClub.id === club.id));
+        const sortedClubs = [...favoriteClubsFiltered, ...nonFavoriteClubs];
+  
+        setMarkersData(sortedClubs);
+        setFilteredClubs(sortedClubs);
+        setFavoriteClubs(favoriteClubsData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
   }, []);
 
   const handleSearchChange = (e) => {
@@ -91,7 +98,7 @@ const ClubList = () => {
   };
 
   const removeFromFavorites = (club) => {
-    axiosClient.post('/RemoveFromFavorites', { club_id: club.id })
+    axiosClient.post('/removeFromFavorites', { club_id: club.id })
       .then(() => {
         setFavoriteClubs(favoriteClubs.filter(favoriteClub => favoriteClub.id !== club.id));
       })
@@ -130,13 +137,13 @@ const ClubList = () => {
                       {club.team}
                     </span>
                   </div>
-                  <button
+                </Link>
+                <button
                   className={`text-4xl ${isFavorite(club) ? 'text-yellow-500 transform -translate-x-20' : 'text-gray-500 transform -translate-x-20'}`}
                   onClick={() => toggleFavorite(club)}
                 >
                   {isFavorite(club) ? '❤️' : '🤍'}
                 </button>
-                </Link>
               </div>
             ))}
           </div>
