@@ -93,14 +93,26 @@ const AuthForm = () => {
     <div className="flex justify-center gap-5 mb-5 text-white">
        <FontAwesomeIcon
         icon={faGithub}
-        size="3x"
-        className="cursor-pointer hover:text-facebook"
+        className="cursor-pointer hover:text-facebook text-3xl 
+                  sm-mobile:text-3xl 
+                  md-mobile:text-3xl 
+                  lg-mobile:text-4xl 
+                  tablet:text-4xl 
+                  laptop:text-5xl 
+                  large-laptop:text-5xl 
+                  4k:text-6xl"
         onClick={handleGithubClick}
       />
       <FontAwesomeIcon
         icon={faGoogle}
-        size="3x"
-        className="cursor-pointer hover:text-google"
+        className="cursor-pointer hover:text-google text-3xl
+                  sm-mobile:text-3xl 
+                  md-mobile:text-3xl 
+                  lg-mobile:text-4xl 
+                  tablet:text-4xl 
+                  laptop:text-5xl 
+                  large-laptop:text-5xl 
+                  4k:text-6xl"
         onClick={handleGoogleClick}
       />
     </div>
@@ -135,9 +147,33 @@ const AuthForm = () => {
   const loginForm = (
     <form onSubmit={submitLogin}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
-      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('loginTitle')}</h1>
-       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('email')} ref={emailloginRef} required />
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordloginRef} required />
+      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6 
+                      sm-mobile:text-3xl 
+                      md-mobile:text-3xl 
+                      lg-mobile:text-3xl
+                      tablet:text-4xl 
+                      laptop:text-4xl 
+                      large-laptop:text-4xl 
+                      4k:text-5xl">
+                    {t('loginTitle')}</h1>
+       <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="text" placeholder={t('email')} ref={emailloginRef} required />
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="password" placeholder={t('password')} ref={passwordloginRef} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('loginButton')}</button>
       <ToastContainer/>
       <div className="social-section">
@@ -151,11 +187,51 @@ const AuthForm = () => {
   const registerForm = (
     <form onSubmit={submitRegister}>
     <div className={`form-container transition-opacity duration-300 ${inProp ? 'opacity-100' : 'opacity-0'}`}>
-      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6">{t('registrationTitle')}</h1>
-      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="text" placeholder={t('name')} ref={nameRef} required />
-        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="email" placeholder={t('email')} ref={emailRef} required />
-        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('password')} ref={passwordRef} required />
-        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black" type="password" placeholder={t('confirmPassword') }ref={passwordConfirmationRef} required />
+      <h1 className="text-custom-brown text-4xl font-bold text-center mb-6 
+                      sm-mobile:text-3xl 
+                      md-mobile:text-3xl 
+                      lg-mobile:text-3xl
+                      tablet:text-4xl 
+                      laptop:text-4xl 
+                      large-laptop:text-4xl 
+                      4k:text-5xl">
+                    {t('registrationTitle')}</h1>
+      <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="text" placeholder={t('name')} ref={nameRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="email" placeholder={t('email')} ref={emailRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="password" placeholder={t('password')} ref={passwordRef} required />
+        <input className="w-full p-4 mb-4 text-gray-700 bg-custom-light-tan rounded-md text-black placeholder-black
+                        sm-mobile:text-sm 
+                        md-mobile:text-base 
+                        lg-mobile:text-lg 
+                        tablet:text-lg 
+                        laptop:text-lg 
+                        large-laptop:text-xl 
+                        4k:text-2xl" 
+                      type="password" placeholder={t('confirmPassword') } ref={passwordConfirmationRef} required />
       <button type="submit" onClick={notify}  className="w-full py-3 mb-4 bg-custom-olive hover:bg-custom-brown text-white rounded-lg font-semibold">{t('registerButton')}</button>
       <ToastContainer/>
       <div className="social-section">
