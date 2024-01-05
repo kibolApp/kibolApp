@@ -158,7 +158,14 @@ return (
                         large-laptop:max-w-2xl 
                         4k:max-w-4xl">
           <h3 className="text-white text-3xl text-center mb-10 font-bold">{t('questionTitle')}<span className="text-custom-brown uppercase font-bold">{t('contactUs')}</span></h3>
-            <form className="flex flex-col items-center">
+            <form className="flex flex-col items-center
+                              sm-mobile:px-6 
+                              md-mobile:px-6 
+                              lg-mobile:px-8
+                              tablet:px-10 
+                              laptop:px-12 
+                              large-laptop:px-16 
+                              4k:px-20">
               <div className="flex w-full mb-6 
                               sm-mobile:flex-row 
                               md-mobile:flex-row 
@@ -168,36 +175,36 @@ return (
                               large-laptop:flex-row 
                               4k:flex-row">
                 <input type="text" placeholder={t('usernamePlaceholder')} value={formData.username} maxLength={50} 
-                      className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 mr-4 mb-4 
-                                sm-mobile:mr-0 sm-mobile:mb-4 
-                                md-mobile:mr-0 md-mobile:mb-4 
-                                lg-mobile:mr-0 lg-mobile:mb-4 
-                                tablet:mr-4 tablet:mb-0 
-                                laptop:mr-4 laptop:mb-0 
-                                large-laptop:mr-4 large-laptop:mb-0 
-                                4k:mr-4 4k:mb-0" 
+                      className="flex-1 bg-transparent border-b border-black text-black px-1 py-1 outline-none placeholder-black placeholder-opacity-50 mb-4 
+                                sm-mobile:mr-0 sm-mobile:mb-4 sm-mobile:w-2/12 sm-mobile:text-xs
+                                md-mobile:mr-0 md-mobile:mb-4 md-mobile:w-11/12 md-mobile:text-sm
+                                lg-mobile:mr-0 lg-mobile:mb-4 lg-mobile:w-11/12 lg-mobile:text-base
+                                tablet:mr-4 tablet:mb-0 tablet:text-base
+                                laptop:mr-4 laptop:mb-0 laptop:text-base
+                                large-laptop:mr-4 large-laptop:mb-0 large-laptop:text-base
+                                4k:mr-4 4k:mb-0 4k:text-2xl" 
                         onChange={(e) => setFormData({ ...formData, username: e.target.value })} />
                 <input type="email" placeholder={t('emailPlaceholder')} value={formData.email} maxLength={50} 
                       className="flex-1 bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 
-                                  sm-mobile:mr-0 sm-mobile:mb-4 
-                                  md-mobile:mr-0 md-mobile:mb-4 
-                                  lg-mobile:mr-0 lg-mobile:mb-4 
-                                  tablet:mr-4 tablet:mb-0 
-                                  laptop:mr-4 laptop:mb-0 
-                                  large-laptop:mr-4 large-laptop:mb-0 
-                                  4k:mr-4 4k:mb-0" 
+                                  sm-mobile:mr-0 sm-mobile:mb-4 sm-mobile:w-2/12 sm-mobile:text-xs
+                                  md-mobile:mr-0 md-mobile:mb-4 md-mobile:w-11/12 md-mobile:text-sm
+                                  lg-mobile:mr-0 lg-mobile:mb-4 lg-mobile:w-11/12 lg-mobile:text-base
+                                  tablet:mr-4 tablet:mb-0 tablet:text-base
+                                  laptop:mr-4 laptop:mb-0 laptop:text-base
+                                  large-laptop:mr-4 large-laptop:mb-0 large-laptop:text-base
+                                  4k:mr-4 4k:mb-0 4k:text-2xl"  
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })} />
               </div>
               <div className="w-full mb-6">
                 <textarea placeholder={t('messagePlaceholder')} value={formData.message}maxLength={200} 
                     className="w-full bg-transparent border-b border-black text-black px-2 py-1 outline-none placeholder-black placeholder-opacity-50 h-24 resize-none 
-                              sm-mobile:mr-0 sm-mobile:mb-4 
-                              md-mobile:mr-0 md-mobile:mb-4 
-                              lg-mobile:mr-0 lg-mobile:mb-4 
-                              tablet:mr-4 tablet:mb-0 
-                              laptop:mr-4 laptop:mb-0 
-                              large-laptop:mr-4 large-laptop:mb-0 
-                              4k:mr-4 4k:mb-0"
+                              sm-mobile:mr-0 sm-mobile:mb-4 sm-mobile:text-xs
+                              md-mobile:mr-0 md-mobile:mb-4 md-mobile:text-sm
+                              lg-mobile:mr-0 lg-mobile:mb-4 lg-mobile:text-base
+                              tablet:mr-4 tablet:mb-0 tablet:text-base
+                              laptop:mr-4 laptop:mb-0 laptop:text-base
+                              large-laptop:mr-4 large-laptop:mb-0 large-laptop:text-base
+                              4k:mr-4 4k:mb-0 4k:text-2xl"
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })} ></textarea>
               </div>
               <div className="w-full flex justify-center">
