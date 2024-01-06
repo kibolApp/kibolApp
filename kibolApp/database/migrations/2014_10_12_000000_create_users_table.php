@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('provider_id')->nullable();
             $table->string('provider_token')->nullable();
             $table->rememberToken();
-            $table->unsignedBigInteger('team_id')->nullable(); // Zmiana kolumny 'team' na 'team_id'
-            $table->foreign('team_id')->references('id')->on('clubs'); // Dodanie klucza obcego
+            $table->unsignedBigInteger('team_id')->nullable();
+            $table->foreign('team_id')->references('id')->on('clubs');
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->timestamps();
         });
     }
