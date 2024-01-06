@@ -158,4 +158,46 @@ public function changeClub(Request $request, $id)
     return response()->json($user);
 
 }
+public function addToFavorites(Request $request)
+{
+    $userId = auth()->id();
+    $clubId = $request->input('club_id');
+
+    $user = User::find($userId);
+    $club = Clubs::find($clubId);
+
+    if ($user && $club) {
+        $user->favoriteClubs()->attach($club->id);
+        return response()->json(['message' => 'Club added to favorites']);
+    }
+
+    return response()->json(['error' => 'User or Club not found'], 404);
+}
+
+public function removeFromFavorites(Request $request)
+{
+    $userId = auth()->id();
+    $clubId = $request->input('club_id');
+
+    $user = User::find($userId);
+    $club = Clubs::find($clubId);
+
+    if ($user && $club) {
+        $user->favoriteClubs()->detach($club->id);
+        return response()->json(['message' => 'Club removed from favorites']);
+    }
+
+    return response()->json(['error' => 'User or Club not found'], 404);
+}
+public function getUserFavorites()
+{
+    $userId = Auth::id();
+    $user = User::with('favoriteClubs')->find($userId);
+
+    if ($user) {
+        return response()->json(['favoriteClubs' => $user->favoriteClubs]);
+    }
+
+    return response()->json(['error' => 'User not found'], 404);
+}
 }

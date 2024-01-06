@@ -11,27 +11,44 @@ const ClubList = () => {
   const [filteredClubs, setFilteredClubs] = useState([]);
   const [markersData, setMarkersData] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
+  const [favoriteClubs, setFavoriteClubs] = useState([]);
+
   const clubsPerPage = 8;
   const pagesVisited = pageNumber * clubsPerPage;
-  const pageCount = Math.ceil(filteredClubs.length / clubsPerPage);
   const { t } = useTranslation();
+  const pageCount = Math.ceil(filteredClubs.length / clubsPerPage);
 
   useEffect(() => {
-    axiosClient.get('/clubs')
-      .then(({ data }) => {
-        console.log(data);
-        const transformedData = data.map(club => ({
+    const fetchData = async () => {
+      try {
+        const userFavoritesPromise = axiosClient.get('/getUserFavorites');
+        const clubsPromise = axiosClient.get('/clubs');
+  
+        const [userFavoritesResponse, clubsResponse] = await Promise.all([userFavoritesPromise, clubsPromise]);
+  
+        const favoriteClubsData = userFavoritesResponse.data.favoriteClubs;
+        const allClubsData = clubsResponse.data;
+  
+        const allClubs = allClubsData.map(club => ({
+          id: club.id,
           team: club.team,
           icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
           url: "/clubpage/" + club.url,
-        }));
-        const sortedData = transformedData.slice().sort((a, b) => a.team.localeCompare(b.team));
-        setMarkersData(sortedData);
-        setFilteredClubs(sortedData);
-      })
-      .catch(err => {
-        console.error(err);
-      });
+        })).sort((a, b) => a.team.localeCompare(b.team));
+  
+        const favoriteClubsFiltered = allClubs.filter(club => favoriteClubsData.some(favoriteClub => favoriteClub.id === club.id));
+        const nonFavoriteClubs = allClubs.filter(club => !favoriteClubsData.some(favoriteClub => favoriteClub.id === club.id));
+        const sortedClubs = [...favoriteClubsFiltered, ...nonFavoriteClubs];
+  
+        setMarkersData(sortedClubs);
+        setFilteredClubs(sortedClubs);
+        setFavoriteClubs(favoriteClubsData);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+  
+    fetchData();
   }, []);
 
   const handleSearchChange = (e) => {
@@ -49,7 +66,46 @@ const ClubList = () => {
   };
 
   const displayedClubs = filteredClubs.slice(pagesVisited, pagesVisited + clubsPerPage);
-  
+
+  const toggleFavorite = async (club) => {
+    if (isFavorite(club)) {
+      await removeFromFavorites(club);
+    } else {
+      await addToFavorites(club);
+    }
+    // Refresh user's favorite clubs after modification
+    axiosClient.get('/getUserFavorites')
+      .then(({ data }) => {
+        setFavoriteClubs(data.favoriteClubs);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+  };
+
+  const isFavorite = (club) => {
+    return favoriteClubs.some(favoriteClub => favoriteClub.id === club.id);
+  };
+
+  const addToFavorites = (club) => {
+    axiosClient.post('/addToFavorites', { club_id: club.id })
+      .then(() => {
+        setFavoriteClubs([...favoriteClubs, club]);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
+
+  const removeFromFavorites = (club) => {
+    axiosClient.post('/removeFromFavorites', { club_id: club.id })
+      .then(() => {
+        setFavoriteClubs(favoriteClubs.filter(favoriteClub => favoriteClub.id !== club.id));
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
@@ -82,6 +138,12 @@ const ClubList = () => {
                     </span>
                   </div>
                 </Link>
+                <button
+                  className={`text-4xl ${isFavorite(club) ? 'text-yellow-500 transform -translate-x-20' : 'text-gray-500 transform -translate-x-20'}`}
+                  onClick={() => toggleFavorite(club)}
+                >
+                  {isFavorite(club) ? '❤️' : '🤍'}
+                </button>
               </div>
             ))}
           </div>
@@ -101,6 +163,7 @@ const ClubList = () => {
       </div>
     </div>
   );
+  
 };
 
 export default ClubList;

@@ -26,4 +26,9 @@ class Clubs extends Authenticatable
         'url_logo',
         'url',
     ];
+
+    public function favoritedByUsers()
+    {
+        return $this->belongsToMany(User::class, 'user_favorite_clubs')->withTimestamps();
+    }
 }

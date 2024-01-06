@@ -47,4 +47,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/changeName/{id}', [UserController::class, 'changeName']);
     Route::post('/changePassword/{id}', [UserController::class, 'changePassword']);
     Route::post('/changeClub/{id}', [UserController::class, 'changeClub']);
+    Route::post('/addToFavorites', [UserController::class, 'addToFavorites']);
+    Route::post('/removeFromFavorites', [UserController::class, 'removeFromFavorites']);
+    Route::get('/getUserFavorites', [UserController::class, 'getUserFavorites']);
 });
