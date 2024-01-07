@@ -5,6 +5,9 @@ import axiosClient from "./axiosClient";
 import { useTranslation } from 'react-i18next';
 import ReactPaginate from 'react-paginate';
 import UserHeader from './components/UserHeader';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart as solidHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart as regularHeart } from '@fortawesome/free-regular-svg-icons';
 
 const ClubList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -73,7 +76,6 @@ const ClubList = () => {
     } else {
       await addToFavorites(club);
     }
-    // Refresh user's favorite clubs after modification
     axiosClient.get('/getUserFavorites')
       .then(({ data }) => {
         setFavoriteClubs(data.favoriteClubs);
@@ -139,31 +141,30 @@ const ClubList = () => {
                   </div>
                 </Link>
                 <button
-                  className={`text-4xl ${isFavorite(club) ? 'text-yellow-500 transform -translate-x-20' : 'text-gray-500 transform -translate-x-20'}`}
+                  className={`text-4xl ${isFavorite(club) ? 'text-red-500 transform -translate-x-20' : 'text-black-500 transform -translate-x-20'}`}
                   onClick={() => toggleFavorite(club)}
                 >
-                  {isFavorite(club) ? '❤️' : '🤍'}
+                  <FontAwesomeIcon icon={isFavorite(club) ? solidHeart : regularHeart} />
                 </button>
               </div>
             ))}
           </div>
         </div>
         <ReactPaginate
-          previousLabel={'Previous'}
-          nextLabel={'Next'}
-          pageCount={pageCount}
-          onPageChange={changePage}
-          containerClassName={"flex items-center justify-center mt-4"}
-          pageClassName={"px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-          breakClassName="px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
-          previousClassName={"px-3 py-1 text-white mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-          nextClassName={"px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-          activeClassName={"bg-custom-olive text-white"}
-        />
+  previousLabel={'Previous'}
+  nextLabel={'Next'}
+  pageCount={pageCount}
+  onPageChange={changePage}
+  activeClassName={"bg-custom-brown py-1 ml-[-1px] px-[-1px]"}
+  containerClassName={"flex items-center justify-center mt-4"}
+  breakClassName="px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+  pageLinkClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  nextLinkClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  previousClassName={"px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+/>
       </div>
     </div>
   );
-  
 };
 
 export default ClubList;
