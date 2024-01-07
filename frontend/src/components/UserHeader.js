@@ -38,11 +38,6 @@ return (
            <NavigationLinks />
           </ul>
         </nav>
-        <button>
-          <Link to="/Profile">
-        <img src={data[1]} alt="RightIcon" className="h-24" />
-          </Link>
-        </button>
       </div>
     </header>
 );
