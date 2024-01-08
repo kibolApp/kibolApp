@@ -92,9 +92,6 @@ return (
         <nav className='flex-grow'>
           <ul className="flex justify-end">
           <NavigationLinks />
-            <li className="text-white mx-4 font-semibold">
-          <button onClick={handleLogout} className="hover:text-gray-300">{t('logout')}</button>
-        </li>
           </ul>
         </nav>
       </div>
