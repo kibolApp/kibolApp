@@ -3,8 +3,10 @@ import axiosClient from '../axiosClient';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 const UserManagement = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     name: '',
@@ -152,18 +154,18 @@ const UserManagement = () => {
                       tablet:text-4xl 
                       laptop:text-4xl 
                       large-laptop:text-4xl 
-                      4k:text-6xl">Panel zarządzania użytkownikami</h1>
+                      4k:text-6xl">{t('userMangementPanel')}</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4">
-            {editingUserId ? 'Edytuj' : 'Nowy użytkownik'}
+            {editingUserId ? t('edit') : t('newUser')}
           </h2>
           <button
             onClick={() => openModal(null)}
             className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
           >
             <FontAwesomeIcon icon={faPlus} className="mr-2" />
-            Dodaj użytkownika
+            {t('addUser')}
           </button>
           <div className="w-full overflow-x-auto">
           <table className="w-full mb-8 
@@ -176,10 +178,10 @@ const UserManagement = () => {
                             4k:text-3xl">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nazwa</th>
-                <th>Email</th>
-                <th>Akcje</th>
+                <th>{t('id')}</th>
+                <th>{t('name')}</th>
+                <th>{t('email')}</th>
+                <th>{t('actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -208,7 +210,7 @@ const UserManagement = () => {
                                                                 laptop:text-base
                                                                 large-laptop:text-base 
                                                                 4k:text-2xl" />
-                      Edytuj
+                      {t('edit')}
                     </button>
                     <button
                       onClick={() => handleDeleteUser(user.id)}
@@ -229,7 +231,7 @@ const UserManagement = () => {
                                                                     laptop:text-base 
                                                                     large-laptop:text-base
                                                                     4k:text-2xl" />
-                      Usuń
+                      {t('delete')}
                     </button>
                   </td>
                 </tr>
@@ -239,8 +241,8 @@ const UserManagement = () => {
           </div>
 
           <ReactPaginate
-          previousLabel={'Poprzednia'}
-          nextLabel={'Następna'}
+          previousLabel={t('previous')}
+          nextLabel={t('next')}
           pageCount={Math.ceil(users.length / usersPerPage)}
           onPageChange={changePage}
           containerClassName={"flex items-center justify-center mt-4"}
@@ -258,21 +260,21 @@ const UserManagement = () => {
             type="text"
             value={currentUser.name}
             onChange={(e) => setCurrentUser({ ...currentUser, name: e.target.value })}
-            placeholder="Nazwa"
+            placeholder={t('name')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <input
             type="email"
             value={currentUser.email}
             onChange={(e) => setCurrentUser({ ...currentUser, email: e.target.value })}
-            placeholder="Email"
+            placeholder={t('email')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <input
             type="password"
             value={editingPassword}
             onChange={(e) => setEditingPassword(e.target.value)}
-            placeholder="Hasło"
+            placeholder={t('password')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <div className="flex justify-center">
@@ -288,14 +290,14 @@ const UserManagement = () => {
               className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
             >
               <FontAwesomeIcon icon={editingUserId ? faEdit : faPlus} className="mr-2" />
-              {editingUserId ? 'Edytuj' : 'Dodaj'}
+              {editingUserId ? t('edit') : t('add') }
             </button>
             <button
               onClick={closeModal}
               className="bg-red-500 px-4 py-2 text-white rounded-md ml-2"
             >
               <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-              Anuluj
+              {t('cancel')} 
             </button>
             </div>
             </div>

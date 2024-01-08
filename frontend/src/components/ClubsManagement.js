@@ -3,8 +3,10 @@ import axiosClient from "../axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 const ClubManagement = () => {
+  const { t } = useTranslation();
   const [clubs, setClubs] = useState([]);
   const [currentClub, setCurrentClub] = useState({
     team: '',
@@ -148,7 +150,7 @@ const ClubManagement = () => {
                         tablet:text-3xl 
                         laptop:text-4xl 
                         large-laptop:text-4xl 
-                        4k:text-6xl">Panel Zarządzania Klubami</h1>
+                        4k:text-6xl">{t('clubManagementPanel')}</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4"></h2>
@@ -171,7 +173,7 @@ const ClubManagement = () => {
                                                       laptop:text-base 
                                                       large-laptop:text-base 
                                                       4k:text-2xl" />
-            Dodaj klub
+            {t('addClub')}
           </button>
         </div>
         <div className="w-full overflow-x-auto">
@@ -185,10 +187,10 @@ const ClubManagement = () => {
                           4k:text-3xl">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Logo</th>
-              <th>Nazwa</th>
-              <th>Akcje</th>
+              <th>{t('id')}</th>
+              <th>{t('logo')}</th>
+              <th>{t('name')}</th>
+              <th>{t('actions')}</th>
             </tr>
           </thead>
           <tbody>
@@ -223,7 +225,7 @@ const ClubManagement = () => {
                       laptop:text-base 
                       large-laptop:text-base
                       4k:text-2xl" />
-                      Edytuj
+                      {t('edit')}
                     </button>
                     <button
                       onClick={() => handleDeleteClub(club.id)}
@@ -244,7 +246,7 @@ const ClubManagement = () => {
                       laptop:text-base 
                       large-laptop:text-base
                       4k:text-2xl" />
-                      Usuń
+                      {t('delete')}
                     </button>
                   </div>
                 </td>
@@ -255,8 +257,8 @@ const ClubManagement = () => {
         </div>
 
         <ReactPaginate
-        previousLabel={'Poprzednia'}
-        nextLabel={'Następna'}
+        previousLabel={t('previous')}
+        nextLabel={t('next')}
         pageCount={Math.ceil(clubs.length / clubsPerPage)}
         onPageChange={changePage}
         containerClassName={"flex items-center justify-center mt-4"}
@@ -275,35 +277,35 @@ const ClubManagement = () => {
               type="text"
               value={currentClub.team}
               onChange={(e) => setCurrentClub({ ...currentClub, team: e.target.value })}
-              placeholder="Nazwa"
+              placeholder={t('next')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.latitude}
               onChange={(e) => setCurrentClub({ ...currentClub, latitude: e.target.value })}
-              placeholder="Szerokość"
+              placeholder={t('latitude')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.longitude}
               onChange={(e) => setCurrentClub({ ...currentClub, longitude: e.target.value })}
-              placeholder="Długość"
+              placeholder={t('longitude')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.address}
               onChange={(e) => setCurrentClub({ ...currentClub, address: e.target.value })}
-              placeholder="Adres"
+              placeholder={t('address')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.url_logo}
               onChange={(e) => setCurrentClub({ ...currentClub, url_logo: e.target.value })}
-              placeholder="Url logo"
+              placeholder={t('url')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
 
@@ -320,14 +322,14 @@ const ClubManagement = () => {
                 className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
               >
                 <FontAwesomeIcon icon={editingClubId ? faEdit : faPlus} className="mr-2" />
-                {editingClubId ? 'Edytuj' : 'Dodaj'}
+                {editingClubId ? t('edit') : t('add')}
               </button>
               <button
                 onClick={closeModal}
                 className="bg-red-500 px-4 py-2 text-white rounded-md ml-2"
               >
                 <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                Anuluj
+                {t('cancel')}
               </button>
             </div>
           </div>

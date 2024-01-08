@@ -90,12 +90,14 @@ const en = {
 
 
 // AdminPanel
-    adminPanelTitle: "User Management Panel",
+    userMangementPanel: "User Management Panel",
+    clubManagementPanel: "Club Management Panel",
 
     // Table Headers**
     id: "ID",
     name: "Name",
     actions: "Actions",
+    logo: "Logo",
 
     // Actions**
     edit: "Edit",
@@ -109,10 +111,23 @@ const en = {
     // Form Actions**
     add: "Add",
     cancel: "Cancel",
+    addClub: "Add Club",
 
     // User Actions**
     editUser: "Edit User",
     newUser: "New User",
+    users: "Users",
+    clubs: "Clubs",
+
+//Pagination
+    next: "Next",
+    previous: "Previous",
+
+//Club Edit
+    latitude: "Latitude",
+    longitude: "Longitude",
+    address: "Address",
+    url: "URL"
   };
   export default en;
   
