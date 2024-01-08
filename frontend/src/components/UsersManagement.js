@@ -136,9 +136,23 @@ const UserManagement = () => {
   const displayedUsers = users.slice(pagesVisited, pagesVisited + usersPerPage);
 
   return (
-    <div className="flex-grow flex items-center justify-center p-4">
+    <div className="flex-grow flex items-center justify-center p-2 w-full text-center overflow-x-auto rounded-2xl shadow-md max-w-3xl
+                    sm-mobile:px-6
+                    md-mobile:px-8
+                    lg-mobile:px-10
+                    tablet:px-12
+                    laptop:px-16
+                    large-laptop:px-20
+                    4k:px-24">
       <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
+        <h1 className="text-custom-brown text-4xl font-bold mb-6 
+                      sm-mobile:text-lg 
+                      md-mobile:text-2xl 
+                      lg-mobile:text-3xl 
+                      tablet:text-4xl 
+                      laptop:text-4xl 
+                      large-laptop:text-4xl 
+                      4k:text-6xl">Panel zarządzania użytkownikami</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4">
@@ -151,8 +165,15 @@ const UserManagement = () => {
             <FontAwesomeIcon icon={faPlus} className="mr-2" />
             Dodaj użytkownika
           </button>
-
-          <table className="w-full mb-8">
+          <div className="w-full overflow-x-auto">
+          <table className="w-full mb-8 
+                            sm-mobile:text-xs 
+                            md-mobile:text-sm 
+                            lg-mobile:text-base 
+                            tablet:text-md
+                            laptop:text-lg 
+                            large-laptop:text-xl
+                            4k:text-3xl">
             <thead>
               <tr>
                 <th>ID</th>
@@ -170,16 +191,44 @@ const UserManagement = () => {
                   <td>
                     <button
                       onClick={() => openModal(user)}
-                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
+                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2
+                                sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-xs
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faEdit} className="mr-2" />
+                      <FontAwesomeIcon icon={faEdit} className="mr-2 
+                                                                sm-mobile:text-xs 
+                                                                md-mobile:text-xs
+                                                                lg-mobile:text-base 
+                                                                tablet:text-base 
+                                                                laptop:text-base
+                                                                large-laptop:text-base 
+                                                                4k:text-2xl" />
                       Edytuj
                     </button>
                     <button
                       onClick={() => handleDeleteUser(user.id)}
-                      className="bg-red-500 px-4 py-2 text-white rounded-md"
+                      className="bg-red-500 px-4 py-2 text-white rounded-md
+                                sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-sm 
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2
+                                                                    sm-mobile:text-xs 
+                                                                    md-mobile:text-sm 
+                                                                    lg-mobile:text-base 
+                                                                    tablet:text-base
+                                                                    laptop:text-base 
+                                                                    large-laptop:text-base
+                                                                    4k:text-2xl" />
                       Usuń
                     </button>
                   </td>
@@ -187,6 +236,7 @@ const UserManagement = () => {
               ))}
             </tbody>
           </table>
+          </div>
 
           <ReactPaginate
           previousLabel={'Poprzednia'}

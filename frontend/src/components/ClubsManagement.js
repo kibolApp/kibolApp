@@ -139,22 +139,50 @@ const ClubManagement = () => {
   const displayedClubs = clubs.slice(pagesVisited, pagesVisited + clubsPerPage);
 
   return (
-    <div className="flex-grow flex items-center justify-center p-4">
+    <div className="flex-grow flex items-center justify-center p-4 w-full text-center overflow-x-auto">
       <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-5xl w-full text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel Zarządzania Klubami</h1>
+        <h1 className="text-custom-brown text-4xl font-bold mb-6
+                        sm-mobile:text-xl 
+                        md-mobile:text-2xl 
+                        lg-mobile:text-2xl 
+                        tablet:text-3xl 
+                        laptop:text-4xl 
+                        large-laptop:text-4xl 
+                        4k:text-6xl">Panel Zarządzania Klubami</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4"></h2>
           <button
             onClick={() => openModal(null)}
-            className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
+            className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4
+                      sm-mobile:px-3 sm-mobile:py-1 
+                      md-mobile:px-3 md-mobile:py-1 
+                      lg-mobile:px-3 lg-mobile:py-1 
+                      tablet:px-4 tablet:py-2 
+                      laptop:px-4 laptop:py-2 
+                      large-laptop:px-4 large-laptop:py-2 
+                      4k:px-4 4k:py-2"
           >
-            <FontAwesomeIcon icon={faPlus} className="mr-2" />
+            <FontAwesomeIcon icon={faPlus} className="mr-2
+                                                      sm-mobile:text-xs 
+                                                      md-mobile:text-xs 
+                                                      lg-mobile:text-base 
+                                                      tablet:text-base 
+                                                      laptop:text-base 
+                                                      large-laptop:text-base 
+                                                      4k:text-2xl" />
             Dodaj klub
           </button>
         </div>
-
-        <table className="w-full mb-8">
+        <div className="w-full overflow-x-auto">
+        <table className="w-full mb-8 
+                          sm-mobile:text-xs 
+                          md-mobile:text-sm 
+                          lg-mobile:text-base 
+                          tablet:text-md
+                          laptop:text-lg 
+                          large-laptop:text-xl
+                          4k:text-3xl">
           <thead>
             <tr>
               <th>ID</th>
@@ -170,23 +198,52 @@ const ClubManagement = () => {
                 <img
                   src={club.url_logo}
                   alt={`Logo ${club.team}`}
-                  style={{ maxWidth: '50px', maxHeight: '50px' }}
+                  className="w-12 h-12 object-contain"
                 />
                 <td>{club.team}</td>
                 <td>
-                  <div className="flex space-x-2">
+                  <div className="flex flex-col space-x-2 space-y-2 justify-center items-center
+                                  sm-mobile:flex-row sm-mobile:space-y-0 sm-mobile:space-x-2">
                     <button
                       onClick={() => openModal(club)}
-                      className="bg-custom-olive px-4 py-2 text-white rounded-md"
+                      className="bg-custom-olive px-4 py-2 text-white rounded-md
+                                sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-sm 
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faEdit} className="mr-2" />
+                      <FontAwesomeIcon icon={faEdit} className="mr-2 
+                      sm-mobile:text-xs 
+                      md-mobile:text-sm 
+                      lg-mobile:text-base 
+                      tablet:text-base
+                      laptop:text-base 
+                      large-laptop:text-base
+                      4k:text-2xl" />
                       Edytuj
                     </button>
                     <button
                       onClick={() => handleDeleteClub(club.id)}
-                      className="bg-red-500 px-4 py-2 text-white rounded-md"
+                      className="bg-red-500 px-4 py-2 text-white rounded-md
+                              sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-sm 
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
+                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2 
+                      sm-mobile:text-xs 
+                      md-mobile:text-sm 
+                      lg-mobile:text-base 
+                      tablet:text-base
+                      laptop:text-base 
+                      large-laptop:text-base
+                      4k:text-2xl" />
                       Usuń
                     </button>
                   </div>
@@ -195,6 +252,7 @@ const ClubManagement = () => {
             ))}
           </tbody>
         </table>
+        </div>
 
         <ReactPaginate
         previousLabel={'Poprzednia'}
