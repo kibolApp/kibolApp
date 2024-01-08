@@ -3,8 +3,10 @@ import axiosClient from '../axiosClient';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 const UserManagement = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [currentUser, setCurrentUser] = useState({
     name: '',
@@ -136,29 +138,50 @@ const UserManagement = () => {
   const displayedUsers = users.slice(pagesVisited, pagesVisited + usersPerPage);
 
   return (
-    <div className="flex-grow flex items-center justify-center p-4">
+    <div className="flex-grow flex items-center justify-center p-2 w-full text-center overflow-x-auto rounded-2xl shadow-md max-w-3xl
+                    sm-mobile:px-6
+                    md-mobile:px-8
+                    lg-mobile:px-10
+                    tablet:px-12
+                    laptop:px-16
+                    large-laptop:px-20
+                    4k:px-24">
       <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania użytkownikami</h1>
+        <h1 className="text-custom-brown text-4xl font-bold mb-6 
+                      sm-mobile:text-lg 
+                      md-mobile:text-2xl 
+                      lg-mobile:text-3xl 
+                      tablet:text-4xl 
+                      laptop:text-4xl 
+                      large-laptop:text-4xl 
+                      4k:text-6xl">{t('userMangementPanel')}</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4">
-            {editingUserId ? 'Edytuj' : 'Nowy użytkownik'}
+            {editingUserId ? t('edit') : t('newUser')}
           </h2>
           <button
             onClick={() => openModal(null)}
             className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
           >
             <FontAwesomeIcon icon={faPlus} className="mr-2" />
-            Dodaj użytkownika
+            {t('addUser')}
           </button>
-
-          <table className="w-full mb-8">
+          <div className="w-full overflow-x-auto">
+          <table className="w-full mb-8 
+                            sm-mobile:text-xs 
+                            md-mobile:text-sm 
+                            lg-mobile:text-base 
+                            tablet:text-md
+                            laptop:text-lg 
+                            large-laptop:text-xl
+                            4k:text-3xl">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>Nazwa</th>
-                <th>Email</th>
-                <th>Akcje</th>
+                <th>{t('id')}</th>
+                <th>{t('name')}</th>
+                <th>{t('email')}</th>
+                <th>{t('actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -170,27 +193,56 @@ const UserManagement = () => {
                   <td>
                     <button
                       onClick={() => openModal(user)}
-                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
+                      className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2
+                                sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-xs
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faEdit} className="mr-2" />
-                      Edytuj
+                      <FontAwesomeIcon icon={faEdit} className="mr-2 
+                                                                sm-mobile:text-xs 
+                                                                md-mobile:text-xs
+                                                                lg-mobile:text-base 
+                                                                tablet:text-base 
+                                                                laptop:text-base
+                                                                large-laptop:text-base 
+                                                                4k:text-2xl" />
+                      {t('edit')}
                     </button>
                     <button
                       onClick={() => handleDeleteUser(user.id)}
-                      className="bg-red-500 px-4 py-2 text-white rounded-md"
+                      className="bg-red-500 px-4 py-2 text-white rounded-md
+                                sm-mobile:px-3 sm-mobile:py-1 sm-mobile:text-xs 
+                                md-mobile:px-3 md-mobile:py-1 md-mobile:text-sm 
+                                lg-mobile:px-3 lg-mobile:py-1 lg-mobile:text-base 
+                                tablet:px-3 tablet:py-1 tablet:text-base 
+                                laptop:px-4 laptop:py-2 laptop:text-base
+                                large-laptop:px-4 large-laptop:py-2 large-laptop:text-base 
+                                4k:px-4 4k:py-2 4k:text-2xl"
                     >
-                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                      Usuń
+                      <FontAwesomeIcon icon={faTrashAlt} className="mr-2
+                                                                    sm-mobile:text-xs 
+                                                                    md-mobile:text-sm 
+                                                                    lg-mobile:text-base 
+                                                                    tablet:text-base
+                                                                    laptop:text-base 
+                                                                    large-laptop:text-base
+                                                                    4k:text-2xl" />
+                      {t('delete')}
                     </button>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          </div>
 
           <ReactPaginate
-          previousLabel={'Poprzednia'}
-          nextLabel={'Następna'}
+          previousLabel={t('previous')}
+          nextLabel={t('next')}
           pageCount={Math.ceil(users.length / usersPerPage)}
           onPageChange={changePage}
           containerClassName={"flex items-center justify-center mt-4"}
@@ -208,21 +260,21 @@ const UserManagement = () => {
             type="text"
             value={currentUser.name}
             onChange={(e) => setCurrentUser({ ...currentUser, name: e.target.value })}
-            placeholder="Nazwa"
+            placeholder={t('name')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <input
             type="email"
             value={currentUser.email}
             onChange={(e) => setCurrentUser({ ...currentUser, email: e.target.value })}
-            placeholder="Email"
+            placeholder={t('email')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <input
             type="password"
             value={editingPassword}
             onChange={(e) => setEditingPassword(e.target.value)}
-            placeholder="Hasło"
+            placeholder={t('password')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
           <div className="flex justify-center">
@@ -238,14 +290,14 @@ const UserManagement = () => {
               className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
             >
               <FontAwesomeIcon icon={editingUserId ? faEdit : faPlus} className="mr-2" />
-              {editingUserId ? 'Edytuj' : 'Dodaj'}
+              {editingUserId ? t('edit') : t('add') }
             </button>
             <button
               onClick={closeModal}
               className="bg-red-500 px-4 py-2 text-white rounded-md ml-2"
             >
               <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-              Anuluj
+              {t('cancel')} 
             </button>
             </div>
             </div>
