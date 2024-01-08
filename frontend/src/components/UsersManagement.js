@@ -55,20 +55,20 @@ const UserManagement = () => {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      try {
-        const response = await axiosClient.get('/users');
-        setUsers(response.data);
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-
+      axiosClient.post('/getusers')
+      .then(({data})=>{
+        setUsers(data);
+      })
+      .catch(err=>{
+        console.error('Error fetching data:', err);
+      })
+    }
     fetchUsers();
   }, []);
 
   const handleAddUser = async () => {
     try {
-      const response = await axiosClient.post('/users', {
+      const response = await axiosClient.post('/adduser', {
         name: currentUser.name,
         email: currentUser.email,
         password: editingPassword,
@@ -88,7 +88,7 @@ const UserManagement = () => {
   const handleEditUser = async () => {
     try {
       const updatedUser = { ...currentUser, password: editingPassword };
-      const response = await axiosClient.put(`/users/${editingUserId}`, updatedUser);
+      const response = await axiosClient.put(`/edituser/${editingUserId}`, updatedUser);
       const updatedUsers = users.map((user) =>
         user.id === editingUserId ? response.data : user
       );
@@ -109,7 +109,7 @@ const UserManagement = () => {
     try {
       const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
       if (confirmed) {
-        await axiosClient.delete(`/users/${userId}`);
+        await axiosClient.delete(`/deleteuser/${userId}`);
         const updatedUsers = users.filter((user) => user.id !== userId);
         setUsers(updatedUsers);
       }

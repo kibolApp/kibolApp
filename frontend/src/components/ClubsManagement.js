@@ -12,6 +12,7 @@ const ClubManagement = () => {
     longitude: '',
     address: '',
     url_logo: '',
+    url: '',
   });
   const [editingClubId, setEditingClubId] = useState(null);
 
@@ -32,6 +33,7 @@ const ClubManagement = () => {
         longitude: club.longitude,
         address: club.address,
         url_logo: club.url_logo,
+        url: club.url,
       });
     } else {
       setEditingClubId(null);
@@ -41,6 +43,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
     }
   };
@@ -54,6 +57,7 @@ const ClubManagement = () => {
       longitude: '',
       address: '',
       url_logo: '',
+      url: '',
     });
   };
 
@@ -78,6 +82,7 @@ const ClubManagement = () => {
         longitude: currentClub.longitude,
         address: currentClub.address,
         url_logo: currentClub.url_logo,
+        url: currentClub.url,
       });
       setClubs([...clubs, response.data]);
       setCurrentClub({
@@ -86,6 +91,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
       closeModal();
     } catch (error) {
@@ -108,6 +114,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
     } catch (error) {
       console.error('Error editing club:', error);
@@ -160,6 +167,10 @@ const ClubManagement = () => {
               <th>ID</th>
               <th>Logo</th>
               <th>Nazwa</th>
+              <th>Szerokość Geograficzna</th>
+              <th>Długość Geograficzna</th>
+              <th>Siedziba</th>
+              <th>Url</th>
               <th>Akcje</th>
             </tr>
           </thead>
@@ -173,6 +184,10 @@ const ClubManagement = () => {
                   style={{ maxWidth: '50px', maxHeight: '50px' }}
                 />
                 <td>{club.team}</td>
+                <td>{club.longitude}</td>
+                <td>{club.latitude}</td>
+                <td>{club.address}</td>
+                <td>{club.url}</td>
                 <td>
                   <div className="flex space-x-2">
                     <button
@@ -246,6 +261,13 @@ const ClubManagement = () => {
               value={currentClub.url_logo}
               onChange={(e) => setCurrentClub({ ...currentClub, url_logo: e.target.value })}
               placeholder="Url logo"
+              className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
+            />
+             <input
+              type="text"
+              value={currentClub.url}
+              onChange={(e) => setCurrentClub({ ...currentClub, url: e.target.value })}
+              placeholder="Url"
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
 

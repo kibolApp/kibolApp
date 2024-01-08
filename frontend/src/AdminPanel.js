@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserHeader from './components/UserHeader';
 import ClubManagement from './components/ClubsManagement';
 import UserManagement from './components/UsersManagement';
+import RelationsManagement from './components/RelationsManagement';
 
 const AdminPanel = () => {
   const [selectedTab, setSelectedTab] = useState('users');
@@ -26,11 +27,22 @@ const AdminPanel = () => {
 >
           Kluby
         </button>
+        <button
+  onClick={() => setSelectedTab('relations')}
+  className={`px-4 py-2 rounded-md ${
+    selectedTab === 'relations' ? 'px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white' : 'bg-custom-olive hover:text-white'
+  }`}
+>
+          Relacje
+        </button>
       </div>
       <div className="mb-4">
-        {selectedTab === 'users' ? <UserManagement /> : <ClubManagement />}
+      {selectedTab === 'users' ? <UserManagement /> : null}
+        {selectedTab === 'clubs' ? <ClubManagement /> : null}
+        {selectedTab === 'relations' ? <RelationsManagement /> : null}
       </div>
     </div>
+    
   );
 };
 
