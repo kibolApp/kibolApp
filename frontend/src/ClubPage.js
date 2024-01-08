@@ -46,8 +46,8 @@ const ClubPage = () => {
                 src={clubData[0].url_logo}
                 alt={clubData[0].name}
                 className="absolute left-24 w-36 h-36 -ml-8 top-1/2 transform -translate-y-1/2
-                            sm-mobile:left-8 sm-mobile:w-14 sm-mobile:h-14
-                            md-mobile:left-8 md-mobile:w-20 md-mobile:h-20 
+                            sm-mobile:left-8 sm-mobile:w-12 sm-mobile:h-12
+                            md-mobile:left-8 md-mobile:w-16 md-mobile:h-16 
                             lg-mobile:left-12 lg-mobile:w-22 lg-mobile:h-22
                             tablet:left-20 tablet:w-28 tablet:h-28 
                             laptop:left-24 laptop:w-32 laptop:h-32 
@@ -56,8 +56,8 @@ const ClubPage = () => {
             />
             <div className="flex justify-center items-center w-full h-full">
               <span className="text-white font-semibold uppercase text-center text-4xl
-                              sm-mobile:text-lg 
-                              md-mobile:text-lg 
+                              sm-mobile:text-xs 
+                              md-mobile:text-sm 
                               lg-mobile:text-xl 
                               tablet:text-3xl 
                               laptop:text-4xl 
