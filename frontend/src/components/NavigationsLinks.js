@@ -16,7 +16,7 @@ const NavigationLinks = () => {
       .then(() => {
         setUser({});
         setToken(null);
-        console.log('1');
+        window.location.reload()
       });
   };
 

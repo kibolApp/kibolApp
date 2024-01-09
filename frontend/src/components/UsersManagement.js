@@ -68,7 +68,7 @@ const UserManagement = () => {
 
   const handleAddUser = async () => {
     try {
-      const response = await axiosClient.post('/adduser', {
+      const response = await axiosClient.post('/addusers', {
         name: currentUser.name,
         email: currentUser.email,
         password: editingPassword,
