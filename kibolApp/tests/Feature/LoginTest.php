@@ -77,4 +77,26 @@ class LoginTest extends TestCase
         $response->assertStatus(302)
             ->assertSessionHasErrors(['email']);
     }
+    public function testLoginRouteIncorrectUserEmail(): void
+    {
+
+        $this->post('/api/register', [
+            'name' => 'John Doe',
+            'email' => 'john1@example.com',
+            'password' => 'Password123',
+        ]);
+
+        $response = $this->post('/api/login', [
+            'email' => 'john12@example.com',
+            'password' => 'Password123',
+        ]);
+
+        $response->assertStatus(302);
+        $response->assertRedirect();
+
+        $response = $this->followRedirects($response);
+
+        $response->assertStatus(200);
+        $response->assertSessionHasErrors(['email']);
+    }
 }
