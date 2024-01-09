@@ -23,7 +23,7 @@ const RelationsManagement = () => {
   const [currentPageNegative, setCurrentPageNegative] = useState(1);
   const [positiveRelationOpen, setPositiveRelationOpen] = useState(false);
 const [negativeRelationOpen, setNegativeRelationOpen] = useState(false);
-const itemsPerPage = 10;
+const itemsPerPage = 4;
 
 
   useEffect(() => {
@@ -284,112 +284,118 @@ const itemsPerPage = 10;
 
 
 
-  return (
-    <div className="flex-grow flex items-center justify-center p-4">
-      <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania relacjami</h1>
-
-        {clubs.map((club) => (
-          <div key={club} className="relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-3 w-full">
-            <img
-              src={club.icon.options.iconUrl}
-              alt={club.name}
-              className="absolute w-24 h-24 top-1/2 transform -translate-y-1/2"
-            />
-            <div className="flex justify-between items-center w-full">
-              <span className="text-black font-semibold uppercase text-center text-lg">
-                {club.name}
-              </span>
-              {club.exist ?   
-                <button onClick={() => openEditModal(club)} className="bg-blue-500 text-white px-4 py-2 rounded-md">Edytuj</button> : 
-                <button onClick={() => AddTable(club.url, club.name, club.url_logo)} className="bg-green-500 text-white px-4 py-2 rounded-md">Dodaj</button>
-              }
-            </div>
-          </div>
-        ))}
+      return (
+        <div className="flex-grow flex items-center justify-center p-4">
+          <div className="bg-custom-sand p-20 rounded-2xl shadow-md max-w-3xl w-full text-center">
+            <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania relacjami</h1>
+      
+            {clubs.map((club) => (
+              <div key={club} className="relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-8 w-full p-6">
+                <img
+                  src={club.icon.options.iconUrl}
+                  alt={club.name}
+                  className="w-24 h-24 mr-8"
+                />
+                <div className="flex-grow flex justify-between items-center">
+                  <span className="text-black font-semibold uppercase text-center text-lg">
+                    {club.name}
+                  </span>
+                  <div className="ml-8"> 
+                    {club.exist ?   
+                      <button onClick={() => openEditModal(club)} className="bg-blue-500 text-white px-4 py-2 rounded-md">Edytuj</button> : 
+                      <button onClick={() => AddTable(club.url, club.name, club.url_logo)} className="bg-green-500 text-white px-4 py-2 rounded-md">Dodaj</button>
+                    }
+                  </div>
+                </div>
+              </div>
+            ))}
 
       
-        <Modal
-          isOpen={isModalOpen}
-          onRequestClose={closeEditModal}
-          contentLabel="Example Modal"
-          className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-8 rounded-md"
-          overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50"
-        >
-          <h2>Relacje Klubu: {selectedClub.name}</h2>
-          <div className="flex justify-between mb-2">
-            <div className="mr-4">
-              <p className="font-bold">Pozytywne relacje:</p>
-              {filterAndPaginate(
-                positiveItems,
-                positiveCurrentPage,
-                setPositiveCurrentPage
-               )}
-          {positivePaginationControls}
-              
-              <button  onClick={showPositiveblock} className="bg-green-500 text-white p-2 ">
-                +
-              </button>
-              <div>
-                {positiveRelationOpen && displayPagePositvie().map((name, index) => (
-                  <p key={index}>
-                    <button onClick={() => AddPositiveRealtion(name)}>
-                      {name}
-                    </button>
-                  </p>
-                  ))}
-              </div>
-              <div>
-                {positiveRelationOpen && Array.from({ length: totalPagesPostive }).map((_, index) => (
-                  <button key={index} onClick={() => handlePageChangePostive(index + 1)}>
-                    {index + 1}
-                  </button>
-                ))}
-                 {positiveRelationOpen && (
-                    <button onClick={hidePositiveblock}>
-                      Anuluj
-                    </button>
-                  )}
-               </div>
-            </div>
-            
-            <div>
-              <p className="font-bold">Negatywne relacje:</p>
-              {filterAndPaginate(
-                negativeItems,
-                negativeCurrentPage,
-                setNegativeCurrentPage
-               )}
-            {negativePaginationControls}
-              
-              <button onClick={showNegativeblock} className="bg-green-500 text-white p-2 ">
-                +
-              </button>
-              <div>
-                {negativeRelationOpen && displayPageNegative().map((name, index) => (
-                  <p key={index}>
-                    <button onClick={() => AddNegativeRealtion(name)}>
-                      {name}
-                    </button>
-                  </p>
-                  ))}
-              </div>
-              <div>
-                {negativeRelationOpen && Array.from({ length: totalPagesNegative }).map((_, index) => (
-                  <button key={index} onClick={() => handlePageChangeNegative(index + 1)}>
-                    {index + 1}
-                  </button>
-                ))}
-                    {negativeRelationOpen && (
-                    <button onClick={hideNegativeblock}>
-                      Anuluj
-                    </button>
-                  )}
-                </div>
-               </div>
-          </div>
-          <button onClick={EditTable}>Zapisz</button>
-        </Modal>
+<Modal
+  isOpen={isModalOpen}
+  onRequestClose={closeEditModal}
+  contentLabel="Example Modal"
+  className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-md w-2/6 h-5/6" 
+  overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50"
+>
+  <h2>Relacje Klubu: {selectedClub.name}</h2>
+  <div className="flex justify-between mb-4"> 
+    <div className="mr-4">
+      <p className="font-bold">Pozytywne relacje:</p>
+      {filterAndPaginate(
+        positiveItems,
+        positiveCurrentPage,
+        setPositiveCurrentPage
+      )}
+      {positivePaginationControls}
+
+      <button onClick={showPositiveblock} className="bg-green-500 text-white p-2 m-2">
+        + Dodaj
+      </button>
+      <div>
+        {positiveRelationOpen && displayPagePositvie().map((name, index) => (
+          <p key={index} className="m-2">
+            <button onClick={() => AddPositiveRealtion(name)}>
+              {name}
+            </button>
+          </p>
+        ))}
+      </div>
+      <div>
+        {positiveRelationOpen && Array.from({ length: totalPagesPostive }).map((_, index) => (
+          <button key={index} onClick={() => handlePageChangePostive(index + 1)} className="m-2">
+            {index + 1}
+          </button>
+        ))}
+        {positiveRelationOpen && (
+          <button onClick={hidePositiveblock} className="m-2">
+            Anuluj
+          </button>
+        )}
+      </div>
+    </div>
+
+    <div>
+      <p className="font-bold">Negatywne relacje:</p>
+      {filterAndPaginate(
+        negativeItems,
+        negativeCurrentPage,
+        setNegativeCurrentPage
+      )}
+      {negativePaginationControls}
+
+      <button onClick={showNegativeblock} className="bg-green-500 text-white p-2 m-2">
+        + Dodaj
+      </button>
+      <div>
+        {negativeRelationOpen && displayPageNegative().map((name, index) => (
+          <p key={index} className="m-2">
+            <button onClick={() => AddNegativeRealtion(name)}>
+              {name}
+            </button>
+          </p>
+        ))}
+      </div>
+      <div>
+        {negativeRelationOpen && Array.from({ length: totalPagesNegative }).map((_, index) => (
+          <button key={index} onClick={() => handlePageChangeNegative(index + 1)} className="m-2">
+            {index + 1}
+          </button>
+        ))}
+        {negativeRelationOpen && (
+          <button onClick={hideNegativeblock} className="m-2">
+            Anuluj
+          </button>
+        )}
+      </div>
+    </div>
+  </div>
+  <button onClick={EditTable} className="bg-blue-500 text-white px-4 py-2 rounded-md m-2">
+    Zapisz
+  </button>
+</Modal>
+
+
       </div>
     </div>
   );
