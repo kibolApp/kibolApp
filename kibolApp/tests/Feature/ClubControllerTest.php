@@ -31,4 +31,13 @@ class ClubControllerTest extends TestCase
                 ],
             ]);
     }
+    public function testDeleteClub(): void
+    {
+        $uniqueName = 'ClubToDelete_' . uniqid();
+        $club = Clubs::factory()->create(['team' => $uniqueName]);
+
+        $response = $this->delete("/api/clubs/{$club->id}");
+        $response->assertStatus(200);
+        $this->assertDatabaseMissing('clubs', ['team' => $uniqueName]);
+    }
 }

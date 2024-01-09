@@ -5,7 +5,6 @@ namespace Tests\Unit;
 use App\Models\Clubs;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\TestCase;
-use Database\Factories\ClubsFactory;
 
 class ClubsTest extends TestCase
 {
