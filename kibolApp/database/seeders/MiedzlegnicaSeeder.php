@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -18,9 +19,9 @@ class MiedzLegnicaSeeder extends Seeder
         ];
 
         $clubs = [
-            
+
             [
-                'name' => "MKS Miedź Legnica",
+                'name' => "Miedz Legnica",
                 'url_logo' => "https://i.imgur.com/AJ27Q2w.png",
                 'positive' => null,
                 'negative' => null,
@@ -34,7 +35,7 @@ class MiedzLegnicaSeeder extends Seeder
         foreach ($negativeClubs as $club) {
             $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
         }
-        
+
         DB::table('miedzlegnica')->insert($clubs);
     }
 }
