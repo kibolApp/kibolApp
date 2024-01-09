@@ -26,7 +26,6 @@ const [negativeRelationOpen, setNegativeRelationOpen] = useState(false);
 const itemsPerPage = 10;
 
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -190,6 +189,101 @@ const itemsPerPage = 10;
         setCurrentPageNegative(page);
       };
 
+
+      const [positiveCurrentPage, setPositiveCurrentPage] = useState(1);
+      const [negativeCurrentPage, setNegativeCurrentPage] = useState(1);
+    
+      const filterAndPaginate = (items, currentPage, setPageFunction) => {
+        const startIndex = (currentPage - 1) * itemsPerPage;
+        const endIndex = startIndex + itemsPerPage;
+        return items.slice(startIndex, endIndex).map((item) => (
+          <div key={item.id} className="flex items-center justify-between">
+            <p>{item}</p>
+            <button
+              onClick={() => removeFromRelation(item)}
+              className="bg-red-500 text-white p-2 rounded-md m-2"
+            >
+              X
+            </button>
+          </div>
+        ));
+      };
+    
+   
+      const positiveItems = modalData
+        .filter((item) => item.positive)
+        .map((item) => item.positive);
+    
+   
+      const negativeItems = modalData
+        .filter((item) => item.negative)
+        .map((item) => item.negative);
+    
+     
+      const positiveTotalPages = Math.ceil(positiveItems.length / itemsPerPage);
+      const negativeTotalPages = Math.ceil(negativeItems.length / itemsPerPage);
+    
+     
+      const positivePaginationControls = (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() =>
+              setPositiveCurrentPage((prev) => Math.max(prev - 1, 1))
+            }
+            disabled={positiveCurrentPage === 1}
+            className="mr-2 px-4 py-2 bg-gray-300 rounded"
+          >
+            Previous
+          </button>
+          <span className="mx-2">
+            Page {positiveCurrentPage} of {positiveTotalPages}
+          </span>
+          <button
+            onClick={() =>
+              setPositiveCurrentPage((prev) =>
+                Math.min(prev + 1, positiveTotalPages)
+              )
+            }
+            disabled={positiveCurrentPage === positiveTotalPages}
+            className="ml-2 px-4 py-2 bg-gray-300 rounded"
+          >
+            Next
+          </button>
+        </div>
+      );
+    
+    
+      const negativePaginationControls = (
+        <div className="flex justify-center mt-4">
+          <button
+            onClick={() =>
+              setNegativeCurrentPage((prev) => Math.max(prev - 1, 1))
+            }
+            disabled={negativeCurrentPage === 1}
+            className="mr-2 px-4 py-2 bg-gray-300 rounded"
+          >
+            Previous
+          </button>
+          <span className="mx-2">
+            Page {negativeCurrentPage} of {negativeTotalPages}
+          </span>
+          <button
+            onClick={() =>
+              setNegativeCurrentPage((prev) =>
+                Math.min(prev + 1, negativeTotalPages)
+              )
+            }
+            disabled={negativeCurrentPage === negativeTotalPages}
+            className="ml-2 px-4 py-2 bg-gray-300 rounded"
+          >
+            Next
+          </button>
+        </div>
+      );
+
+
+
+
   return (
     <div className="flex-grow flex items-center justify-center p-4">
       <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-3xl w-full text-center">
@@ -226,19 +320,12 @@ const itemsPerPage = 10;
           <div className="flex justify-between mb-2">
             <div className="mr-4">
               <p className="font-bold">Pozytywne relacje:</p>
-              {modalData.map((item) => (
-                item.positive && (
-                  <div key={item.id} className="flex items-center justify-between">
-                    <p>{item.positive}</p>
-                    <button
-                      onClick={()=>removeFromRelation(item)}
-                      className="bg-red-500 text-white p-2 rounded-md m-2"
-                    >
-                      X
-                    </button>
-                  </div>
-                )
-              ))}
+              {filterAndPaginate(
+                positiveItems,
+                positiveCurrentPage,
+                setPositiveCurrentPage
+               )}
+          {positivePaginationControls}
               
               <button  onClick={showPositiveblock} className="bg-green-500 text-white p-2 ">
                 +
@@ -268,19 +355,12 @@ const itemsPerPage = 10;
             
             <div>
               <p className="font-bold">Negatywne relacje:</p>
-              {modalData.map((item) => (
-                item.negative && (
-                  <div key={item.id} className="flex items-center justify-between">
-                    <p>{item.negative}</p>
-                    <button
-                      onClick={()=>removeFromRelation(item)}
-                      className="bg-red-500 text-white p-2 rounded-md m-2"
-                    >
-                      X
-                    </button>
-                  </div>
-                )
-              ))}
+              {filterAndPaginate(
+                negativeItems,
+                negativeCurrentPage,
+                setNegativeCurrentPage
+               )}
+            {negativePaginationControls}
               
               <button onClick={showNegativeblock} className="bg-green-500 text-white p-2 ">
                 +
