@@ -13,7 +13,7 @@ test('Renders WaitingPage component', () => {
   const centerDiv = screen.getByTestId('center');
   expect(centerDiv).toBeInTheDocument();
 
-  const pleaseWaitTextElement = screen.getByText(/Pleas\s*Wait/i);
+  const pleaseWaitTextElement = screen.getByText(/Please Wait/i);
   expect(pleaseWaitTextElement).toBeInTheDocument();
   expect(pleaseWaitTextElement).toHaveClass('bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-md w-full m-4');
 });

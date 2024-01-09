@@ -1,35 +1,43 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit\Http\Requests;
 
-use App\Models\User;
 use App\Http\Requests\ChangeNameRequest;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
 class ChangeNameRequestTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function testUserCanChangeOwnName(): void
+    public function testChangeNameRequestValidationPasses()
     {
-        $user = User::factory()->create(['name' => 'Josh']);
-
         $data = [
-            'oldName' => 'Josh',
-            'newName' => 'Gerald',
+            'oldName' => 'Old Name',
+            'newName' => 'New Name',
         ];
 
-        $this->actingAs($user);
+        $request = new ChangeNameRequest();
+        $validator = Validator::make($data, $request->rules());
+
+        $this->assertTrue($validator->passes(), 'Validation should pass.');
+        $this->assertEmpty($validator->errors()->all(), 'No validation errors should be present.');
+    }
+
+    public function testChangeNameRequestValidationFails()
+    {
+        $data = [
+            // Missing name'
+            'newName' => 'New Name',
+        ];
 
         $request = new ChangeNameRequest();
-
         $validator = Validator::make($data, $request->rules());
-        $this->assertTrue($validator->passes());
 
-        $user->update(['name' => $data['newName']]);
+        $this->assertFalse($validator->passes(), 'Validation should fail.');
 
-        $this->assertDatabaseHas('users', ['id' => $user->id, 'name' => 'Gerald']);
+        $errors = $validator->errors()->all();
+        $this->assertContains('The old name field is required.', $errors, 'Validation errors should include "oldName" error.');
     }
 }
