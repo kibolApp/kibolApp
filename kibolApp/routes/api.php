@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\AdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -51,3 +52,18 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/removeFromFavorites', [UserController::class, 'removeFromFavorites']);
     Route::get('/getUserFavorites', [UserController::class, 'getUserFavorites']);
 });
+
+
+
+
+    Route::post('/getusers', [AdminController::class, 'showusers']);
+    Route::post('/addusers', [AdminController::class, 'store']);
+    Route::put('/edituser/{id}', [AdminController::class, 'update']);
+    Route::delete('/deleteuser/{id}', [AdminController::class, 'destroy']);
+    Route::get('/getclubs', [AdminController::class, 'fetchclubs']);
+    Route::post('/creattable', [AdminController::class, 'createtable']);
+    Route::get('/getrealtiontable', [AdminController::class, 'showrealtiontable']);
+    Route::post('/removerelation', [AdminController::class, 'removeralation']);
+    Route::get('/getnameclubsiwthnorealtions', [AdminController::class, 'shownameslubswithnorealtions']);
+    Route::post('/addpositiverelation', [AdminController::class, 'addpositiverelation']);
+    Route::post('/addnegativerelation', [AdminController::class, 'addnegativerelation']);

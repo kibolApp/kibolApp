@@ -34,6 +34,7 @@ class ClubController extends Controller
             'longitude' => $request->longitude,
             'address' => $request->address,
             'url_logo' => $request->url_logo,
+            'url'=>$request->url,
         ]);
 
         return response()->json($club, 201);
