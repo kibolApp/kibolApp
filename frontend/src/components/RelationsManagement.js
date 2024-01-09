@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axiosClient from '../axiosClient';
 import { Icon } from 'leaflet';
 import Modal from 'react-modal'; 
+import ReactPaginate from 'react-paginate';
+
 
 
 const RelationsManagement = () => {
@@ -9,6 +11,9 @@ const RelationsManagement = () => {
   const [tableAdded, setTableAdded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalData, setModalData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const clubsPerPage = 8;
+
 
   const [selectedClub, setSelectedClub] = useState({
     name: '',
@@ -22,8 +27,13 @@ const RelationsManagement = () => {
   const [currentPagePoitive, setCurrentPagePostive] = useState(1);
   const [currentPageNegative, setCurrentPageNegative] = useState(1);
   const [positiveRelationOpen, setPositiveRelationOpen] = useState(false);
-const [negativeRelationOpen, setNegativeRelationOpen] = useState(false);
-const itemsPerPage = 4;
+  const [negativeRelationOpen, setNegativeRelationOpen] = useState(false);
+  const itemsPerPage = 4;
+  const indexOfLastClub = currentPage * clubsPerPage;
+  const indexOfFirstClub = indexOfLastClub - clubsPerPage;
+  const currentClubs = clubs.slice(indexOfFirstClub, indexOfLastClub);
+  const totalPages = Math.ceil(clubs.length / clubsPerPage);
+
 
 
   useEffect(() => {
@@ -47,6 +57,10 @@ const itemsPerPage = 4;
     fetchData();
   }, [tableAdded]);
 
+  const handlePageChange = (page) => {
+    setCurrentPage(page.selected + 1);
+  };
+  
   const AddTable = (url, name, logo) => {
     const payload = {
       url: url,
@@ -289,7 +303,7 @@ const itemsPerPage = 4;
           <div className="bg-custom-sand p-20 rounded-2xl shadow-md max-w-3xl w-full text-center">
             <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania relacjami</h1>
       
-            {clubs.map((club) => (
+            {currentClubs.map((club) => (
               <div key={club} className="relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-8 w-full p-6">
                 <img
                   src={club.icon.options.iconUrl}
@@ -308,8 +322,21 @@ const itemsPerPage = 4;
                   </div>
                 </div>
               </div>
+              
             ))}
 
+<ReactPaginate
+              previousLabel={'Previous'}
+              nextLabel={'Next'}
+              pageCount={totalPages}
+              onPageChange={handlePageChange}
+              activeClassName={"bg-custom-brown py-2"}
+              containerClassName={"flex items-center justify-center mt-4"}
+              breakClassName="px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+              pageLinkClassName={"px-3 py-2 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+              nextLinkClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+              previousClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+            />
       
 <Modal
   isOpen={isModalOpen}
