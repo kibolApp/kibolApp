@@ -3,7 +3,7 @@ const pl = {
 
     // Login**
     loginTitle: "Logowanie",
-    usernameEmail: "Nazwa użytkownika / email",
+    email: "Email",
     password: "Hasło",
     loginButton: "Zaloguj",
     socialLoginPrompt: "lub zaloguj się poprzez",
@@ -11,7 +11,6 @@ const pl = {
     // Register**
     registrationTitle: "Rejestracja",
     username: "Nazwa użytkownika",
-    email: "Email",
     confirmPassword: "Potwierdź hasło",
     registerButton: "Zarejestruj się",
 
@@ -93,12 +92,14 @@ const pl = {
 
 
 // AdminPanel
-    adminPanelTitle: "Panel zarządzania użytkownikami",
+    userMangementPanel: "Panel zarządzania użytkownikami",
+    clubManagementPanel: "Panel zarządzania klubami",
 
     // Table Headers**
     id: "ID",
     name: "Nazwa",
     actions: "Akcje",
+    logo: "Logo",
 
     // Actions**
     edit: "Edytuj",
@@ -112,9 +113,21 @@ const pl = {
     // Form Actions**
     add: "Dodaj",
     cancel: "Anuluj",
+    addClub: "Dodaj klub",
 
     // User Actions**
     editUser: "Edytuj użytkownika",
     newUser: "Nowy użytkownik",
+    users: "Użytkownicy",
+    clubs: "Kluby",
+
+//Pagination
+    next: "Następna",
+    previous: "Poprzednia",
+
+//Club Edit
+    latitude: "Szerokość Geo",
+    longitude: "Długość Geo",
+    address: "Adres",
 };
 export default pl;

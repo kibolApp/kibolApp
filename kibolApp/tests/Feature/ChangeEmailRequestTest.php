@@ -3,11 +3,14 @@
 namespace Tests\Unit\Requests;
 
 use App\Http\Requests\ChangeEmailRequest;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Validator;
 use Tests\TestCase;
 
 class ChangeEmailRequestTest extends TestCase
 {
+    use RefreshDatabase;
+
     public function testValidChangeEmailRequest()
     {
         $data = [
