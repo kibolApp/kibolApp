@@ -4,12 +4,12 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ClubRequest extends FormRequest
+class RelationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
      */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
@@ -19,15 +19,11 @@ class ClubRequest extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
+    public function rules()
     {
         return [
-            'team' => 'required',
-            'latitude' => 'required',
-            'longitude' => 'required',
-            'address' => 'required',
-            'url_logo' => 'required',
-            'url'=>'required',
+            'url' =>'required',
+            'name'=>'',
         ];
     }
 }

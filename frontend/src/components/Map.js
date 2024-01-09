@@ -67,7 +67,7 @@ const CustomMap = () => {
   };
 
   return (
-    <div className="w-9/12 h-9/12 mx-7 my-5">
+    <div className="w-11/12 h-11/12 mx-24">
       <MapContainer
         center={center}
         zoom={zoom}
