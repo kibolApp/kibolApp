@@ -9,6 +9,7 @@ use Tests\TestCase;
 
 class LoginTest extends TestCase
 {
+
     use RefreshDatabase;
 
     public function testUserCanLogin(): void
@@ -64,5 +65,16 @@ class LoginTest extends TestCase
         ]);
 
         $this->assertGuest();
+    }
+
+    public function testWrongEmail(): void
+    {
+        $response = $this->post('/api/login', [
+            'email' => 'invalid-email',
+            'password' => 'invalid-password',
+        ]);
+
+        $response->assertStatus(302)
+            ->assertSessionHasErrors(['email']);
     }
 }

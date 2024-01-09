@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Validator;
 class ChangePasswordRequestTest extends TestCase
 {
 
+    use RefreshDatabase;
+
     public function testValidChangePasswordRequest(): void
     {
         $data = [
