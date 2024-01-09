@@ -1,68 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, Polygon, Rectangle, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import axiosClient from "../axiosClient";
 import { Icon } from 'leaflet';
 import { Link } from 'react-router-dom';
-
-const LocationMarker = ({ clubs }) => {
-  const [position, setPosition] = useState(null);
-  const [nearestClub, setNearestClub] = useState(null);
-  const map = useMapEvents({
-    contextmenu() {
-      locateUser(); 
-    },
-    locationfound(e) {
-      setPosition(e.latlng);
-      findNearestClub(e.latlng);
-      map.flyTo(e.latlng, 18);
-    },
-  });
-  
- 
-  const locateUser = () => {
-    map.locate();
-  };
-  const findNearestClub = (userLocation) => {
-    let minDistance = Infinity;
-    let nearest = null;
-
-    clubs.forEach((club) => {
-      const distance = userLocation.distanceTo(club.location);
-      if (distance < minDistance) {
-        minDistance = distance;
-        nearest = club;
-      }
-    });
-
-    setNearestClub(nearest);
-    setTimeout(() => {
-      setNearestClub(null);
-    }, 1);
-  };
-
-  useEffect(() => {
-    if (nearestClub) {
-      map.flyTo(nearestClub.location, 12);
-    }
-  }, [nearestClub, map]);
-
-  return (
-    <>
-      {nearestClub && (
-        <Marker position={nearestClub.location} icon={nearestClub.icon}>
-          <Popup>
-            <div>
-              <h2 className="text-center text-custom-brown font-semibold">{nearestClub.team}</h2>
-              <p>{nearestClub.address}</p>
-            </div>
-          </Popup>
-        </Marker>
-      )}
-    </>
-  );
-};
 
 const CustomMap = () => {
   const center = [52.0, 19.0];
@@ -70,10 +12,10 @@ const CustomMap = () => {
   const polandBounds = [
     [49.002304, 14.122253],
     [54.835556, 24.145867]
-    
   ];
 
   const [markersData, setMarkersData] = useState([]);
+  const userLocationIcon = new Icon({ iconUrl: 'https://i.imgur.com/iulwF9C.png', iconSize: [32, 32] });
 
   useEffect(() => {
     axiosClient.get('/clubs')
@@ -85,6 +27,18 @@ const CustomMap = () => {
           address: club.address,
           icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
           url:"/clubpage/" + club.url,
+          //area: club.area, TU będzie
+          areas: [
+            [
+              [club.latitude - 0.01, club.longitude - 0.01],
+              [club.latitude + 0.01, club.longitude + 0.01],
+            ],
+            [
+              [club.latitude, club.longitude - 0.02],
+              [club.latitude + 0.02, club.longitude],
+              [club.latitude, club.longitude + 0.02],
+            ],
+          ],
         }));
         setMarkersData(transformedData);
       })
@@ -92,6 +46,25 @@ const CustomMap = () => {
         console.error(err);
       });
   }, []);
+
+  const LocationMarker = () => {
+    const [position, setPosition] = useState(null);
+    const map = useMapEvents({
+      contextmenu() {
+        map.locate();
+      },
+      locationfound(e) {
+        setPosition(e.latlng);
+        map.flyTo(e.latlng, 16);
+      },
+    });
+
+    return position === null ? null : (
+      <Marker position={position} icon={userLocationIcon}>
+        <Popup>Your Localization</Popup>
+      </Marker>
+    );
+  };
 
   return (
     <div className="w-9/12 h-9/12 mx-7 my-5">
@@ -109,22 +82,34 @@ const CustomMap = () => {
         zoomControl={true}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
+        <LocationMarker />
         <MarkerClusterGroup>
           {markersData.map((marker, index) => (
-            <Marker key={index} position={marker.location} icon={marker.icon}>
-              <Popup>
-                <div>
-                  <Link to={marker.url}><h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2></Link>
-                  <p>{marker.address}</p>
-                </div>
-              </Popup>
-            </Marker>
+            <div key={index}>
+              {marker.areas.map((area, areaIndex) => (
+                <Polygon
+                  key={`area-${index}-${areaIndex}`}
+                  pathOptions={{ color: 'purple' }}
+                  positions={area}
+                >
+                  <Tooltip sticky>Obszar dla {marker.team}</Tooltip>
+                </Polygon>
+              ))}
+              <Marker key={index} position={marker.location} icon={marker.icon}>
+                <Popup>
+                  <div>
+                    <Link to={marker.url}><h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2></Link>
+                    <p>{marker.address}</p>
+                  </div>
+                </Popup>
+              </Marker>
+            </div>
           ))}
         </MarkerClusterGroup>
-        <LocationMarker clubs={markersData} />
       </MapContainer>
     </div>
   );
+  
 };
 
 export default CustomMap;
