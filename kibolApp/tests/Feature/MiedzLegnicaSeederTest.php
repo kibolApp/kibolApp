@@ -10,13 +10,14 @@ class MiedzLegnicaSeederTest extends TestCase
 {
     use RefreshDatabase;
 
-    public function itSeedsMiedzLegnicaTableWithExpectedData()
+    public function testItSeedsMiedzLegnicaTableWithExpectedata()
     {
         $this->seed(Seeder::class);
 
         $this->assertDatabaseCount('miedzlegnica', count($this->getExpectedData()));
         $this->assertDatabaseHas('miedzlegnica', $this->getExpectedData()[0]);
     }
+
 
     public function getExpectedData(): array
     {
