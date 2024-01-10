@@ -40,4 +40,10 @@ class ApiRoutesTest extends TestCase
 
         $response->assertStatus(404);
     }
+    public function testPostUsersRoute()
+    {
+        $data = ['name' => 'John Doe', 'email' => 'john@example.com', 'password' => 'password'];
+        $response = $this->post('/api/users', $data);
+        $response->assertStatus(201);
+    }
 }

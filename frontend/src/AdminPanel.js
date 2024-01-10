@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import UserHeader from './components/UserHeader';
 import ClubManagement from './components/ClubsManagement';
 import UserManagement from './components/UsersManagement';
+
 import RelationsManagement from './components/RelationsManagement';
 
 const AdminPanel = () => {
@@ -11,38 +12,43 @@ const AdminPanel = () => {
     <div className="min-h-screen bg-custom-gray flex flex-col items-center">
       <UserHeader />
       <div className="mb-4 mt-6 flex">
-      <button
-  onClick={() => setSelectedTab('users')}
-  className={`mr-2 px-4 py-2 rounded-md ${
-    selectedTab === 'users' ? 'px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white' : 'bg-custom-olive hover:text-white'
-  }`}
->
-  Użytkownicy
-</button>
-<button
-  onClick={() => setSelectedTab('clubs')}
-  className={`px-4 py-2 rounded-md ${
-    selectedTab === 'clubs' ? 'px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white' : 'bg-custom-olive hover:text-white'
-  }`}
->
+        <button
+          onClick={() => setSelectedTab('users')}
+          className={`mr-2 px-4 py-2 rounded-md ${
+            selectedTab === 'users'
+              ? 'px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white'
+              : 'bg-custom-olive hover:text-white'
+          }`}
+        >
+          Użytkownicy
+        </button>
+        <button
+          onClick={() => setSelectedTab('clubs')}
+          className={`px-4 py-2 rounded-md mx-2 ${
+            selectedTab === 'clubs'
+              ? 'px-3 py-1 mx-2 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white'
+              : 'bg-custom-olive hover:text-white'
+          }`}
+        >
           Kluby
         </button>
         <button
-  onClick={() => setSelectedTab('relations')}
-  className={`px-4 py-2 rounded-md ${
-    selectedTab === 'relations' ? 'px-3 py-1 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white' : 'bg-custom-olive hover:text-white'
-  }`}
->
+          onClick={() => setSelectedTab('relations')}
+          className={`px-4 py-2 rounded-md mx-2 ${
+            selectedTab === 'relations'
+              ? 'px-3 py-1 mx-2 text-white border rounded cursor-pointer transition duration-300 ease-in-out bg-custom-olive hover:bg-custom-olive hover:text-white'
+              : 'bg-custom-olive hover:text-white'
+          }`}
+        >
           Relacje
         </button>
       </div>
       <div className="mb-4">
-      {selectedTab === 'users' ? <UserManagement /> : null}
+        {selectedTab === 'users' ? <UserManagement /> : null}
         {selectedTab === 'clubs' ? <ClubManagement /> : null}
         {selectedTab === 'relations' ? <RelationsManagement /> : null}
       </div>
     </div>
-    
   );
 };
 
