@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents, Polygon, Tooltip,  } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, useMapEvents, Polygon, Tooltip, LayersControl, FeatureGroup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import axiosClient from "../axiosClient";
@@ -1229,45 +1229,53 @@ const CustomMap = () => {
     <div className="w-11/12 h-11/12 mx-24">
       <MapContainer
         center={center}
-        zoom={zoom}
+        zoom={13}
         className="h-screen rounded-2xl"
         maxBoundsViscosity={0.9}
         minZoom={6}
         maxZoom={18}
-        maxBounds={polandBounds}
         attributionControl={false}
         scrollWheelZoom={true}
         doubleClickZoom={false}
         zoomControl={true}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-        <LocationMarker />
-        <MarkerClusterGroup>
-          {markersData.map((marker, index) => (
-            <div key={index}>
-              {marker.areas.map((area, areaIndex) => (
-                <Polygon
-                  key={`area-${index}-${areaIndex}`}
-                  pathOptions={{ color: 'purple' }}
-                  positions={area}
-                >
-                  <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
-                </Polygon>
+        <LayersControl position="topright">
+          <LocationMarker />
+          <LayersControl.Overlay name="Areas" checked={true}>
+            <FeatureGroup pathOptions={{ color: 'purple' }} >
+              {markersData.map((marker, index) => (
+                <div key={index}>
+                  {marker.areas.map((area, areaIndex) => (
+                    <Polygon
+                      key={`area-${index}-${areaIndex}`}
+                      pathOptions={{ color: 'purple' }}
+                      positions={area}
+                    >
+                      <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
+                    </Polygon>
+                  ))}
+                </div>
               ))}
-              <Marker key={index} position={marker.location} icon={marker.icon}>
-                <Popup>
-                  <div>
-                    <Link to={marker.url}><h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2></Link>
-                    <p>{marker.address}</p>
-                  </div>
-                </Popup>
-              </Marker>
-            </div>
-          ))}
-        </MarkerClusterGroup>
+            </FeatureGroup>
+          </LayersControl.Overlay>   
+          <LayersControl.Overlay name="Clubs" checked={true}>
+            <MarkerClusterGroup>
+              {markersData.map((marker, index) => (
+                <Marker key={index} position={marker.location} icon={marker.icon}>
+                  <Popup>
+                    <div>
+                      <Link to={marker.url}><h2 className="text-center text-custom-brown font-semibold">{marker.team}</h2></Link>
+                      <p>{marker.address}</p>
+                    </div>
+                  </Popup>
+                </Marker>
+              ))}
+            </MarkerClusterGroup>
+          </LayersControl.Overlay>
+        </LayersControl>
       </MapContainer>
     </div>
   );
 };
-
 export default CustomMap;
