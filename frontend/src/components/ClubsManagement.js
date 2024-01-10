@@ -212,18 +212,18 @@ const ClubManagement = () => {
         </table>
 
         <ReactPaginate
-        previousLabel={'Poprzednia'}
-        nextLabel={'Następna'}
-        pageCount={Math.ceil(clubs.length / clubsPerPage)}
-        onPageChange={changePage}
-        containerClassName={"flex items-center justify-center mt-4"}
-        pageClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        breakClassName="px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
-        previousClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        nextClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        activeClassName={"bg-custom-olive text-white"}
-        initialPage={selectedPage}
-        />
+  previousLabel={'Poprzednia'}
+  nextLabel={'Następna'}
+  pageCount={Math.ceil(clubs.length / clubsPerPage)}
+  onPageChange={changePage}
+  activeClassName={"bg-custom-brown py-2"}
+  containerClassName={"flex items-center justify-center mt-4"}
+  breakClassName="px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+  pageLinkClassName={"px-3 py-2 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  nextLinkClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  previousClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+/>
+
 
 
         <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
