@@ -51,6 +51,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/addToFavorites', [UserController::class, 'addToFavorites']);
     Route::post('/removeFromFavorites', [UserController::class, 'removeFromFavorites']);
     Route::get('/getUserFavorites', [UserController::class, 'getUserFavorites']);
+    Route::get('/getlongandlatforborders',[MapController::class,'getLngAndLat']);
 });
 
 

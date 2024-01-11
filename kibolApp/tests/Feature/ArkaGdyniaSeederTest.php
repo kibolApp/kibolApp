@@ -26,6 +26,7 @@ class ArkaGdyniaSeederTest extends TestCase
                 'url_logo' => "https://i.imgur.com/DIxQvf1.png",
                 'positive' => null,
                 'negative' => null,
+                '$coordinates' => null,
             ],
         ];
 
