@@ -3,10 +3,12 @@ import axiosClient from '../axiosClient';
 import { Icon } from 'leaflet';
 import Modal from 'react-modal'; 
 import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 
 
 const RelationsManagement = () => {
+  const { t } = useTranslation();
   const [clubs, setClubs] = useState([]);
   const [tableAdded, setTableAdded] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -247,10 +249,10 @@ const RelationsManagement = () => {
             disabled={positiveCurrentPage === 1}
             className="mr-2 px-4 py-2 bg-gray-300 rounded"
           >
-            Previous
+            {t('previous')}
           </button>
           <span className="mx-2">
-            Page {positiveCurrentPage} of {positiveTotalPages}
+          {t('page')} {positiveCurrentPage} {t('of')} {positiveTotalPages}
           </span>
           <button
             onClick={() =>
@@ -261,7 +263,7 @@ const RelationsManagement = () => {
             disabled={positiveCurrentPage === positiveTotalPages}
             className="ml-2 px-4 py-2 bg-gray-300 rounded"
           >
-            Next
+            {t('next')}
           </button>
         </div>
       );
@@ -276,10 +278,10 @@ const RelationsManagement = () => {
             disabled={negativeCurrentPage === 1}
             className="mr-2 px-4 py-2 bg-gray-300 rounded"
           >
-            Previous
+            {t('previous')}
           </button>
           <span className="mx-2">
-            Page {negativeCurrentPage} of {negativeTotalPages}
+          {t('page')} {negativeCurrentPage} {t('of')} {negativeTotalPages}
           </span>
           <button
             onClick={() =>
@@ -290,7 +292,7 @@ const RelationsManagement = () => {
             disabled={negativeCurrentPage === negativeTotalPages}
             className="ml-2 px-4 py-2 bg-gray-300 rounded"
           >
-            Next
+            {t('next')}
           </button>
         </div>
       );
@@ -301,7 +303,7 @@ const RelationsManagement = () => {
       return (
         <div className="flex-grow flex items-center justify-center p-4">
           <div className="bg-custom-sand p-20 rounded-2xl shadow-md max-w-3xl w-full text-center">
-            <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel zarządzania relacjami</h1>
+            <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('relationsManagementPanel')}</h1>
       
             {currentClubs.map((club) => (
               <div key={club} className="relative bg-custom-sand rounded-xl flex items-center overflow-visible h-20 my-8 w-full p-6">
@@ -316,8 +318,8 @@ const RelationsManagement = () => {
                   </span>
                   <div className="ml-8"> 
                     {club.exist ?   
-                      <button onClick={() => openEditModal(club)} className="bg-blue-500 text-white px-4 py-2 rounded-md">Edytuj</button> : 
-                      <button onClick={() => AddTable(club.url, club.name, club.url_logo)} className="bg-green-500 text-white px-4 py-2 rounded-md">Dodaj</button>
+                      <button onClick={() => openEditModal(club)} className="bg-blue-500 text-white px-4 py-2 rounded-md">{t('edit')}</button> : 
+                      <button onClick={() => AddTable(club.url, club.name, club.url_logo)} className="bg-green-500 text-white px-4 py-2 rounded-md">{t('add')}</button>
                     }
                   </div>
                 </div>
@@ -326,8 +328,8 @@ const RelationsManagement = () => {
             ))}
 
 <ReactPaginate
-              previousLabel={'Previous'}
-              nextLabel={'Next'}
+              previousLabel={t('previous')}
+              nextLabel={t('next')}
               pageCount={totalPages}
               onPageChange={handlePageChange}
               activeClassName={"bg-custom-brown py-2"}
@@ -345,10 +347,10 @@ const RelationsManagement = () => {
   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-md w-2/6 h-5/6" 
   overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50"
 >
-  <h2>Relacje Klubu: {selectedClub.name}</h2>
+  <h2>{t('clubRelations')} {selectedClub.name}</h2>
   <div className="flex justify-between mb-4"> 
     <div className="mr-4">
-      <p className="font-bold">Pozytywne relacje:</p>
+      <p className="font-bold">{t('positive')}</p>
       {filterAndPaginate(
         positiveItems,
         positiveCurrentPage,
@@ -357,7 +359,7 @@ const RelationsManagement = () => {
       {positivePaginationControls}
 
       <button onClick={showPositiveblock} className="bg-green-500 text-white p-2 m-2">
-        + Dodaj
+        + {t('add')}
       </button>
       <div>
         {positiveRelationOpen && displayPagePositvie().map((name, index) => (
@@ -376,14 +378,14 @@ const RelationsManagement = () => {
         ))}
         {positiveRelationOpen && (
           <button onClick={hidePositiveblock} className="m-2">
-            Anuluj
+            {t('cancel')}
           </button>
         )}
       </div>
     </div>
 
     <div>
-      <p className="font-bold">Negatywne relacje:</p>
+      <p className="font-bold">{t('negative')}</p>
       {filterAndPaginate(
         negativeItems,
         negativeCurrentPage,
@@ -392,7 +394,7 @@ const RelationsManagement = () => {
       {negativePaginationControls}
 
       <button onClick={showNegativeblock} className="bg-green-500 text-white p-2 m-2">
-        + Dodaj
+        + {t('add')}
       </button>
       <div>
         {negativeRelationOpen && displayPageNegative().map((name, index) => (
@@ -411,14 +413,14 @@ const RelationsManagement = () => {
         ))}
         {negativeRelationOpen && (
           <button onClick={hideNegativeblock} className="m-2">
-            Anuluj
+            {t('cancel')}
           </button>
         )}
       </div>
     </div>
   </div>
   <button onClick={EditTable} className="bg-blue-500 text-white px-4 py-2 rounded-md m-2">
-    Zapisz
+  {t('save')}
   </button>
 </Modal>
 
