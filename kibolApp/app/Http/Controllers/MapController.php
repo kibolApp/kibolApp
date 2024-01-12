@@ -44,29 +44,27 @@ class MapController extends Controller
     }
 
     public function fetchclubswithnegative(NegativeRequest $something) {
-        $nameuserclub = $something;
+        $nameuserclub = $something->name;
 
-        
         $userClubUrl = DB::table('clubs')
-            ->select('team','url')
+            ->select('url')
             ->where('team', $nameuserclub)
-            ->get();
-        return($userClubUrl);
-            $negativeRelations = DB::table($userClubUrl)
+            ->value('url');
+        
+        $negativeRelations = DB::table($userClubUrl)
             ->select('negative')
             ->whereNotNull('negative')
             ->get()
+            ->pluck('negative')
             ->toArray();
-            
         
         $clubs = DB::table('clubs')
-            ->get();   
+            ->get();
         
         foreach ($clubs as $club) {
             $tableName = $club->url;
         
             if (Schema::hasTable($tableName)) {
-              
                 $urlData = DB::table($tableName)
                     ->select('lat', 'lng', 'name')  
                     ->whereNotNull('lat')
@@ -74,20 +72,22 @@ class MapController extends Controller
                     ->get()
                     ->toArray();
         
-               
-                $clubsWithNegativeRelations = array_filter($urlData, function ($item) use ($negativeRelations) {
-                    return in_array($item->name, $negativeRelations);
-                });
+            
+                $clubName = $club->team;
         
-                if (!empty($clubsWithNegativeRelations)) {
-    
+                if (in_array($clubName, $negativeRelations)) {
+                  
+                    $club->hasNegativeRelation = true;
                     $club->urlData = $urlData;
+                } else {
+                   
+                    $club->hasNegativeRelation = false;
                 }
+        
             }
         }
         
         return response()->json($clubs);
-
 
     }
 }

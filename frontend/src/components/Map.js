@@ -20,8 +20,12 @@ const CustomMap = () => {
  
 
     useEffect(() => {
-      
-      axiosClient.get('/clubs')
+      axiosClient.get('/getCurrentUser')
+      .then(({data})=>{
+        const payload ={
+          name :data.club.team
+        }
+      axiosClient.get('/clubswithnegative',{ params: payload })
         .then(({ data }) => {
           const transformedData = data.map(club => {
             return {
@@ -38,7 +42,7 @@ const CustomMap = () => {
         .catch(err => {
               
         });
-      
+      });
   }, []);
 
   useEffect(() => {
@@ -90,6 +94,7 @@ const CustomMap = () => {
           <LayersControl.Overlay name="Areas" checked={true}>
             
           {markersData.map((marker, index) => (
+            console.log(markersData),
   <FeatureGroup key={index}>
     {Array.isArray(marker.urlData) && marker.urlData.length > 0 && (
       <Polygon
