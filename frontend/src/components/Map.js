@@ -6,6 +6,7 @@ import axiosClient from "../axiosClient";
 import { Icon } from 'leaflet';
 import { Link } from 'react-router-dom';
 
+
 const CustomMap = () => {
   const center = [52.0, 19.0];
   const zoom = 6;
@@ -13,12 +14,13 @@ const CustomMap = () => {
     [49.002304, 14.122253],
     [54.835556, 24.145867]
   ];
-
+  const [user, setUser] = useState(null);
   var [markersData, setMarkersData] = useState([]);
   const userLocationIcon = new Icon({ iconUrl: 'https://i.imgur.com/iulwF9C.png', iconSize: [32, 32] });
  
 
     useEffect(() => {
+      
       axiosClient.get('/clubs')
         .then(({ data }) => {
           const transformedData = data.map(club => {
@@ -36,6 +38,7 @@ const CustomMap = () => {
         .catch(err => {
               
         });
+      
   }, []);
 
   useEffect(() => {
@@ -71,7 +74,7 @@ const CustomMap = () => {
     <div className="w-11/12 h-11/12 mx-24">
       <MapContainer
         center={center}
-        zoom={13}
+        zoom={6}
         className="h-screen rounded-2xl"
         maxBoundsViscosity={0.9}
         minZoom={6}
@@ -85,24 +88,19 @@ const CustomMap = () => {
         <LayersControl position="topright">
           <LocationMarker />
           <LayersControl.Overlay name="Areas" checked={true}>
-  {markersData.map((marker, index) => (
-    <FeatureGroup pathOptions={{ color: 'red' }} key={index}>
-      <div>
-        {Array.isArray(marker.urlData) && marker.urlData.length > 0 && marker.urlData.map((area, areaIndex) => {
-          console.log(`Rendering area for marker ${marker.team}, areaIndex: ${areaIndex}, area:`, area);
-          return (
-            <Polygon
-              key={`area-${areaIndex}`}
-              pathOptions={{ color: 'red' }}
-              positions={area}
-            >
-              <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
-            </Polygon>
-          );
-        })}
-      </div>
-    </FeatureGroup>
-  ))}
+            
+          {markersData.map((marker, index) => (
+  <FeatureGroup key={index}>
+    {Array.isArray(marker.urlData) && marker.urlData.length > 0 && (
+      <Polygon
+        pathOptions={{ color: 'red' }}
+        positions={marker.urlData.map(area => [area.lat, area.lng])}
+      >
+        <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
+      </Polygon>
+    )}
+  </FeatureGroup>
+))}
 </LayersControl.Overlay>
        
           <LayersControl.Overlay name="Clubs" checked={true}>

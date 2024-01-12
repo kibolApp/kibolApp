@@ -18,6 +18,16 @@ class GKSKatowiceSeeder extends Seeder
             "KKS Kalisz", "Hutnik Kraków", "Sandecja Nowy Sącz", "Beskid Andrychów", "Stal Rzeszów", 
             "Karpaty Krosno", "Stal Stalowa Wola", "Igloopol Dębica", "Czuwaj Przemyśl"
         ];
+        $coordinates = [
+            ["lat" => 50.49516782332944, "lng" => 18.957171285334738],
+            ["lat" => 50.29772729157466, "lng" => 18.970704842840263],
+            ["lat" => 50.28644661280825, "lng" => 18.967195841851463],
+            ["lat" => 50.197923552372544, "lng" => 18.981893466282486],
+            ["lat" => 50.1924703913424, "lng" => 19.139506313572383],
+            ["lat" => 50.28064593596247, "lng" => 19.10169607978264],
+            ["lat" => 50.500935048533734, "lng" => 19.295292420936647],
+            ["lat" => 50.49516782332944, "lng" => 18.957171285334738]
+        ];
 
         $clubs = [
             [
@@ -25,15 +35,31 @@ class GKSKatowiceSeeder extends Seeder
                 'url_logo' => "https://i.imgur.com/LaB5Fat.png",
                 'positive' => null,
                 'negative' => null,
+                'lat'=>null,
+                'lng'=>null,
             ],
         ];
+        
+
+        foreach ($coordinates as $coordinate) {
+            $clubs[]=[
+                'name' => null,
+                'url_logo' => null,
+                'positive' => null,
+                'negative' => null,
+                'lat' => $coordinate['lat'],
+                'lng' => $coordinate['lng'],
+            ];
+        };
 
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            'lng'=>null,];
         }
 
         DB::table('gkskatowice')->insert($clubs);

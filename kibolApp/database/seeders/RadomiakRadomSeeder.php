@@ -20,6 +20,13 @@ class RadomiakRadomSeeder extends Seeder
             "Stomil Olsztyn", "Jagiellonia Białystok", "Gwardia Warszawa", "Pilica Białobrzegi", 
             "Miedź Legnica"
         ];
+        $coordinates = [
+            ["lat" => 52.0707149755722, "lng" => 21.85855126020428],
+            ["lat" => 51.876896907467085, "lng" => 20.332394649049263],
+            ["lat" => 51.344187872438255, "lng" => 20.115857903836485],
+            ["lat" => 51.025889825323446, "lng" => 21.78866158139536],
+            ["lat" => 52.0707149755722, "lng" => 21.85855126020428],
+        ];
 
         $clubs = [
             [
@@ -27,17 +34,31 @@ class RadomiakRadomSeeder extends Seeder
                 'url_logo' => "https://i.imgur.com/2nVnU9F.png",
                 'positive' => null,
                 'negative' => null,
+                'lat'=>null,
+                'lng'=>null,
             ],
         ];
 
+        foreach ($coordinates as $coordinate) {
+            $clubs[]=[
+                'name' => null,
+                'url_logo' => null,
+                'positive' => null,
+                'negative' => null,
+                'lat' => $coordinate['lat'],
+                'lng' => $coordinate['lng'],
+            ];
+        };
+
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            'lng'=>null,];
         }
-
         DB::table('radomiakradom')->insert($clubs);
     }
 }
