@@ -22,10 +22,11 @@ const pl = {
   
 
 // HomeHeader
-    start: "Start",
-    clubLocations: "Lokalizacja klubów",
-    clubList: "Spis klubów",
-    loginRegister: "Logowanie / Rejestracja",
+    start: " Start",
+    clubLocations: " Lokalizacja klubów",
+    clubList: " Spis klubów",
+    loginRegister: " Logowanie / Rejestracja",
+    profile: " Profil",
 
 // Home
     welcome: "Witaj w",
@@ -94,6 +95,7 @@ const pl = {
 // AdminPanel
     userMangementPanel: "Panel zarządzania użytkownikami",
     clubManagementPanel: "Panel zarządzania klubami",
+    relationsManagementPanel: "Panel zarządzania relacjami",
 
     // Table Headers**
     id: "ID",
@@ -105,6 +107,8 @@ const pl = {
     edit: "Edytuj",
     delete: "Usuń",
     addUser: "Dodaj użytkownika",
+    relations: "Relacje",
+    save: "Zapisz",
 
     // Form Placeholders**
     namePlaceholder: "Nazwa",
@@ -124,10 +128,20 @@ const pl = {
 //Pagination
     next: "Następna",
     previous: "Poprzednia",
+    page: "Strona",
+    of: "z",
 
 //Club Edit
-    latitude: "Szerokość Geo",
-    longitude: "Długość Geo",
+    latitude: "Szerokość Geograficzna",
+    longitude: "Długość Geograficzna",
     address: "Adres",
+    url: "URL",
+    urllogo: "URL Logo",
+    headquarters: "Siedziba",
+
+//Relations
+    clubRelations: "Relacje klubu: ",
+    positive: "Relacje pozytywne",
+    negative: "Relacje negatywne"
 };
 export default pl;

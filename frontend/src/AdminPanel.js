@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import UserHeader from './components/UserHeader';
 import ClubManagement from './components/ClubsManagement';
 import UserManagement from './components/UsersManagement';
-
+import { useTranslation } from 'react-i18next';
 import RelationsManagement from './components/RelationsManagement';
 
 const AdminPanel = () => {
   const [selectedTab, setSelectedTab] = useState('users');
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-custom-gray flex flex-col items-center">
@@ -20,7 +21,7 @@ const AdminPanel = () => {
               : 'bg-custom-olive hover:text-white'
           }`}
         >
-          Użytkownicy
+          {t('users')}
         </button>
         <button
           onClick={() => setSelectedTab('clubs')}
@@ -30,7 +31,7 @@ const AdminPanel = () => {
               : 'bg-custom-olive hover:text-white'
           }`}
         >
-          Kluby
+          {t('clubs')}
         </button>
         <button
           onClick={() => setSelectedTab('relations')}
@@ -40,7 +41,7 @@ const AdminPanel = () => {
               : 'bg-custom-olive hover:text-white'
           }`}
         >
-          Relacje
+          {t('relations')}
         </button>
       </div>
       <div className="mb-4">

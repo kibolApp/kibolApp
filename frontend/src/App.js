@@ -14,7 +14,7 @@ const App = () => {
         <div className="p-4 flex items-center justify-center">
           <div className="flex flex-col items-center font-body">
             <label htmlFor="search" className="text-white mb-0 bg-custom-brown rounded-full p-2">
-            <button className="focus:outline-none rounded-full">{t('findClub')}</button>
+            <button className="focus:outline-none rounded-full px-6 py-2 text-lg">{t('findClub')}</button>
             </label>
           </div>
         </div>
