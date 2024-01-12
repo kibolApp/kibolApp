@@ -25,6 +25,19 @@ class RuchChorzowSeeder extends Seeder
             "Beskid Andrychów", "Sandecja Nowy Sącz", "Hajduk Split", "Banik Ostrava", 
             "Spartak Trnava", "Real Madryt", "Spartak Moskwa", "Ajax Amsterdam"
         ];
+        $coordinates = [
+            ["lat" => 50.492464068375, "lng" => 18.81813665616221],
+            ["lat" => 50.29532122717043, "lng" => 18.838344825983086],
+            ["lat" => 50.286601693478815, "lng" => 18.71764217644042],
+            ["lat" => 50.16959571969653, "lng" => 18.725319269392287],
+            ["lat" => 50.17700394852656, "lng" => 18.984856811738865],
+            ["lat" => 50.287498618970034, "lng" => 18.967442417305875],
+            ["lat" => 50.28986089838088, "lng" => 18.96910608148076],
+            ["lat" => 50.29544557754426, "lng" => 18.969362275588054],
+            ["lat" => 50.296520139794325, "lng" => 18.971029310594247],
+            ["lat" => 50.49501545343307, "lng" => 18.957316581051828],
+            ["lat" => 50.492464068375, "lng" => 18.81813665616221],
+        ];
 
         $clubs = [
             [
@@ -32,15 +45,30 @@ class RuchChorzowSeeder extends Seeder
                 'url_logo' => "https://i.imgur.com/Din3ueS.png",
                 'positive' => null,
                 'negative' => null,
+                'lat'=>null,
+                'lng'=>null,
             ],
         ];
 
+        foreach ($coordinates as $coordinate) {
+            $clubs[]=[
+                'name' => null,
+                'url_logo' => null,
+                'positive' => null,
+                'negative' => null,
+                'lat' => $coordinate['lat'],
+                'lng' => $coordinate['lng'],
+            ];
+        };
+
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            'lng'=>null,];
         }
 
         DB::table('ruchchorzow')->insert($clubs);

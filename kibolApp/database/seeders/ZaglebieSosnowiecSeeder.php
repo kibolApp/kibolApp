@@ -21,6 +21,14 @@ class ZaglebieSosnowiecSeeder extends Seeder
             "Hejnał Kęty", "Szombierki Bytom", "Ruch Radzionków", "Szczakowianka Jaworzno", "KS Myszków",
             "Odra Wodzisław Śl.", "Podbeskidzie Bielsko-Biała"
         ];
+        $coordinates = [
+            ["lat" => 50.49912591640722, "lng" => 19.126933149876436],
+            ["lat" => 50.19466057814972, "lng" => 19.073193041787846],
+            ["lat" => 50.18225656063987, "lng" => 19.337591056880427],
+            ["lat" => 50.50416771857775, "lng" => 19.41530034165035],
+            ["lat" => 50.49912591640722, "lng" => 19.126933149876436],
+        ];
+        
 
         $clubs = [
             [
@@ -28,15 +36,30 @@ class ZaglebieSosnowiecSeeder extends Seeder
                 'url_logo' => "https://i.imgur.com/zAp81Ko.png",
                 'positive' => null,
                 'negative' => null,
+                'lat'=>null,
+                'lng'=>null,
             ],
         ];
 
+        foreach ($coordinates as $coordinate) {
+            $clubs[]=[
+                'name' => null,
+                'url_logo' => null,
+                'positive' => null,
+                'negative' => null,
+                'lat' => $coordinate['lat'],
+                'lng' => $coordinate['lng'],
+            ];
+        };
+
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            'lng'=>null,];
         }
 
         DB::table('zaglebiesosnowiec')->insert($clubs);
