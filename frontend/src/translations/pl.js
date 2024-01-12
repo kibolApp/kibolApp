@@ -3,7 +3,7 @@ const pl = {
 
     // Login**
     loginTitle: "Logowanie",
-    usernameEmail: "Nazwa użytkownika / email",
+    email: "Email",
     password: "Hasło",
     loginButton: "Zaloguj",
     socialLoginPrompt: "lub zaloguj się poprzez",
@@ -11,7 +11,6 @@ const pl = {
     // Register**
     registrationTitle: "Rejestracja",
     username: "Nazwa użytkownika",
-    email: "Email",
     confirmPassword: "Potwierdź hasło",
     registerButton: "Zarejestruj się",
 
@@ -23,10 +22,11 @@ const pl = {
   
 
 // HomeHeader
-    start: "Start",
-    clubLocations: "Lokalizacja klubów",
-    clubList: "Spis klubów",
-    loginRegister: "Logowanie / Rejestracja",
+    start: " Start",
+    clubLocations: " Lokalizacja klubów",
+    clubList: " Spis klubów",
+    loginRegister: " Logowanie / Rejestracja",
+    profile: " Profil",
 
 // Home
     welcome: "Witaj w",
@@ -93,17 +93,22 @@ const pl = {
 
 
 // AdminPanel
-    adminPanelTitle: "Panel zarządzania użytkownikami",
+    userMangementPanel: "Panel zarządzania użytkownikami",
+    clubManagementPanel: "Panel zarządzania klubami",
+    relationsManagementPanel: "Panel zarządzania relacjami",
 
     // Table Headers**
     id: "ID",
     name: "Nazwa",
     actions: "Akcje",
+    logo: "Logo",
 
     // Actions**
     edit: "Edytuj",
     delete: "Usuń",
     addUser: "Dodaj użytkownika",
+    relations: "Relacje",
+    save: "Zapisz",
 
     // Form Placeholders**
     namePlaceholder: "Nazwa",
@@ -112,9 +117,31 @@ const pl = {
     // Form Actions**
     add: "Dodaj",
     cancel: "Anuluj",
+    addClub: "Dodaj klub",
 
     // User Actions**
     editUser: "Edytuj użytkownika",
     newUser: "Nowy użytkownik",
+    users: "Użytkownicy",
+    clubs: "Kluby",
+
+//Pagination
+    next: "Następna",
+    previous: "Poprzednia",
+    page: "Strona",
+    of: "z",
+
+//Club Edit
+    latitude: "Szerokość Geograficzna",
+    longitude: "Długość Geograficzna",
+    address: "Adres",
+    url: "URL",
+    urllogo: "URL Logo",
+    headquarters: "Siedziba",
+
+//Relations
+    clubRelations: "Relacje klubu: ",
+    positive: "Relacje pozytywne",
+    negative: "Relacje negatywne"
 };
 export default pl;

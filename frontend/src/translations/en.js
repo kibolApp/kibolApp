@@ -3,7 +3,7 @@ const en = {
 
     // Login**
     loginTitle: "Login",
-    usernameEmail: "Username / email",
+    email: "Email",
     password: "Password",
     loginButton: "Log In",
     socialLoginPrompt: "or log in through",
@@ -11,7 +11,6 @@ const en = {
     // Register**
     registrationTitle: "Registration",
     username: "Username",
-    email: "Email",
     confirmPassword: "Confirm Password",
     registerButton: "Register",
 
@@ -23,10 +22,11 @@ const en = {
   
 
 // HomeHeader
-    start: "Start",
-    clubLocations: "Club Locations",
-    clubList: "Club List",
-    loginRegister: "Login / Register",
+    start: " Start",
+    clubLocations: " Club Locations",
+    clubList: " Club List",
+    loginRegister: " Login / Register",
+    profile: " Profile",
 
 // Home
     welcome: "Welcome to",
@@ -91,17 +91,22 @@ const en = {
 
 
 // AdminPanel
-    adminPanelTitle: "User Management Panel",
+    userMangementPanel: "Users Management Panel",
+    clubManagementPanel: "Clubs Management Panel",
+    relationsManagementPanel: "Relations Management Panel",
 
     // Table Headers**
     id: "ID",
     name: "Name",
     actions: "Actions",
+    logo: "Logo",
 
     // Actions**
     edit: "Edit",
     delete: "Delete",
     addUser: "Add User",
+    relations: "Relations",
+    save: "Save",
 
     // Form Placeholders**
     namePlaceholder: "Name",
@@ -110,10 +115,32 @@ const en = {
     // Form Actions**
     add: "Add",
     cancel: "Cancel",
+    addClub: "Add Club",
 
     // User Actions**
     editUser: "Edit User",
     newUser: "New User",
+    users: "Users",
+    clubs: "Clubs",
+
+//Pagination
+    next: "Next",
+    previous: "Previous",
+    page: "Page",
+    of: "of",
+
+//Club Edit
+    latitude: "Geographical Latitude",
+    longitude: "Geographical Longitude",
+    address: "Address",
+    url: "URL",
+    urllogo: "URL Logo",
+    headquarters: "Siedziba",
+
+//Relations
+    clubRelations: "Club relations: ",
+    positive: "Positive relations",
+    negative: "Negative relations"
   };
   export default en;
   

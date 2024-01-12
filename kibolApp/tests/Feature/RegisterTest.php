@@ -8,10 +8,8 @@ use Tests\TestCase;
 
 class RegisterTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     */
 
+    use RefreshDatabase;
 
     public function testUserCanSignup(): void
     {
@@ -44,6 +42,40 @@ class RegisterTest extends TestCase
             'email' => 'example@example.com',
         ]);
 
-        $response->assertStatus(302);
+        $response->assertStatus(302)
+            ->assertSessionHasErrors(['password']);
+    }
+
+    public function testUserCannotSignupWithInvalidDataLikeWrongEmail(): void
+    {
+        $response = $this->post('/api/register', [
+            "name" => "example",
+            "email" => "exa",
+            "password" => "123",
+            "password_confirmation" => "123",
+        ]);
+
+        $this->assertDatabaseMissing('users', [
+            "name" => "example",
+            'email' => 'exa',
+        ]);
+        $response->assertStatus(302)
+            ->assertSessionHasErrors(['email']);
+    }
+    public function testRegisterEmptyName(): void
+    {
+        $response = $this->post('/api/register', [
+            "name" => "",
+            "email" => "joe@example.com",
+            "password" => "123",
+            "password_confirmation" => "123",
+        ]);
+
+        $this->assertDatabaseMissing('users', [
+            "name" => "",
+            'email' => 'joe@example.com',
+        ]);
+        $response->assertStatus(302)
+            ->assertSessionHasErrors(['name']);
     }
 }

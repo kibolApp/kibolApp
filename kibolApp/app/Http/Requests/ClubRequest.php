@@ -27,6 +27,7 @@ class ClubRequest extends FormRequest
             'longitude' => 'required',
             'address' => 'required',
             'url_logo' => 'required',
+            'url'=>'required',
         ];
     }
 }

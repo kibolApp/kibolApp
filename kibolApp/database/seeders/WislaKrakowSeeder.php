@@ -23,6 +23,16 @@ class WislaKrakowSeeder extends Seeder
             "KSZO Ostrowiec Św.", "Naprzód Jędrzejów", "GKS Bełchatów", "Beskid Andrychów", "Podbeskidzie Bielsko-Biała",
             "Odra Opole", "Apator Toruń", "Chojniczanka Chojnice", "Gwardia Koszalin"
         ];
+        $coordinates = [
+            ["lat" => 50.49798692471788, "lng" => 19.190108777798855],
+            ["lat" => 49.87281513312948, "lng" => 19.11684784755377],
+            ["lat" => 49.77206198531857, "lng" => 19.414704366706076],
+            ["lat" => 49.83328274319581, "lng" => 20.238030033659356],
+            ["lat" => 50.487818029479, "lng" => 20.233995505086142],
+            ["lat" => 50.57616613228245, "lng" => 19.79342364432219],
+            ["lat" => 50.49798692471788, "lng" => 19.190108777798855],
+        ];
+        
 
         $clubs = [
             [
@@ -30,17 +40,31 @@ class WislaKrakowSeeder extends Seeder
                 'url_logo' => "https://i.imgur.com/LgnZzdC.png",
                 'positive' => null,
                 'negative' => null,
+                'lat'=>null,
+                'lng'=>null,
             ],
         ];
 
+        foreach ($coordinates as $coordinate) {
+            $clubs[]=[
+                'name' => null,
+                'url_logo' => null,
+                'positive' => null,
+                'negative' => null,
+                'lat' => $coordinate['lat'],
+                'lng' => $coordinate['lng'],
+            ];
+        };
+
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club];
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            'lng'=>null,];
         }
-
         DB::table('wislakrakow')->insert($clubs);
     }
 }

@@ -42,23 +42,51 @@ const UserPanel = () => {
     };
 
     return (
-      <div className="mt-4 flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center 
+                      sm-mobile:px-6
+                      md-mobile:px-8 
+                      lg-mobile:px-10 
+                      tablet:px-12 
+                      laptop:px-16 
+                      large-laptop:px-20 
+                      4k:px-24">
         <input
-          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="email"
           placeholder={t('oldEmail')}
           value={oldEmail}
           onChange={(e) => setOldEmail(e.target.value)}
         />
         <input
-          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="email"
           placeholder={t('newEmail')}
           value={newEmail}
           onChange={(e) => setNewEmail(e.target.value)}
         />
         <input
-          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="email"
           placeholder={t('confirmEmail')}
           value={confirmEmail}
@@ -87,16 +115,37 @@ const UserPanel = () => {
     };
   
     return (
-      <div className="mt-4 flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center
+                      sm-mobile:px-6
+                      md-mobile:px-8 
+                      lg-mobile:px-10 
+                      tablet:px-12 
+                      laptop:px-16 
+                      large-laptop:px-20 
+                      4k:px-24">
         <input
-          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="text"
           placeholder={t('oldUsername')}
           value={oldUsername}
           onChange={(e) => setOldUsername(e.target.value)}
         />
         <input
-          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="text"
           placeholder={t('newUsername')}
           value={newUsername}
@@ -127,23 +176,51 @@ const UserPanel = () => {
     };
   
     return (
-      <div className="mt-4 flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center
+                      sm-mobile:px-6
+                      md-mobile:px-8 
+                      lg-mobile:px-10 
+                      tablet:px-12 
+                      laptop:px-16 
+                      large-laptop:px-20 
+                      4k:px-24">
         <input
-          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="password"
           placeholder={t('oldPassword')}
           value={oldPassword}
           onChange={(e) => setOldPassword(e.target.value)}
         />
         <input
-          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-2 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="password"
           placeholder={t('newPassword')}
           value={newPassword}
           onChange={(e) => setNewPassword(e.target.value)}
         />
         <input
-          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black"
+          className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black placeholder-black
+                    sm-mobile:w-11/12 sm-mobile:text-xs
+                    md-mobile:w-11/12 md-mobile:text-sm
+                    lg-mobile:w-11/12 lg-mobile:text-sm
+                    tablet:w-5/6 tablet:text-md
+                    laptop:w-3/4 laptop:text-lg
+                    large-laptop:w-2/3 large-laptop:text-xl
+                    4k:w-1/2 4k:text-2xl"
           type="password"
           placeholder={t('confirmPassword')}
           value={confirmPassword}
@@ -190,7 +267,14 @@ const UserPanel = () => {
     };
   
     return (
-      <div className="mt-4 flex flex-col items-center">
+      <div className="mt-4 flex flex-col items-center
+                      sm-mobile:px-6
+                      md-mobile:px-8 
+                      lg-mobile:px-10 
+                      tablet:px-12 
+                      laptop:px-16 
+                      large-laptop:px-20 
+                      4k:px-24">
         <select
           className="mb-4 w-5/6 md:w-1/2 px-3 py-2 rounded bg-custom-light-tan rounded-md text-black"
           value={selectedClub}
@@ -234,8 +318,23 @@ const UserPanel = () => {
     <div className="min-h-screen font-body bg-custom-gray flex flex-col">
       <UserHeader />
       <div className="flex-grow flex items-center justify-center">
-        <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('hello')} {user ? user.name : t('guest')}
+        <div className="bg-custom-sand p-16 rounded-2xl shadow-2xl max-w-4xl w-full m-4 text-center
+                        sm-mobile:p-6 sm-mobile:max-w-xs
+                        md-mobile:p-8 md-mobile:max-w-sm
+                        lg-mobile:p-10 lg-mobile:max-w-lg
+                        tablet:p-14 tablet:max-w-xl
+                        laptop:p-26 laptop:max-w-2xl
+                        large-laptop:p-20 large-laptop:max-w-3xl
+                        4k:p-30 4k:max-w-4xl">
+        <h1 className="text-custom-brown text-4xl font-bold mb-6
+                      sm-mobile:text-2xl
+                      md-mobile:text-2xl 
+                      lg-mobile:text-3xl 
+                      tablet:text-3xl 
+                      laptop:text-4xl 
+                      large-laptop:text-4xl 
+                      4k:text-5xl"
+                      >{t('hello')} {user ? user.name : t('guest')}
       </h1>
           
           <div className="mb-6">
@@ -252,11 +351,25 @@ const UserPanel = () => {
           </div>
 
           <div className="space-y-6 mb-12">
-            <div className="flex justify-center items-center space-x-4">
+            <div className="flex justify-center items-center space-x-4 space-y-4
+                            sm-mobile:flex-col sm-mobile:space-x-0 sm-mobile:space-y-4
+                            md-mobile:flex-col md-mobile:space-x-0 md-mobile:space-y-4
+                            lg-mobile:flex-col lg-mobile:space-x-0 lg-mobile:space-y-4
+                            tablet:flex-row tablet:space-x-4 tablet:space-y-0
+                            laptop:flex-row laptop:space-x-4 laptop:space-y-0
+                            large-laptop:flex-row large-laptop:space-x-4 large-laptop:space-y-0
+                            4k:flex-row 4k:space-x-4 4k:space-y-0">
               {['Email', 'Username', 'Password', 'Club'].map((option) => (
                 <button
                   key={option}
-                  className="bg-custom-olive p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-bold text-white"
+                  className="bg-custom-olive p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-medium text-white
+                            sm-mobile:p-2 sm-mobile:text-sm
+                            md-mobile:p-2  md-mobile:text-sm
+                            lg-mobile:p-2 lg-mobile:text-sm
+                            tablet:p-4 tablet:text-xs
+                            laptop:p-4 laptop:text-md
+                            large-laptop:p-4 large-laptop:text-base 
+                            4k:p-4 4k:text-2xl"
                   onClick={() => setSelectedForm(`change${option}`)}
                 >
                   {t(`changeYour${option}`)}
@@ -264,7 +377,14 @@ const UserPanel = () => {
               ))}
             </div>
             <button
-              className="bg-red-500 p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-bold text-white"
+              className="bg-red-500 p-4 rounded-full shadow-lg hover:shadow-xl transition duration-500 ease-in-out font-medium text-white
+                          sm-mobile:p-2 sm-mobile:text-sm
+                          md-mobile:p-2  md-mobile:text-sm
+                          lg-mobile:p-2 lg-mobile:text-sm
+                          tablet:p-4 tablet:text-sm
+                          laptop:p-4 laptop:text-md
+                          large-laptop:p-4 large-laptop:text-base
+                          4k:p-4 4k:text-2xl"
               onClick={() => handleDeleteUser(user.id)}
             >
               {t('deleteAccount')}

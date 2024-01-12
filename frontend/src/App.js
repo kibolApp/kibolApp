@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './components/Map';
 import UserHeader from './components/UserHeader';
 import { useTranslation } from 'react-i18next';
-import MagnifyingComponent from './components/magnifying';
 
 const App = () => {
   const { t } = useTranslation();
@@ -11,27 +10,15 @@ const App = () => {
     <>
       <div className="flex flex-col min-h-screen bg-custom-gray">
         <UserHeader />
-        <div className="flex justify-beetween">
-        <Map />
-        <div className="p-4">
-        <div className="flex flex-col items-start ml-4 font-body">
-            <label htmlFor="search" className="text-white mb-2 bg-custom-brown rounded">
-            <button>{t('findClub')}</button>
+        <div className="p-4 flex items-center justify-center">
+          <div className="flex flex-col items-center font-body">
+            <label htmlFor="search" className="text-white mb-0 bg-custom-brown rounded-full p-2">
+            <button className="focus:outline-none rounded-full px-6 py-2 text-lg">{t('findClub')}</button>
             </label>
-            <div class="max-w-md mt-2 ">
-        <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg bg-white overflow-hidden">
-        <div class="grid h-full w-6 text-custom-brown">
-        </div>
-        <input
-        class="peer h-full w-full outline-none text-sm text-custom-brown "
-        type="text"
-        id="search"
-        placeholder={t('searchPlaceholder')}/>
-       <MagnifyingComponent />
-              </div>
-            </div>
           </div>
         </div>
+        <div className="flex justify-beetween mt-0">
+        <Map />
         </div>
       </div>
     </>

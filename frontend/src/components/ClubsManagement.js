@@ -3,8 +3,10 @@ import axiosClient from "../axiosClient";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrashAlt, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ReactPaginate from 'react-paginate';
+import { useTranslation } from 'react-i18next';
 
 const ClubManagement = () => {
+  const { t } = useTranslation();
   const [clubs, setClubs] = useState([]);
   const [currentClub, setCurrentClub] = useState({
     team: '',
@@ -12,6 +14,7 @@ const ClubManagement = () => {
     longitude: '',
     address: '',
     url_logo: '',
+    url: '',
   });
   const [editingClubId, setEditingClubId] = useState(null);
 
@@ -32,6 +35,7 @@ const ClubManagement = () => {
         longitude: club.longitude,
         address: club.address,
         url_logo: club.url_logo,
+        url: club.url,
       });
     } else {
       setEditingClubId(null);
@@ -41,6 +45,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
     }
   };
@@ -54,6 +59,7 @@ const ClubManagement = () => {
       longitude: '',
       address: '',
       url_logo: '',
+      url: '',
     });
   };
 
@@ -78,6 +84,7 @@ const ClubManagement = () => {
         longitude: currentClub.longitude,
         address: currentClub.address,
         url_logo: currentClub.url_logo,
+        url: currentClub.url,
       });
       setClubs([...clubs, response.data]);
       setCurrentClub({
@@ -86,6 +93,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
       closeModal();
     } catch (error) {
@@ -108,6 +116,7 @@ const ClubManagement = () => {
         longitude: '',
         address: '',
         url_logo: '',
+        url: '',
       });
     } catch (error) {
       console.error('Error editing club:', error);
@@ -144,7 +153,7 @@ const ClubManagement = () => {
   return (
     <div className="flex-grow flex items-center justify-center p-4">
       <div className="bg-custom-sand p-8 rounded-2xl shadow-md max-w-5xl w-full text-center">
-        <h1 className="text-custom-brown text-4xl font-bold mb-6">Panel Zarządzania Klubami</h1>
+        <h1 className="text-custom-brown text-4xl font-bold mb-6">{t('clubManagementPanel')}</h1>
 
         <div>
           <h2 className="text-2xl font-bold mb-4"></h2>
@@ -153,17 +162,21 @@ const ClubManagement = () => {
             className="bg-custom-olive px-4 py-2 text-white rounded-md mb-4"
           >
             <FontAwesomeIcon icon={faPlus} className="mr-2" />
-            Dodaj klub
+            {t('addClub')}
           </button>
         </div>
 
         <table className="w-full mb-8">
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Logo</th>
-              <th>Nazwa</th>
-              <th>Akcje</th>
+              <th>{t('id')}</th>
+              <th>{t('logo')}</th>
+              <th>{t('name')}</th>
+              <th>{t('latitude')}</th>
+              <th>{t('longitude')}</th>
+              <th>{t('headquarters')}</th>
+              <th>{t('url')}</th>
+              <th>{t('actions')}</th>
             </tr>
           </thead>
           <tbody>
@@ -176,6 +189,10 @@ const ClubManagement = () => {
                   style={{ maxWidth: '50px', maxHeight: '50px' }}
                 />
                 <td>{club.team}</td>
+                <td>{club.longitude}</td>
+                <td>{club.latitude}</td>
+                <td>{club.address}</td>
+                <td>{club.url}</td>
                 <td>
                   <div className="flex space-x-2">
                     <button
@@ -183,14 +200,14 @@ const ClubManagement = () => {
                       className="bg-custom-olive px-4 py-2 text-white rounded-md"
                     >
                       <FontAwesomeIcon icon={faEdit} className="mr-2" />
-                      Edytuj
+                      {t('edit')}
                     </button>
                     <button
                       onClick={() => handleDeleteClub(club.id)}
                       className="bg-red-500 px-4 py-2 text-white rounded-md"
                     >
                       <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                      Usuń
+                      {t('delete')}
                     </button>
                   </div>
                 </td>
@@ -200,18 +217,18 @@ const ClubManagement = () => {
         </table>
 
         <ReactPaginate
-        previousLabel={'Poprzednia'}
-        nextLabel={'Następna'}
-        pageCount={Math.ceil(clubs.length / clubsPerPage)}
-        onPageChange={changePage}
-        containerClassName={"flex items-center justify-center mt-4"}
-        pageClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        breakClassName="px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
-        previousClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        nextClassName={"px-3 py-1 mx-1 border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
-        activeClassName={"bg-custom-olive text-white"}
-        initialPage={selectedPage}
-        />
+  previousLabel={t('previous')}
+  nextLabel={t('next')}
+  pageCount={Math.ceil(clubs.length / clubsPerPage)}
+  onPageChange={changePage}
+  activeClassName={"bg-custom-brown py-2"}
+  containerClassName={"flex items-center justify-center mt-4"}
+  breakClassName="px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"
+  pageLinkClassName={"px-3 py-2 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  nextLinkClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+  previousClassName={"px-3 py-2 mx-1 text-white border rounded cursor-pointer transition duration-300 ease-in-out hover:bg-custom-olive hover:text-white"}
+/>
+
 
 
         <div className={`${isModalOpen ? modalOverlayStyles : 'hidden'}`}>
@@ -220,35 +237,42 @@ const ClubManagement = () => {
               type="text"
               value={currentClub.team}
               onChange={(e) => setCurrentClub({ ...currentClub, team: e.target.value })}
-              placeholder="Nazwa"
+              placeholder={t('name')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.latitude}
               onChange={(e) => setCurrentClub({ ...currentClub, latitude: e.target.value })}
-              placeholder="Szerokość"
+              placeholder={t('latitude')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.longitude}
               onChange={(e) => setCurrentClub({ ...currentClub, longitude: e.target.value })}
-              placeholder="Długość"
+              placeholder={t('longitude')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.address}
               onChange={(e) => setCurrentClub({ ...currentClub, address: e.target.value })}
-              placeholder="Adres"
+              placeholder={t('address')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
             <input
               type="text"
               value={currentClub.url_logo}
               onChange={(e) => setCurrentClub({ ...currentClub, url_logo: e.target.value })}
-              placeholder="Url logo"
+              placeholder={t('urllogo')}
+              className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
+            />
+             <input
+              type="text"
+              value={currentClub.url}
+              onChange={(e) => setCurrentClub({ ...currentClub, url: e.target.value })}
+              placeholder={t('url')}
               className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
             />
 
@@ -265,14 +289,14 @@ const ClubManagement = () => {
                 className="bg-custom-olive px-4 py-2 text-white rounded-md mr-2"
               >
                 <FontAwesomeIcon icon={editingClubId ? faEdit : faPlus} className="mr-2" />
-                {editingClubId ? 'Edytuj' : 'Dodaj'}
+                {editingClubId ? t('edit') : t('add')}
               </button>
               <button
                 onClick={closeModal}
                 className="bg-red-500 px-4 py-2 text-white rounded-md ml-2"
               >
                 <FontAwesomeIcon icon={faTrashAlt} className="mr-2" />
-                Anuluj
+                {t('cancel')}
               </button>
             </div>
           </div>

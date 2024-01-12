@@ -52,4 +52,8 @@ class User extends Authenticatable
     {
     return $this->belongsTo(Clubs::class, 'team_id');
     }
+    public function favoriteClubs()
+    {
+        return $this->belongsToMany(Clubs::class, 'user_favorite_clubs', 'user_id', 'club_id');
+    }
 }
