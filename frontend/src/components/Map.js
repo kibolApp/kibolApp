@@ -14,43 +14,38 @@ const CustomMap = () => {
     [54.835556, 24.145867]
   ];
 
-  const [markersData, setMarkersData] = useState([]);
+  var [markersData, setMarkersData] = useState([]);
   const userLocationIcon = new Icon({ iconUrl: 'https://i.imgur.com/iulwF9C.png', iconSize: [32, 32] });
-  var [areasData,setareasData]=useState([])
  
 
-  useEffect(() => {
-    
-    const fetchData = async () => {
-      try {
-        const areasResponse = await axiosClient.get('/getlongandlatforborders');
-        setareasData(areasResponse.data);
-        
-        const clubsResponse = await axiosClient.get('/clubs');
-        const transformedData = await Promise.all(
-          clubsResponse.data.map(async (club) => {
-            const clubAreas = await getValidClubAreas(club.team);
+    useEffect(() => {
+      axiosClient.get('/clubs')
+        .then(({ data }) => {
+          const transformedData = data.map(club => {
             return {
-              id: club.id,
               team: club.team,
               location: [club.latitude, club.longitude],
               address: club.address,
               icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
               url: "/clubpage/" + club.url,
-              areas: clubAreas,
+              urlData: club.urlData ?? {},
             };
-          })
-        );
-  
-        setMarkersData(transformedData);
-        console.log(markersData)
-      } catch (error) {
-        console.error('Error fetching data:', error);
-      }
-    };
-  
-    fetchData();
+          });
+          setMarkersData(transformedData);
+        })
+        .catch(err => {
+              
+        });
   }, []);
+
+  useEffect(() => {
+    if (markersData.length > 0) {
+    }
+  }, [markersData]);
+
+
+
+
 
   const LocationMarker = () => {
     const [position, setPosition] = useState(null);
@@ -71,16 +66,6 @@ const CustomMap = () => {
     );
   };
 
-  const getValidClubAreas = (team) => {
-    const clubData = areasData.find(array => array.some(item => item && item.name === team));
-    if (clubData) {
-      const validData = clubData.filter(item => item.lat !== null && item.lng !== null);
-      const validAreas = validData.map(({ lat, lng }) => ({ lat, lng }));
-      return validAreas;
-    } else {
-      return [];
-    }
-  };
 
   return (
     <div className="w-11/12 h-11/12 mx-24">
@@ -100,24 +85,25 @@ const CustomMap = () => {
         <LayersControl position="topright">
           <LocationMarker />
           <LayersControl.Overlay name="Areas" checked={true}>
-          {markersData.map((marker, index) => (
-            
-            <FeatureGroup pathOptions={{ color: 'red' }} >
-                <div key={index}>
-                 {marker.areas.map((area, areaIndex) => (
-                  <Polygon
-                  key={`area-${areaIndex}-${marker.team}`}  // Dodano klucz dla wymuszenia ponownego renderowania
-                  pathOptions={{ color: 'red' }}
-                  positions={area}
-                  >
-                    <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
-                  </Polygon>
-                ))}
-                </div>
-                </FeatureGroup>
-               
-              ))}
-        </LayersControl.Overlay>  
+  {markersData.map((marker, index) => (
+    <FeatureGroup pathOptions={{ color: 'red' }} key={index}>
+      <div>
+        {Array.isArray(marker.urlData) && marker.urlData.length > 0 && marker.urlData.map((area, areaIndex) => {
+          console.log(`Rendering area for marker ${marker.team}, areaIndex: ${areaIndex}, area:`, area);
+          return (
+            <Polygon
+              key={`area-${areaIndex}`}
+              pathOptions={{ color: 'red' }}
+              positions={area}
+            >
+              <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
+            </Polygon>
+          );
+        })}
+      </div>
+    </FeatureGroup>
+  ))}
+</LayersControl.Overlay>
        
           <LayersControl.Overlay name="Clubs" checked={true}>
             <MarkerClusterGroup>

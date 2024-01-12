@@ -10,42 +10,36 @@ use Illuminate\Support\Facades\Schema;
 class MapController extends Controller
 {
     public function fetchclubs() {
-        /** @var \App\Models\Clubs $user */
-        
-        $profiles=Clubs::all();
-        $response = response()->json($profiles);
-
-        return $response;
-    }
-
-
-    public function getLngAndLat() {
-        
-        if (Schema::hasTable('clubs')) {
-            $urls = DB::table('clubs')->pluck('url')->unique()->toArray();
-            $allData = [];
+        try {
+            $clubs = DB::table('clubs')
+                ->get();
     
-            foreach ($urls as $tableName) {
-             
-                if (Schema::hasTable($tableName)) {
-                 
-                    $data = DB::table($tableName)
-                        ->select('name', 'lat', 'lng')
-                        ->get();
+            foreach ($clubs as $club) {
+                $tableName = $club->url;
+    
         
-               
-                    $allData[] = $data;
-                } else {
-               
-                    $allData[] = ['message' => 'Tabela ' . $tableName . ' nie istnieje'];
+                if (Schema::hasTable($tableName)) {
+                    $urlData = DB::table($tableName)
+                        ->select('lat', 'lng')
+                        ->whereNotNull('lat')
+                        ->whereNotNull('lng')
+                        ->get();
+    
+                   
+                    
+                   
+                        $club->urlData = $urlData;
+                    
                 }
             }
+    
+          
+            return response()->json($clubs);
+        } catch (\Exception $e) {
         
-            return response()->json($allData);
-        } else {
-       
-            return response()->json(['message' => 'Tabela "clubs" nie istnieje'], 404);
+            return response()->json(['error' => 'Wystąpił błąd podczas pobierania danych.']);
         }
     }
+
 
 }
