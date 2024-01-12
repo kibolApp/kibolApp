@@ -2,7 +2,6 @@ import React from 'react';
 import Map from './components/Map';
 import UserHeader from './components/UserHeader';
 import { useTranslation } from 'react-i18next';
-import MagnifyingComponent from './components/magnifying';
 
 const App = () => {
   const { t } = useTranslation();
