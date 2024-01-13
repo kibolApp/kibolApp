@@ -39,6 +39,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/clubs', [MapController::class, 'fetchclubs']);
 Route::get('/clubpage/{clubName}', [ClubController::class, 'getClubData']);
 Route::get('/getClubName/{clubId}', [ClubController::class, 'getClubName']);
+Route::get('/clubswithnegative', [MapController::class, 'fetchclubswithnegative']);
 
 Route::middleware('auth:sanctum')->group(function() {
     Route::get('/user', [AuthController::class, 'user']);
@@ -51,6 +52,7 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::post('/addToFavorites', [UserController::class, 'addToFavorites']);
     Route::post('/removeFromFavorites', [UserController::class, 'removeFromFavorites']);
     Route::get('/getUserFavorites', [UserController::class, 'getUserFavorites']);
+    Route::get('/getlongandlatforborders',[MapController::class,'getLngAndLat']);
 });
 
 
@@ -67,3 +69,4 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/getnameclubsiwthnorealtions', [AdminController::class, 'shownameslubswithnorealtions']);
     Route::post('/addpositiverelation', [AdminController::class, 'addpositiverelation']);
     Route::post('/addnegativerelation', [AdminController::class, 'addnegativerelation']);
+   

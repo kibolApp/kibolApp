@@ -22,10 +22,11 @@ const en = {
   
 
 // HomeHeader
-    start: "Start",
-    clubLocations: "Club Locations",
-    clubList: "Club List",
-    loginRegister: "Login / Register",
+    start: " Start",
+    clubLocations: " Club Locations",
+    clubList: " Club List",
+    loginRegister: " Login / Register",
+    profile: " Profile",
 
 // Home
     welcome: "Welcome to",
@@ -90,8 +91,9 @@ const en = {
 
 
 // AdminPanel
-    userMangementPanel: "User Management Panel",
-    clubManagementPanel: "Club Management Panel",
+    userMangementPanel: "Users Management Panel",
+    clubManagementPanel: "Clubs Management Panel",
+    relationsManagementPanel: "Relations Management Panel",
 
     // Table Headers**
     id: "ID",
@@ -103,6 +105,8 @@ const en = {
     edit: "Edit",
     delete: "Delete",
     addUser: "Add User",
+    relations: "Relations",
+    save: "Save",
 
     // Form Placeholders**
     namePlaceholder: "Name",
@@ -122,12 +126,21 @@ const en = {
 //Pagination
     next: "Next",
     previous: "Previous",
+    page: "Page",
+    of: "of",
 
 //Club Edit
-    latitude: "Latitude",
-    longitude: "Longitude",
+    latitude: "Geographical Latitude",
+    longitude: "Geographical Longitude",
     address: "Address",
-    url: "URL"
+    url: "URL",
+    urllogo: "URL Logo",
+    headquarters: "Siedziba",
+
+//Relations
+    clubRelations: "Club relations: ",
+    positive: "Positive relations",
+    negative: "Negative relations"
   };
   export default en;
   

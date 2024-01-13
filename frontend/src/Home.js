@@ -88,11 +88,11 @@ return (
       <div className="flex items-center justify-between w-full px-10 py-5">
         <div className="flex items-center space-x-4">
             <div className="relative h-16">
-              <img src={data[0]} alt="KibolAPP Logo" className={`top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 ${isSticky ? 'opacity-0' : 'opacity-100'}`}/>
-              <img src={data[1]} alt="Sticky Logo" className={`absolute top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 ${!isSticky ? 'opacity-0' : 'opacity-100'}`}/>          </div>
+              <img src={data[0]} alt="KibolAPP Logo" className={`top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 h-8 sm-mobile:h-12 md-mobile:h-12 lg-mobile:h-14 tablet:h-16 ${isSticky ? 'opacity-0' : 'opacity-100'}`}/>
+              <img src={data[1]} alt="Sticky Logo" className={`absolute top-0 left-0 h-16 w-26 object-contain transition-opacity ease-in-out duration-1000 h-8 sm-mobile:h-12 md-mobile:h-12 lg-mobile:h-14 tablet:h-16 ${!isSticky ? 'opacity-0' : 'opacity-100'}`}/></div>
             <div className="flex flex-col justify-center">
-            <button onClick={() => changeLanguage('pl')}><img src={data[4]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/></button>
-            <button onClick={() => changeLanguage('en')}><img src={data[5]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/></button>
+            <button onClick={() => changeLanguage('pl')}><img src={data[4]} alt="Poland Flag" className="h-8 w-full object-cover mb-2 rounded-md border-solid sm-mobile:h-7 md-mobile:h-8 tablet:w-10 tablet:h-8 sm-mobile:mb-1.5 md-mobile:mb-2"/></button>
+            <button onClick={() => changeLanguage('en')}><img src={data[5]} alt="GB Flag" className="h-8 w-full object-cover rounded-md border-solid sm-mobile:h-7 md-mobile:h-8 tablet:w-10 tablet:h-8"/></button>
             </div>
         </div>
         <nav className='flex-grow'>

@@ -7,6 +7,8 @@ import polska from '../assets/polska.png';
 import gb from '../assets/gb.png';
 import logobrown from '../assets/logobrown.png';
 import arrow from '../assets/arrow.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
   const { i18n } = useTranslation();
@@ -43,16 +45,16 @@ export default function Header() {
     <header className="flex justify-between items-center p-5 bg-custom-brown">
       <button>
         <Link to="/">
-          <img src={data[0]} alt="LeftIcon" className="h-16 rounded-full shadow-lg drop-shadow-lg hover:opacity-80 hover:scale-110 hover:bg-custom-sand transition duration-300 ease-in-out" />
+          <FontAwesomeIcon icon={faArrowLeft} className="h-12 mx-5 text-white hover:opacity-80 hover:scale-110 transition duration-300 ease-in-out" />
         </Link>
       </button>
       
       <div className="flex items-center space-x-4">
         <div className="flex flex-col justify-center">
-          <button onClick={() => changeLanguage('pl')} ><img src={data[2]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/></button>
-          <button onClick={() => changeLanguage('en')}><img src={data[3]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/></button>
+          <button onClick={() => changeLanguage('pl')} ><img src={data[1]} alt="Poland Flag" className="h-8 w-12 object-cover mb-2 rounded-md border-solid"/></button>
+          <button onClick={() => changeLanguage('en')}><img src={data[2]} alt="GB Flag" className="h-8 w-12 object-cover rounded-md border-solid"/></button>
         </div>
-        <img src={data[1]} alt="RightIcon" className="h-20 border-2 border-custom-sand" />
+        <img src={data[0]} alt="RightIcon" className="h-20 border-2 border-custom-sand" />
       </div>
     </header>
   );

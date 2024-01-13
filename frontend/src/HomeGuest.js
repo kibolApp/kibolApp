@@ -9,6 +9,8 @@ import aboutus from './assets/aboutus.png';
 import logoblack from './assets/logoblack.png';
 import logobrown from './assets/logobrown.png';
 import banner from './assets/banner.jpg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome, faMapMarkerAlt, faFutbol,  } from '@fortawesome/free-solid-svg-icons';
 
 const HomeGuest = () => {
 
@@ -87,14 +89,20 @@ return (
         <nav className='flex-grow'>
           <ul className="flex justify-end">
             <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300 text-green-500"><Link to="/home">{t('start')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/app">{t('clubLocations')}</Link></a>
-            </li>
-            <li className="text-white mx-4 font-semibold">
-              <a className="hover:text-gray-300"><Link to="/clublist">{t('clubList')}</Link></a>
-            </li>
+            <a className="hover:text-gray-300 text-green-500"><Link to="/home">
+          <FontAwesomeIcon icon={faHome} className="mr-2" /> {t('start')}
+        </Link></a>
+      </li>
+      <li className="text-white mx-4 font-semibold">
+        <a className="hover:text-gray-300"><Link to="/app">
+          <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2" /> {t('clubLocations')}
+        </Link></a>
+      </li>
+      <li className="text-white mx-4 font-semibold">
+        <a className="hover:text-gray-300"><Link to="/clublist">
+          <FontAwesomeIcon icon={faFutbol} className="mr-2" /> {t('clubList')}
+        </Link></a>
+      </li>
             <li className="text-white mx-4 font-semibold">
               <a className="hover:text-gray-300"><Link to="/auth">{t('loginRegister')}</Link></a>
             </li>
