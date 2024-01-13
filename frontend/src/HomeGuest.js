@@ -3,6 +3,12 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
+import polska from './assets/polska.png';
+import gb from './assets/gb.png';
+import aboutus from './assets/aboutus.png';
+import logoblack from './assets/logoblack.png';
+import logobrown from './assets/logobrown.png';
+import banner from './assets/banner.jpg';
 
 const HomeGuest = () => {
 
@@ -40,12 +46,12 @@ const HomeGuest = () => {
   }, []);
 
 const data = [
-  "https://i.imgur.com/fv4tZQm.png", //logo black
-  "https://i.imgur.com/IEmbAX2.png", //logo brown
-  "https://i.imgur.com/JzWdITG.jpg", //banner
-  "https://i.imgur.com/dSmkyv5.png", //aboutus
-  "https://i.imgur.com/m5aXfio.png", //Polska
-  "https://i.imgur.com/rQiArPt.png" //GB
+  logoblack, //logo black
+  logobrown, //logo brown
+  banner, //banner
+  aboutus, //aboutus
+  polska, //Polska
+  gb //GB
   ];
 
 const Banner = ({ backgroundImage }) => {

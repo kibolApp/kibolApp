@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import polska from '../assets/polska.png';
+import gb from '../assets/gb.png';
+import logobrown from '../assets/logobrown.png';
+import arrow from '../assets/arrow.png';
 
 export default function Header() {
   const { i18n } = useTranslation();
@@ -13,10 +17,10 @@ export default function Header() {
   };
 
   const data = [
-    "https://i.imgur.com/AMBEfm7.png", //arrow
-    "https://i.imgur.com/IEmbAX2.png", //logo
-    "https://i.imgur.com/m5aXfio.png", //Polska
-    "https://i.imgur.com/rQiArPt.png" //GB
+    arrow, //arrow
+    logobrown, //logo
+    polska, //Polska
+    gb //GB
   ];
 
   const notify = () => {

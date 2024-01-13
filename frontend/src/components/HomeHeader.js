@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import polska from '../assets/polska.png';
+import gb from '../assets/gb.png';
+import logoblack from '../assets/logoblack.png';
+import banner from '../assets/banner.jpg';
 
 export default function HomeHeader() {
 const { t } = useTranslation();
@@ -10,10 +14,10 @@ const { t } = useTranslation();
   };
 
 const data = [
-    "https://i.imgur.com/fv4tZQm.png", //logo
-    "https://i.imgur.com/JzWdITG.jpg", //baner
-    "https://i.imgur.com/m5aXfio.png", //Polska
-    "https://i.imgur.com/rQiArPt.png" //GB
+    logoblack, //logo
+    banner, //baner
+    polska, //Polska
+    gb //GB
     ];
     
 return (
