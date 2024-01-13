@@ -48,13 +48,14 @@ class ProviderController extends Controller
             'provider_token' => $Socialuser->token,
         ]);
     }
-    $token=$user->createToken((int)['id' => (String)$user->id])->plainTextToken;
+    $token = $user->createToken(['id' => (string)$user->id])->plainTextToken;
     $res=([
         'user'=>$user,
         'token'=>$token
     ]);
 
-
-       return redirect('http://kibolapp.cloud/wait?token=' . $res['token'] . '&user=' . urlencode(json_encode($res['user'])));
+    if (Auth::check()) {
+        return redirect('http://kibolapp.cloud/wait?token=' . $token . '&user=' . urlencode(json_encode($user)));
+    }
 }
 }
