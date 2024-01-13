@@ -23,7 +23,7 @@ class ProviderController extends Controller
 
     public function callback( $provider)
     {
-        $Socialuser=Socialite::driver($provider)->user();
+        $Socialuser=Socialite::driver($provider)->stateless()->user();
         
         if($provider=='github'){
             $user = User::updateOrCreate([
@@ -55,6 +55,6 @@ class ProviderController extends Controller
     ]);
 
 
-       return redirect('http://localhost:3000/wait?token=' . $res['token'] . '&user=' . urlencode(json_encode($res['user'])));
+       return redirect('http://kibolapp.cloud/wait?token=' . $res['token'] . '&user=' . urlencode(json_encode($res['user'])));
 }
 }
