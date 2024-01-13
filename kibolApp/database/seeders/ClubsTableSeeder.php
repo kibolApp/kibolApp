@@ -110,7 +110,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.296299,
                 'longitude' => 18.768331,
                 'address' => "Arena Zabrze - Roosevelta 81",
-                'logo' => $gornikzabrzeBlob,,
+                'logo' => $gornikzabrzeBlob,
                 'url'=>'gornikzabrze'
             ],
             [
