@@ -20,7 +20,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.203600,
                 'longitude' => 16.169939,
                 'address' => "Stadion MKS Miedź Legnica im. Orła Białego - Hetmańska 2",
-                'url_logo' => "/assets/miedzlegnica.png",
+                'url_logo' => "public/assets/miedzlegnica.png",
                 'url'=>'miedzlegnica'
             ],
             [
