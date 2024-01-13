@@ -40,7 +40,7 @@ class LegiaWarszawaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Legia Warszawa",
-                'url_logo' => "https://i.imgur.com/484NrE2.png",
+                'url_logo' => asset('legiawarszawa.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

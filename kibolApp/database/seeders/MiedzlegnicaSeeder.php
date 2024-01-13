@@ -22,7 +22,7 @@ class MiedzLegnicaSeeder extends Seeder
 
             [
                 'name' => "Miedz Legnica",
-                'url_logo' => "https://i.imgur.com/AJ27Q2w.png",
+                'url_logo' => asset('miedzlegnica.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

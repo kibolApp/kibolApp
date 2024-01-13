@@ -65,7 +65,7 @@ class JagielloniaBialystokSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Jagiellonia Białystok",
-                'url_logo' => "https://i.imgur.com/HpUwEAe.png",
+                'url_logo' => asset('jagielloniabialystok.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

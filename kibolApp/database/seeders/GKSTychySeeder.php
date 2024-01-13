@@ -28,7 +28,7 @@ class GKSTychySeeder extends Seeder
         $clubs = [
             [
                 'name' => "GKS Tychy",
-                'url_logo' => "https://i.imgur.com/oyiIhGG.png",
+                'url_logo' => asset('gkstychy.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

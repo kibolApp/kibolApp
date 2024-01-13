@@ -65,7 +65,7 @@ class PodbeskidzieBielskoBialaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Podbeskidzie Bielsko-Biała",
-                'url_logo' => "https://i.imgur.com/07rCZxP.png",
+                'url_logo' => asset('podbeskidziebielskobiala.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

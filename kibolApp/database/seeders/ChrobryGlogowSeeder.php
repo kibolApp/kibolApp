@@ -55,7 +55,7 @@ class ChrobryGlogowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Chrobry Głogów",
-                'url_logo' => "https://i.imgur.com/sBRFtDF.png",
+                'url_logo' => asset('chrobryglogow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

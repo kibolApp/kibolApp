@@ -47,7 +47,7 @@ class WislaPlockSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Wisła Płock",
-                'url_logo' => "https://i.imgur.com/AkAwgeA.png",
+                'url_logo' => asset('wislaplock.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

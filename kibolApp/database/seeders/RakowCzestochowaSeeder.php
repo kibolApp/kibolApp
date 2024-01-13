@@ -33,7 +33,7 @@ class RakowCzestochowaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Raków Częstochowa",
-                'url_logo' => "https://i.imgur.com/KTybnDT.png",
+                'url_logo' => asset('rakowczestochowa.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

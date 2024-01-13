@@ -37,7 +37,7 @@ class WislaKrakowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Wisła Kraków",
-                'url_logo' => "https://i.imgur.com/LgnZzdC.png",
+                'url_logo' => asset('wislakrakow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

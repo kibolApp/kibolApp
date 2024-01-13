@@ -49,7 +49,7 @@ class BrukBetTermalicaNiecieczaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Termalica Bruk-Bet Nieciecza",
-                'url_logo' => "https://i.imgur.com/bffzfpj.png",
+                'url_logo' => asset('brukbettermalicanieciecza.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

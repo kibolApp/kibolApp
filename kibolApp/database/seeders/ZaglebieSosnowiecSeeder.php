@@ -33,7 +33,7 @@ class ZaglebieSosnowiecSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Zagłębie Sosnowiec",
-                'url_logo' => "https://i.imgur.com/zAp81Ko.png",
+                'url_logo' => asset('zaglebiesosnowiec.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

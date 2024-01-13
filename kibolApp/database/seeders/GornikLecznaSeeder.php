@@ -60,7 +60,7 @@ class GornikLecznaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Górnik Łęczna",
-                'url_logo' => "https://i.imgur.com/ViNJIKR.png",
+                'url_logo' => asset('gornikleczna.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

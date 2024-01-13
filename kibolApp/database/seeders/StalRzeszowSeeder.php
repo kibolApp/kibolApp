@@ -73,7 +73,7 @@ class StalRzeszowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Stal Rzeszów",
-                'url_logo' => "https://i.imgur.com/Mt0ygDr.png",
+                'url_logo' => asset('stalrzeszow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

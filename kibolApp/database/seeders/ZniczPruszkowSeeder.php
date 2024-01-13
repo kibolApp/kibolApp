@@ -27,7 +27,7 @@ class ZniczPruszkowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Znicz Pruszków",
-                'url_logo' => "https://i.imgur.com/zxyrE0u.png",
+                'url_logo' => asset('zniczpruszkow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

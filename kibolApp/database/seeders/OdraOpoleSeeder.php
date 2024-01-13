@@ -65,7 +65,7 @@ class OdraOpoleSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Odra Opole",
-                'url_logo' => "https://i.imgur.com/8j6dBw6.png",
+                'url_logo' => asset('odraopole.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

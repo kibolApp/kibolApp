@@ -40,7 +40,7 @@ class ResoviaRzeszowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Resovia Rzeszów",
-                'url_logo' => "https://i.imgur.com/dfoyZ4A.png",
+                'url_logo' => asset('resoviarzeszow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

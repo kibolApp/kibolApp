@@ -46,7 +46,7 @@ class PuszczaNiepolomiceSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Puszcza Niepołomice",
-                'url_logo' => "https://i.imgur.com/ZENnGmA.png",
+                'url_logo' => asset('puszczaniepolomice.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

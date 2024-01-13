@@ -58,8 +58,7 @@ class WartaPoznanSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Warta Poznań",
-                'url_logo' => "https://i.imgur.com/pHbkZBs.png",
-                'positive' => null,
+                'url_logo' => asset('wartapoznan.png'),                'positive' => null,
                 'negative' => null,
                 'lat'=>null,
                 'lng'=>null,

@@ -68,7 +68,7 @@ class PiastGliwiceSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Piast Gliwice",
-                'url_logo' => "https://i.imgur.com/yZJMMP8.png",
+                'url_logo' => asset('piastgliwice.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

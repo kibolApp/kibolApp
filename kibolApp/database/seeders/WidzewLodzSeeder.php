@@ -24,7 +24,7 @@ class WidzewLodzSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Widzew Łódź",
-                'url_logo' => "https://i.imgur.com/Gy7xBj9.png",
+                'url_logo' => asset('widzewlodz.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

@@ -112,7 +112,7 @@ class PogonSzczecinSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Pogoń Szczecin",
-                'url_logo' => "https://i.imgur.com/VWC7J2A.png",
+                'url_logo' => asset('pogonszczecin.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

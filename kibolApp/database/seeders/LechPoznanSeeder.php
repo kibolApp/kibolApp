@@ -77,7 +77,7 @@ class LechPoznanSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Lech Poznań",
-                'url_logo' => "https://i.imgur.com/dGaDZz8.png",
+                'url_logo' => asset('lechpoznan.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

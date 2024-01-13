@@ -21,7 +21,7 @@ class CracoviaKrakowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Cracovia Kraków",
-                'url_logo' => "https://i.imgur.com/B82c3Ze.png",
+                'url_logo' => asset('cracoviakrakow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

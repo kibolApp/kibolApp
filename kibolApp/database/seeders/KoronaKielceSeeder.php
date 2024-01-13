@@ -85,7 +85,7 @@ class KoronaKielceSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Korona Kielce",
-                'url_logo' => "https://i.imgur.com/UG6yqUi.png",
+                'url_logo' => asset('koronakielce.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

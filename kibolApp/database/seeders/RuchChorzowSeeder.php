@@ -42,7 +42,7 @@ class RuchChorzowSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Ruch Chorzów",
-                'url_logo' => "https://i.imgur.com/Din3ueS.png",
+                'url_logo' => asset('ruchchorzow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

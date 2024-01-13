@@ -54,7 +54,7 @@ class LechiaGdanskSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Lechia Gdańsk",
-                'url_logo' => "https://i.imgur.com/IQnXfez.png",
+                'url_logo' => asset('lechiagdansk.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

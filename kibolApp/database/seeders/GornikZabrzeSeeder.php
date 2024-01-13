@@ -32,7 +32,7 @@ class GornikZabrzeSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Górnik Zabrze",
-                'url_logo' => "https://i.imgur.com/G01NIvs.png",
+                'url_logo' => asset('gornikzabrze.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

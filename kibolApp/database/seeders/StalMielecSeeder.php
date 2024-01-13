@@ -75,7 +75,7 @@ class StalMielecSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Stal Mielec",
-                'url_logo' => "https://i.imgur.com/Vhi20Rx.png",
+                'url_logo' => asset('stalrzeszow.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,

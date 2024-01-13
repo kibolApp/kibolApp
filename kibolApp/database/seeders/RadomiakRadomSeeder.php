@@ -31,7 +31,7 @@ class RadomiakRadomSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Radomiak Radom",
-                'url_logo' => "https://i.imgur.com/2nVnU9F.png",
+                'url_logo' => asset('radomiakradom.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,
