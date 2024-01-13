@@ -58,7 +58,7 @@ const CustomMap = () => {
   const LocationMarker = () => {
     const [position, setPosition] = useState(null);
     const map = useMapEvents({
-      contextmenu() {
+      mouseout() {
         map.locate();
       },
       locationfound(e) {
