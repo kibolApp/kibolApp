@@ -4,15 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\File;
 
 class ZaglebieLubinSeeder extends Seeder
 {
     public function run()
     {
-        $imagePath = '/assets/zaglebielubin.png';
-        $imageBlob = File::get($imagePath);
-
         $positiveClubs = ["Arka Gdynia", "Odra Opole", "Zawisza Bydgoszcz"];
 
         $negativeClubs = [
@@ -47,7 +43,7 @@ class ZaglebieLubinSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Zagłębie Lubin",
-                'logo' => $imageBlob,
+                'url_logo' => "https://i.imgur.com/ASAxV9N.png",
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,
@@ -58,7 +54,7 @@ class ZaglebieLubinSeeder extends Seeder
         foreach ($coordinates as $coordinate) {
             $clubs[]=[
                 'name' => null,
-                'logo' => null,
+                'url_logo' => null,
                 'positive' => null,
                 'negative' => null,
                 'lat' => $coordinate['lat'],
@@ -67,12 +63,12 @@ class ZaglebieLubinSeeder extends Seeder
         };
 
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
             'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
             'lng'=>null,];
         }
 

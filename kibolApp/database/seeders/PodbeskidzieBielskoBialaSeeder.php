@@ -12,8 +12,8 @@ class PodbeskidzieBielskoBialaSeeder extends Seeder
         $positiveClubs = [];
 
         $negativeClubs = [
-            "BKS Stal Bielsko-Biała", "Miedź Legnica", "Zagłębie Sosnowiec", "Szczakowianka Jaworzno", 
-            "Wisła Kraków", "Legia Warszawa", "Odra Opole", "Śląsk Wrocław", "Lechia Gdańsk", 
+            "BKS Stal Bielsko-Biała", "Miedź Legnica", "Zagłębie Sosnowiec", "Szczakowianka Jaworzno",
+            "Wisła Kraków", "Legia Warszawa", "Odra Opole", "Śląsk Wrocław", "Lechia Gdańsk",
             "MRKS Walcownia Czechowice-Dziedzice", "Hejnał Kęty"
         ];
         $coordinates = [
@@ -60,7 +60,7 @@ class PodbeskidzieBielskoBialaSeeder extends Seeder
             ["lat" => 49.86785245775667, "lng" => 19.11284450585464],
             ["lat" => 49.923036160243726, "lng" => 18.570794542203544],
         ];
-        
+
 
         $clubs = [
             [

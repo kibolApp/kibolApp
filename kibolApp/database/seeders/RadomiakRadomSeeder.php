@@ -11,13 +11,13 @@ class RadomiakRadomSeeder extends Seeder
     {
         $positiveClubs = ["Legia Warszawa"];
         $negativeClubs = [
-            "Broń Radom", "Powiślanka Lipsko", "Korona Kielce", "KSZO Ostrowiec Św.", "Widzew Łódź", 
-            "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "Polonia Warszawa", "Wisła Płock", 
-            "Motor Lublin", "Hetman Zamość", "Chełmianka Chełm", "Górnik Łęczna", "Wisła Puławy", 
-            "Avia Świdnik", "Resovia Rzeszów", "Stal Mielec", "Stal Stalowa Wola", "Sandecja Nowy Sącz", 
-            "GKS Tychy", "Górnik Zabrze", "GKS Katowice", "GKS Jastrzębie", "Raków Częstochowa", 
-            "Śląsk Wrocław", "Lechia Gdańsk", "ŁKS Łódź", "Cracovia", "Lech Poznań", "Arka Gdynia", 
-            "Stomil Olsztyn", "Jagiellonia Białystok", "Gwardia Warszawa", "Pilica Białobrzegi", 
+            "Broń Radom", "Powiślanka Lipsko", "Korona Kielce", "KSZO Ostrowiec Św.", "Widzew Łódź",
+            "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "Polonia Warszawa", "Wisła Płock",
+            "Motor Lublin", "Hetman Zamość", "Chełmianka Chełm", "Górnik Łęczna", "Wisła Puławy",
+            "Avia Świdnik", "Resovia Rzeszów", "Stal Mielec", "Stal Stalowa Wola", "Sandecja Nowy Sącz",
+            "GKS Tychy", "Górnik Zabrze", "GKS Katowice", "GKS Jastrzębie", "Raków Częstochowa",
+            "Śląsk Wrocław", "Lechia Gdańsk", "ŁKS Łódź", "Cracovia", "Lech Poznań", "Arka Gdynia",
+            "Stomil Olsztyn", "Jagiellonia Białystok", "Gwardia Warszawa", "Pilica Białobrzegi",
             "Miedź Legnica"
         ];
         $coordinates = [

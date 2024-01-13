@@ -10,7 +10,7 @@ class WidzewLodzSeeder extends Seeder
     public function run()
     {
         $positiveClubs = ["Kibice Widzewa"];
-        
+
         $negativeClubs = ["Cała Polska"];
         $coordinates = [
             ["lat" => 51.331071163042395, "lng" => 18.093818213930604],

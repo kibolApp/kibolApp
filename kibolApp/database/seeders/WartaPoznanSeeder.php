@@ -11,8 +11,8 @@ class WartaPoznanSeeder extends Seeder
     {
         $positiveClubs = ["Błekitni Stargard", "Lechia Zielona Góra"];
         $negativeClubs = [
-            "KKS Kalisz", "Unia Leszno", "Pogoń Szczecin", "Dyskobolia Grodzisk Wielkopolski", 
-            "Wisła Kraków", "Ruch Chorzów", "Widzew Łódź", "Elana Toruń", "Kotwica Kołobrzeg", 
+            "KKS Kalisz", "Unia Leszno", "Pogoń Szczecin", "Dyskobolia Grodzisk Wielkopolski",
+            "Wisła Kraków", "Ruch Chorzów", "Widzew Łódź", "Elana Toruń", "Kotwica Kołobrzeg",
             "Radomiak Radom", "Lechia Gdańsk", "Śląsk Wrocław", "Piast Gliwice"
         ];
         $coordinates = [
@@ -53,7 +53,7 @@ class WartaPoznanSeeder extends Seeder
             ["lat" => 52.41500647549449, "lng" => 16.921522942769542],
             ["lat" => 52.398029736232985, "lng" => 16.926746517595518],
         ];
-        
+
 
         $clubs = [
             [

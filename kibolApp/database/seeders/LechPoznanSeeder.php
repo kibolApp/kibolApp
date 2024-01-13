@@ -72,7 +72,7 @@ class LechPoznanSeeder extends Seeder
             ["lat" => 53.61397009450343, "lng" => 17.71215112741598],
             ["lat" => 53.66005678592293, "lng" => 16.8617029328731],
         ];
-        
+
 
         $clubs = [
             [

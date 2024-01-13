@@ -32,7 +32,7 @@ class WislaKrakowSeeder extends Seeder
             ["lat" => 50.57616613228245, "lng" => 19.79342364432219],
             ["lat" => 50.49798692471788, "lng" => 19.190108777798855],
         ];
-        
+
 
         $clubs = [
             [

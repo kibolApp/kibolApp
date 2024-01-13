@@ -11,12 +11,12 @@ class SlaskWroclawSeeder extends Seeder
     {
         $positiveClubs = ["Lechia Gdańsk", "Motor Lublin", "Miedź Legnica"];
         $negativeClubs = [
-            "Zagłębie Lubin", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "Widzew Łódź", "Cracovia", 
-            "Arka Gdynia", "Lech Poznań", "Legia Warszawa", "Odra Opole", "Górnik Zabrze", "Polonia Bytom", 
-            "GKS Tychy", "GKS Jastrzębie", "Górnik Wałbrzych", "Chrobry Głogów", "BKS Bolesławiec", 
-            "Polonia Świdnica", "Lechia Dzierżoniów", "KKS Kalisz", "Zawisza Bydgoszcz", "Pogoń Szczecin", 
-            "Olimpia Elbląg", "Jagiellonia Białystok", "ROW Rybnik", "Radomiak Radom", "Sandecja Nowy Sącz", 
-            "Stal Rzeszów", "Stal Stalowa Wola", "Avia Świdnik", "Sevilla FC", "CSKA Moskwa", 
+            "Zagłębie Lubin", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "Widzew Łódź", "Cracovia",
+            "Arka Gdynia", "Lech Poznań", "Legia Warszawa", "Odra Opole", "Górnik Zabrze", "Polonia Bytom",
+            "GKS Tychy", "GKS Jastrzębie", "Górnik Wałbrzych", "Chrobry Głogów", "BKS Bolesławiec",
+            "Polonia Świdnica", "Lechia Dzierżoniów", "KKS Kalisz", "Zawisza Bydgoszcz", "Pogoń Szczecin",
+            "Olimpia Elbląg", "Jagiellonia Białystok", "ROW Rybnik", "Radomiak Radom", "Sandecja Nowy Sącz",
+            "Stal Rzeszów", "Stal Stalowa Wola", "Avia Świdnik", "Sevilla FC", "CSKA Moskwa",
             "Banik Ostrava", "Borussia Dortmund"
         ];
         $coordinates = [
@@ -48,7 +48,7 @@ class SlaskWroclawSeeder extends Seeder
             ["lat" => 51.65224143053271, "lng" => 17.22716424341297],
             ["lat" => 51.59000775199408, "lng" => 16.672249921883946],
         ];
-        
+
 
         $clubs = [
             [

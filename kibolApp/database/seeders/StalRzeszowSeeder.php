@@ -68,7 +68,7 @@ class StalRzeszowSeeder extends Seeder
             ["lat" => 49.83949973368627, "lng" => 22.986491919454807],
             ["lat" => 50.109607283764035, "lng" => 23.30735071391919],
         ];
-        
+
 
         $clubs = [
             [

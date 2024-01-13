@@ -35,7 +35,7 @@ class ResoviaRzeszowSeeder extends Seeder
             ["lat" => 50.012950802676215, "lng" => 21.52480383690485],
             ["lat" => 50.02434139961545, "lng" => 21.701358507315064],
         ];
-        
+
 
         $clubs = [
             [

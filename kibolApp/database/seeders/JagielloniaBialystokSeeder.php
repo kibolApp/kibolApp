@@ -9,9 +9,9 @@ class JagielloniaBialystokSeeder extends Seeder
 {
     public function run()
     {
-        
+
         $positiveClubs = ["Mazur Ełk"];
-        $negativeClubs = ["Legia Warszawa", "Cracovia", "ŁKS Łomża", "Wigry Suwałki", "Stomil Olsztyn", 
+        $negativeClubs = ["Legia Warszawa", "Cracovia", "ŁKS Łomża", "Wigry Suwałki", "Stomil Olsztyn",
                         "Olimpia Elbląg", "Arka Gdynia", "Pogoń Szczecin", "Zawisza Bydgoszcz", "Lech Poznań",
                         "Radomiak Radom", "Śląsk Wrocław", "Korona Kielce", "Wisła Kraków", "Zagłębie Sosnowiec",
                         "Górnik Zabrze", "Stal Stalowa Wola", "Resovia Rzeszów", "Polonia Warszawa", "Granica Kętrzyn",

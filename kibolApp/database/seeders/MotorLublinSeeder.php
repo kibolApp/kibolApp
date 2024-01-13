@@ -11,13 +11,13 @@ class MotorLublinSeeder extends Seeder
     {
         $positiveClubs = ["Śląsk Wrocław"];
         $negativeClubs = [
-            "Wisła Kraków", "Widzew Łódź", "Ruch Chorzów", "Elana Toruń", "Stal Stalowa Wola", "Avia Świdnik", 
-            "Łada Biłgoraj", "Wisła Puławy", "Polonia Przemyśl", "Stal Rzeszów", "Karpaty Krosno", 
-            "Stal Mielec", "Siarka Tarnobrzeg", "Sokół Nisko", "Arka Gdynia", "Cracovia", "GKS Tychy", 
-            "Lech Poznań", "Sandecja Nowy Sącz", "Unia Tarnów", "Hutnik Kraków", "GKS Jastrzębie", 
-            "Korona Kielce", "ŁKS Łódź", "Legia Warszawa", "Radomiak Radom", "Polonia Warszawa", 
-            "Wisła Płock", "Odra Opole", "Zagłębie Lubin", "Chrobry Głogów", "Górnik Wałbrzych", 
-            "AZS Podlasie Biała Podlaska", "Orlęta Łuków", "Unia Hrubieszów", "KKS Kalisz", 
+            "Wisła Kraków", "Widzew Łódź", "Ruch Chorzów", "Elana Toruń", "Stal Stalowa Wola", "Avia Świdnik",
+            "Łada Biłgoraj", "Wisła Puławy", "Polonia Przemyśl", "Stal Rzeszów", "Karpaty Krosno",
+            "Stal Mielec", "Siarka Tarnobrzeg", "Sokół Nisko", "Arka Gdynia", "Cracovia", "GKS Tychy",
+            "Lech Poznań", "Sandecja Nowy Sącz", "Unia Tarnów", "Hutnik Kraków", "GKS Jastrzębie",
+            "Korona Kielce", "ŁKS Łódź", "Legia Warszawa", "Radomiak Radom", "Polonia Warszawa",
+            "Wisła Płock", "Odra Opole", "Zagłębie Lubin", "Chrobry Głogów", "Górnik Wałbrzych",
+            "AZS Podlasie Biała Podlaska", "Orlęta Łuków", "Unia Hrubieszów", "KKS Kalisz",
             "Falubaz Zielona Góra", "Pogoń Szczecin", "Stomil Olsztyn", "Korona Rzeszów", "Olimpia Elbląg"
         ];
         $coordinates = [
@@ -42,7 +42,7 @@ class MotorLublinSeeder extends Seeder
             ["lat" => 50.302372446807226, "lng" => 22.97829133956273],
             ["lat" => 51.20338348450247, "lng" => 22.589545546232415],
         ];
-        
+
 
         $clubs = [
             [

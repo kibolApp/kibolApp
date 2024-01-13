@@ -12,9 +12,9 @@ class ChrobryGlogowSeeder extends Seeder
         $positiveClubs = ["Stilon Gorzów Wlkp."];
 
         $negativeClubs = [
-            "Zagłębie Lubin", "Śląsk Wrocław", "Miedź Legnica", "Polonia Świdnica", "Falubaz Zielona Góra", 
-            "Promień Żary", "Stal Gorzów Wlkp.", "Dozamet Nowa Sól", "Karkonosze Jelenia Góra", 
-            "Górnik Polkowice", "Odra Wodzisław Śl.", "Ostrovia Ostrów Wlkp.", "Lech Poznań", "Gwardia Koszalin", 
+            "Zagłębie Lubin", "Śląsk Wrocław", "Miedź Legnica", "Polonia Świdnica", "Falubaz Zielona Góra",
+            "Promień Żary", "Stal Gorzów Wlkp.", "Dozamet Nowa Sól", "Karkonosze Jelenia Góra",
+            "Górnik Polkowice", "Odra Wodzisław Śl.", "Ostrovia Ostrów Wlkp.", "Lech Poznań", "Gwardia Koszalin",
             "Flota Świnoujście", "Odra Opole", "Górnik Konin"
         ];
         $coordinates = [
@@ -62,7 +62,7 @@ class ChrobryGlogowSeeder extends Seeder
                 'lng'=>null,
             ],
         ];
-       
+
         foreach ($coordinates as $coordinate) {
             $clubs[]=[
                 'name' => null,

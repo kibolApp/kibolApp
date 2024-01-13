@@ -11,9 +11,9 @@ class OdraOpoleSeeder extends Seeder
     {
         $positiveClubs = ["Polonia Bytom", "Zagłębie Lubin"];
         $negativeClubs = [
-            "Chemik Kędzierzyn-Koźle", "Śląsk Wrocław", "Górnik Zabrze", "GKS Katowice", "Zagłębie Sosnowiec", 
-            "Piast Gliwice", "Raków Częstochowa", "GKS Jastrzębie", "BKS Stal Bielsko-Biała", "Podbeskidzie Bielsko-Biała", 
-            "Miedź Legnica", "Chrobry Głogów", "Start Namysłów", "Stal Brzeg", "Włókniarz Kietrz", "Motor Lublin", 
+            "Chemik Kędzierzyn-Koźle", "Śląsk Wrocław", "Górnik Zabrze", "GKS Katowice", "Zagłębie Sosnowiec",
+            "Piast Gliwice", "Raków Częstochowa", "GKS Jastrzębie", "BKS Stal Bielsko-Biała", "Podbeskidzie Bielsko-Biała",
+            "Miedź Legnica", "Chrobry Głogów", "Start Namysłów", "Stal Brzeg", "Włókniarz Kietrz", "Motor Lublin",
             "ŁKS Łódź", "Widzew Łódź", "Wisła Kraków", "Elana Toruń"
         ];
         $coordinates = [
@@ -60,7 +60,7 @@ class OdraOpoleSeeder extends Seeder
             ["lat" => 50.43121979540379, "lng" => 17.065296611578134],
             ["lat" => 50.41821291233612, "lng" => 17.026133469854443],
         ];
-        
+
 
         $clubs = [
             [

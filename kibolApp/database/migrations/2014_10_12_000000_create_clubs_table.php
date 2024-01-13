@@ -18,7 +18,7 @@ return new class extends Migration
             $table->double('latitude');
             $table->double('longitude');
             $table->string('address');
-            $table->longBlob('logo');
+            $table->string('url_logo');
             $table->string('url');
             $table->timestamps();
         });

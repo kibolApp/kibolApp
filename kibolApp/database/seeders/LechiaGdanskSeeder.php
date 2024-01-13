@@ -49,7 +49,7 @@ class LechiaGdanskSeeder extends Seeder
             ["lat" => 54.4766428381605, "lng" => 18.53210828578372],
             ["lat" => 54.23705411901477, "lng" => 16.78477904729357],
         ];
-        
+
 
         $clubs = [
             [

@@ -28,7 +28,7 @@ class ZaglebieSosnowiecSeeder extends Seeder
             ["lat" => 50.50416771857775, "lng" => 19.41530034165035],
             ["lat" => 50.49912591640722, "lng" => 19.126933149876436],
         ];
-        
+
 
         $clubs = [
             [

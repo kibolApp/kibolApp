@@ -14,8 +14,8 @@ class PiastGliwiceSeeder extends Seeder
         ];
 
         $negativeClubs = [
-            "Górnik Zabrze", "GKS Katowice", "Zagłębie Sosnowiec", "ROW Rybnik", "Odra Wodzisław Śl.", 
-            "Polonia Bytom", "Cracovia", "Legia Warszawa", "Odra Opole", "Śląsk Wrocław", "ŁKS Łódź", 
+            "Górnik Zabrze", "GKS Katowice", "Zagłębie Sosnowiec", "ROW Rybnik", "Odra Wodzisław Śl.",
+            "Polonia Bytom", "Cracovia", "Legia Warszawa", "Odra Opole", "Śląsk Wrocław", "ŁKS Łódź",
             "Lech Poznań", "Arka Gdynia", "Pogoń Szczecin", "Sandecja Nowy Sącz", "Wisłoka Dębica"
         ];
         $coordinates = [
@@ -63,7 +63,7 @@ class PiastGliwiceSeeder extends Seeder
             ["lat" => 49.90788531136917, "lng" => 18.737371254138793],
             ["lat" => 50.29014162420185, "lng" => 18.71518319540982],
         ];
-        
+
 
         $clubs = [
             [

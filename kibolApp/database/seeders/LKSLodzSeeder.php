@@ -14,11 +14,11 @@ class LKSLodzSeeder extends Seeder
         ];
 
         $negativeClubs = [
-            "Widzew Łódź", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "KKS Kalisz", "Stal Rzeszów", 
-            "Karpaty Krosno", "Stal Stalowa Wola", "Resovia Rzeszów", "Legia Warszawa", "Zagłębie Sosnowiec", 
-            "BKS Stal Bielsko-Biała", "Olimpia Elbląg", "Radomiak Radom", "Odra Opole", "Chrobry Głogów", 
-            "Śląsk Wrocław", "Motor Lublin", "Chełmianka Chełm", "Wisła Płock", "Polonia Warszawa", 
-            "Stomil Olsztyn", "Jagiellonia Białystok", "Pogoń Szczecin", "Polonia Bydgoszcz", "RKS Radomsko", 
+            "Widzew Łódź", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", "KKS Kalisz", "Stal Rzeszów",
+            "Karpaty Krosno", "Stal Stalowa Wola", "Resovia Rzeszów", "Legia Warszawa", "Zagłębie Sosnowiec",
+            "BKS Stal Bielsko-Biała", "Olimpia Elbląg", "Radomiak Radom", "Odra Opole", "Chrobry Głogów",
+            "Śląsk Wrocław", "Motor Lublin", "Chełmianka Chełm", "Wisła Płock", "Polonia Warszawa",
+            "Stomil Olsztyn", "Jagiellonia Białystok", "Pogoń Szczecin", "Polonia Bydgoszcz", "RKS Radomsko",
             "Ceramika Opoczno", "GKS Katowice", "KS Myszków", "Piast Gliwice"
         ];
         $coordinates = [

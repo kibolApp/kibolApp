@@ -11,11 +11,11 @@ class GornikLecznaSeeder extends Seeder
     {
         $positiveClubs = ["Chełmianka Chełm"];
         $negativeClubs = [
-            "Avia Świdnik", "Stal Stalowa Wola", "Łada Biłgoraj", "Tomasovia Tomaszów Lubelski", 
-            "Orlęta Radzyń Podlaski", "Orlęta Łuków", "Wisła Puławy", "Stal Rzeszów", "Karpaty Krosno", 
-            "Polonia Przemyśl", "Siarka Tarnobrzeg", "Stal Mielec", "Sokół Nisko", "Wisła Kraków", 
-            "Widzew Łódź", "Ruch Chorzów", "Elana Toruń", "GKS Jastrzębie", "Chemik Kędzierzyn-Koźle", 
-            "Korona Kielce", "Legia Warszawa", "Radomiak Radom", "Olimpia Elbląg", "Wisła Płock", 
+            "Avia Świdnik", "Stal Stalowa Wola", "Łada Biłgoraj", "Tomasovia Tomaszów Lubelski",
+            "Orlęta Radzyń Podlaski", "Orlęta Łuków", "Wisła Puławy", "Stal Rzeszów", "Karpaty Krosno",
+            "Polonia Przemyśl", "Siarka Tarnobrzeg", "Stal Mielec", "Sokół Nisko", "Wisła Kraków",
+            "Widzew Łódź", "Ruch Chorzów", "Elana Toruń", "GKS Jastrzębie", "Chemik Kędzierzyn-Koźle",
+            "Korona Kielce", "Legia Warszawa", "Radomiak Radom", "Olimpia Elbląg", "Wisła Płock",
             "Pogoń Szczecin", "Arka Gdynia", "Lech Poznań"
         ];
         $coordinates = [

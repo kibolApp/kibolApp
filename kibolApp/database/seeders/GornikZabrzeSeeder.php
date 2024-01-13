@@ -10,13 +10,13 @@ class GornikZabrzeSeeder extends Seeder
     public function run()
     {
         $positiveClubs = ["GKS Katowice", "Wisłoka Dębica", "ROW Rybnik"];
-        $negativeClubs = ["Ruch Chorzów", "Wisła Kraków", "Widzew Łódź", "Elana Toruń", "Legia Warszawa", 
-                          "Zagłębie Sosnowiec", "Polonia Bytom", "GKS Tychy", "Piast Gliwice", "GKS Jastrzębie", 
-                          "Odra Wodzisław Śl.", "Raków Częstochowa", "BKS Stal Bielsko-Biała", "Odra Opole", 
-                          "Chemik Kędzierzyn-Koźle", "Śląsk Wrocław", "Lechia Gdańsk", "Stomil Olsztyn", 
-                          "Wisła Płock", "Olimpia Elbląg", "Arka Gdynia", "Radomiak Radom", "Miedź Legnica", 
-                          "Górnik Wałbrzych", "Chrobry Głogów", "KS Myszków", "Ruch Radzionków", "Igloopol Dębica", 
-                          "Stal Rzeszów", "Karpaty Krosno", "Stal Mielec", "Sandecja Nowy Sącz", "Hutnik Kraków", 
+        $negativeClubs = ["Ruch Chorzów", "Wisła Kraków", "Widzew Łódź", "Elana Toruń", "Legia Warszawa",
+                          "Zagłębie Sosnowiec", "Polonia Bytom", "GKS Tychy", "Piast Gliwice", "GKS Jastrzębie",
+                          "Odra Wodzisław Śl.", "Raków Częstochowa", "BKS Stal Bielsko-Biała", "Odra Opole",
+                          "Chemik Kędzierzyn-Koźle", "Śląsk Wrocław", "Lechia Gdańsk", "Stomil Olsztyn",
+                          "Wisła Płock", "Olimpia Elbląg", "Arka Gdynia", "Radomiak Radom", "Miedź Legnica",
+                          "Górnik Wałbrzych", "Chrobry Głogów", "KS Myszków", "Ruch Radzionków", "Igloopol Dębica",
+                          "Stal Rzeszów", "Karpaty Krosno", "Stal Mielec", "Sandecja Nowy Sącz", "Hutnik Kraków",
                           "GKS Bełchatów", "KKS Kalisz", "Pogoń Szczecin"];
         $coordinates = [
                             ["lat" => 50.389872839863074, "lng" => 18.83017379398862],

@@ -14,13 +14,13 @@ class PogonSzczecinSeeder extends Seeder
         ];
 
         $negativeClubs = [
-            "Cracovia", "Lech Poznań", "Arka Gdynia", "Lechia Gdańsk", "Zagłębie Sosnowiec", 
-            "Gwardia Koszalin", "Flota Świnoujście", "Gryf Słupsk", "Bałtyk Gdynia", "Stilon Gorzów Wlkp.", 
-            "Falubaz Zielona Góra", "Zawisza Bydgoszcz", "Elana Toruń", "Olimpia Grudziądz", "Stomil Olsztyn", 
-            "Olimpia Elbląg", "Jagiellonia Białystok", "Polonia Warszawa", "Wisła Kraków", "Unia Tarnów", 
-            "Sandecja Nowy Sącz", "Beskid Andrychów", "BKS Stal Bielsko-Biała", "GKS Tychy", "Górnik Zabrze", 
-            "Polonia Bytom", "Piast Gliwice", "Raków Częstochowa", "Śląsk Wrocław", "Miedź Legnica", 
-            "Chrobry Głogów", "Odra Opole", "ŁKS Łódź", "Wisła Płock", "Avia Świdnik", "Motor Lublin", 
+            "Cracovia", "Lech Poznań", "Arka Gdynia", "Lechia Gdańsk", "Zagłębie Sosnowiec",
+            "Gwardia Koszalin", "Flota Świnoujście", "Gryf Słupsk", "Bałtyk Gdynia", "Stilon Gorzów Wlkp.",
+            "Falubaz Zielona Góra", "Zawisza Bydgoszcz", "Elana Toruń", "Olimpia Grudziądz", "Stomil Olsztyn",
+            "Olimpia Elbląg", "Jagiellonia Białystok", "Polonia Warszawa", "Wisła Kraków", "Unia Tarnów",
+            "Sandecja Nowy Sącz", "Beskid Andrychów", "BKS Stal Bielsko-Biała", "GKS Tychy", "Górnik Zabrze",
+            "Polonia Bytom", "Piast Gliwice", "Raków Częstochowa", "Śląsk Wrocław", "Miedź Legnica",
+            "Chrobry Głogów", "Odra Opole", "ŁKS Łódź", "Wisła Płock", "Avia Świdnik", "Motor Lublin",
             "Górnik Łęczna", "Chełmianka Chełm", "Resovia Rzeszów", "Stal Mielec", "Ilanka Rzepin"
         ];
         $coordinates = [
@@ -107,7 +107,7 @@ class PogonSzczecinSeeder extends Seeder
             ["lat" => 53.66309905665253, "lng" => 16.867084668045493],
             ["lat" => 54.411320131006875, "lng" => 16.75487167266303],
         ];
-        
+
 
         $clubs = [
             [

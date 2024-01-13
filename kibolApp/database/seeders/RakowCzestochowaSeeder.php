@@ -11,12 +11,12 @@ class RakowCzestochowaSeeder extends Seeder
     {
         $positiveClubs = ["Chemik Kędzierzyn-Koźle"];
         $negativeClubs = [
-            "Ruch Chorzów", "KS Myszków", "Widzew Łódź", "Polonia Bytom", "Piast Gliwice", 
-            "BKS Stal Bielsko-Biała", "Odra Opole", "Zagłębie Lubin", "Resovia Rzeszów", 
-            "Stal Mielec", "Wisła Kraków", "Elana Toruń", "Arka Gdynia", "Lech Poznań", 
-            "Cracovia", "Sandecja Nowy Sącz", "Zagłębie Sosnowiec", "Korona Kielce", 
-            "Polonia Warszawa", "Legia Warszawa", "Radomiak Radom", "Olimpia Elbląg", 
-            "Jagiellonia Białystok", "Pogoń Szczecin", "Kotwica Kołobrzeg", "Włókniarz Częstochowa", 
+            "Ruch Chorzów", "KS Myszków", "Widzew Łódź", "Polonia Bytom", "Piast Gliwice",
+            "BKS Stal Bielsko-Biała", "Odra Opole", "Zagłębie Lubin", "Resovia Rzeszów",
+            "Stal Mielec", "Wisła Kraków", "Elana Toruń", "Arka Gdynia", "Lech Poznań",
+            "Cracovia", "Sandecja Nowy Sącz", "Zagłębie Sosnowiec", "Korona Kielce",
+            "Polonia Warszawa", "Legia Warszawa", "Radomiak Radom", "Olimpia Elbląg",
+            "Jagiellonia Białystok", "Pogoń Szczecin", "Kotwica Kołobrzeg", "Włókniarz Częstochowa",
             "AZS Częstochowa"
         ];
         $coordinates = [
@@ -28,7 +28,7 @@ class RakowCzestochowaSeeder extends Seeder
             ["lat" => 51.326521506129836, "lng" => 18.21146917901271],
             ["lat" => 51.16351170201787, "lng" => 17.975771222858867],
         ];
-        
+
 
         $clubs = [
             [

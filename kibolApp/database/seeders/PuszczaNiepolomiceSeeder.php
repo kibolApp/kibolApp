@@ -41,7 +41,7 @@ class PuszczaNiepolomiceSeeder extends Seeder
             ["lat" => 49.295630441984, "lng" => 19.807916118893758],
             ["lat" => 49.30541490434811, "lng" => 19.806897160335637],
         ];
-        
+
 
         $clubs = [
             [

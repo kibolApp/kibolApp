@@ -12,11 +12,11 @@ class PoloniaWarszawaSeeder extends Seeder
         $positiveClubs = [];
 
         $negativeClubs = [
-            "Legia Warszawa", "Zagłębie Sosnowiec", "Olimpia Elbląg", "Radomiak Radom", "Hutnik Warszawa", 
-            "Olimpia Warszawa", "Ursus Warszawa", "Dolcan Ząbki", "Znicz Pruszków", "Świt Nowy Dwór Mazowiecki", 
-            "Legionovia Legionowo", "Pogoń Siedlce", "Wisła Płock", "Legia Chełmża", "Pogoń Szczecin", 
-            "Bałtyk Gdynia", "Jagiellonia Białystok", "Motor Lublin", "Hetman Zamość", "Wisła Puławy", 
-            "KSZO Ostrowiec Św.", "Unia Tarnów", "Ruch Chorzów", "GKS Katowice", "BKS Stal Bielsko-Biała", 
+            "Legia Warszawa", "Zagłębie Sosnowiec", "Olimpia Elbląg", "Radomiak Radom", "Hutnik Warszawa",
+            "Olimpia Warszawa", "Ursus Warszawa", "Dolcan Ząbki", "Znicz Pruszków", "Świt Nowy Dwór Mazowiecki",
+            "Legionovia Legionowo", "Pogoń Siedlce", "Wisła Płock", "Legia Chełmża", "Pogoń Szczecin",
+            "Bałtyk Gdynia", "Jagiellonia Białystok", "Motor Lublin", "Hetman Zamość", "Wisła Puławy",
+            "KSZO Ostrowiec Św.", "Unia Tarnów", "Ruch Chorzów", "GKS Katowice", "BKS Stal Bielsko-Biała",
             "Raków Częstochowa", "Gwardia Koszalin"
         ];
         $coordinates = [
@@ -38,7 +38,7 @@ class PoloniaWarszawaSeeder extends Seeder
             ["lat" => 52.497739068419776, "lng" => 20.319068695152424],
             ["lat" => 52.147285464629306, "lng" => 20.63063092773467],
         ];
-        
+
 
         $clubs = [
             [

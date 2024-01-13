@@ -11,10 +11,10 @@ class GKSTychySeeder extends Seeder
     {
         $positiveClubs = ["Cracovia", "Sandecja Nowy Sącz", "ŁKS Łódź", "Zawisza Bydgoszcz", "Górnik Wałbrzych"];
         $negativeClubs = [
-            "BKS Stal Bielsko-Biała", "GKS Jastrzębie", "ROW Rybnik", "GKS Katowice", "Górnik Zabrze", 
-            "Ruch Chorzów", "Zagłębie Sosnowiec", "Legia Warszawa", "Wisła Kraków", "Widzew Łódź", 
-            "Elana Toruń", "Radomiak Radom", "Motor Lublin", "Olimpia Elbląg", "Stomil Olsztyn", 
-            "Pogoń Szczecin", "Lechia Gdańsk", "Śląsk Wrocław", "Miedź Legnica", "KS Myszków", 
+            "BKS Stal Bielsko-Biała", "GKS Jastrzębie", "ROW Rybnik", "GKS Katowice", "Górnik Zabrze",
+            "Ruch Chorzów", "Zagłębie Sosnowiec", "Legia Warszawa", "Wisła Kraków", "Widzew Łódź",
+            "Elana Toruń", "Radomiak Radom", "Motor Lublin", "Olimpia Elbląg", "Stomil Olsztyn",
+            "Pogoń Szczecin", "Lechia Gdańsk", "Śląsk Wrocław", "Miedź Legnica", "KS Myszków",
             "Unia Oświęcim", "Unia Tarnów", "Resovia Rzeszów", "Stal Rzeszów"
         ];
         $coordinates = [

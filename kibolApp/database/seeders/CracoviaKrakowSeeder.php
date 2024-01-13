@@ -10,12 +10,12 @@ class CracoviaKrakowSeeder extends Seeder
     public function run()
     {
         $positiveClubs = ["Arka Gdynia", "Lech Poznań", "GKS Tychy", "Sandecja Nowy Sącz", "Tarnovia Tarnów"];
-        $negativeClubs = ["Wisła Kraków", "Ruch Chorzów", "Widzew Łódź", "Elana Toruń", "Unia Tarnów", 
-                          "Legia Warszawa", "Zagłębie Sosnowiec", "Śląsk Wrocław", "Lechia Gdańsk", 
-                          "Pogoń Szczecin", "Jagiellonia Białystok", "Radomiak Radom", "Motor Lublin", 
-                          "Polonia Przemyśl", "Resovia Rzeszów", "Okocimski Brzesko", "Unia Oświęcim", 
-                          "Hejnał Kęty", "Glinik Gorlice", "Podhale Nowy Targ", "Karpaty Krosno", 
-                          "Wisłoka Dębica", "Piast Gliwice", "Raków Częstochowa", "Miedź Legnica", 
+        $negativeClubs = ["Wisła Kraków", "Ruch Chorzów", "Widzew Łódź", "Elana Toruń", "Unia Tarnów",
+                          "Legia Warszawa", "Zagłębie Sosnowiec", "Śląsk Wrocław", "Lechia Gdańsk",
+                          "Pogoń Szczecin", "Jagiellonia Białystok", "Radomiak Radom", "Motor Lublin",
+                          "Polonia Przemyśl", "Resovia Rzeszów", "Okocimski Brzesko", "Unia Oświęcim",
+                          "Hejnał Kęty", "Glinik Gorlice", "Podhale Nowy Targ", "Karpaty Krosno",
+                          "Wisłoka Dębica", "Piast Gliwice", "Raków Częstochowa", "Miedź Legnica",
                           "KKS Kalisz", "Hetman Zamość", "Stomil Olsztyn"];
 
         $clubs = [

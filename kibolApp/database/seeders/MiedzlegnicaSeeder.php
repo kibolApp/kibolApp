@@ -82,8 +82,8 @@ class MiedzLegnicaSeeder extends Seeder
             ];
         };
 
-    
-       
+
+
         foreach ($positiveClubs as $club) {
             $clubs[] = [
                 'name' => null,
@@ -94,8 +94,8 @@ class MiedzLegnicaSeeder extends Seeder
                 'lng' => null,
             ];
         }
-    
-       
+
+
         foreach ($negativeClubs as $club) {
             $clubs[] = [
                 'name' => null,

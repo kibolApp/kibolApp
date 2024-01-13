@@ -11,11 +11,11 @@ class StalMielecSeeder extends Seeder
     {
         $positiveClubs = ["Czarni Jasło", "Sandecja Nowy Sącz"];
         $negativeClubs = [
-            "Siarka Tarnobrzeg", "Stal Stalowa Wola", "Wisłoka Dębica", "Igloopol Dębica", "Resovia Rzeszów", 
-            "Stal Rzeszów", "Karpaty Krosno", "JKS Jarosław", "Stal Sanok", "Polonia Przemyśl", 
-            "Wisła Kraków", "Unia Tarnów", "Zagłębie Sosnowiec", "Górnik Zabrze", "GKS Katowice", 
-            "GKS Jastrzębie", "ROW Rybnik", "Miedź Legnica", "Radomiak Radom", "Legia Warszawa", 
-            "Motor Lublin", "Górnik Łęczna", "Chełmianka Chełm", "Łada Biłgoraj", "Wisła Sandomierz", 
+            "Siarka Tarnobrzeg", "Stal Stalowa Wola", "Wisłoka Dębica", "Igloopol Dębica", "Resovia Rzeszów",
+            "Stal Rzeszów", "Karpaty Krosno", "JKS Jarosław", "Stal Sanok", "Polonia Przemyśl",
+            "Wisła Kraków", "Unia Tarnów", "Zagłębie Sosnowiec", "Górnik Zabrze", "GKS Katowice",
+            "GKS Jastrzębie", "ROW Rybnik", "Miedź Legnica", "Radomiak Radom", "Legia Warszawa",
+            "Motor Lublin", "Górnik Łęczna", "Chełmianka Chełm", "Łada Biłgoraj", "Wisła Sandomierz",
             "Raków Częstochowa"
         ];
         $coordinates = [
@@ -70,7 +70,7 @@ class StalMielecSeeder extends Seeder
             ["lat" => 50.49600098083758, "lng" => 21.421880756114717],
             ["lat" => 50.329198962062236, "lng" => 21.054519525460904],
         ];
-        
+
 
         $clubs = [
             [

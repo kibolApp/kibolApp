@@ -11,11 +11,11 @@ class GKSKatowiceSeeder extends Seeder
     {
         $positiveClubs = ["Górnik Zabrze"];
         $negativeClubs = [
-            "Ruch Chorzów", "Wisła Kraków", "Widzew Łódź", "Elana Toruń", "Zagłębie Sosnowiec", 
-            "Legia Warszawa", "GKS Tychy", "Polonia Bytom", "Piast Gliwice", "BKS Stal Bielsko-Biała", 
-            "GKS Jastrzębie", "Odra Wodzisław Śl.", "Odra Opole", "Górnik Wałbrzych", "ŁKS Łódź", 
-            "GKS Bełchatów", "Radomiak Radom", "Olimpia Elbląg", "Arka Gdynia", "Lechia Gdańsk", 
-            "KKS Kalisz", "Hutnik Kraków", "Sandecja Nowy Sącz", "Beskid Andrychów", "Stal Rzeszów", 
+            "Ruch Chorzów", "Wisła Kraków", "Widzew Łódź", "Elana Toruń", "Zagłębie Sosnowiec",
+            "Legia Warszawa", "GKS Tychy", "Polonia Bytom", "Piast Gliwice", "BKS Stal Bielsko-Biała",
+            "GKS Jastrzębie", "Odra Wodzisław Śl.", "Odra Opole", "Górnik Wałbrzych", "ŁKS Łódź",
+            "GKS Bełchatów", "Radomiak Radom", "Olimpia Elbląg", "Arka Gdynia", "Lechia Gdańsk",
+            "KKS Kalisz", "Hutnik Kraków", "Sandecja Nowy Sącz", "Beskid Andrychów", "Stal Rzeszów",
             "Karpaty Krosno", "Stal Stalowa Wola", "Igloopol Dębica", "Czuwaj Przemyśl"
         ];
         $coordinates = [
@@ -39,7 +39,7 @@ class GKSKatowiceSeeder extends Seeder
                 'lng'=>null,
             ],
         ];
-        
+
 
         foreach ($coordinates as $coordinate) {
             $clubs[]=[

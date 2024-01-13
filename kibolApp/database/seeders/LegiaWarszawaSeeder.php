@@ -16,14 +16,14 @@ class LegiaWarszawaSeeder extends Seeder
         ];
 
         $negativeClubs = [
-            "Lech Poznań", "Cracovia", "Widzew Łódź", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń", 
-            "Lechia Gdańsk", "Śląsk Wrocław", "Polonia Warszawa", "Stomil Olsztyn", "Jagiellonia Białystok", 
-            "Zawisza Bydgoszcz", "Motor Lublin", "Wisła Płock", "ŁKS Łódź", "Korona Kielce", "Górnik Zabrze", 
-            "GKS Katowice", "Polonia Bytom", "GKS Tychy", "Piast Gliwice", "GKS Jastrzębie", 
-            "BKS Stal Bielsko-Biała", "Raków Częstochowa", "Zagłębie Lubin", "Miedź Legnica", "Hutnik Kraków", 
-            "Unia Tarnów", "Tarnovia Tarnów", "Sandecja Nowy Sącz", "KSZO Ostrowiec Św.", "Broń Radom", 
-            "Powiślanka Lipsko", "Gwardia Warszawa", "Górnik Łęczna", "Hetman Zamość", "Chełmianka Chełm", 
-            "Avia Świdnik", "Stal Mielec", "Resovia Rzeszów", "Polonia Przemyśl", "Stal Stalowa Wola", 
+            "Lech Poznań", "Cracovia", "Widzew Łódź", "Ruch Chorzów", "Wisła Kraków", "Elana Toruń",
+            "Lechia Gdańsk", "Śląsk Wrocław", "Polonia Warszawa", "Stomil Olsztyn", "Jagiellonia Białystok",
+            "Zawisza Bydgoszcz", "Motor Lublin", "Wisła Płock", "ŁKS Łódź", "Korona Kielce", "Górnik Zabrze",
+            "GKS Katowice", "Polonia Bytom", "GKS Tychy", "Piast Gliwice", "GKS Jastrzębie",
+            "BKS Stal Bielsko-Biała", "Raków Częstochowa", "Zagłębie Lubin", "Miedź Legnica", "Hutnik Kraków",
+            "Unia Tarnów", "Tarnovia Tarnów", "Sandecja Nowy Sącz", "KSZO Ostrowiec Św.", "Broń Radom",
+            "Powiślanka Lipsko", "Gwardia Warszawa", "Górnik Łęczna", "Hetman Zamość", "Chełmianka Chełm",
+            "Avia Świdnik", "Stal Mielec", "Resovia Rzeszów", "Polonia Przemyśl", "Stal Stalowa Wola",
             "Karpaty Krosno", "Stal Rzeszów", "Warta Poznań", "KKS Kalisz"
         ];
         $coordinates = [
@@ -35,7 +35,7 @@ class LegiaWarszawaSeeder extends Seeder
             ["lat" => 53.128092369973984, "lng" => 21.730151527073076],
             ["lat" => 52.4015433357697, "lng" => 20.052819704984813],
         ];
-        
+
 
         $clubs = [
             [

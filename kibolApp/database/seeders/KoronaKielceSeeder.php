@@ -80,7 +80,7 @@ class KoronaKielceSeeder extends Seeder
             ["lat" => 50.8656231376394, "lng" => 19.953775752948786],
             ["lat" => 50.59226963697324, "lng" => 19.870160613971507],
         ];
-        
+
 
         $clubs = [
             [
