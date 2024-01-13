@@ -23,7 +23,7 @@ class ArkaGdyniaSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "Arka Gdynia",
-                'url_logo' => "https://i.imgur.com/DIxQvf1.png",
+                'url_logo' => asset('arkagdynia.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,

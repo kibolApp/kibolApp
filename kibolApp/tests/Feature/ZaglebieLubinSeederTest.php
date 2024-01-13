@@ -23,7 +23,7 @@ class ZaglebieLubinSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "Zagłębie Lubin",
-                'url_logo' => "https://i.imgur.com/ASAxV9N.png",
+                'url_logo' => asset('zaglebielubin.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,

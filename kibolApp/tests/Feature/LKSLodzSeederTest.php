@@ -23,7 +23,7 @@ class LKSLodzSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "ŁKS Łódź",
-                'url_logo' => "https://imgur.com/BJPSl4y.png",
+                'url_logo' => asset('lkslodz.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,

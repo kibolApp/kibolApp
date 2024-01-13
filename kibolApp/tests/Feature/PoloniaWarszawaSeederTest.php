@@ -23,7 +23,7 @@ class PoloniaWarszawaSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "Polonia Warszawa",
-                'url_logo' => "https://i.imgur.com/L9znd4v.png",
+                'url_logo' => asset('poloniawarszawa.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,

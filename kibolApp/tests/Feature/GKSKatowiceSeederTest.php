@@ -23,7 +23,7 @@ class GKSKatowiceSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "GKS Katowice",
-                'url_logo' => "https://i.imgur.com/LaB5Fat.png",
+                'url_logo' => asset('gkskatowice.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,

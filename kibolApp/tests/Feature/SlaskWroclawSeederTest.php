@@ -23,7 +23,7 @@ class slaskwroclawSeederTest extends TestCase
         $expectedData = [
             [
                 'name' => "Śląsk Wrocław",
-                'url_logo' => "https://i.imgur.com/nTw642F.png",
+                'url_logo' => asset('slaskwroclaw.png'),
                 'positive' => null,
                 'negative' => null,
                 'lat' => null,
