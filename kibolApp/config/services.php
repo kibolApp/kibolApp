@@ -28,13 +28,13 @@ return [
     'github' => [
         'client_id' => env('GITHUB_CLIENT_ID'),
         'client_secret' => env('GITHUB_CLIENT_SECRET'),
-        'redirect' => 'http://api.kibolapp.cloud/auth/github/callback',
+        'redirect' => urlencode('http://api.kibolapp.cloud/auth/github/callback'),
     ],
 
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
-        'redirect' => 'http://api.kibolapp.cloud/auth/google/callback',
+        'redirect' => urlencode('http://api.kibolapp.cloud/auth/google/callback'),
     ],
 
     'ses' => [
