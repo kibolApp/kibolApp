@@ -19,10 +19,10 @@ export default function Header() {
   };
 
   const data = [
-    arrow, //arrow
-    logobrown, //logo
-    polska, //Polska
-    gb //GB
+    logobrown,
+    polska,
+    gb,
+    arrow
   ];
 
   const notify = () => {
