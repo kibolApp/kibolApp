@@ -5,6 +5,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import axiosClient from "../axiosClient";
 import { Icon } from 'leaflet';
 import { Link } from 'react-router-dom';
+import map from '../assets/map.png';
 
 
 const CustomMap = () => {
@@ -16,7 +17,7 @@ const CustomMap = () => {
   ];
   const [user, setUser] = useState(null);
   var [markersData, setMarkersData] = useState([]);
-  const userLocationIcon = new Icon({ iconUrl: 'https://i.imgur.com/iulwF9C.png', iconSize: [32, 32] });
+  const userLocationIcon = new Icon({ iconUrl: map, iconSize: [32, 32] });
  
 
     useEffect(() => {
