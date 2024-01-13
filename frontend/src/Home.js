@@ -4,10 +4,13 @@ import { useTranslation } from 'react-i18next';
 import axiosClient from "./axiosClient";
 import { useStateContext } from "./contexts/ContextProvider";
 import NavigationLinks from './components/NavigationsLinks';
+import Modal from 'react-modal'; 
 
 const Home = () => {
-
+  const [clubsData, setClubsData] = useState([]);
   const {setUser,setToken}=useStateContext();
+  const [userClub,setUserClub]=useState(1)
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const { t } = useTranslation();
   const [formData, setFormData] = useState({
@@ -15,19 +18,13 @@ const Home = () => {
     email: '',
     message: '',
   });
-
+  const [selectedClub, setSelectedClub] = useState(null);
   const { i18n } = useTranslation();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(true);
+  const [userlogin,setuserlogin]=useState([])
 
-  const handleLogout = async (e) => {
 
-    axiosClient
-      .post("/logout")
-      .then(() => {
-        setUser({});
-        setToken(null);
-        window.location.reload()
-      });
-  };
+
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -39,6 +36,18 @@ const Home = () => {
   }
 
   useEffect(() => {
+    axiosClient.get('/getCurrentUser')
+      .then(({data})=>{
+      setUserClub(data.club ?? [])
+      setuserlogin(data.user)
+    }
+    )
+    axiosClient.get('/clubsname')
+    .then(({data})=>{
+      setClubsData(data)
+    }
+    )
+   
     const handleScroll = () => {
       setIsSticky(window.scrollY > 0);
     };
@@ -49,6 +58,22 @@ const Home = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+
+  useEffect(() => {
+   
+    if (userClub === null || userClub.length === 0) {
+      setIsModalOpen(true);
+    } else {
+      setIsModalOpen(false);
+    }
+  }, [userClub]);
+  const closeEditModal = () => {
+    setIsModalOpen(false);
+  };
+
+
+
 
 const data = [
   "https://i.imgur.com/fv4tZQm.png", //logo black
@@ -74,7 +99,25 @@ const Banner = ({ backgroundImage }) => {
       </h2>
     </section>
   );
+
+
 };
+
+
+const handleClubSelection = (team) => {
+  setSelectedClub(team);
+};
+
+const chanheUserClub = ()=>{
+  const payload ={
+    newClub:selectedClub
+  }
+axiosClient.post(`/changeClub/${userlogin.id}`,payload)
+.then(setIsModalOpen(false))
+}
+
+
+
 
 return (
   <>
@@ -214,7 +257,32 @@ return (
         </div>
       </div>
     </section>
+    <Modal
+      isOpen={isModalOpen}
+      onRequestClose={closeEditModal}
+      contentLabel="Example Modal"
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white p-6 rounded-md w-2/6 h-5/6" 
+      overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 z-50"
+    >
+       <div>
+      <h2>Wybierz swój klub</h2>
+      {isDropdownOpen && (
+        <form onSubmit={(e) => { e.preventDefault(); chanheUserClub(); }}>
+          <select onChange={(e) => handleClubSelection(e.target.value)} value={selectedClub}>
+            <option value="" disabled>Select a club</option>
+            {clubsData.map((club) => (
+              <option key={club.id} value={club}>{club}</option>
+            ))}
+          </select>
+          <button type="submit" className="bg-green-500 text-white px-4 py-2 rounded-md m-2">
+            Submit
+          </button>
+        </form>
+      )}
+      </div>
+    </Modal>
     </>
+    
   );
 };
 
