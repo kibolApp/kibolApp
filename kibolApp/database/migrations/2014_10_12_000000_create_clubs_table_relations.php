@@ -18,7 +18,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -28,7 +28,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -38,7 +38,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -48,7 +48,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -58,7 +58,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -68,7 +68,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -78,7 +78,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -88,7 +88,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -98,7 +98,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -108,7 +108,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -118,7 +118,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -128,7 +128,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -138,7 +138,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -148,7 +148,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -158,7 +158,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -168,7 +168,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -178,7 +178,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -188,7 +188,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -198,7 +198,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -209,7 +209,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -219,7 +219,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -229,7 +229,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -239,7 +239,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -249,7 +249,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -259,7 +259,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -269,7 +269,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -279,7 +279,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -289,7 +289,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -299,7 +299,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -309,7 +309,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -319,7 +319,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -330,7 +330,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -340,7 +340,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -350,7 +350,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -360,7 +360,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
@@ -370,7 +370,7 @@ return new class  extends Migration
             $table->string('name')->nullable();;
             $table->string('positive')->nullable();;
             $table->string('negative')->nullable();;
-            $table->blob('logo')->nullable();;
+            $table->binary('logo')->nullable();;
             $table->double('lat')->nullable();;
             $table->double('lng')->nullable();;
             $table->timestamps();
