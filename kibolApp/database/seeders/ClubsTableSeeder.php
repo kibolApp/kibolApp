@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ClubsTableSeeder extends Seeder
 {
@@ -13,14 +14,87 @@ class ClubsTableSeeder extends Seeder
      */
     public function run()
     {
+        $arkagdyniaPath = '/assets/arkagdynia.png';
+        $arkagdyniaBlob = File::get($arkagdyniaPath);
+        $brukbettermalicaniecieczaPath = '/assets/brukbettermalicanieciecza.png';
+        $brukbettermalicaniecieczaBlob = File::get($brukbettermalicaniecieczaPath);
+        $chrobryglogowPath = '/assets/chrobryglogow.png';
+        $chrobryglogowBlob = File::get($chrobryglogowPath);
+        $cracoviakrakowPath = '/assets/cracoviakrakow.png';
+        $cracoviakrakowBlob = File::get($cracoviakrakowPath);
+        $gkskatowicePath = '/assets/gkskatowice.png';
+        $gkskatowiceBlob = File::get($gkskatowicePath);
+        $gkstychyPath = '/assets/gkstychy.png';
+        $gkstychyBlob = File::get($gkstychyPath);
+        $gorniklecznaPath = '/assets/gornikleczna.png';
+        $gorniklecznaBlob = File::get($gorniklecznaPath);
+        $gornikzabrzePath = '/assets/gornikzabrze.png';
+        $gornikzabrzeBlob = File::get($gornikzabrzePath);
+        $jagielloniabialystokPath = '/assets/jagielloniabialystok.png';
+        $jagielloniabialystokBlob = File::get($jagielloniabialystokPath);
+        $koronakielcePath = '/assets/koronakielce.png';
+        $koronakielceBlob = File::get($koronakielcePath);
+        $lechiagdanskPath = '/assets/lechiagdansk.png';
+        $lechiagdanskBlob = File::get($lechiagdanskPath);
+        $lechpoznanPath = '/assets/lechpoznan.png';
+        $lechpoznanBlob = File::get($lechpoznanPath);
+        $legiawarszawaPath = '/assets/legiawarszawa.png';
+        $legiawarszawaBlob = File::get($legiawarszawaPath);
+        $lkslodzPath = '/assets/lkslodz.png';
+        $lkslodzBlob = File::get($lkslodzPath);
+        $miedzlegnicaPath = '/assets/miedzlegnica.png';
+        $miedzlegnicaBlob = File::get($miedzlegnicaPath);
+        $motorlublinPath = '/assets/motorlublin.png';
+        $motorlublinBlob = File::get($motorlublinPath);
+        $odraopolePath = '/assets/odraopole.png';
+        $odraopoleBlob = File::get($odraopolePath);
+        $piastgliwicePath = '/assets/piastgliwice.png';
+        $piastgliwiceBlob = File::get($piastgliwicePath);
+        $podbeskidziebielskobialaPath = '/assets/podbeskidziebielskobiala.png';
+        $podbeskidziebielskobialaBlob = File::get($podbeskidziebielskobialaPath);
+        $pogonszczecinPath = '/assets/pogonszczecin.png';
+        $pogonszczecinBlob = File::get($pogonszczecinPath);
+        $poloniawarszawaPath = '/assets/poloniawarszawa.png';
+        $poloniawarszawaBlob = File::get($poloniawarszawaPath);
+        $puszczaniepolomicePath = '/assets/puszczaniepolomice.png';
+        $puszczaniepolomiceBlob = File::get($puszczaniepolomicePath);
+        $radomiakradomPath = '/assets/radomiakradom.png';
+        $radomiakradomBlob = File::get($radomiakradomPath);
+        $rakowczestochowaPath = '/assets/rakowczestochowa.png';
+        $rakowczestochowaBlob = File::get($rakowczestochowaPath);
+        $resoviarzeszowPath = '/assets/resoviarzeszow.png';
+        $resoviarzeszowBlob = File::get($resoviarzeszowPath);
+        $ruchchorzowPath = '/assets/ruchchorzow.png';
+        $ruchchorzowBlob = File::get($ruchchorzowPath);
+        $slaskwroclawPath = '/assets/slaskwroclaw.png';
+        $slaskwroclawBlob = File::get($slaskwroclawPath);
+        $stalmielecPath = '/assets/stalmielec.png';
+        $stalmielecBlob = File::get($stalmielecPath);
+        $stalrzeszowPath = '/assets/stalrzeszow.png';
+        $stalrzeszowBlob = File::get($stalrzeszowPath);
+        $wartapoznanPath = '/assets/wartapoznan.png';
+        $wartapoznanBlob = File::get($wartapoznanPath);
+        $widzewlodzPath = '/assets/widzewlodz.png';
+        $widzewlodzBlob = File::get($widzewlodzPath);
+        $wislakrakowPath = '/assets/wislakrakow.png';
+        $wislakrakowBlob = File::get($wislakrakowPath);
+        $wislaplockPath = '/assets/wislaplock.png';
+        $wislaplockBlob = File::get($wislaplockPath);
+        $zaglebielubinPath = '/assets/zaglebielubin.png';
+        $zaglebielubinBlob = File::get($zaglebielubinPath);
+        $zaglebiesosnowiecPath = '/assets/zaglebiesosnowiec.png';
+        $zaglebiesosnowiecBlob = File::get($zaglebiesosnowiecPath);
+        $zniczpruszkowPath = '/assets/zniczpruszkow.png';
+        $zniczpruszkowBlob = File::get($zniczpruszkowPath);
+
         $clubs = [
-            
+
             [
                 'team' => "Miedz Legnica",
                 'latitude' => 51.203600,
                 'longitude' => 16.169939,
                 'address' => "Stadion MKS Miedź Legnica im. Orła Białego - Hetmańska 2",
-                'url_logo' => "https://i.imgur.com/AJ27Q2w.png",
+                'logo' => $miedzlegnicaBlob,
                 'url'=>'miedzlegnica'
             ],
             [
@@ -28,7 +102,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.058006,
                 'longitude' => 19.920449,
                 'address' => "Stadion Cracovii im. Józefa Piłsudskiego - Józefa Kałuży 1",
-                'url_logo' => "https://i.imgur.com/B82c3Ze.png",
+                'logo' => $cracoviakrakowBlob,
                 'url'=>'cracoviakrakow'
             ],
             [
@@ -36,7 +110,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.296299,
                 'longitude' => 18.768331,
                 'address' => "Arena Zabrze - Roosevelta 81",
-                'url_logo' => "https://i.imgur.com/G01NIvs.png",
+                'logo' => $gornikzabrzeBlob,,
                 'url'=>'gornikzabrze'
             ],
             [
@@ -44,15 +118,15 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 53.106014,
                 'longitude' => 23.149256,
                 'address' => "Stadion Miejski w Białymstoku - Słoneczna 1",
-                'url_logo' => "https://i.imgur.com/HpUwEAe.png",
+                'logo' => $jagielloniabialystokBlob,
                 'url'=>'jagielloniabialystok'
             ],
             [
                 'team' => "Korona Kielce",
-                'latitude' => 50.861489, 
+                'latitude' => 50.861489,
                 'longitude' => 20.624842,
                 'address' => "Arena Kielce, Suzuki Arena - Księdza Piotra Ściegiennego 8",
-                'url_logo' => "https://i.imgur.com/UG6yqUi.png",
+                'logo' => $koronakielceBlob,
                 'url'=>'koronakielce'
             ],
             [
@@ -60,7 +134,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>52.397536 ,
                 'longitude' => 16.858129,
                 'address' => "Enea Stadion - Bułgarska 17",
-                'url_logo' => "https://i.imgur.com/dGaDZz8.png",
+                'logo' => $lechpoznanBlob,
                 'url'=>'lechpoznan'
             ],
             [
@@ -68,7 +142,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 52.220448,
                 'longitude' => 21.040688,
                 'address' => "Stadion Miejski Legii Warszawa - Łazienkowska 3",
-                'url_logo' => "https://i.imgur.com/484NrE2.png",
+                'logo' => $legiawarszawaBlob,
                 'url'=>'legiawarszawa'
             ],
             [
@@ -76,7 +150,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.758942,
                 'longitude' => 19.426245,
                 'address' => "Stadion Króla - aleja Unii Lubelskiej 2",
-                'url_logo' => "https://imgur.com/BJPSl4y.png",
+                'logo' => $lkslodzBlob,
                 'url'=>'lkslodz'
             ],
             [
@@ -84,7 +158,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.306583,
                 'longitude' => 18.695866,
                 'address' => "Stadion Miejski w Gliwicach - Stefana Okrzei 20",
-                'url_logo' => "https://i.imgur.com/yZJMMP8.png",
+                'logo' => $piastgliwiceBlob,
                 'url'=>'piastgliwice'
             ],
             [
@@ -92,7 +166,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 53.436476,
                 'longitude' =>14.518776 ,
                 'address' => "Stadion Miejski im. Floriana Krygiera - Mieczysława Karłowicza 28",
-                'url_logo' => "https://i.imgur.com/VWC7J2A.png",
+                'logo' => $pogonszczecinBlob,
                 'url'=>'pogonszczecin'
             ],
             [
@@ -100,7 +174,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.031824,
                 'longitude' =>20.221173,
                 'address' => "Stadion Miejski w Niepołomicach - Janusza Kusocińskiego 2",
-                'url_logo' => "https://i.imgur.com/ZENnGmA.png",
+                'logo' => $puszczaniepolomiceBlob,
                 'url'=>'puszczaniepolomice'
             ],
             [
@@ -108,7 +182,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.409795,
                 'longitude' => 21.171910,
                 'address' => "Stadion Miejski im. Braci Czachorów - Andrzeja Struga 63",
-                'url_logo' => "https://i.imgur.com/2nVnU9F.png",
+                'logo' => $radomiakradomBlob,
                 'url'=>'radomiakradom'
             ],
             [
@@ -116,7 +190,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.776811,
                 'longitude' => 19.159258,
                 'address' => "Miejski Stadion Piłkarski RKS Raków Częstochowa - Bolesława Limanowskiego 83",
-                'url_logo' => "https://i.imgur.com/KTybnDT.png",
+                'logo' => $rakowczestochowaBlob,
                 'url'=>'rakowczestochowa'
             ],
             [
@@ -124,7 +198,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.282243,
                 'longitude' =>18.944547,
                 'address' => "Stadion Klubu Sportowego Ruch Chorzów - Cicha 6",
-                'url_logo' => "https://i.imgur.com/Din3ueS.png",
+                'logo' => $ruchchorzowBlob,
                 'url'=>'ruchchorzow'
             ],
             [
@@ -132,7 +206,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.298660,
                 'longitude' => 21.435882,
                 'address' => "Stadion Miejski w Mielcu - Solskiego 1",
-                'url_logo' => "https://i.imgur.com/Vhi20Rx.png",
+                'logo' => $stalmielecBlob,
                 'url'=>'stalmielec'
             ],
             [
@@ -140,7 +214,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.141186,
                 'longitude' => 16.943674,
                 'address' => "Tarczyński Arena Wrocław - al. Śląska 1",
-                'url_logo' => "https://i.imgur.com/nTw642F.png",
+                'logo' => $slaskwroclawBlob,
                 'url'=>'slaskwroclaw'
             ],
             [
@@ -148,7 +222,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 52.393564,
                 'longitude' =>16.931124 ,
                 'address' => "Stadion Warty Poznań (Ogródek) - Droga Dębińska 12",
-                'url_logo' => "https://i.imgur.com/pHbkZBs.png",
+                'logo' => $wartapoznanBlob,
                 'url'=>'wartapoznan'
             ],
             [
@@ -156,7 +230,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.765164,
                 'longitude' => 19.511799,
                 'address' => "Serce Łodzi - al. marsz. Józefa Piłsudskiego 138",
-                'url_logo' => "https://i.imgur.com/Gy7xBj9.png",
+                'logo' => $widzewlodzBlob,
                 'url'=>'widzewlodz'
             ],
             [
@@ -164,7 +238,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.413976,
                 'longitude' =>16.198171 ,
                 'address' => "Stadion Zagłębia Lubin - Marii Skłodowskiej - Curie 98",
-                'url_logo' => "https://i.imgur.com/ASAxV9N.png",
+                'logo' => $zaglebielubinBlob,
                 'url'=>'zaglebielubin'
             ],
             /* Pierwsza Liga  */
@@ -173,7 +247,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>54.493203 ,
                 'longitude' =>18.531112 ,
                 'address' => "Stadion Miejski w Gdyni - Olimpijska 5",
-                'url_logo' => "https://i.imgur.com/DIxQvf1.png",
+                'logo' => $arkagdyniaBlob,
                 'url'=>'arkagdynia'
             ],
             [
@@ -181,7 +255,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>50.158386 ,
                 'longitude' =>20.849128 ,
                 'address' => "Stadion Sportowy BRUK-BET Termalica Nieciecza - Nieciecza 199",
-                'url_logo' => "https://i.imgur.com/bffzfpj.png",
+                'logo' => $brukbettermalicaniecieczaBlob,
                 'url'=>'brukbettermalicanieciecza'
             ],
             [
@@ -189,7 +263,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.655913,
                 'longitude' => 16.096825,
                 'address' => "Stadion Miejski w Głogowie - Wita Stwosza 3",
-                'url_logo' => "https://i.imgur.com/sBRFtDF.png",
+                'logo' => $chrobryglogowBlob,
                 'url'=>'chrobryglogow'
             ],
             [
@@ -197,7 +271,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.279721,
                 'longitude' =>19.001200 ,
                 'address' => "GKS GieKSa Katowice S.A. - Bukowa 1A",
-                'url_logo' => "https://i.imgur.com/LaB5Fat.png",
+                'logo' => $gkskatowiceBlob,
                 'url'=>'gkskatowice'
             ],
             [
@@ -205,7 +279,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.124054,
                 'longitude' => 18.990624,
                 'address' => "Stadion Miejski W Tychach - Edukacji 7",
-                'url_logo' => "https://i.imgur.com/oyiIhGG.png",
+                'logo' => $gkstychyBlob,
                 'url'=>'gkstychy'
             ],
             [
@@ -213,7 +287,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>51.301619 ,
                 'longitude' =>22.875952 ,
                 'address' => "Stadion Piłkarski GKS Górnik Łęczna - al. Jana Pawła II 13",
-                'url_logo' => "https://i.imgur.com/ViNJIKR.png",
+                'logo' => $gorniklecznaBlob,
                 'url'=>'gornikleczna'
             ],
             [
@@ -221,7 +295,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 54.389995,
                 'longitude' => 18.640154,
                 'address' => "Polsat Plus Arena Gdańsk - Pokoleń Lechii Gdańsk 1",
-                'url_logo' => "https://i.imgur.com/IQnXfez.png",
+                'logo' => $lechiagdanskBlob,
                 'url'=>'lechiagdansk'
             ],
             [
@@ -229,7 +303,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 51.232428,
                 'longitude' => 22.557482,
                 'address' => "Arena Lublin - Stadionowa 1",
-                'url_logo' => "https://i.imgur.com/wya3bMw.png",
+                'logo' => $motorlublinBlob,
                 'url'=>'motorlublin'
             ],
             [
@@ -237,7 +311,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.676340,
                 'longitude' =>17.932094 ,
                 'address' => "Stadion Miejski OKS Odra Opole - Oleska 51",
-                'url_logo' => "https://i.imgur.com/8j6dBw6.png",
+                'logo' => $odraopoleBlob,
                 'url'=>'odraopole'
             ],
             [
@@ -245,7 +319,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>49.817422 ,
                 'longitude' =>19.054301 ,
                 'address' => "Stadion Miejski w Bielsku-Białej - Tadeusza Rychlińskiego 19",
-                'url_logo' => "https://i.imgur.com/07rCZxP.png",
+                'logo' => $podbeskidziebielskobialaBlob,
                 'url'=>'podbeskidziebielskobiala'
             ],
             [
@@ -253,7 +327,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 52.255557,
                 'longitude' =>21.001371 ,
                 'address' => "Stadion Polonii Warszawa - Konwiktorska 6",
-                'url_logo' => "https://i.imgur.com/L9znd4v.png",
+                'logo' => $poloniawarszawaBlob,
                 'url'=>'poloniawarszawa'
             ],
             [
@@ -261,7 +335,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.040642,
                 'longitude' => 21.983011,
                 'address' => "Stadion Miejski ROSiR - Stanisława Wyspiańskiego 22",
-                'url_logo' => "https://i.imgur.com/dfoyZ4A.png",
+                'logo' => $resoviarzeszowBlob,
                 'url'=>'resoviarzeszow'
             ],
             [
@@ -269,7 +343,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>50.021478 ,
                 'longitude' =>21.996199 ,
                 'address' => "Stadion Miejski Stal - Hetmańska 69",
-                'url_logo' => "https://i.imgur.com/Mt0ygDr.png",
+                'logo' => $stalrzeszowBlob,
                 'url'=>'stalrzeszow'
             ],
             [
@@ -277,7 +351,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.063736,
                 'longitude' => 19.911817,
                 'address' => "Stadion Miejski im. Henryka Reymana - Władysława Reymonta 22",
-                'url_logo' => "https://i.imgur.com/LgnZzdC.png",
+                'logo' => $wislakrakowBlob,
                 'url'=>'wislakrakow'
             ],
             [
@@ -285,7 +359,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' =>52.562007 ,
                 'longitude' =>19.684123 ,
                 'address' => "Orlen Stadion - ul. Łukasiewicza 34",
-                'url_logo' => "https://i.imgur.com/AkAwgeA.png",
+                'logo' => $wislaplockBlob,
                 'url'=>'wislaplock'
             ],
             [
@@ -293,7 +367,7 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 50.277328,
                 'longitude' => 19.103581,
                 'address' => "Stadion Ludowy - Kresowa 1",
-                'url_logo' => "https://i.imgur.com/zAp81Ko.png",
+                'logo' => $zaglebiesosnowiecBlob,
                 'url'=>'zaglebiesosnowiec'
             ],
             [
@@ -301,12 +375,12 @@ class ClubsTableSeeder extends Seeder
                 'latitude' => 52.169157,
                 'longitude' => 20.813007,
                 'address' => "Stadion MZOS Znicz - Bohaterów Warszawy 4",
-                'url_logo' => "https://i.imgur.com/zxyrE0u.png",
+                'logo' => $zniczpruszkowBlob,
                 'url'=>'zniczpruszkow'
             ],
         ];
 
-        
+
         DB::table('clubs')->insert($clubs);
     }
 }

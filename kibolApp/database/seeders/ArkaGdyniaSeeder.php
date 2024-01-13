@@ -41,7 +41,7 @@ class ArkaGdyniaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Arka Gdynia",
-                'image_blob' => $imageBlob,
+                'logo' => $imageBlob,
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,
@@ -51,7 +51,7 @@ class ArkaGdyniaSeeder extends Seeder
         foreach ($coordinates as $coordinate) {
             $clubs[]=[
                 'name' => null,
-                'url_logo' => null,
+                'logo' => null,
                 'positive' => null,
                 'negative' => null,
                 'lat' => $coordinate['lat'],
@@ -61,11 +61,11 @@ class ArkaGdyniaSeeder extends Seeder
 
 
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null,'lat'=>null,'lng'=>null,];
+            $clubs[] = ['name' => null, 'logo' => null, 'positive' => $club, 'negative' => null,'lat'=>null,'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club,'lat'=>null,'lng'=>null,];
+            $clubs[] = ['name' => null, 'logo' => null, 'positive' => null, 'negative' => $club,'lat'=>null,'lng'=>null,];
         }
 
         DB::table('arkagdynia')->insert($clubs);

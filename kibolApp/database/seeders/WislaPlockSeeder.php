@@ -4,11 +4,15 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class WislaPlockSeeder extends Seeder
 {
     public function run()
     {
+        $imagePath = '/assets/wislaplock.png';
+        $imageBlob = File::get($imagePath);
+
         $positiveClubs = ["Stomil Olsztyn"];
 
         $negativeClubs = [
@@ -42,12 +46,12 @@ class WislaPlockSeeder extends Seeder
             ["lat" => 53.17922481059554, "lng" => 20.220058725391993],
             ["lat" => 53.32176980722528, "lng" => 19.729510940703648],
         ];
-        
+
 
         $clubs = [
             [
                 'name' => "Wisła Płock",
-                'url_logo' => "https://i.imgur.com/AkAwgeA.png",
+                'logo' => $imageBlob,
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,
@@ -58,7 +62,7 @@ class WislaPlockSeeder extends Seeder
         foreach ($coordinates as $coordinate) {
             $clubs[]=[
                 'name' => null,
-                'url_logo' => null,
+                'logo' => $imageBlob,
                 'positive' => null,
                 'negative' => null,
                 'lat' => $coordinate['lat'],
@@ -67,12 +71,12 @@ class WislaPlockSeeder extends Seeder
         };
 
         foreach ($positiveClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
+            $clubs[] = ['name' => null, 'logouse Illuminate\Support\Facades\File;' => null, 'positive' => $club, 'negative' => null, 'lat'=>null,
             'lng'=>null,];
         }
 
         foreach ($negativeClubs as $club) {
-            $clubs[] = ['name' => null, 'url_logo' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
+            $clubs[] = ['name' => null, 'logouse Illuminate\Support\Facades\File;' => null, 'positive' => null, 'negative' => $club, 'lat'=>null,
             'lng'=>null,];
         }
 
