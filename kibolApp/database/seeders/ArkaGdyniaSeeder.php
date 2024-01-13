@@ -4,21 +4,25 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class ArkaGdyniaSeeder extends Seeder
 {
     public function run()
     {
+        $imagePath = '/assets/arkagdynia.png';
+        $imageBlob = File::get($imagePath);
+
         $positiveClubs = [
             "Cracovia", "Lech Poznań", "Polonia Bytom", "Zagłębie Lubin", "KSZO Ostrowiec Św.", "Gwardia Koszalin"
         ];
 
         $negativeClubs = [
-            "Lechia Gdańsk", "Śląsk Wrocław", "Motor Lublin", "Wisła Kraków", "Ruch Chorzów", "Widzew Łódź", 
-            "Elana Toruń", "Legia Warszawa", "Stomil Olsztyn", "Pogoń Szczecin", "Bałtyk Gdynia", "Jagiellonia Białystok", 
-            "Olimpia Elbląg", "Radomiak Radom", "Wisła Płock", "Korona Kielce", "Unia Tarnów", "Zagłębie Sosnowiec", 
-            "Górnik Zabrze", "GKS Katowice", "Piast Gliwice", "ROW Rybnik", "Raków Częstochowa", "Miedź Legnica", 
-            "Górnik Łęczna", "Hetman Zamość", "KKS Kalisz", "Jeziorak Iława", "Kotwica Kołobrzeg", "Gryf Słupsk", 
+            "Lechia Gdańsk", "Śląsk Wrocław", "Motor Lublin", "Wisła Kraków", "Ruch Chorzów", "Widzew Łódź",
+            "Elana Toruń", "Legia Warszawa", "Stomil Olsztyn", "Pogoń Szczecin", "Bałtyk Gdynia", "Jagiellonia Białystok",
+            "Olimpia Elbląg", "Radomiak Radom", "Wisła Płock", "Korona Kielce", "Unia Tarnów", "Zagłębie Sosnowiec",
+            "Górnik Zabrze", "GKS Katowice", "Piast Gliwice", "ROW Rybnik", "Raków Częstochowa", "Miedź Legnica",
+            "Górnik Łęczna", "Hetman Zamość", "KKS Kalisz", "Jeziorak Iława", "Kotwica Kołobrzeg", "Gryf Słupsk",
             "Czarni Słupsk", "Chojniczanka Chojnice", "Bytovia Bytów", "KP Starogard Gdański", "Stal Stalowa Wola"
         ];
         $coordinates = [
@@ -37,7 +41,7 @@ class ArkaGdyniaSeeder extends Seeder
         $clubs = [
             [
                 'name' => "Arka Gdynia",
-                'url_logo' => "https://i.imgur.com/DIxQvf1.png",
+                'image_blob' => $imageBlob,
                 'positive' => null,
                 'negative' => null,
                 'lat'=>null,
