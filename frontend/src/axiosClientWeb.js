@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const axiosClientWeb=axios.create({
-    baseURL: 'http://api.kibolapp.cloud/api'
+    baseURL: 'http://api.kibolapp.cloud'
 })
 
 axiosClientWeb.interceptors.request.use((config)=>{
