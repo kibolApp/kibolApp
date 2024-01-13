@@ -23,7 +23,7 @@ class ProviderController extends Controller
 
     public function callback( $provider)
     {
-        $Socialuser=Socialite::driver($provider)->user();
+        $Socialuser=Socialite::driver($provider)->stateless()->user();
         
         if($provider=='github'){
             $user = User::updateOrCreate([
