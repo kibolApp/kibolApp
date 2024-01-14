@@ -3,18 +3,18 @@ version: '4.24.1'
 services:
   backend:
     build:
-      context: ./kibolapp
+      context: ./kibolApp
       dockerfile: Dockerfile
     restart: always
     environment:
-      DB_HOST: db
+      DB_HOST: localhost
       DB_DATABASE: kibolAppDB
       DB_USERNAME: root
-      DB_PASSWORD: admin
+      DB_PASSWORD: root
     ports:
       - 8000:8000
     volumes:
-      - ./kibolapp:/kibolapp
+      - ./kibolApp:/kibolApp
     depends_on:
       - db
     networks:
