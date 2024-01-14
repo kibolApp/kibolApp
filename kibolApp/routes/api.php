@@ -29,6 +29,7 @@ Route::put('/users/{id}', [UserController::class, 'update']);
 Route::delete('/users/{id}', [UserController::class, 'destroy']);
 
 Route::get('/clubs', [ClubController::class, 'index']);
+Route::get('/clubsname', [ClubController::class, 'name']);
 Route::get('/clubs/{id}', [ClubController::class, 'show']);
 Route::post('/clubs', [ClubController::class, 'store']);
 Route::put('/clubs/{id}', [ClubController::class, 'update']);
