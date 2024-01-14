@@ -48,7 +48,7 @@ class ProviderController extends Controller
             'provider_token' => $Socialuser->token,
         ]);
     }
-    $token = $user->createToken('access_token')->plainTextToken;
+    $token = $user->createToken(['id' =>$user->id])->plainTextToken;
     $res=([
         'user'=>$user,
         'token'=>$token
