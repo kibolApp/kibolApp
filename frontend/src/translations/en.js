@@ -46,6 +46,13 @@ const en = {
     messagePlaceholder: "Write your message here...",
     sendMessage: "Send!",
 
+    //Modal
+    chooseCLub: "Choose your club: ",
+    selectClub: "Select club",
+    submit: "Submit",
+    chosen: "Chosen: ",
+    warning: "Attention: No selection results in malfunction of the map",
+
 
 // User Panel
     // User-related translations**

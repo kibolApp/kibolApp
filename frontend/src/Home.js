@@ -268,7 +268,7 @@ const Home = () => {
       >
         <div>
           <h2 className="text-2xl text-white font-bold mb-4 relative">
-            Wybierz swój klub
+          {t('chooseCLub')}
             <FontAwesomeIcon icon={faFutbol} size="xl" className="absolute right-0 top-1/2 transform -translate-y-1/2 text-white" />
           </h2>
           {isDropdownOpen && (
@@ -278,7 +278,7 @@ const Home = () => {
                 value={selectedClub}
                 className="border border-gray-300 p-2 rounded-md mb-4"
               >
-                <option value="" disabled>Select a club</option>
+                <option value="" disabled>{t('selectClub')}</option>
                 {clubsData.map((club) => (
                   <option key={club.id} value={club}>
                     {club}
@@ -289,15 +289,15 @@ const Home = () => {
                 type="submit"
                 className="bg-green-500 text-white px-4 py-2 font-bold rounded-md ml-2"
               >
-                Submit
+                {t('submit')}
               </button>
             </form>
           )}
           <p className='font-bold mt-2 text-white'>
-            Wybrano: <span className='text-green-500 text-lg underline'>{selectedClub}</span>
+          {t('chosen')} <span className='text-green-500 text-lg underline'>{selectedClub}</span>
           </p>
           <p className='text-white items-center absolute text-lg bottom-0 mb-6 border-b border-red-500'>
-            Uwaga: Nie wybranie klubu może wpłynąć na działanie mapy
+          {t('warning')}
             <FontAwesomeIcon icon={faExclamation} beat size="2xl" className="ml-2" />
           </p>
         </div>
