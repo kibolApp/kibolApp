@@ -23,6 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->unsignedBigInteger('team_id')->nullable();
             $table->foreign('team_id')->references('id')->on('clubs');
+            $table->enum('role', ['user', 'admin'])->default('user');
             $table->timestamps();
         });
     }
