@@ -28,7 +28,7 @@ Now if you did those all things, you can enter your docker app and run the conta
     - Node.js
     - PHP 8.1.16
 
-2. The second step is to enter the command in the development environment to make composer functions work: ```composer install```.
+2. The second step is to enter the command in the development environment to make composer functions work: ```composer install```. Also create new .env file using .env.example, and then generated new key "php artisan key:generate"
 
 3. The third step is to enter the command to make react script work correct: ```npm install```.
      It's important to enter the command in the "frontend" folder, because if you enter it in the "kibolApp" folder, this command won't work correct.
