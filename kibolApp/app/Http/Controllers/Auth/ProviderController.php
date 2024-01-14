@@ -54,8 +54,8 @@ class ProviderController extends Controller
         'token'=>$token
     ]);
 
-    if (Auth::check()) {
+ 
         return redirect('http://kibolapp.cloud/wait?token=' . $token . '&user=' . urlencode(json_encode($user)));
-    }
+ 
 }
 }
