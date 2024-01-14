@@ -14,6 +14,11 @@ class ClubController extends Controller
         $clubs = Clubs::all();
         return response()->json($clubs);
     }
+    public function name()
+{
+    $teams = Clubs::pluck('team')->toArray();
+    return response()->json($teams);
+}
 
     public function show($id)
     {
