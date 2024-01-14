@@ -12,6 +12,7 @@ const UserManagement = () => {
     name: '',
     email: '',
     password: '',
+    role: '',
   });
   const [editingUserId, setEditingUserId] = useState(null);
   const [editingPassword, setEditingPassword] = useState('');
@@ -31,6 +32,7 @@ const UserManagement = () => {
         name: user.name,
         email: user.email,
         password: '',
+        role: user.role,
       });
       setEditingPassword('');
     } else {
@@ -39,6 +41,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: 'user'
       });
       setEditingPassword('');
     }
@@ -100,6 +103,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: '',
       });
       setEditingPassword('');
     } catch (error) {
@@ -181,6 +185,7 @@ const UserManagement = () => {
                 <th>{t('id')}</th>
                 <th>{t('name')}</th>
                 <th>{t('email')}</th>
+                <th>{t('role')}</th>
                 <th>{t('actions')}</th>
               </tr>
             </thead>
@@ -190,6 +195,7 @@ const UserManagement = () => {
                   <td>{user.id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td>{user.role}</td>
                   <td>
                     <button
                       onClick={() => openModal(user)}
