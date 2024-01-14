@@ -5,11 +5,28 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import axiosClient from "../axiosClient";
 import { Icon } from 'leaflet';
 import { Link } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const CustomMap = () => {
+  const notify = () => {
+    toast.warn("Uważaj na czerwone obszary", {
+      position: "top-center",
+      autoClose: 2000,
+      limit: 1,
+      hideProgressBar: false,
+      newestOnTop: false,
+      closeOnClick: true,
+      rtl: false,
+      pauseOnFocusLoss: false,
+      draggable: true,
+      pauseOnHover: true,
+      theme: "dark",
+      transition: "Bounce",
+    });
+  };
   const center = [52.0, 19.0];
-  const zoom = 6;
   const polandBounds = [
     [49.002304, 14.122253],
     [54.835556, 24.145867]
@@ -17,31 +34,33 @@ const CustomMap = () => {
   const [user, setUser] = useState(null);
   var [markersData, setMarkersData] = useState([]);
   const userLocationIcon = new Icon({ iconUrl: 'https://i.imgur.com/iulwF9C.png', iconSize: [32, 32] });
- 
 
-    useEffect(() => {
-      axiosClient.get('/getCurrentUser')
-      .then(({data})=>{
-        const payload ={
-          name :data.club.team
+
+  useEffect(() => {
+    notify();
+    axiosClient.get('/getCurrentUser')
+      .then(({ data }) => {
+        const payload = {
+          name: data.club.team
         }
-      axiosClient.get('/clubswithnegative',{ params: payload })
-        .then(({ data }) => {
-          const transformedData = data.map(club => {
-            return {
-              team: club.team,
-              location: [club.latitude, club.longitude],
-              address: club.address,
-              icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
-              url: "/clubpage/" + club.url,
-              urlData: club.urlData ?? {},
-            };
+        axiosClient.get('/clubswithnegative', { params: payload })
+          .then(({ data }) => {
+            const transformedData = data.map(club => {
+              return {
+                team: club.team,
+                location: [club.latitude, club.longitude],
+                address: club.address,
+                icon: new Icon({ iconUrl: club.url_logo, iconSize: [46, 46] }),
+                url: "/clubpage/" + club.url,
+                urlData: club.urlData ?? {},
+              };
+            });
+            setMarkersData(transformedData);
+
+          })
+          .catch(err => {
+
           });
-          setMarkersData(transformedData);
-        })
-        .catch(err => {
-              
-        });
       });
   }, []);
 
@@ -51,20 +70,19 @@ const CustomMap = () => {
   }, [markersData]);
 
 
-
-
-
   const LocationMarker = () => {
     const [position, setPosition] = useState(null);
     const map = useMapEvents({
-      contextmenu() {
+      mouseover() {
         map.locate();
       },
       locationfound(e) {
         setPosition(e.latlng);
-        map.flyTo(e.latlng, 16);
+        map.flyTo(e.latlng, 13);
       },
     });
+
+
 
     return position === null ? null : (
       <Marker position={position} icon={userLocationIcon}>
@@ -87,27 +105,28 @@ const CustomMap = () => {
         scrollWheelZoom={true}
         doubleClickZoom={false}
         zoomControl={true}
+        maxBounds={polandBounds}
       >
         <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
         <LayersControl position="topright">
           <LocationMarker />
           <LayersControl.Overlay name="Areas" checked={true}>
-            
-          {markersData.map((marker, index) => (
-            console.log(markersData),
-  <FeatureGroup key={index}>
-    {Array.isArray(marker.urlData) && marker.urlData.length > 0 && (
-      <Polygon
-        pathOptions={{ color: 'red' }}
-        positions={marker.urlData.map(area => [area.lat, area.lng])}
-      >
-        <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
-      </Polygon>
-    )}
-  </FeatureGroup>
-))}
-</LayersControl.Overlay>
-       
+
+            {markersData.map((marker, index) => (
+              console.log(markersData),
+              <FeatureGroup key={index}>
+                {Array.isArray(marker.urlData) && marker.urlData.length > 0 && (
+                  <Polygon
+                    pathOptions={{ color: 'red' }}
+                    positions={marker.urlData.map(area => [area.lat, area.lng])}
+                  >
+                    <Tooltip sticky>Obszar drużyny {marker.team}</Tooltip>
+                  </Polygon>
+                )}
+              </FeatureGroup>
+            ))}
+          </LayersControl.Overlay>
+
           <LayersControl.Overlay name="Clubs" checked={true}>
             <MarkerClusterGroup>
               {markersData.map((marker, index) => (
@@ -124,6 +143,7 @@ const CustomMap = () => {
           </LayersControl.Overlay>
         </LayersControl>
       </MapContainer>
+      <ToastContainer />
     </div>
   );
 };
