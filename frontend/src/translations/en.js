@@ -1,5 +1,5 @@
 const en = {
-// AuthForm
+    // AuthForm
 
     // Login**
     loginTitle: "Login",
@@ -19,16 +19,16 @@ const en = {
     registerHere: "Register here.",
     haveAccountPrompt: "Already have an account?",
     loginHere: "Log in here.",
-  
 
-// HomeHeader
+
+    // HomeHeader
     start: " Start",
     clubLocations: " Club Locations",
     clubList: " Club List",
     loginRegister: " Login / Register",
     profile: " Profile",
 
-// Home
+    // Home
     welcome: "Welcome to",
     kibol: "Kibol",
     APP: "APP",
@@ -46,8 +46,15 @@ const en = {
     messagePlaceholder: "Write your message here...",
     sendMessage: "Send!",
 
+    //Modal
+    chooseCLub: "Choose your club: ",
+    selectClub: "Select club",
+    submit: "Submit",
+    chosen: "Chosen: ",
+    warning: "Attention: No selection results in malfunction of the map",
 
-// User Panel
+
+    // User Panel
     // User-related translations**
     hello: "Hello, ",
     guest: "Guest",
@@ -81,16 +88,16 @@ const en = {
     change: "Change",
     confirmDelete: "Confirm Delete",
 
-// Club List - App
+    // Club List - App
     searchPlaceholder: "Search for a club...",
     findClub: "Find a club",
 
-// Club Page
+    // Club Page
     goodRelation: "GOOD RELATIONS / AGREEMENTS",
     badRelation: "BAD RELATIONS / SCYTHES",
 
 
-// AdminPanel
+    // AdminPanel
     userMangementPanel: "Users Management Panel",
     clubManagementPanel: "Clubs Management Panel",
     relationsManagementPanel: "Relations Management Panel",
@@ -100,6 +107,7 @@ const en = {
     name: "Name",
     actions: "Actions",
     logo: "Logo",
+    role: "Roles",
 
     // Actions**
     edit: "Edit",
@@ -123,24 +131,27 @@ const en = {
     users: "Users",
     clubs: "Clubs",
 
-//Pagination
+    //Pagination
     next: "Next",
     previous: "Previous",
     page: "Page",
     of: "of",
 
-//Club Edit
+    //Club Edit
     latitude: "Geographical Latitude",
     longitude: "Geographical Longitude",
     address: "Address",
     url: "URL",
     urllogo: "URL Logo",
-    headquarters: "Siedziba",
+    headquarters: "Headquarters",
 
-//Relations
+    //Relations
     clubRelations: "Club relations: ",
     positive: "Positive relations",
-    negative: "Negative relations"
-  };
-  export default en;
-  
+    negative: "Negative relations",
+    //User role edition
+    user: "User",
+    admin: "Admin",
+
+};
+export default en;

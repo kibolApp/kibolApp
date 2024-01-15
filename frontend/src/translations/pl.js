@@ -1,5 +1,5 @@
 const pl = {
-// AuthForm
+    // AuthForm
 
     // Login**
     loginTitle: "Logowanie",
@@ -19,16 +19,16 @@ const pl = {
     registerHere: "Zarejestruj się tutaj.",
     haveAccountPrompt: "Posiadasz już konto?",
     loginHere: "Zaloguj się tutaj.",
-  
 
-// HomeHeader
+
+    // HomeHeader
     start: " Start",
     clubLocations: " Lokalizacja klubów",
     clubList: " Spis klubów",
     loginRegister: " Logowanie / Rejestracja",
     profile: " Profil",
 
-// Home
+    // Home
     welcome: "Witaj w",
     kibol: "Kibol",
     APP: "APP",
@@ -37,17 +37,24 @@ const pl = {
     aboutTitle: "Czym jest kibolApp - ABOUT",
     aboutText1: "KibolApp to innowacyjna strona stworzona dla pasjonatów piłki nożnej i kibiców, którzy chcą poznać kulisy relacji między klubami.",
     aboutText2: "Aplikacja umożliwia śledzenie lokalizacji klubów, a także dostarcza informacje na temat przyjaźni i konfliktów między różnymi drużynami.",
-    
+
     // Contact Us**
     questionTitle: "Masz pytania? ",
-    contactUs:  "Skontaktuj się z nami",
+    contactUs: "Skontaktuj się z nami",
     usernamePlaceholder: "Nazwa użytkownika",
     emailPlaceholder: "Email",
     messagePlaceholder: "Napisz swoją wiadmość tutaj...",
     sendMessage: "Wyślij!",
 
+    //Modal
+    chooseCLub: "Wybierz swój klub: ",
+    selectClub: "Wybierz klub",
+    submit: "Wyślij",
+    chosen: "Wybrano: ",
+    warning: "Uwaga: Brak wyboru skutkuje nieprawidłowym działaniem mapy",
 
-//User Panel
+
+    //User Panel
 
     // User-related translations**
     hello: "Witaj, ",
@@ -83,16 +90,16 @@ const pl = {
     confirmDelete: "Potwierdź Usunięcie",
 
 
-//Club List - App
+    //Club List - App
     searchPlaceholder: "Szukaj klubu...",
     findClub: "Znajdź klub",
 
-//Club Page
+    //Club Page
     goodRelation: "DOBRE STOSUNKI / ZGODY",
     badRelation: "ZŁE STOSUNKI / KOSY",
 
 
-// AdminPanel
+    // AdminPanel
     userMangementPanel: "Panel zarządzania użytkownikami",
     clubManagementPanel: "Panel zarządzania klubami",
     relationsManagementPanel: "Panel zarządzania relacjami",
@@ -102,6 +109,7 @@ const pl = {
     name: "Nazwa",
     actions: "Akcje",
     logo: "Logo",
+    role: "Role",
 
     // Actions**
     edit: "Edytuj",
@@ -125,13 +133,13 @@ const pl = {
     users: "Użytkownicy",
     clubs: "Kluby",
 
-//Pagination
+    //Pagination
     next: "Następna",
     previous: "Poprzednia",
     page: "Strona",
     of: "z",
 
-//Club Edit
+    //Club Edit
     latitude: "Szerokość Geograficzna",
     longitude: "Długość Geograficzna",
     address: "Adres",
@@ -139,9 +147,12 @@ const pl = {
     urllogo: "URL Logo",
     headquarters: "Siedziba",
 
-//Relations
+    //Relations
     clubRelations: "Relacje klubu: ",
     positive: "Relacje pozytywne",
-    negative: "Relacje negatywne"
+    negative: "Relacje negatywne",
+    //user add new user edition
+    user: "Użytkownik",
+    admin: "Administrator",
 };
 export default pl;
