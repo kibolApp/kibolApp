@@ -15,7 +15,7 @@ return [
     |
     */
 
-    'paths' => ['api/*','web/*', 'sanctum/csrf-cookie','auth/*','*'],
+    'paths' => ['api/*', 'api.kibolapp.cloud/api/*','web/*', 'sanctum/csrf-cookie','auth/*','*'],
 
     'allowed_methods' => ['*'],
 
