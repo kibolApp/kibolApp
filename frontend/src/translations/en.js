@@ -100,6 +100,7 @@ const en = {
     name: "Name",
     actions: "Actions",
     logo: "Logo",
+    role: "Roles",
 
     // Actions**
     edit: "Edit",

@@ -102,6 +102,7 @@ const pl = {
     name: "Nazwa",
     actions: "Akcje",
     logo: "Logo",
+    role: "Role",
 
     // Actions**
     edit: "Edytuj",

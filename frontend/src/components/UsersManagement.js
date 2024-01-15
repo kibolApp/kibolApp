@@ -286,15 +286,15 @@ const UserManagement = () => {
           />
            <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
-                  Rola
+                {t('role')}
                 </label>
                 <select
                   value={currentUser.role}
                   onChange={(e) => setCurrentUser({ ...currentUser, role: e.target.value })}
                   className="mt-1 p-2 rounded-md bg-custom-light-tan text-black"
                 >
-                  <option value="user">User</option>
-                  <option value="admin">Admin</option>
+                  <option value="user"> {t('user')}</option>
+                  <option value="admin"> {t('admin')}</option>
                 </select>
               </div>
           <div className="flex justify-center">
