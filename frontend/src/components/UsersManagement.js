@@ -282,6 +282,19 @@ const UserManagement = () => {
             placeholder={t('password')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
+           <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                  Rola
+                </label>
+                <select
+                  value={currentUser.role}
+                  onChange={(e) => setCurrentUser({ ...currentUser, role: e.target.value })}
+                  className="mt-1 p-2 rounded-md bg-custom-light-tan text-black"
+                >
+                  <option value="user">User</option>
+                  <option value="admin">Admin</option>
+                </select>
+              </div>
           <div className="flex justify-center">
             <button
               onClick={() => {
