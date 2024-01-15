@@ -19,7 +19,7 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://kibolapp.cloud', 'http://api.kibolapp.cloud'],
+    'allowed_origins' => ['http://kibolapp.cloud', 'http://api.kibolapp.cloud/*'],
 
     'allowed_origins_patterns' => ['*localhost*'],
 
