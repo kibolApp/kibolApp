@@ -12,6 +12,7 @@ const UserManagement = () => {
     name: '',
     email: '',
     password: '',
+    role: '',
   });
   const [editingUserId, setEditingUserId] = useState(null);
   const [editingPassword, setEditingPassword] = useState('');
@@ -31,6 +32,7 @@ const UserManagement = () => {
         name: user.name,
         email: user.email,
         password: '',
+        role: user.role,
       });
       setEditingPassword('');
     } else {
@@ -39,6 +41,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: 'user'
       });
       setEditingPassword('');
     }
@@ -100,6 +103,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: '',
       });
       setEditingPassword('');
     } catch (error) {
