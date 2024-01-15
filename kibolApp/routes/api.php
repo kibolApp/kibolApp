@@ -32,8 +32,8 @@ Route::get('/clubs', [ClubController::class, 'index']);
 Route::get('/clubsname', [ClubController::class, 'name']);
 Route::get('/clubs/{id}', [ClubController::class, 'show']);
 Route::post('/clubs', [ClubController::class, 'store']);
-Route::put('/clubs/{id}', [ClubController::class, 'update']);
-Route::delete('/clubs/{id}', [ClubController::class, 'destroy']);
+Route::post('/clubsup/{id}', [ClubController::class, 'update']);
+Route::post('/clubsde/{id}', [ClubController::class, 'destroy']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -61,8 +61,8 @@ Route::middleware('auth:sanctum')->group(function() {
 
     Route::post('/getusers', [AdminController::class, 'showusers']);
     Route::post('/addusers', [AdminController::class, 'store']);
-    Route::put('/edituser/{id}', [AdminController::class, 'update']);
-    Route::delete('/deleteuser/{id}', [AdminController::class, 'destroy']);
+    Route::post('/edituser/{id}', [AdminController::class, 'update']);
+    Route::post('/deleteuser/{id}', [AdminController::class, 'destroy']);
     Route::get('/getclubs', [AdminController::class, 'fetchclubs']);
     Route::post('/creattable', [AdminController::class, 'createtable']);
     Route::get('/getrealtiontable', [AdminController::class, 'showrealtiontable']);
