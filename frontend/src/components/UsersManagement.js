@@ -77,12 +77,14 @@ const UserManagement = () => {
         name: currentUser.name,
         email: currentUser.email,
         password: editingPassword,
+        role: currentUser.role,
       });
       setUsers([...users, response.data]);
       setCurrentUser({
         name: '',
         email: '',
         password: '',
+        role: 'user',
       });
       closeModal();
     } catch (error) {

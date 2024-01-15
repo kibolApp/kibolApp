@@ -15,13 +15,13 @@ return [
     |
     */
 
-    'paths' => ['api/*','web/*', 'sanctum/csrf-cookie','auth/*','*'],
+    'paths' => ['api/*', 'api.kibolapp.cloud/api/*','web/*', 'sanctum/csrf-cookie','auth/*','*'],
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://kibolapp.cloud', 'http://api.kibolapp.cloud'],
+    'allowed_origins' => ['http://kibolapp.cloud', 'http://api.kibolapp.cloud/*'],
 
-    'allowed_origins_patterns' => ['*localhost*'],
+    'allowed_origins_patterns' => ['*kibolapp.cloud*', '*api.kibolapp.cloud*'],
 
     'allowed_headers' => ['*'],
 
