@@ -12,6 +12,7 @@ const UserManagement = () => {
     name: '',
     email: '',
     password: '',
+    role: '',
   });
   const [editingUserId, setEditingUserId] = useState(null);
   const [editingPassword, setEditingPassword] = useState('');
@@ -31,6 +32,7 @@ const UserManagement = () => {
         name: user.name,
         email: user.email,
         password: '',
+        role: user.role,
       });
       setEditingPassword('');
     } else {
@@ -39,6 +41,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: 'user'
       });
       setEditingPassword('');
     }
@@ -74,12 +77,14 @@ const UserManagement = () => {
         name: currentUser.name,
         email: currentUser.email,
         password: editingPassword,
+        role: currentUser.role,
       });
       setUsers([...users, response.data]);
       setCurrentUser({
         name: '',
         email: '',
         password: '',
+        role: 'user',
       });
       closeModal();
     } catch (error) {
@@ -100,6 +105,7 @@ const UserManagement = () => {
         name: '',
         email: '',
         password: '',
+        role: '',
       });
       setEditingPassword('');
     } catch (error) {
@@ -181,6 +187,7 @@ const UserManagement = () => {
                 <th>{t('id')}</th>
                 <th>{t('name')}</th>
                 <th>{t('email')}</th>
+                <th>{t('role')}</th>
                 <th>{t('actions')}</th>
               </tr>
             </thead>
@@ -190,6 +197,7 @@ const UserManagement = () => {
                   <td>{user.id}</td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
+                  <td>{user.role}</td>
                   <td>
                     <button
                       onClick={() => openModal(user)}
@@ -276,6 +284,19 @@ const UserManagement = () => {
             placeholder={t('password')}
             className="p-2 rounded-md bg-custom-light-tan text-black placeholder-black mb-4"
           />
+           <div className="mb-4">
+                <label className="block text-sm font-medium text-gray-700">
+                {t('role')}
+                </label>
+                <select
+                  value={currentUser.role}
+                  onChange={(e) => setCurrentUser({ ...currentUser, role: e.target.value })}
+                  className="mt-1 p-2 rounded-md bg-custom-light-tan text-black"
+                >
+                  <option value="user"> {t('user')}</option>
+                  <option value="admin"> {t('admin')}</option>
+                </select>
+              </div>
           <div className="flex justify-center">
             <button
               onClick={() => {
