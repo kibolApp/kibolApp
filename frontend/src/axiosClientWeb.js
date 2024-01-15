@@ -8,7 +8,7 @@ const axiosClientWeb=axios.create({
 axiosClientWeb.interceptors.request.use((config)=>{
 const token =localStorage.getItem('ACCESS_TOKEN')
 config.headers.Authorization=`Bearer ${token}`
-console.log(token);
+
 
 return config;
 

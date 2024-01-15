@@ -13,7 +13,6 @@ const ClubPage = () => {
         axiosClient.get(`/clubpage/${clubName}`)
    
             .then(({ data }) => {
-                console.log(`/clubpage/${clubName}`)
                 const transformedData = data.map(club => ({
                     name: club.name,
                     positive: club.positive,
@@ -23,8 +22,6 @@ const ClubPage = () => {
                   setClubData(transformedData);
             })
             .catch(err => {
-                console.log(err);
-                console.log(`/clubpage/${clubName}`)
             });
     }, []);
     

@@ -115,7 +115,6 @@ const CustomMap = () => {
           <LayersControl.Overlay name="Areas" checked={true}>
 
             {markersData.map((marker, index) => (
-              console.log(markersData),
               <FeatureGroup key={index}>
                 {Array.isArray(marker.urlData) && marker.urlData.length > 0 && (
                   <Polygon

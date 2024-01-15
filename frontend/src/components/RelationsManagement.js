@@ -52,7 +52,6 @@ const RelationsManagement = () => {
 
         setClubs(allClubs);
       } catch (error) {
-        console.log(error);
       }
     };
 
@@ -74,7 +73,6 @@ const RelationsManagement = () => {
         setModalData(response.data);
       })
       .catch((error) => {
-        console.log(error);
       });
   };
 
@@ -101,7 +99,6 @@ const RelationsManagement = () => {
       url: selectedClub.url,
       name: item.negative ?? item.positive,
     }
-    console.log(payload)
     axiosClient.post('/removerelation',payload)
     .then(()=>{
       openEditModal(selectedClub)
@@ -121,7 +118,6 @@ const RelationsManagement = () => {
     const payload={
       url: selectedClub.url
     }
-    console.log(payload)
     axiosClient.get('/getnameclubsiwthnorealtions',{ params: payload })
     .then((response)=>{
       setNameClubsWithNoRelationsPostive(response.data.names_without_relations);
@@ -131,7 +127,6 @@ const RelationsManagement = () => {
     const payload={
       url: selectedClub.url
     }
-    console.log(payload)
     axiosClient.get('/getnameclubsiwthnorealtions',{ params: payload })
     .then((response)=>{
       setNameClubsWithNoRelationsNegative(response.data.names_without_relations);
@@ -145,7 +140,6 @@ const RelationsManagement = () => {
       url: selectedClub.url,
       name: item,
     }
-    console.log(payload)
     axiosClient.post('/addpositiverelation',payload)
     .then(()=>{
       hidePositiveblock()
@@ -158,7 +152,6 @@ const RelationsManagement = () => {
       url: selectedClub.url,
       name: item,
     }
-    console.log(payload)
     axiosClient.post('/addnegativerelation',payload)
     .then(()=>{
       hideNegativeblock()

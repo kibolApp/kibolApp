@@ -8,7 +8,6 @@ const WaitingPage = () => {
   useEffect(() => {
     const urlSearchParams = new URLSearchParams(window.location.search);
     const params = Object.fromEntries(urlSearchParams.entries());
-    console.log(params.user);
     setUser(params.user || null);
     setToken(params.token || null);
   }, [setUser, setToken]);
