@@ -95,7 +95,7 @@ const UserManagement = () => {
   const handleEditUser = async () => {
     try {
       const updatedUser = { ...currentUser, password: editingPassword };
-      const response = await axiosClient.post(`/edituser/${editingUserId}`, updatedUser);
+      const response = await axiosClient.put(`/edituser/${editingUserId}`, updatedUser);
       const updatedUsers = users.map((user) =>
         user.id === editingUserId ? response.data : user
       );
@@ -117,7 +117,7 @@ const UserManagement = () => {
     try {
       const confirmed = window.confirm('Czy na pewno chcesz usunąć tego użytkownika?');
       if (confirmed) {
-        await axiosClient.post(`/deleteuser/${userId}`);
+        await axiosClient.delete(`/deleteuser/${userId}`);
         const updatedUsers = users.filter((user) => user.id !== userId);
         setUsers(updatedUsers);
       }
