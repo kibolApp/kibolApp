@@ -46,6 +46,13 @@ const pl = {
     messagePlaceholder: "Napisz swoją wiadmość tutaj...",
     sendMessage: "Wyślij!",
 
+    //Modal
+    chooseCLub: "Wybierz swój klub: ",
+    selectClub: "Wybierz klub",
+    submit: "Wyślij",
+    chosen: "Wybrano: ",
+    warning: "Uwaga: Brak wyboru skutkuje nieprawidłowym działaniem mapy",
+
 
 //User Panel
 
