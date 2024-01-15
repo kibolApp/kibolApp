@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\ClubController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MapController;
+use App\Http\Controllers\EmailController;
 use App\Http\Controllers\AdminController;
 
 /*
@@ -34,6 +35,7 @@ Route::get('/clubs/{id}', [ClubController::class, 'show']);
 Route::post('/clubs', [ClubController::class, 'store']);
 Route::post('/clubsup/{id}', [ClubController::class, 'update']);
 Route::post('/clubsde/{id}', [ClubController::class, 'destroy']);
+Route::post('/sendEmail', [EmailController::class, 'sendEmail']);
 
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
@@ -70,4 +72,3 @@ Route::middleware('auth:sanctum')->group(function() {
     Route::get('/getnameclubsiwthnorealtions', [AdminController::class, 'shownameslubswithnorealtions']);
     Route::post('/addpositiverelation', [AdminController::class, 'addpositiverelation']);
     Route::post('/addnegativerelation', [AdminController::class, 'addnegativerelation']);
-   
