@@ -104,7 +104,7 @@ const ClubManagement = () => {
   const handleEditClub = async () => {
     try {
       const updatedClub = { ...currentClub };
-      const response = await axiosClient.put(`/clubs/${editingClubId}`, updatedClub);
+      const response = await axiosClient.post(`/clubsup/${editingClubId}`, updatedClub);
       const updatedClubs = clubs.map((club) =>
         club.id === editingClubId ? response.data : club
       );
@@ -127,7 +127,7 @@ const ClubManagement = () => {
     try {
       const confirmed = window.confirm('Czy na pewno chcesz usunąć ten klub?');
       if (confirmed) {
-      await axiosClient.delete(`/clubs/${clubId}`);
+      await axiosClient.post(`/clubsde/${clubId}`);
       const updatedClubs = clubs.filter((club) => club.id !== clubId);
       setClubs(updatedClubs);
       }
