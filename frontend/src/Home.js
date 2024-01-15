@@ -37,7 +37,7 @@ const Home = () => {
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
-    await axiosClient.post('/send-email', formData);
+    await axiosClient.post('/sendEmail', formData);
   };
 
   const changeLanguage = (lng) => {
