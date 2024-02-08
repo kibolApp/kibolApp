@@ -1,6 +1,38 @@
 # kibolApp
 The kibolApp project was created for the purpose of passing the PSI 2 course.
 
+
+
+
+https://github.com/kibolApp/kibolApp/assets/115737114/43c6502f-ba0a-4343-bebb-4dd637567bba
+
+
+
+### club selection
+
+![918773281bb184590521a7f7448b756a](https://github.com/kibolApp/kibolApp/assets/115737114/b9614525-5901-4905-9f55-6211ad09071b)
+
+### map page
+Here is your and clubs localization
+
+![18830ddf89e36cca6ad00fd80a01aa82](https://github.com/kibolApp/kibolApp/assets/115737114/ec02792e-b24b-4058-9316-7e3d72903b8e)
+
+### club zones
+Red zones are zones of influence of non-friendly clubs to your club, which means that you are at risk there.
+
+![8f12d531a66fa2afa96b9a132785c766](https://github.com/kibolApp/kibolApp/assets/115737114/59d948c9-3101-4c9f-a4c0-fc395a547478)
+
+### club list
+Here you can search for club that you're interest in.
+
+![351b06cc8aab06742194d1b93057e7b0](https://github.com/kibolApp/kibolApp/assets/115737114/03cab8da-9f4a-4292-b1c3-7fa0e06ad0e9)
+
+### Club relations
+
+![e015f4bf098a1bca837256cf3eeeee95](https://github.com/kibolApp/kibolApp/assets/115737114/d5401bf1-331a-497c-a5cb-31c939f1f947)
+
+Admin panel, Profile and more...
+
 # Setup instructions via Docker:
 
 1. The first step is to clone the repository from https://github.com/kibolApp/kibolApp.
@@ -64,3 +96,11 @@ Now if you did those all things, you can enter your development environment and 
 
 - If you don't have all data in the database, you have to enter the command for our all seeders with clubs, command looks like this:  
 ```php artisan db:seed --class=SeederName```. The seeders are in the ```kibolApp/database/seeders```.
+
+# Creators 
+
+- Piotr Fedak        
+- Andrzej Budzyń
+- Dagmara Skulimowska
+- Tomek Barczycki
+- Kacper Wojdak
